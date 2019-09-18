@@ -1,0 +1,65 @@
+# Step 1: Integrate a Chat Bot with Amazon Chime<a name="integrate-bots"></a>
+
+After you complete the [prerequisites](use-bots.md#bots-prereqs), integrate your chat bot with Amazon Chime using the AWS CLI or Amazon Chime API\.
+
+**Note**  
+These procedures create a name and email address for your chat bot\. Chat bot names and email addresses cannot be changed after creation\.
+
+## AWS CLI<a name="integ-cli"></a>
+
+**To integrate a chat bot using the AWS CLI**
+
+1. To integrate your chat bot with Amazon Chime, use the create\-bot command in the AWS CLI\.
+
+   ```
+   aws chime create-bot --account-id 111122223333 --display-name exampleBot --domain example.com
+   ```
+
+   1. Enter a chat bot display name of up to 55 alphanumeric or special characters \(such as \+, \-, %\)\.
+
+   1. Enter the registered domain name for your Amazon Chime Enterprise account\.
+
+1. Amazon Chime returns a response that includes the bot ID\.
+
+   ```
+   "Bot": {
+           "CreatedTimestamp": "timeStamp",
+           "DisplayName": "exampleBot",
+           "Disabled": exampleBotFlag,
+           "UserId": "1ab2345c-67de-8901-f23g-45h678901j2k",
+           "BotId": "botId",
+           "UpdatedTimestamp": "timeStamp",
+           "BotType": "ChatBot",
+           "SecurityToken": "securityToken",
+           "BotEmail": "displayName-chimebot@example.com"
+            }
+   ```
+
+1. Copy and save the bot ID and bot email address to use in the following procedures\.
+
+## Amazon Chime API<a name="integ-api"></a>
+
+**To integrate a chat bot using the Amazon Chime API**
+
+1. To integrate your chat bot with Amazon Chime, use the [CreateBot](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateBot.html) API operation in the *Amazon Chime API Reference*\.
+
+   1. Enter a chat bot display name of up to 55 alphanumeric or special characters \(such as \+, \-, %\)\.
+
+   1. Enter the registered domain name for your Amazon Chime Enterprise account\.
+
+1. Amazon Chime returns a response that includes the bot ID\. Copy and save the bot ID and email address\. The bot email address looks like this: `exampleBot-chimebot@example.com`\. 
+
+## AWS SDK for Java<a name="integ-sdk"></a>
+
+The following sample code demonstrates how to integrate a chat bot using the AWS SDK for Java\.
+
+```
+CreateBotRequest createBotRequest = new CreateBotRequest()
+    .withAccountId("chimeAccountId")
+    .withDisplayName("exampleBot")
+    .withDomain("example.com");
+
+chime.createBot(createBotRequest);
+```
+
+Amazon Chime returns a response that includes the bot ID\. Copy and save the bot ID and email address\. The bot email address looks like this: `exampleBot-chimebot@example.com`\.
