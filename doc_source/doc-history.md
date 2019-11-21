@@ -4,4 +4,5 @@ The following table describes important changes to the *Amazon Chime Developer G
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Amazon Chime SDK](#doc-history) | The Amazon Chime SDK is released\. For more information, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the *Amazon Chime Developer Guide*\. | November 20, 2019 | 
 | [Amazon Chime Developer Guide](#doc-history) | The *Amazon Chime Developer Guide* is released\. | September 11, 2019 | 

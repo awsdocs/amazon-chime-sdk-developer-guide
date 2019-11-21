@@ -29,4 +29,8 @@ Amazon's trademarks and trade dress may not be used in
       + [Update Chat Bots](update-bots.md)
    + [Amazon Chime Events Sent to Chat Bots](events-bots.md)
 + [Webhooks for Amazon Chime](webhooks.md)
++ [Using the Amazon Chime SDK](meetings-sdk.md)
+   + [Integrating with a Client Library](mtgs-sdk-client-lib.md)
+   + [Creating Meetings with the Amazon Chime SDK](mtgs-sdk-mtgs.md)
+   + [SIP Integration Using an Amazon Chime Voice Connector](mtgs-sdk-cvc.md)
 + [Document History](doc-history.md)
