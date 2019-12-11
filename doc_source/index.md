@@ -33,4 +33,5 @@ Amazon's trademarks and trade dress may not be used in
    + [Integrating with a Client Library](mtgs-sdk-client-lib.md)
    + [Creating Meetings with the Amazon Chime SDK](mtgs-sdk-mtgs.md)
    + [SIP Integration Using an Amazon Chime Voice Connector](mtgs-sdk-cvc.md)
+   + [Amazon Chime SDK Event Notifications](mtgs-sdk-notifications.md)
 + [Document History](doc-history.md)

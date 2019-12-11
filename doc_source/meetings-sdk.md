@@ -6,11 +6,12 @@ Developers can use the Amazon Chime SDK to build real\-time media applications t
 + [Amazon Chime SDK Prerequisites](#mtg-prereqs)
 + [Amazon Chime SDK Concepts](#mtg-glossary)
 + [Amazon Chime SDK Architecture](#mtg-arch)
-+ [Amazon Chime SDK Limits](#mtg-limits)
++ [Amazon Chime SDK Quotas](#mtg-limits)
 + [Amazon Chime SDK Supported Browsers](#mtg-browsers)
 + [Integrating with a Client Library](mtgs-sdk-client-lib.md)
 + [Creating Meetings with the Amazon Chime SDK](mtgs-sdk-mtgs.md)
 + [SIP Integration Using an Amazon Chime Voice Connector](mtgs-sdk-cvc.md)
++ [Amazon Chime SDK Event Notifications](mtgs-sdk-notifications.md)
 
 ## Amazon Chime SDK Prerequisites<a name="mtg-prereqs"></a>
 
@@ -68,10 +69,10 @@ The media service group acts as a Selective Forwarding Unit \(SFU\) using a publ
 **Screen sharing**  
 The client application samples screen shares at rate of 3 frames per second using the VP8 codec\. The media service group republishes the stream to screen share viewers as a stream of difference\-based macro blocks\.
 
-## Amazon Chime SDK Limits<a name="mtg-limits"></a>
+## Amazon Chime SDK Quotas<a name="mtg-limits"></a>
 
 
-| Resource | Limit | 
+| Resource | Quota | 
 | --- | --- | 
 |  Attendees per meeting  |  100  | 
 |  Audio streams per meeting  |  100  | 
