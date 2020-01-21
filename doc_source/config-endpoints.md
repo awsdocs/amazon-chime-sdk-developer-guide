@@ -13,14 +13,14 @@ To configure an outbound endpoint for your chat bot, use the put\-events\-config
 #### [ Lambda ARN ]
 
 ```
-aws chime put-events-configuration --account-id 111122223333 --bot-id botId --lambda-function-arn arn:aws:lambda:us-east-1:111122223333:function:function-name
+aws chime put-events-configuration --account-id 12a3456b-7c89-012d-3456-78901e23fg45 --bot-id botId --lambda-function-arn arn:aws:lambda:us-east-1:111122223333:function:function-name
 ```
 
 ------
 #### [ HTTPS Endpoint ]
 
 ```
-aws chime put-events-configuration --account-id 111122223333 --bot-id botId --outbound-events-https-endpoint https://example.com:8000
+aws chime put-events-configuration --account-id 12a3456b-7c89-012d-3456-78901e23fg45 --bot-id botId --outbound-events-https-endpoint https://example.com:8000
 ```
 
 ------

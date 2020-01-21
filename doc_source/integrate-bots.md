@@ -12,7 +12,7 @@ These procedures create a name and email address for your chat bot\. Chat bot na
 1. To integrate your chat bot with Amazon Chime, use the create\-bot command in the AWS CLI\.
 
    ```
-   aws chime create-bot --account-id 111122223333 --display-name exampleBot --domain example.com
+   aws chime create-bot --account-id 12a3456b-7c89-012d-3456-78901e23fg45 --display-name exampleBot --domain example.com
    ```
 
    1. Enter a chat bot display name of up to 55 alphanumeric or special characters \(such as \+, \-, %\)\.
