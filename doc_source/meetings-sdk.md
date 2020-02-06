@@ -18,18 +18,7 @@ Developers can use the Amazon Chime SDK to build real\-time media applications t
 Using the Amazon Chime SDK requires the following:
 + The ability to program\.
 + An AWS account\.
-+ An IAM role with a policy that grants permission to access the Amazon Chime API actions used by the Amazon Chime SDK\. These actions include the following:
-  + `chime:BatchCreateAttendee`
-  + `chime:CreateAttendee`
-  + `chime:CreateMeeting`
-  + `chime:DeleteAttendee`
-  + `chime:DeleteMeeting`
-  + `chime:GetAttendee`
-  + `chime:GetMeeting`
-  + `chime:ListAttendees`
-  + `chime:ListMeetings`
-
-  For more information, see [How Amazon Chime Works with IAM](https://docs.aws.amazon.com/chime/latest/ag/security_iam_service-with-iam.html) in the *Amazon Chime Administrator Guide*\.
++ An IAM role with a policy that grants permission to access Amazon Chime API actions used by the Amazon Chime SDK, such as the AWS managed **AmazonChimeSDK** policy\. For more information, see [How Amazon Chime Works with IAM](https://docs.aws.amazon.com/chime/latest/ag/security_iam_service-with-iam.html) and [Allow Users to Access Amazon Chime SDK Actions](https://docs.aws.amazon.com/chime/latest/ag/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-chime-sdk) in the *Amazon Chime Administrator Guide*\.
 + For the majority of use cases, you also need the following:
   + **Server application** – Manages meeting and attendee resources, and serves those resources to the client application\. The server application is created in the AWS account and must have access to the IAM role mentioned previously\.
   + **Client application** – Receives meeting and attendee information from the server application, and uses that information to make media connections\.
@@ -84,7 +73,9 @@ Video resolution up to 1280x720 is supported, depending on CPU and bandwidth ava
 ## Amazon Chime SDK Supported Browsers<a name="mtg-browsers"></a>
 
 The following browsers are supported for applications created using the Amazon Chime SDK:
-+ Mozilla Firefox \(version 60 and newer\), for macOS and Windows
-+ Google Chrome \(version 78 and newer\), for macOS and Windows
-+ Chromium\-based Edge \(version 79 and newer\), for Windows
-+ Chromium\-based Electron \(Electron 7 and newer, with Chromium version 78 and newer\)
++ Mozilla Firefox \(version 60 and later\), for macOS and Windows
++ Google Chrome \(version 78 and later\), for macOS and Windows
++ Chromium\-based Edge \(version 79 and later\), for Windows
++ Chromium\-based Electron \(Electron 7 and later, with Chromium version 78 and later\)
++ Safari \(version 12 and later, audio and video only, no screen sharing\)
++ Opera \(version 66 and later\)
