@@ -7,7 +7,7 @@ Developers can use the Amazon Chime SDK to build real\-time media applications t
 + [Amazon Chime SDK Concepts](#mtg-glossary)
 + [Amazon Chime SDK Architecture](#mtg-arch)
 + [Amazon Chime SDK Quotas](#mtg-limits)
-+ [Amazon Chime SDK Supported Browsers](#mtg-browsers)
++ [Amazon Chime SDK System Requirements](#mtg-browsers)
 + [Integrating with a Client Library](mtgs-sdk-client-lib.md)
 + [Creating Meetings with the Amazon Chime SDK](mtgs-sdk-mtgs.md)
 + [SIP Integration Using an Amazon Chime Voice Connector](mtgs-sdk-cvc.md)
@@ -47,16 +47,16 @@ A unique token assigned to each attendee\. Attendees use the join token to authe
 The following list describes how the different components of the Amazon Chime SDK architecture work together to support meetings and attendees, audio, video, and screen sharing\.
 
 **Meetings and attendees**  
-When the server application creates a meeting using the Amazon Chime SDK, the meeting is assigned to a region\-specific media service group\. The hosts in this group are responsible for securely transferring real\-time media between attendee clients\. Each created attendee is assigned a unique join token, an opaque secret key that your server application must securely transfer to the client authorized to join the meeting on behalf of an attendee\. Each client uses a join token to authenticate with the media service group\. Clients use a combination of secure WebSockets and DTLS through WebRTC peer connections to securely signal the media service group, and to send and receive media to and from other attendees through the media service group\.
+When the server application creates a meeting using the Amazon Chime SDK, the meeting is assigned to a region\-specific media service group\. The hosts in this group are responsible for securely transferring real\-time media between attendee clients\. Each created attendee is assigned a unique join token, an opaque secret key that your server application must securely transfer to the client authorized to join the meeting on behalf of an attendee\. Each client uses a join token to authenticate with the media service group\. Clients use a combination of secure WebSockets and DTLS to securely signal the media service group, and to send and receive media to and from other attendees through the media service group\.
 
 **Audio**  
 The media service group mixes audio together from each attendee and sends the mix to each recipient, after subtracting their own audio from the mix\. Audio is sampled at a rate of 16 kHz and encoded using the Opus Codec\.
 
 **Video**  
-The media service group acts as a Selective Forwarding Unit \(SFU\) using a publish and subscribe model\. Each attendee can publish one video, up to a total of 16 simultaneous videos per meeting\. Each attendee can also subscribe to all other videos in the meeting except for their own\. Video is sampled at a rate of 15 frames per second and encoded with a variable bitrate using the VP8 codec\.
+The media service group acts as a Selective Forwarding Unit \(SFU\) using a publish and subscribe model\. Each attendee can publish one video source, up to a total of 16 simultaneous videos per meeting\. Each attendee can also subscribe to all other videos in the meeting except for their own\. Video is sampled at a rate of 15 frames per second and encoded with a variable bitrate codec\.
 
 **Screen sharing**  
-The client application samples screen shares at rate of 3 frames per second using the VP8 codec\. The media service group republishes the stream to screen share viewers as a stream of difference\-based macro blocks\.
+The client application samples screen shares at a rate of 3 frames per second\. The media service group republishes the stream to screen share viewers as a stream of difference\-based macro blocks\.
 
 ## Amazon Chime SDK Quotas<a name="mtg-limits"></a>
 
@@ -70,12 +70,20 @@ The client application samples screen shares at rate of 3 frames per second usin
 
 Video resolution up to 1280x720 is supported, depending on CPU and bandwidth availability\. Video limits are dependent on camera capabilities\. For more information, see [Bandwidth Requirements](https://docs.aws.amazon.com/chime/latest/ag/network-config.html#bandwidth) in the *Amazon Chime Administrator Guide*\.
 
-## Amazon Chime SDK Supported Browsers<a name="mtg-browsers"></a>
+## Amazon Chime SDK System Requirements<a name="mtg-browsers"></a>
 
-The following browsers are supported for applications created using the Amazon Chime SDK:
+The following system requirements apply to applications created with the Amazon Chime SDK\.
+
+**Amazon Chime SDK for JavaScript – Supported browsers**
 + Mozilla Firefox \(version 60 and later\), for macOS and Windows
 + Google Chrome \(version 78 and later\), for macOS and Windows
 + Chromium\-based Edge \(version 79 and later\), for Windows
 + Chromium\-based Electron \(Electron 7 and later, with Chromium version 78 and later\)
 + Safari \(version 12 and later, audio and video only, no screen sharing\)
 + Opera \(version 66 and later\)
+
+**Amazon Chime SDK for iOS**
++ iOS \(version 10\.0 and later\)
+
+**Amazon Chime SDK for Android**
++ Android OS \(version 5\.0 and later\)
