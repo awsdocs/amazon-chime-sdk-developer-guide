@@ -1,6 +1,6 @@
 # Using the Amazon Chime SDK<a name="meetings-sdk"></a>
 
-Developers can use the Amazon Chime SDK to build real\-time media applications that can send and receive audio and video and allow screen sharing\. The Amazon Chime SDK works independently of any Amazon Chime administrator accounts, and it does not affect meetings hosted on Amazon Chime\. Instead, the Amazon Chime SDK provides builder tools for developers to use to build their own meeting applications\.
+Developers can use the Amazon Chime SDK to build real\-time media applications that can send and receive audio and video and allow content sharing\. The Amazon Chime SDK works independently of any Amazon Chime administrator accounts, and it does not affect meetings hosted on Amazon Chime\. Instead, the Amazon Chime SDK provides builder tools for developers to use to build their own meeting applications\.
 
 **Topics**
 + [Amazon Chime SDK Prerequisites](#mtg-prereqs)
@@ -44,7 +44,7 @@ A unique token assigned to each attendee\. Attendees use the join token to authe
 
 ## Amazon Chime SDK Architecture<a name="mtg-arch"></a>
 
-The following list describes how the different components of the Amazon Chime SDK architecture work together to support meetings and attendees, audio, video, and screen sharing\.
+The following list describes how the different components of the Amazon Chime SDK architecture work together to support meetings and attendees, audio, video, and content sharing\.
 
 **Meetings and attendees**  
 When the server application creates a meeting using the Amazon Chime SDK, the meeting is assigned to a region\-specific media service group\. The hosts in this group are responsible for securely transferring real\-time media between attendee clients\. Each created attendee is assigned a unique join token, an opaque secret key that your server application must securely transfer to the client authorized to join the meeting on behalf of an attendee\. Each client uses a join token to authenticate with the media service group\. Clients use a combination of secure WebSockets and DTLS to securely signal the media service group, and to send and receive media to and from other attendees through the media service group\.
@@ -55,8 +55,8 @@ The media service group mixes audio together from each attendee and sends the mi
 **Video**  
 The media service group acts as a Selective Forwarding Unit \(SFU\) using a publish and subscribe model\. Each attendee can publish one video source, up to a total of 16 simultaneous videos per meeting\. Each attendee can also subscribe to all other videos in the meeting except for their own\. Video is sampled at a rate of 15 frames per second and encoded with a variable bitrate codec\.
 
-**Screen sharing**  
-The client application samples screen shares at a rate of 3 frames per second\. The media service group republishes the stream to screen share viewers as a stream of difference\-based macro blocks\.
+**Content sharing**  
+The client application can share audio and video content, such as screen captures or media files\. Each content share appears in the meeting as an additional attendee\.
 
 ## Amazon Chime SDK Quotas<a name="mtg-limits"></a>
 
@@ -66,7 +66,7 @@ The client application samples screen shares at a rate of 3 frames per second\. 
 |  Attendees per meeting  |  100  | 
 |  Audio streams per meeting  |  100  | 
 |  Video streams per meeting  |  16  | 
-|  Screen shares per meeting  |  1  | 
+|  Content shares per meeting  |  2  | 
 
 Video resolution up to 1280x720 is supported, depending on CPU and bandwidth availability\. Video limits are dependent on camera capabilities\. For more information, see [Bandwidth Requirements](https://docs.aws.amazon.com/chime/latest/ag/network-config.html#bandwidth) in the *Amazon Chime Administrator Guide*\.
 
@@ -79,7 +79,8 @@ The following system requirements apply to applications created with the Amazon 
 + Google Chrome \(version 78 and later\), for macOS and Windows
 + Chromium\-based Edge \(version 79 and later\), for Windows
 + Chromium\-based Electron \(Electron 7 and later, with Chromium version 78 and later\)
-+ Safari \(version 12 and later, audio and video only, no screen sharing\)
++ Safari \(version 12, audio and video only, no content sharing\)
++ Safari \(version 13 and later, content sharing with screen capture requires turning on the **Develop**, **Experimental Features**, **Screen Capture** feature in the browser\)
 + Opera \(version 66 and later\)
 
 **Amazon Chime SDK for iOS**

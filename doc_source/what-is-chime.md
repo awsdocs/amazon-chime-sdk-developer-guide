@@ -2,7 +2,7 @@
 
 Amazon Chime is a communications service that transforms online meetings with an application that is secure and comprehensive\. Amazon Chime works across your devices so that you can stay connected\. You can use Amazon Chime for online meetings, video conferencing, calls, and chat\. You can also share content inside and outside of your organization\. Amazon Chime helps you to work productively from anywhere\.
 
-Developers can use Amazon Chime with the AWS SDK or AWS Command Line Interface \(AWS CLI\) to perform such tasks as managing users, or integrating webhooks and chat bots with Amazon Chime\. They can also use the Amazon Chime SDK to build real\-time media applications that can send and receive audio and video and allow screen sharing\. For detailed information about Amazon Chime API actions, see the [https://docs.aws.amazon.com/chime/latest/APIReference/Welcome.html](https://docs.aws.amazon.com/chime/latest/APIReference/Welcome.html)\.
+Developers can use Amazon Chime with the AWS SDK or AWS Command Line Interface \(AWS CLI\) to perform such tasks as managing users, or integrating webhooks and chat bots with Amazon Chime\. They can also use the Amazon Chime SDK to build real\-time media applications that can send and receive audio and video and allow content sharing\. For detailed information about Amazon Chime API actions, see the [https://docs.aws.amazon.com/chime/latest/APIReference/Welcome.html](https://docs.aws.amazon.com/chime/latest/APIReference/Welcome.html)\.
 
 Amazon Chime permissions are controlled using AWS Identity and Access Management \(IAM\)\. For more information, see [Identity and Access Management for Amazon Chime](https://docs.aws.amazon.com/chime/latest/ag/security-iam.html) in the *Amazon Chime Administrator Guide*\.
 

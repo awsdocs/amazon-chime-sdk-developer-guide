@@ -36,15 +36,13 @@ The following procedure demonstrates how to create a meeting with audio and vide
 
       1. To leave the meeting, stop the audiovisual session\.
 
-   1. \(Optional\) Share the screen and view the screen share from other clients using `ScreenShareFacade` and `ScreenShareViewingFacade`\.
+   1. \(Optional\) Use the `AudioVideoFacade` from the `MeetingSession` to share media content, such as screen captures, with other clients\.
 
-      1. Start the screen share session\.
+      1. Start the screen share session\. The content joins the meeting as an additional attendee\.
 
-      1. Start the screen share viewing session\.
+      1. To view the shared content, manage video tile events and bind the tiles to surfaces in the client application\.
 
-      1. When a client wants to share a screen, start the screen share\.
-
-      1. When a client wants to view the screen share, start the screen share viewer using an applicable render surface\.
+      1. Manage other interactions, such as pausing, restarting, or stopping the content share\.
 
 The meetings end when you run the [DeleteMeeting](https://docs.aws.amazon.com/chime/latest/APIReference/API_DeleteMeeting.html) API action\. A meeting automatically ends after a period of inactivity, such as the following:
 + No audio connections are present in the meeting for more than five minutes\. 
