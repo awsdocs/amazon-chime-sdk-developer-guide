@@ -28,6 +28,7 @@ Amazon's trademarks and trade dress may not be used in
       + [Authenticate Chat Bot Requests](auth-bots.md)
       + [Update Chat Bots](update-bots.md)
    + [Amazon Chime Events Sent to Chat Bots](events-bots.md)
++ [Proxy Phone Sessions](proxy-phone-sessions.md)
 + [Webhooks for Amazon Chime](webhooks.md)
 + [Using the Amazon Chime SDK](meetings-sdk.md)
    + [Integrating with a Client Library](mtgs-sdk-client-lib.md)

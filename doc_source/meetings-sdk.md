@@ -79,9 +79,9 @@ The following system requirements apply to applications created with the Amazon 
 + Google Chrome \(version 78 and later\), for macOS and Windows
 + Chromium\-based Edge \(version 79 and later\), for Windows
 + Chromium\-based Electron \(Electron 7 and later, with Chromium version 78 and later\)
-+ Safari \(version 12, audio and video only, no content sharing\)
-+ Safari \(version 13 and later, content sharing with screen capture requires turning on the **Develop**, **Experimental Features**, **Screen Capture** feature in the browser\)
-+ Opera \(version 66 and later\)
++ Safari \(version 12, audio and video only, no content sharing\), for macOS
++ Safari \(version 13 and later, content sharing with screen capture requires turning on the **Develop**, **Experimental Features**, **Screen Capture** feature in the browser\), for macOS
++ Opera \(version 66 and later\), for macOS and Windows
 
 **Amazon Chime SDK for iOS**
 + iOS \(version 10\.0 and later\)
