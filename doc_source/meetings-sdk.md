@@ -87,4 +87,4 @@ The following system requirements apply to applications created with the Amazon 
 + iOS \(version 10\.0 and later\)
 
 **Amazon Chime SDK for Android**
-+ Android OS \(version 5\.0 and later\)
++ Android OS \(version 5\.0 and later, ARM and ARM64 architecture\)
