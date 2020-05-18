@@ -63,8 +63,8 @@ The client application can share audio and video content, such as screen capture
 
 | Resource | Quota | 
 | --- | --- | 
-|  Attendees per meeting  |  100  | 
-|  Audio streams per meeting  |  100  | 
+|  Attendees per meeting  |  250  | 
+|  Audio streams per meeting  |  250  | 
 |  Video streams per meeting  |  16  | 
 |  Content shares per meeting  |  2  | 
 
@@ -76,7 +76,7 @@ The following system requirements apply to applications created with the Amazon 
 
 **Amazon Chime SDK for JavaScript – Supported browsers**
 + Mozilla Firefox \(version 60 and later\), for macOS and Windows
-+ Google Chrome \(version 78 and later\), for macOS and Windows
++ Google Chrome \(version 78 and later\), for macOS, Windows, and Ubuntu LTS 16\.04 and later
 + Chromium\-based Edge \(version 79 and later\), for Windows
 + Chromium\-based Electron \(Electron 7 and later, with Chromium version 78 and later\)
 + Safari \(version 12, audio and video only, no content sharing\), for macOS

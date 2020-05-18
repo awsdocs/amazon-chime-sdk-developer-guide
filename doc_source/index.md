@@ -36,4 +36,4 @@ Amazon's trademarks and trade dress may not be used in
    + [SIP Integration Using an Amazon Chime Voice Connector](mtgs-sdk-cvc.md)
    + [Amazon Chime SDK Event Notifications](mtgs-sdk-notifications.md)
 + [Document History](doc-history.md)
-+ [AWS Glossary](glossary.md)
++ [AWS glossary](glossary.md)
