@@ -6,7 +6,7 @@ The following procedure demonstrates how to create a meeting with audio and vide
 
 1. Complete the following steps from your server application:
 
-   1. Use the [CreateMeeting](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateMeeting.html) API action in the *Amazon Chime API Reference* to create a meeting\. Optionally, specify an AWS Region using the `MediaRegion` parameter\.
+   1. Use the [CreateMeeting](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateMeeting.html) API action in the *Amazon Chime API Reference* to create a meeting\. Optionally, specify an AWS Region using the `MediaRegion` parameter\. For more information about choosing a media Region, see [Amazon Chime SDK Media Regions](chime-sdk-meetings-regions.md)\.
 
    1. Add attendees to the meeting using either the [CreateAttendee](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateAttendee.html) API action or the [BatchCreateAttendee](https://docs.aws.amazon.com/chime/latest/APIReference/API_BatchCreateAttendee.html) API action\. 
 
