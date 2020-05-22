@@ -52,7 +52,7 @@ Your request returns a JSON object showing the AWS Region that is nearest to you
 The following example shows the contents of a request sent to `https://nearest-media-region.l.chime.aws` to identify the nearest media Region\.  
 
 ```
-async getNearetMediaRegion(): Promise<string> {
+async getNearestMediaRegion(): Promise<string> {
     var nearestMediaRegion = '';
     const defaultMediaRegion = 'us-east-1';
     try {

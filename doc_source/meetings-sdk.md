@@ -55,6 +55,9 @@ The media service group mixes audio together from each attendee and sends the mi
 **Video**  
 The media service group acts as a Selective Forwarding Unit \(SFU\) using a publish and subscribe model\. Each attendee can publish one video source, up to a total of 16 simultaneous videos per meeting\. Each attendee can also subscribe to all other videos in the meeting except for their own\. Video is sampled at a rate of 15 frames per second and encoded with a variable bitrate codec\.
 
+**Data messages**  
+In addition to audio and video content, meeting attendees can send each other real\-time data messages of up to 2 KB each\. Developers can use messages to implement custom meeting features such as whiteboarding, chat, real\-time emoji reactions, and application\-specific floor control signaling\.
+
 **Content sharing**  
 The client application can share audio and video content, such as screen captures or media files\. Each content share appears in the meeting as an additional attendee\.
 
