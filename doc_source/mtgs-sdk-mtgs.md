@@ -1,12 +1,12 @@
-# Creating Meetings with the Amazon Chime SDK<a name="mtgs-sdk-mtgs"></a>
+# Creating meetings with the Amazon Chime SDK<a name="mtgs-sdk-mtgs"></a>
 
-The following procedure demonstrates how to create a meeting with audio and video for your server and client applications\. Before you begin, you must integrate your client application with an Amazon Chime SDK client library\. For more information, see [Integrating with a Client Library](mtgs-sdk-client-lib.md)\.
+The following procedure demonstrates how to create a meeting with audio and video for your server and client applications\. Before you begin, you must integrate your client application with an Amazon Chime SDK client library\. For more information, see [Integrating with a client library](mtgs-sdk-client-lib.md)\.
 
 **To create a meeting with audio and video**
 
 1. Complete the following steps from your server application:
 
-   1. Use the [CreateMeeting](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateMeeting.html) API action in the *Amazon Chime API Reference* to create a meeting\. Optionally, specify an AWS Region using the `MediaRegion` parameter\. For more information about choosing a media Region, see [Amazon Chime SDK Media Regions](chime-sdk-meetings-regions.md)\.
+   1. Use the [CreateMeeting](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateMeeting.html) API action in the *Amazon Chime API Reference* to create a meeting\. Optionally, specify an AWS Region using the `MediaRegion` parameter\. For more information about choosing a media Region, see [Amazon Chime SDK media Regions](chime-sdk-meetings-regions.md)\.
 
    1. Add attendees to the meeting using either the [CreateAttendee](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateAttendee.html) API action or the [BatchCreateAttendee](https://docs.aws.amazon.com/chime/latest/APIReference/API_BatchCreateAttendee.html) API action\. 
 

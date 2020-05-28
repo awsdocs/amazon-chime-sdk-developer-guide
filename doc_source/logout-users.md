@@ -1,4 +1,4 @@
-# Logout Multiple Users<a name="logout-users"></a>
+# Log out multiple users<a name="logout-users"></a>
 
 The following example shows how to log out multiple users from your Amazon Chime administrative account\.
 

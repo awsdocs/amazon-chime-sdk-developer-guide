@@ -1,8 +1,8 @@
-# Step 3: Add the Chat Bot to an Amazon Chime Chat Room<a name="add-bots"></a>
+# Step 3: Add the chatbot to an Amazon Chime chat room<a name="add-bots"></a>
 
-Only a chat room administrator can add a chat bot to a chat room\. They use the chat bot email address created in [Step 1](integrate-bots.md)\.
+Only a chat room administrator can add a chatbot to a chat room\. They use the chatbot email address created in [Step 1](integrate-bots.md)\.
 
-**To add a chat bot to a chat room**
+**To add a chatbot to a chat room**
 
 1. Open the Amazon Chime desktop client or web application\.
 
@@ -14,6 +14,6 @@ Only a chat room administrator can add a chat bot to a chat room\. They use the 
 
 1. Choose **Add**\.
 
-The bot name appears in the chat room roster\. If there are additional instructions necessary to add a chat bot to a chat room, provide the instructions to the chat room administrator\.
+The bot name appears in the chat room roster\. If there are additional instructions necessary to add a chatbot to a chat room, provide the instructions to the chat room administrator\.
 
-After the chat bot is added to the chat room, provide the chat bot commands to your chat room users\. One way to do this is to program your chat bot to send command help to the chat room when it receives the chat room invite\. AWS also recommends creating a help command for your chat bot users to use\.
+After the chatbot is added to the chat room, provide the chatbot commands to your chat room users\. One way to do this is to program your chatbot to send command help to the chat room when it receives the chat room invite\. AWS also recommends creating a help command for your chatbot users to use\.

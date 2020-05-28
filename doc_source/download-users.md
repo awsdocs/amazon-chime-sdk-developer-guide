@@ -1,4 +1,4 @@
-# Download User List<a name="download-users"></a>
+# Download user list<a name="download-users"></a>
 
 The following example shows how to download a list of users associated with your Amazon Chime administrative account in `.csv` format\.
 

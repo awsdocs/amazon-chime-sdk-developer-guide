@@ -1,10 +1,10 @@
-# Authenticate Chat Bot Requests<a name="auth-bots"></a>
+# Authenticate chatbot requests<a name="auth-bots"></a>
 
-You can authenticate requests sent to your chat bot from an Amazon Chime chat room\. To do this, compute a signature based on the request\. Then, validate that the computed signature matches the one on the request header\. Amazon Chime uses the HMAC SHA256 hash to generate the signature\.
+You can authenticate requests sent to your chatbot from an Amazon Chime chat room\. To do this, compute a signature based on the request\. Then, validate that the computed signature matches the one on the request header\. Amazon Chime uses the HMAC SHA256 hash to generate the signature\.
 
-If your chat bot is configured for Amazon Chime using an outbound HTTPS endpoint, use the following authentication steps\.
+If your chatbot is configured for Amazon Chime using an outbound HTTPS endpoint, use the following authentication steps\.
 
-**To validate a signed request from Amazon Chime for a chat bot with a outbound HTTPS endpoint configured**
+**To validate a signed request from Amazon Chime for a chatbot with a outbound HTTPS endpoint configured**
 
 1. Get the **Chime\-Signature** header from the HTTP request\.
 
@@ -44,9 +44,9 @@ The outbound HTTPS endpoint must respond to the Amazon Chime request with `200 O
 **Note**  
 The **Chime\-Request\-Timestamp** changes each time the request is retried\.
 
-If your chat bot is configured for Amazon Chime using a Lambda function ARN, use the following authentication steps\.
+If your chatbot is configured for Amazon Chime using a Lambda function ARN, use the following authentication steps\.
 
-**To validate a signed request from Amazon Chime for a chat bot with a Lambda function ARN configured**
+**To validate a signed request from Amazon Chime for a chatbot with a Lambda function ARN configured**
 
 1. Get the **Chime\-Signature** and **Chime\-Request\-Timestamp** from the Lambda request **ClientContext**, in Base64 encoded JSON format\. 
 

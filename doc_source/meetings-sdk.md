@@ -3,27 +3,27 @@
 Developers can use the Amazon Chime SDK to build real\-time media applications that can send and receive audio and video and allow content sharing\. The Amazon Chime SDK works independently of any Amazon Chime administrator accounts, and it does not affect meetings hosted on Amazon Chime\. Instead, the Amazon Chime SDK provides builder tools for developers to use to build their own meeting applications\.
 
 **Topics**
-+ [Amazon Chime SDK Prerequisites](#mtg-prereqs)
-+ [Amazon Chime SDK Concepts](#mtg-glossary)
-+ [Amazon Chime SDK Architecture](#mtg-arch)
-+ [Amazon Chime SDK Quotas](#mtg-limits)
-+ [Amazon Chime SDK System Requirements](#mtg-browsers)
-+ [Integrating with a Client Library](mtgs-sdk-client-lib.md)
-+ [Creating Meetings with the Amazon Chime SDK](mtgs-sdk-mtgs.md)
-+ [SIP Integration Using an Amazon Chime Voice Connector](mtgs-sdk-cvc.md)
-+ [Amazon Chime SDK Event Notifications](mtgs-sdk-notifications.md)
++ [Amazon Chime SDK prerequisites](#mtg-prereqs)
++ [Amazon Chime SDK concepts](#mtg-glossary)
++ [Amazon Chime SDK architecture](#mtg-arch)
++ [Amazon Chime SDK quotas](#mtg-limits)
++ [Amazon Chime SDK system requirements](#mtg-browsers)
++ [Integrating with a client library](mtgs-sdk-client-lib.md)
++ [Creating meetings with the Amazon Chime SDK](mtgs-sdk-mtgs.md)
++ [SIP integration using an Amazon Chime Voice Connector](mtgs-sdk-cvc.md)
++ [Amazon Chime SDK event notifications](mtgs-sdk-notifications.md)
 
-## Amazon Chime SDK Prerequisites<a name="mtg-prereqs"></a>
+## Amazon Chime SDK prerequisites<a name="mtg-prereqs"></a>
 
 Using the Amazon Chime SDK requires the following:
 + The ability to program\.
 + An AWS account\.
-+ An IAM role with a policy that grants permission to access Amazon Chime API actions used by the Amazon Chime SDK, such as the AWS managed **AmazonChimeSDK** policy\. For more information, see [How Amazon Chime Works with IAM](https://docs.aws.amazon.com/chime/latest/ag/security_iam_service-with-iam.html) and [Allow Users to Access Amazon Chime SDK Actions](https://docs.aws.amazon.com/chime/latest/ag/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-chime-sdk) in the *Amazon Chime Administrator Guide*\.
++ An IAM role with a policy that grants permission to access Amazon Chime API actions used by the Amazon Chime SDK, such as the AWS managed **AmazonChimeSDK** policy\. For more information, see [How Amazon Chime works with IAM](https://docs.aws.amazon.com/chime/latest/ag/security_iam_service-with-iam.html) and [Allow users to access Amazon Chime SDK actions](https://docs.aws.amazon.com/chime/latest/ag/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-chime-sdk) in the *Amazon Chime Administrator Guide*\.
 + For the majority of use cases, you also need the following:
   + **Server application** – Manages meeting and attendee resources, and serves those resources to the client application\. The server application is created in the AWS account and must have access to the IAM role mentioned previously\.
   + **Client application** – Receives meeting and attendee information from the server application, and uses that information to make media connections\.
 
-## Amazon Chime SDK Concepts<a name="mtg-glossary"></a>
+## Amazon Chime SDK concepts<a name="mtg-glossary"></a>
 
 The following terminology and concepts are central to understanding how to use the Amazon Chime SDK\.
 
@@ -42,7 +42,7 @@ A meeting participant that is identified by a unique `AttendeeId`\. Attendees ma
 **join token**  
 A unique token assigned to each attendee\. Attendees use the join token to authenticate with the media service group\.
 
-## Amazon Chime SDK Architecture<a name="mtg-arch"></a>
+## Amazon Chime SDK architecture<a name="mtg-arch"></a>
 
 The following list describes how the different components of the Amazon Chime SDK architecture work together to support meetings and attendees, audio, video, and content sharing\.
 
@@ -61,7 +61,7 @@ In addition to audio and video content, meeting attendees can send each other re
 **Content sharing**  
 The client application can share audio and video content, such as screen captures or media files\. Each content share appears in the meeting as an additional attendee\.
 
-## Amazon Chime SDK Quotas<a name="mtg-limits"></a>
+## Amazon Chime SDK quotas<a name="mtg-limits"></a>
 
 
 | Resource | Quota | 
@@ -71,9 +71,9 @@ The client application can share audio and video content, such as screen capture
 |  Video streams per meeting  |  16  | 
 |  Content shares per meeting  |  2  | 
 
-Video resolution up to 1280x720 is supported, depending on CPU and bandwidth availability\. Video limits are dependent on camera capabilities\. For more information, see [Bandwidth Requirements](https://docs.aws.amazon.com/chime/latest/ag/network-config.html#bandwidth) in the *Amazon Chime Administrator Guide*\.
+Video resolution up to 1280x720 is supported, depending on CPU and bandwidth availability\. Video limits are dependent on camera capabilities\. For more information, see [Bandwidth requirements](https://docs.aws.amazon.com/chime/latest/ag/network-config.html#bandwidth) in the *Amazon Chime Administrator Guide*\.
 
-## Amazon Chime SDK System Requirements<a name="mtg-browsers"></a>
+## Amazon Chime SDK system requirements<a name="mtg-browsers"></a>
 
 The following system requirements apply to applications created with the Amazon Chime SDK\.
 

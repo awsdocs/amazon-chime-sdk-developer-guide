@@ -1,13 +1,13 @@
-# Amazon Chime Events Sent to Chat Bots<a name="events-bots"></a>
+# Amazon Chime events sent to chatbots<a name="events-bots"></a>
 
-The following events are sent to your chat bot from Amazon Chime:
-+ **Invite** – Sent when your chat bot is added to an Amazon Chime chat room
-+ **Mention** – Sent when a user in a chat room @mentions your chat bot
-+ **Remove** – Sent when your chat bot is removed from an Amazon Chime chat room
+The following events are sent to your chatbot from Amazon Chime:
++ **Invite** – Sent when your chatbot is added to an Amazon Chime chat room
++ **Mention** – Sent when a user in a chat room @mentions your chatbot
++ **Remove** – Sent when your chatbot is removed from an Amazon Chime chat room
 
-The following examples show the JSON payload sent to your chat bot for each of these events\.
+The following examples show the JSON payload sent to your chatbot for each of these events\.
 
-**Example Invite Event**  
+**Example : Invite event**  
 
 ```
             {
@@ -28,7 +28,7 @@ The following examples show the JSON payload sent to your chat bot for each of t
             }
 ```
 
-**Example Mention Event**  
+**Example : Mention event**  
 
 ```
             {
@@ -53,7 +53,7 @@ The following examples show the JSON payload sent to your chat bot for each of t
 **Note**  
 The `InboundHttpsEndpoint` URL for a Mention event expires 2 minutes after it is sent\.
 
-**Example Remove Event**  
+**Example : Remove event**  
 
 ```
             {

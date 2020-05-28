@@ -1,4 +1,4 @@
-# Update User Personal PINs<a name="update-pins"></a>
+# Update user personal PINs<a name="update-pins"></a>
 
 The following example shows how to reset the personal meeting PIN for a specified Amazon Chime user\.
 

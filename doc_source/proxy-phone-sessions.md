@@ -1,4 +1,4 @@
-# Proxy Phone Sessions<a name="proxy-phone-sessions"></a>
+# Proxy phone sessions<a name="proxy-phone-sessions"></a>
 
 Developers can use the AWS Command Line Interface \(AWS CLI\), Amazon Chime API, or AWS SDK to create proxy phone sessions for use with Amazon Chime Voice Connectors\. Proxy phone sessions allow participants to call or send text messages to each other without revealing private phone numbers\.
 
@@ -15,7 +15,7 @@ Creating proxy phone sessions requires the following:
   + `chime:PutVoiceConnectorProxy`
   + `chime:UpdateProxySession`
 
-  For more information, see [Amazon Chime Identity\-Based Policies](https://docs.aws.amazon.com/chime/latest/ag/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies) in the *Amazon Chime Administrator Guide*\.
+  For more information, see [Amazon Chime identity\-based policies](https://docs.aws.amazon.com/chime/latest/ag/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies) in the *Amazon Chime Administrator Guide*\.
 + An Amazon Chime Voice Connector created by an Amazon Chime account administrator\. For more information, see [Managing Amazon Chime Voice Connectors](https://docs.aws.amazon.com/chime/latest/ag/voice-connectors.html) in the *Amazon Chime Administrator Guide*\.
 
 The following procedure demonstrates how to create a proxy phone session\.

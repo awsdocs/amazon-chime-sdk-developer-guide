@@ -1,4 +1,4 @@
-# Invite Multiple Users<a name="invite-users"></a>
+# Invite multiple users<a name="invite-users"></a>
 
 The following example shows how to invite multiple users to an Amazon Chime `Team` account\.
 

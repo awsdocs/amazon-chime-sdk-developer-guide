@@ -10,7 +10,7 @@ After you create a webhook, you can integrate it with an Amazon Chime chat room,
 
 **To integrate a webhook with a chat room**
 
-1. Get the webhook URL from the chat room administrator\. For more information, see [Adding Webhooks to Chat Rooms](https://docs.aws.amazon.com/chime/latest/ug/webhooks.html) in the *Amazon Chime User Guide*\.
+1. Get the webhook URL from the chat room administrator\. For more information, see [Adding webhooks to chat rooms](https://docs.aws.amazon.com/chime/latest/ug/webhooks.html) in the *Amazon Chime User Guide*\.
 
 1. Use the webhook URL in the script or application that you created to send messages to the chat room:
 
@@ -33,7 +33,7 @@ After the external program sends the HTTP POST to the webhook URL, the server va
 **Note**  
 CORS is not currently enabled for webhooks\.
 
-## Troubleshooting Webhook Errors<a name="webhook-errors"></a>
+## Troubleshooting webhook errors<a name="webhook-errors"></a>
 
 The following is a list of webhook\-related errors:
 + The incoming webhook rate limit for each webhook is 1 TPS per chat room\. Throttling results in an HTTP 429 error\. 
