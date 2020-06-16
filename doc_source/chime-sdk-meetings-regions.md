@@ -40,9 +40,9 @@ Recommended if your Amazon Chime SDK meetings are all hosted within a specific A
 **Choose the nearest media Region**  
 Recommended if your Amazon Chime SDK meeting attendees are located in the same AWS Region, but your meetings are hosted in different Regions\.
 
-For more details about choosing the nearest media Region, see the following topics\.
+For more details about choosing the nearest media Region, see the following topic\.
 
-### Choose the nearest media Region<a name="choose-chime-sdk-nearest-media-region"></a>
+### Choosing the nearest media Region<a name="choose-chime-sdk-nearest-media-region"></a>
 
 Call `https://nearest-media-region.l.chime.aws` to identify the nearest media Region that can host your Amazon Chime SDK meeting\. Make the call from the client application, not the server application\. Pass the call to the application before your attendees need to join the meeting, such as at the time that the application starts up\.
 
