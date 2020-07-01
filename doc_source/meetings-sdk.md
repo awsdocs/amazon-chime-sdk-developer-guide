@@ -80,9 +80,11 @@ The following system requirements apply to applications created with the Amazon 
 **Amazon Chime SDK for JavaScript – Supported browsers**
 + Mozilla Firefox \(version 60 and later\), for macOS and Windows
 + Google Chrome \(version 78 and later\), for macOS, Windows, and Ubuntu LTS 16\.04 and later
+  + Google Chrome for Android also supported for audio and video only \(no content sharing\)
 + Chromium\-based Edge \(version 79 and later\), for Windows
 + Chromium\-based Electron \(Electron 7 and later, with Chromium version 78 and later\)
 + Safari \(version 12, audio and video only, no content sharing\), for macOS
++ Safari \(version 12\.1\.1 and later, audio and video only, no content sharing\), for iOS
 + Safari \(version 13 and later, content sharing with screen capture requires turning on the **Develop**, **Experimental Features**, **Screen Capture** feature in the browser\), for macOS
 + Opera \(version 66 and later\), for macOS and Windows
 
