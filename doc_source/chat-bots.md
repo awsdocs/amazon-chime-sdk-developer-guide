@@ -1,19 +1,29 @@
-# Amazon Chime chatbots<a name="chat-bots"></a>
+# Using chatbots<a name="chat-bots"></a>
 
-Developers can use the AWS Command Line Interface \(AWS CLI\), Amazon Chime API, or AWS SDK to integrate chatbots with Amazon Chime\. Chatbots let you use the power of Amazon Lex, AWS Lambda, and other AWS services to streamline common tasks with intelligent conversational interfaces that are accessible to users in Amazon Chime chat rooms\.
+Chatbots enable you to use Amazon Lex, AWS Lambda, and other AWS services to streamline common tasks such as creating support tickets or querying internal systems for data\. 
 
-If you're an Amazon Chime Enterprise account administrator, you can use chatbots to allow users to perform such tasks as:
-+ Querying their internal systems for information\.
-+ Automating tasks\.
-+ Receiving notifications for critical issues\.
-+ Creating support tickets\.
+The process for creating and using chat bots follows these broad steps
++ System administrators on Amazon Chime Enterprise accounts create chatbots\. For more information about how administrators can integrate a chatbot with Amazon Chime, see [Chatbots](https://docs.aws.amazon.com/chime/latest/dg/chat-bots.html) in the *Amazon Chime Developer Guide*\.
++ As desired, chat room administrators add the chatbots to their chat rooms\. Users can interact with the chatbots, but only in chat rooms created by members of the same Amazon Chime account\.
 
-For more information about Amazon Chime Enterprise accounts, see [Managing your Amazon Chime accounts](https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html) in the *Amazon Chime Administrator Guide*\.
+## Adding a chatbot to a chat room<a name="add-bot-chat"></a>
 
-If you administer an Amazon Chime Enterprise account, you can create up to 10 chatbots for integration with Amazon Chime\. Chatbots can be used only in chat rooms created by members of your account\. Only chat room administrators can add chatbots to a chat room\. After a chatbot is added to a chat room, members of the chat room can interact with the bot using commands provided by the bot creator\. For more information, see [Using chatbots](https://docs.aws.amazon.com/chime/latest/ug/chat-bots.html) in the *Amazon Chime User Guide*\.
+Only chat room administrators can add chatbots to chat rooms\. The chat room must be created by a member of an Amazon Chime Enterprise account\.
 
-Linux and macOS users can build a sample custom chatbot\. For more information, see [Build custom chatbots for Amazon Chime](http://aws.amazon.com/blogs/business-productivity/build-custom-chat-bots-for-amazon-chime/)\.
+Before you begin, get the chatbot's email address from your Amazon Chime account administrator\.
 
-**Topics**
-+ [Use chatbots with Amazon Chime](use-bots.md)
-+ [Amazon Chime events sent to chatbots](events-bots.md)
+**To add a chatbot to a chat room**
+
+1. Open your Amazon Chime desktop client or web application\.
+
+1. Choose the gear icon in the upper\-right corner and choose **Manage webhooks and bots**\.
+
+1. Choose **Add bot**\.
+
+1. For **Email address**, enter the chatbot email address provided by your administrator\.
+
+1. Choose **Add**\.
+
+The chatbot name appears in the chat room roster\. Details about how to use the chatbot should be provided by your Amazon Chime account administrator\.
+
+If you are a member of a chat room with a chatbot added to it, you can interact with the chatbot\. Type @*botDisplayName* and include any of the commands enabled for the chatbot\. Because each chatbot is unique to your Amazon Chime account, contact your administrator for assistance with chatbot commands\. 
