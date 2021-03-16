@@ -1,0 +1,3 @@
+# Invoking Lambda functions with SIP applications<a name="invoking-Lambda"></a>
+
+When a call comes on your phone number, or from a PBX on your Amazon Chime Voice Connector, Amazon Chime invokes the SIP media application's Lambda function with the call details\. SIP applications invoke their Lambda functions in different cases\. Each invocation of a Lambda function specifies an invocation event type and provides the call details, including its participants, if applicable\. The following topics describe the cases for which SIP applications invoke Lambda functions\.

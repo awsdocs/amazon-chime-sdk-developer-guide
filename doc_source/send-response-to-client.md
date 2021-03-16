@@ -1,0 +1,3 @@
+# Sending a response to the client application<a name="send-response-to-client"></a>
+
+ Once you create the meeting and attendee resources, the server application should encode and send the Meeting and Attendee objects back to the client application\. The client needs those pieces of information to bootstrap the Amazon Chime SDK for JavaScript, and enable an attendee to join the meeting successfully from a web or electron based application\. 
