@@ -1,19 +1,22 @@
 # What is Amazon Chime?<a name="what-is-chime"></a>
 
-Amazon Chime is a secure, comprehensive communications service that lets you meet, chat, and place business calls inside and outside your organization\. Amazon Chime works across your devices so that you can stay connected, helping you to work productively from anywhere\.
+Amazon Chime is a communications service that transforms online meetings with an application that is secure and comprehensive\. Amazon Chime works across your devices so that you can stay connected\. You can use Amazon Chime for online meetings, video conferencing, calls, and chat\. You can also share content inside and outside of your organization\. Amazon Chime helps you to work productively from anywhere\.
 
-For information about Amazon Chime editions, features, and pricing, see [http://chime\.aws](http://chime.aws)\.
+Developers can use Amazon Chime with the AWS SDK or AWS Command Line Interface \(AWS CLI\) to perform such tasks as managing users, or integrating webhooks and chat bots with Amazon Chime\. They can also use the Amazon Chime SDK to build real\-time media applications that can send and receive audio and video and allow content sharing\. For detailed information about Amazon Chime API actions, see the [https://docs.aws.amazon.com/chime/latest/APIReference/Welcome.html](https://docs.aws.amazon.com/chime/latest/APIReference/Welcome.html)\.
 
-## Joining an Amazon Chime meeting quickly<a name="chime-join"></a>
+Amazon Chime permissions are controlled using AWS Identity and Access Management \(IAM\)\. For more information, see [Identity and access management for Amazon Chime](https://docs.aws.amazon.com/chime/latest/ag/security-iam.html) in the *Amazon Chime Administrator Guide*\.
 
-If you received an Amazon Chime invitation and want to join the meeting quickly, you can do so with your internet browser\. For more information, see [Joining a meeting without the Amazon Chime app](chime-join-meeting.md)\.
+## Pricing<a name="pricing"></a>
 
-If you have some time before the meeting starts, you can install the Amazon Chime client and join the meeting anonymously\. For more information, see [Joining a meeting anonymously](join-anonymous.md)\.
+Amazon Chime provides usage\-based pricing\. You pay only for the users with Pro permissions that host meetings, and only on the days that those meetings are hosted\. For more information, see [Amazon Chime pricing](http://aws.amazon.com/chime/pricing/)\.
 
-## How to get started with Amazon Chime<a name="how-start"></a>
+## Resources<a name="resources"></a>
 
-To use Amazon Chime regularly to communicate and join meetings, download the Amazon Chime Pro version\. Create an Amazon Chime user account, and use Amazon Chime Pro for free for 30 days\. To download Amazon Chime, see [Download Amazon Chime](http://aws.amazon.com/chime/download-chime/)\. For instructions about how to get started, see [Creating an Amazon Chime account](chime-create-account.md)\.
-
-## Creating an Amazon Chime administrator account<a name="chime-create"></a>
-
-To continue using the Amazon Chime Pro version after the 30 day free trial period, you or your administrator must create an Amazon Chime administrator account and add you as a user\. With an administrator account, you can also manage a team of Amazon Chime users\. For more information, see [Getting started](https://docs.aws.amazon.com/chime/latest/ag/getting-started.html) in the *Amazon Chime Administrator Guide*\.
+The following related resources can help you as you work with this service\.
++ ** [Classes & Workshops](https://aws.amazon.com/training/course-descriptions/)** – Links to role\-based and specialty courses as well as self\-paced labs to help sharpen your AWS skills and gain practical experience\.
++ ** [AWS Developer Tools](https://aws.amazon.com/tools/)** – Links to developer tools, SDKs, IDE toolkits, and command line tools for developing and managing AWS applications\.
++ ** [AWS Whitepapers](https://aws.amazon.com/whitepapers/)** – Links to a comprehensive list of technical AWS whitepapers, covering topics such as architecture, security, and economics and authored by AWS Solutions Architects or other technical experts\.
++ ** [AWS Support Center](https://console.aws.amazon.com/support/home#/)** – The hub for creating and managing your AWS Support cases\. Also includes links to other helpful resources, such as forums, technical FAQs, service health status, and AWS Trusted Advisor\.
++ ** [AWS Support](https://aws.amazon.com/premiumsupport/)** – The primary webpage for information about AWS Support, a one\-on\-one, fast\-response support channel to help you build and run applications in the cloud\.
++ ** [Contact Us](https://aws.amazon.com/contact-us/)** – A central contact point for inquiries concerning AWS billing, account, events, abuse, and other issues\. 
++ ** [AWS Site Terms](https://aws.amazon.com/terms/)** – Detailed information about our copyright and trademark; your account, license, and site access; and other topics\.
