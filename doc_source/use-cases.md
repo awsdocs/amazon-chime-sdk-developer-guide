@@ -78,7 +78,7 @@ The Lambda function validates the call details and stores them as needed for fut
 }
 ```
 
-The SIP application runs these actions on call leg A\. Assuming the `PlayAudioAndGetDigits` action receives the digits, the SIP application invokes the Lambda function with the `ACTION_SUCCESSFUL` event\.
+The SIP media application runs these actions on call leg A\. Assuming the `PlayAudioAndGetDigits` action receives the digits, the SIP application invokes the Lambda function with the `ACTION_SUCCESSFUL` event\.
 
 ```
 {
@@ -131,7 +131,7 @@ The Lambda function uses the `CallDetails` data to identify the incoming caller\
 }
 ```
 
-Assuming the `JoinToken` is valid, the SIP application joins the Amazon Chime meeting and invokes a Lambda function with the `ACTION_SUCCESSFUL` event, where `CallDetails` contains the `LEG-B` information\.
+Assuming the `JoinToken` is valid, the SIP media application joins the Amazon Chime meeting and invokes a Lambda function with the `ACTION_SUCCESSFUL` event, where `CallDetails` contains the `LEG-B` information\.
 
 ```
 {
@@ -183,7 +183,7 @@ If you want to stop running actions on the call or call leg at this point, you c
 }
 ```
 
- After the caller hangs up, the SIP application invokes the Lambda function with the `HANGUP` event\. 
+ After the caller hangs up, the SIP media application invokes the Lambda function with the `HANGUP` event\. 
 
 ```
 {
@@ -227,4 +227,4 @@ If you want to stop running actions on the call or call leg at this point, you c
 }
 ```
 
-If both participants are disconnected, the SIP application ignores the Lambda response\.
+If both participants are disconnected, the SIP media application ignores the Lambda response\.

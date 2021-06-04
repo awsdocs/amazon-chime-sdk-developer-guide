@@ -30,7 +30,7 @@ This example shows a policy for developers building applications using Amazon Ch
                 "chime:GetAppInstanceStreamingConfigurations",
                 "chime:DeleteAppInstanceStreamingConfigurations",
                 "chime:TagResource",
-                "chime:UntagResource,
+                "chime:UntagResource",
                 "chime:ListTagsForResource"
             ],
             "Effect": "Allow",

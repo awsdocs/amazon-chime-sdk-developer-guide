@@ -15,16 +15,16 @@ You can't run this action on a bridged call\.
 }
 ```
 
-**CallID**  
+**CallId**  
 *Description* – `CallId` of participant in the `CallDetails`  
 *Allowed values* – A valid call ID  
-*Required* – Yes  
+*Required* – No, if `ParticipantTag` is present  
 *Default value* – None
 
 **ParticipantTag**  
 *Description* – `ParticipantTag` of one of the connected participants in the `CallDetails`  
 *Allowed values* – `LEG-A`  
-*Required* – Yes  
+*Required* – No, if `CallId` is present  
 *Default value* – `ParticipantTag` of the invoked `callLeg`\. Ignored if you specify `CallId`\.
 
 **JoinToken**  
@@ -33,7 +33,7 @@ You can't run this action on a bridged call\.
 *Required* – Yes  
 *Default value* – None
 
-The SIP application always invokes a Lambda function after running this action\. It returns either the `ACTION_SUCCESSFUL` or `ActionFailed` invocation event types\. The following code example shows the invocation event structure of the Lambda function\.
+The SIP media application always invokes a Lambda function after running this action\. It returns either the `ACTION_SUCCESSFUL` or `ActionFailed` invocation event types\. The following code example shows the invocation event structure of the Lambda function\.
 
 ```
 {

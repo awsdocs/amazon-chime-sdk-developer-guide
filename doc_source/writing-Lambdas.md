@@ -5,5 +5,5 @@ The topics in this section explain how to build the Lambda functions used by you
 **Topics**
 + [Invoking Lambda functions with SIP applications](invoking-Lambda.md)
 + [Responding to invocations with action lists](invoke-on-call-leg.md)
-+ [Supported actions for SIP applications](specify-actions.md)
++ [Supported actions for SIP media applications](specify-actions.md)
 + [Timeouts and retries](timeouts.md)

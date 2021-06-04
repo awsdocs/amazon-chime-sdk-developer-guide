@@ -114,7 +114,7 @@ A member who is an `AppInstanceAdmin` or `ChannelModerator` can perform actions 
 | `GetChannelMessage` | Allowed |  | 
 | `ListChannelMessage` | Allowed |  | 
 | `DeleteChannelMessage` | Denied |  | 
-| `RedactChannelMessage` | Denied |  | 
+| `RedactChannelMessage` | Allowed with restriction | You can only redact your own messages\. | 
 | `UpdateChannelMessage` | Allowed with restriction | You can only update your own messages\. | 
 | `CreateChannelModerator` | Denied |  | 
 | `DeleteChannelModerator` | Denied |  | 

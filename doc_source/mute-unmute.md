@@ -1,9 +1,11 @@
-# ModifyChimeMeetingAttendees \(muting and unmuting audio\)<a name="mute-unmute"></a>
+# ModifyChimeMeetingAttendee \(muting and unmuting audio\)<a name="mute-unmute"></a>
 
-Allows the SIP application to modify the status of telephony attendees joined in the meeting by providing the Amazon Chime meeting ID and attendee list\.
+Allows the SIP media application to modify the status of a telephony attendee joined in the meeting by providing the Amazon Chime meeting ID and attendee list\.
 
 **Note**  
-This action currently supports mute and unmute operations on telephony attendees\. Also, the current user must be joined into a meeting using the `JoinChimeMeeting` action\.
+This action currently supports mute and unmute operations on telephony attendees\. Also, the current user must be joined into a meeting using the `JoinChimeMeeting` action\. This action can be performed on a `participantTag=“LEG-B”`, or a corresponding `CallId`\. 
+
+This action only applies to the callLeg that joins from the SIP media application to `"+`*17035550122*`"`, or LEG\-B, or the leg that is joined from the SIP media application to the meeting\.
 
 ```
 {
@@ -14,6 +16,8 @@ This action currently supports mute and unmute operations on telephony attendees
       "Parameters" : {
         "Operation": "Mute", //or Unmute
         "MeetingId": "meeting-id",
+        "CallId": "call-id",
+        "ParticipantTag": "participant-tag",
         "AttendeeList": ["attendee-id-1", "attendee-id-2"]
       }
     }
@@ -21,23 +25,35 @@ This action currently supports mute and unmute operations on telephony attendees
 }
 ```
 
-Operation  
-*Description* – The operation to perform on the list of attendees  
-*Allowed Values* – Mute, Unmute  
-*Required* – Yes  
-*Default value* – None
+**Operation**  
+*Description* – The operation to perform on the list of attendees\.  
+*Allowed values* – Mute, Unmute  
+*Required* – Yes\.  
+*Default value* – None\.
 
-MeetingId  
+**MeetingId**  
 *Description* – The ID of the meeting to which the attendees belong\.  
-*Allowed Values* – A valid meeting ID\. The person muting or unmuting must also belong to the meeting\.  
-*Required* – Yes  
-*Default value* – None
+*Allowed values* – A valid meeting ID\. The person muting or unmuting must also belong to the meeting\.  
+*Required* – Yes\.  
+*Default value* – None\.
 
-AttendeeList  
-*Description* – List of attendee IDs to mute or unmute  
-*Allowed Values* – A list of valid attendee IDs  
-*Required* – Yes  
-*Default value* – None
+**CallId**  
+*Description* – The ID of the meeting to which the attendees belong\.  
+*Allowed values* – A valid call ID\.  
+*Required* – No, if `ParticipantTag` is present\.  
+*Default value* – None\.
+
+**ParticipantTag**  
+*Description* – The tag assigned to the attendee\.  
+*Allowed values* – A valid tag\.  
+*Required* – No, if `CallId` is present\.  
+*Default value* – None\.
+
+**AttendeeList**  
+*Description* – List of attendee IDs to mute or unmute\.  
+*Allowed values* – A list of valid attendee IDs\.  
+*Required* – Yes\.  
+*Default value* – None\.
 
 After running this action, SIP media applications always invoke a Lambda function with the `ACTION_SUCCESSFUL` or `ACTION_FAILED` invocation event type\. The following example shows a typical invocation event structure for a Lambda function\.
 
@@ -51,6 +67,8 @@ After running this action, SIP media applications always invoke a Lambda functio
         "Parameters" : {
             "Operation": "Mute", //or Unmute
             "MeetingId": "meeting-id",
+            "CallId": "call-id",
+            "ParticipantTag": "participant-tag",
             "AttendeeList": ["attendee-id-1", "attendee-id-2"]
         }
     }
@@ -86,6 +104,8 @@ The following example code shows a typical failure event:
         "Parameters" : {
             "Operation": "Mute", //or Unmute
             "MeetingId": "meeting-id",
+            "CallId": "call-id",
+            "ParticipantTag": "participant-tag",
             "AttendeeList": ["attendee-id-1", "attendee-id-2"]
         },
         "ErrorType": "",

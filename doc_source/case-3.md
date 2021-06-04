@@ -1,6 +1,6 @@
 # Failing actions<a name="case-3"></a>
 
-When any action in the list fails to run, the SIP application invokes a Lambda function to notify you of the failure and get a new set of actions to run on that call\. The following code example shows the sample payload for the `ACTION_FAILED` invocation event type after a `PlayAudio` action\.
+When any action in the list fails to run, the SIP media application invokes a Lambda function to notify you of the failure and get a new set of actions to run on that call\. The following code example shows the sample payload for the `ACTION_FAILED` invocation event type after a `PlayAudio` action\.
 
 ```
 {

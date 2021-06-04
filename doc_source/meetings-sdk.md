@@ -7,7 +7,7 @@ You use the Amazon Chime SDK to build real\-time media applications that can sen
 + [Amazon Chime SDK concepts](#mtg-glossary)
 + [Amazon Chime SDK architecture](#mtg-arch)
 + [Amazon Chime SDK quotas](#mtg-limits)
-+ [Supported operating systems and browsers](supported-browser-os.md)
++ [Amazon Chime SDK system requirements](#mtg-browsers)
 + [Integrating with a client library](mtgs-sdk-client-lib.md)
 + [Creating meetings with the Amazon Chime SDK](mtgs-sdk-mtgs.md)
 + [SIP integration using an Amazon Chime Voice Connector](mtgs-sdk-cvc.md)
@@ -73,3 +73,30 @@ The client application can share audio and video content, such as screen capture
 |  Video tiles per meeting  |  16  |  Yes  | 
 |  Content shares per meeting  |  2  |  No  | 
 |  API Rate  |  10 requests per second \(RPS\) with a burst of 20 RPS\.  |  Yes  | 
+
+## Amazon Chime SDK system requirements<a name="mtg-browsers"></a>
+
+The following system requirements apply to applications created with the Amazon Chime SDK\.
+
+**Amazon Chime SDK for JavaScript – Supported browsers**
++ Mozilla Firefox \(version 75 and later\), for macOS and Windows\.
++ Mozilla Firefox for iOS \(10\.0 and later\) also supported for audio and video only \(no content sharing\)\.
++ Google Chrome \(version 78 and later\), for macOS, Windows, and Ubuntu LTS 16\.04 and later\.
++ Google Chrome for Android and iOS \(10\.0 and later\) also supported for audio and video only \(no content sharing\)\.
++ Mozilla Firefox \(version 75 and later\), for macOS and Windows\.
++ Google Chrome \(version 78 and later\), for macOS, Windows, and Ubuntu LTS 16\.04 and later\.
++ Google Chrome for Android also supported for audio and video only \(no content sharing\)\.
++ Chromium\-based Edge version 79 and later for Windows and macOS\.
++ Chromium\-based Electron version 7 and later, with Chromium version 78 and later\.
++ Safari version 12 for macOS, audio and video only, no content sharing\.
++ Safari version 12\.1\.1 and later for iOS, audio and video only, no content sharing\.
++ Safari version 13 and later for macOS\. Content sharing with screen capture requires turning on the **Develop**, **Experimental Features**, **Screen Capture** feature in the browser\.
++ Opera version 66 and later for macOS and Windows\.
++ Samsung Internet version 12 and later for Android, audio and video only, no content sharing\.
++ WKWebView for iOS \(14\.3 and later\) also supported for audio and video only \(no content sharing\)\.
+
+**Amazon Chime SDK for iOS**
++ iOS version 10\.0 and later
+
+**Amazon Chime SDK for Android**
++ Android OS version 5\.0 and later, ARM and ARM64 architecture

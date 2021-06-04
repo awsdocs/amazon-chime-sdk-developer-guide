@@ -23,10 +23,10 @@ You can respond to a Lambda invocation event with a list of actions to run on th
 }
 ```
 
-Whenever a SIP application invokes a Lambda function, the following operations occur:
+Whenever a SIP media application invokes a Lambda function, the following operations occur:
 
 1. The application finishes running the current action on a call\.
 
 1. The application then replaces the old action set with a new set of actions received from the latest invocation event\.
 
-1. If the SIP application doesn't receive new actions from the Lambda function, it keeps the existing actions\. 
+1. If the SIP media application doesn't receive new actions from the Lambda function, it keeps the existing actions\. 

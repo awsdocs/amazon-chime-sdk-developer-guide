@@ -1,6 +1,6 @@
 # Capturing digits<a name="case-4"></a>
 
-You use the `ReceiveDigits` action to receive inbound dual\-tone multi frequency \(DTMF\) digits and symbols\. When the SIP application receives one or more DTMF digits, it invokes a Lambda function with the `ReceivedDigits` value contained in the `ActionData` object\.
+You use the `ReceiveDigits` action to receive inbound dual\-tone multi frequency \(DTMF\) digits and symbols\. When the SIP media application receives one or more DTMF digits, it invokes a Lambda function with the `ReceivedDigits` value contained in the `ActionData` object\.
 
 When a Lambda function first returns a `ReceiveDigits` action, and that action runs successfully, it gets back a function similar to this example:
 

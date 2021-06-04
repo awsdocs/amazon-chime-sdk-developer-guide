@@ -1,6 +1,6 @@
 # Getting next actions<a name="use-case-2"></a>
 
-When a SIP application successfully runs the last action in a list that you provide, the application calls a Lambda function to get the next set of actions\. The SIP application also invokes a Lambda function when it successfully runs actions such as `PlayAudioAndGetDigits`\. You use `ActionData` to identify which call invoked the function\. The following code example shows a sample payload for the `ACTION_SUCCESSFUL` invocation event type after a `PlayAudioAndGetDigits` action\.
+When a SIP media application successfully runs the last action in a list that you provide, the application calls a Lambda function to get the next set of actions\. The SIP media application also invokes a Lambda function when it successfully runs actions such as `PlayAudioAndGetDigits`\. You use `ActionData` to identify which call invoked the function\. The following code example shows a sample payload for the `ACTION_SUCCESSFUL` invocation event type after a `PlayAudioAndGetDigits` action\.
 
 ```
 {

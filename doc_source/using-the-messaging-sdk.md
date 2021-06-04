@@ -1,6 +1,6 @@
 # Using Amazon Chime SDK messaging<a name="using-the-messaging-sdk"></a>
 
-You use this SDK to help create messaging applications that run on the Amazon Chime service\. This SDK provides the conceptual and and practical information needed to create a basic messaging app\.
+You use this SDK to help create messaging applications that run on the Amazon Chime service\. This SDK provides the conceptual and practical information needed to create a basic messaging app\.
 
 **Topics**
 + [Messaging prerequisites](#messaging-prerequisites)
@@ -63,4 +63,15 @@ Messages are sent in channels, and can be `STANDARD`, `CONTROL`, or `SYSTEM` mes
 
 ## Messaging quotas<a name="messaging-quotas"></a>
 
-For a list of the Amazon Chime SDK messaging quotas, see [ Amazon Chime endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/chime.html)\.
+The Amazon Chime SDK messaging enforces the following quotas\.
+
+
+| Resource | Limit | Eligible for increase | 
+| --- | --- | --- | 
+| App Instances Per AWS Account | 100 | Yes | 
+| Users per app instance | 100,000 | Yes | 
+| App instance admins per app instance | 100 | Yes | 
+| Channels Per AppInstance | 10,000,000 | Yes | 
+| Memberships Per Channel | 10,000 | Yes | 
+| Moderators per channel | 1,000 | Yes | 
+| Max concurrent connections per user | 10 | Yes | 

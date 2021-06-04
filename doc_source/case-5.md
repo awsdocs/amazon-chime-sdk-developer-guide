@@ -1,6 +1,6 @@
 # Ending a call<a name="case-5"></a>
 
-When your SIP application receives a hangup on any leg of a call, the application invokes a Lambda function\. See the following code example\.
+When your SIP media application receives a hangup on any leg of a call, the application invokes a Lambda function\. See the following code example\.
 
 ```
 // if LEG-A receives a disconnect, i.e., invitee hangs up

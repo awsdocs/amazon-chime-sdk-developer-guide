@@ -1,7 +1,7 @@
 # Amazon Chime Developer Guide
 
 -----
-*****Copyright &copy; 2021 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -32,12 +32,6 @@ Amazon's trademarks and trade dress may not be used in
    + [Proxy phone sessions](proxy-phone-sessions.md)
    + [Webhooks for Amazon Chime](webhooks.md)
 + [Using the Amazon Chime SDK](meetings-sdk.md)
-   + [Supported operating systems and browsers](supported-browser-os.md)
-      + [Supported browsers on Windows devices](win-browser-support.md)
-      + [Supported browsers on macOS devices](macos-browser-support.md)
-      + [iOS browser support](ios-browser-support.md)
-      + [Android browser support](android-browser-support.md)
-      + [Linux browser support](linux-browser-support.md)
    + [Integrating with a client library](mtgs-sdk-client-lib.md)
    + [Creating meetings with the Amazon Chime SDK](mtgs-sdk-mtgs.md)
       + [Amazon Chime SDK media Regions](chime-sdk-meetings-regions.md)
@@ -95,13 +89,11 @@ Amazon's trademarks and trade dress may not be used in
 + [Using the Amazon Chime SDK for Android](sdk-for-android.md)
 + [Using the Amazon Chime SDK for iOS](sdk-for-ios.md)
 + [Building Lambda functions for SIP media applications](build-lambdas-for-sip-sdk.md)
-   + [Using Lambda functions for SIP applications](using-lambda.md)
+   + [About using Lambda functions](using-lambda.md)
    + [Basic call flow](call-flow.md)
    + [Adding invocation rules for incoming invitations](add-invocation-rules.md)
-   + [SIP application call architecture](call-architecture.md)
-      + [One-legged call architecture](handle-one-legged.md)
-      + [Two-legged call architecture](handle-bridged.md)
-      + [End-to-end use case](use-cases.md)
+   + [SIP media application call architecture](call-architecture.md)
+   + [End-to-end use case](use-cases.md)
    + [Building the Lambda functions for SIP applications](writing-Lambdas.md)
       + [Invoking Lambda functions with SIP applications](invoking-Lambda.md)
          + [Receiving an inbound call](case-1.md)
@@ -110,12 +102,13 @@ Amazon's trademarks and trade dress may not be used in
          + [Capturing digits](case-4.md)
          + [Ending a call](case-5.md)
       + [Responding to invocations with action lists](invoke-on-call-leg.md)
-      + [Supported actions for SIP applications](specify-actions.md)
+      + [Supported actions for SIP media applications](specify-actions.md)
+         + [CallAndBridge](call-and-bridge.md)
          + [Pause](pause.md)
          + [PlayAudio](play-audio.md)
          + [ReceiveDigits](listen-to-digits.md)
          + [PlayAudioAndGetDigits](play-audio-get-digits.md)
-         + [ModifyChimeMeetingAttendees (muting and unmuting audio)](mute-unmute.md)
+         + [ModifyChimeMeetingAttendee (muting and unmuting audio)](mute-unmute.md)
          + [RecordAudio](record-audio.md)
          + [JoinChimeMeeting](join-chime-meeting.md)
          + [Hangup](hangup.md)

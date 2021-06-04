@@ -1,6 +1,8 @@
 # RecordAudio<a name="record-audio"></a>
 
-Allows your SIP application to record media from a given call ID\. The application records until it reaches the duration that you set, or when a user presses one of the `RecordingTerminators`\. In those cases, the action tells your application to send the media file to the specified Amazon Simple Storage Service \(Amazon S3\) bucket\. The S3 bucket must belong to the same AWS account as the SIP application\. In addition, the action must give `s3:PutObject` and `s3:PutObjectAcl` permission to the Amazon Chime Voice Connector service principal\. 
+Allows your SIP media application to record media from a given call ID\. The application records until it reaches the duration that you set, or when a user presses one of the `RecordingTerminators`\. In those cases, the action tells your application to send the media file to the specified Amazon Simple Storage Service \(Amazon S3\) bucket\. The S3 bucket must belong to the same AWS account as the SIP application\. In addition, the action must give `s3:PutObject` and `s3:PutObjectAcl` permission to the Amazon Chime Voice Connector service principal\. 
+
+The following example gives the `s3:PutObject` and `s3:PutObjectAcl` permission to the Amazon Chime Voice Connector service principal\.
 
 ```
 {
@@ -20,31 +22,39 @@ Allows your SIP application to record media from a given call ID\. The applicati
             "Resource": "arn:aws:s3:::bucket-name/"
         }
     ]
-   }
+}
+```
+
+The following example stops recording after 10 seconds and sends the media file to the specifed S3 bucket\.
+
+```
 {
-    "Type" : "RecordAudio",
-    "Parameters" : {
-        "CallId": "call-id-1",
-        "DurationInSeconds": "10",
-        "RecordingTerminators": ["#"],
-        "RecordinDestination": {
-            "Type": "S3",
-            "BucketName": "valid-bucket-name"
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Type" : "RecordAudio",
+            "Parameters" : {
+                "CallId": "call-id-1",
+                "DurationInSeconds": "10",
+                "RecordingTerminators": ["#"],
+                "RecordinDestination": {
+                "Type": "S3",
+                "BucketName": "valid-bucket-name"
         }
     }
 }
 ```
 
-**CallID**  
-*Description* – `CallId` of participant in the `CallDetails`  
-*Allowed values* – A valid call ID  
-*Required* – Yes  
-*Default value* – None
+**CallId**  
+*Description* – `CallId` of participant in the `CallDetails`\.  
+*Allowed values* – A valid call ID\.  
+*Required* – No, if `ParticipantTag` is present\.  
+*Default value* – None\.
 
 **ParticipantTag**  
-*Description* – `ParticipantTag` of one of the connected participants in the `CallDetails`  
-*Allowed values* – `LEG-A` or `LEG-B`  
-*Required* – Yes  
+*Description* – `ParticipantTag` of one of the connected participants in the `CallDetails`\.  
+*Allowed values* – `LEG-A` or `LEG-B`\.  
+*Required* – No, if `CallId` is present\.  
 *Default value* – `ParticipantTag` of the invoked `callLeg`\. Ignored if you specify `CallId`\.
 
 **RecordingDestination\.Type**  
@@ -107,10 +117,10 @@ For validation errors, the application calls the Lambda function with the approp
 
 |  Error  |  Message  |  Reason  | 
 | --- | --- | --- | 
-|  `InvalidActionParameter`  |  CallId or ParticipantTag parameter for action is invalid  |  `callId` or other parameter is invalid\.  | 
+|  `InvalidActionParameter`  |  CallId or ParticipantTag parameter for action is invalid  |  `CallId` or other parameter is invalid\.  | 
 |  `SystemException`  |  System error while running an action\.  |  Another type of system error occurred while running an action\.  | 
 
-When the action fails to record the media on a call leg, the SIP application invokes a Lambda function with the `ActionFailed` event type\. See the following code example\.
+When the action fails to record the media on a call leg, the SIP media application invokes a Lambda function with the `ActionFailed` event type\. See the following code example\.
 
 ```
 {

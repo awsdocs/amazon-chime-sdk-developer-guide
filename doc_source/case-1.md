@@ -1,6 +1,6 @@
 # Receiving an inbound call<a name="case-1"></a>
 
-When a new inbound call is received, the SIP application invokes a Lambda function with this payload\.
+When a new inbound call is received, the SIP media application invokes a Lambda function with this payload\.
 
 ```
 {

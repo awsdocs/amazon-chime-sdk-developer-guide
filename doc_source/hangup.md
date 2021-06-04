@@ -13,16 +13,16 @@ Sends a `Hangup` value with a `SipStatusCode` to any leg of a call\. See the fol
 }
 ```
 
-**CallID**  
+**CallId**  
 *Description* – `CallId` of participant in the `CallDetails`  
 *Allowed values* – A valid call ID  
-*Required* – Yes  
+*Required* – No, if `ParticipantTag` is present  
 *Default value* – None
 
 **ParticipantTag**  
 *Description* – `ParticipantTag` of one of the connected participants in the `CallDetails`  
 *Allowed values* – `LEG-A` or `LEG-B`  
-*Required* – Yes  
+*Required* – No, if `CallId` is present  
 *Default value* – `ParticipantTag` of the invoked `callLeg`\. Ignored if you specify `CallId`\.
 
 **SipResponseCode**  
@@ -31,4 +31,4 @@ Sends a `Hangup` value with a `SipStatusCode` to any leg of a call\. See the fol
 *Required* – No  
 *Default value* – 0
 
-After a user ends a call, the SIP application invokes a Lambda function with the code listed in [Ending a call](case-5.md)\.
+After a user ends a call, the SIP media application invokes a Lambda function with the code listed in [Ending a call](case-5.md)\.
