@@ -1,9 +1,9 @@
 # Ending a call<a name="case-5"></a>
 
-When your SIP media application receives a hangup on any leg of a call, the application invokes a Lambda function\. See the following code example\.
+When your SIP media application receives a hangup on any call leg, the application invokes the Lambda function with the HANGUP invocation event type\. See the following example\.
 
 ```
-// if LEG-A receives a disconnect, i.e., invitee hangs up
+// if LEG-A receives a hangup, such as attendee hangs up
 {
     "SchemaVersion": "1.0",
     "Sequence": 6,
@@ -26,8 +26,8 @@ When your SIP media application receives a hangup on any leg of a call, the appl
                 "CallId": "call-id-1",
                 "ParticipantTag": "LEG-A",
                 "Direction": "Inbound",
-                "To": "+19876543210",
-                "From": "+11234567890",
+                 "To": "+12065551212",
+                "From": "+15105550101",
                 "StartTimeInMilliseconds": "1597009588",
                 "Status": "Disconnected"
             }
@@ -35,7 +35,7 @@ When your SIP media application receives a hangup on any leg of a call, the appl
     }
 }
 
-// if LEG-B receives a disconnect in a bridged call, i.e. the meeting ends
+// if LEG-B receives a hangup in a bridged call, such as a meeting ending
 {
     "SchemaVersion": "1.0",
     "Sequence": 6,
@@ -57,8 +57,8 @@ When your SIP media application receives a hangup on any leg of a call, the appl
             {
                 "CallId": "call-id-1",
                 "ParticipantTag": "Leg-A",
-                "To": "+19876543210",
-                "From": "+11234567890",
+                 "To": "+12065551212",
+                "From": "+15105550101",
                 "Direction": "Inbound",
                 "StartTimeInMilliseconds": "1597009588",
                 "Status": "Connected"
@@ -69,7 +69,7 @@ When your SIP media application receives a hangup on any leg of a call, the appl
                 "To": "+17035550122",
                 "From": "SMA",
                 "Direction": "Outbound",
-                "StartTimeInMilliseconds": "1597010595",
+                "StartTimeInMilliseconds": "15010595",
                 "Status": "Disconnected"
             }
         ]

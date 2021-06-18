@@ -140,7 +140,7 @@ The `CallAndBridge` action exhibits different call signaling and ringback behavi
 
 The following diagram shows the call flow for an unanswered call\.
 
-![\[Diagram of basic call flow through a SIP application and Lambda functions.\]](http://docs.aws.amazon.com/chime/latest/dg/images/SMA_Bridging_NotAns.png)
+![\[Diagram of basic call flow through a SIP media application and Lambda functions.\]](http://docs.aws.amazon.com/chime/latest/dg/images/SMA_Bridging_NotAns.png)
 
 **Additional Details**  
 Remember these facts about the `CallAndBridge` action\.

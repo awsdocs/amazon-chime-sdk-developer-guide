@@ -1,7 +1,5 @@
-# About using Lambda functions<a name="using-lambda"></a>
+# Understanding SIP rules, SIP media applications, and Lambda functions<a name="using-lambda"></a>
 
-Amazon Chime uses functions created with AWS Lambda for the following reasons:
-+ You can add logic to your SIP media applications\. For example, you can make decisions based on the output of certain actions, such as an SDK meeting lookup based on a number from a touch\-tone phone, or based on call properties such as a **From** header\.
-+ They save time\. You can write lightweight, serverless applications that don't need a server infrastructure\.
+ Amazon Chime administrators use the Amazon Chime console to create SIP rules and SIP media applications as part of building a telephony application\. A SIP rule associates a phone number in your Amazon Chime inventory, or an Amazon Chime Voice Connector, with a SIP media application\. A SIP media application associates your Lambda function with a SIP rule\. The Lambda function contains your phone application's logic, and it can perform that logic or return actions for each invocation\. For example, you can query or update a database, receive user input, or play voice prompts\. 
 
-When you create a SIP media application, you choose an AWS Region\. The application can only use Lambda functions set for that same Region\.
+For more information about Amazon Chime Voice Connectors, see [Managing Amazon Chime Voice Connectors](https://docs.aws.amazon.com/chime/latest/ag/voice-connectors.html) in the *Amazon Chime Administrator Guide*\.

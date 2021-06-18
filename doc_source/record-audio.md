@@ -1,6 +1,8 @@
 # RecordAudio<a name="record-audio"></a>
 
-Allows your SIP media application to record media from a given call ID\. The application records until it reaches the duration that you set, or when a user presses one of the `RecordingTerminators`\. In those cases, the action tells your application to send the media file to the specified Amazon Simple Storage Service \(Amazon S3\) bucket\. The S3 bucket must belong to the same AWS account as the SIP application\. In addition, the action must give `s3:PutObject` and `s3:PutObjectAcl` permission to the Amazon Chime Voice Connector service principal\. 
+Allows the SIP media application to record media from a given call ID\. For example, a voice mail application and meeting\-participant announcements\. The application records until it reaches the duration that you set, or when a user presses one of the `RecordingTerminators`\. In those cases, the action tells your application to put the resulting media file into the specified S3 bucket\. The S3 bucket must belong to the same AWS account as the SIP media application\. In addition, the action must give `s3:PutObject` and `s3:PutObjectAcl` permission to the Amazon Chime Voice Connector service principal, [ Amazon Chime Voice Connector service principal ](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html), `voiceconnector.chime.amazonaws.com`\. 
+
+Note that recordings made using this feature may be subject to laws or regulations regarding the recording of electronic communications\. It is your and your end users’ responsibility to comply with all applicable laws regarding the recording, including properly notifying all participants in a recorded session or communication that the session or communication is being recorded, and obtaining their consent\.
 
 The following example gives the `s3:PutObject` and `s3:PutObjectAcl` permission to the Amazon Chime Voice Connector service principal\.
 
@@ -14,8 +16,7 @@ The following example gives the `s3:PutObject` and `s3:PutObjectAcl` permission 
             "Principal": {
                 "Service": "voiceconnector.chime.amazonaws.com"
             },
-            "Action": [
-                "s3:GetObject",
+            "Action": [                
                 "s3:PutObject",
                 "s3:PutObjectAcl"
             ],
@@ -25,7 +26,7 @@ The following example gives the `s3:PutObject` and `s3:PutObjectAcl` permission 
 }
 ```
 
-The following example stops recording after 10 seconds and sends the media file to the specifed S3 bucket\.
+The following example stops recording when the caller presses the pound key \(\#\) or 10 seconds elapse with no activity\. The `RecordinDestination` parameter sends the resulting media file to the specifed S3 bucket\.
 
 ```
 {
@@ -35,6 +36,7 @@ The following example stops recording after 10 seconds and sends the media file 
             "Type" : "RecordAudio",
             "Parameters" : {
                 "CallId": "call-id-1",
+                "ParticipantTag": "LEG-A",
                 "DurationInSeconds": "10",
                 "RecordingTerminators": ["#"],
                 "RecordinDestination": {
@@ -46,16 +48,16 @@ The following example stops recording after 10 seconds and sends the media file 
 ```
 
 **CallId**  
-*Description* – `CallId` of participant in the `CallDetails`\.  
-*Allowed values* – A valid call ID\.  
-*Required* – No, if `ParticipantTag` is present\.  
-*Default value* – None\.
+*Description* – `CallId` of participant in the `CallDetails` of the Lambda function invocation  
+*Allowed values* – A valid call ID  
+*Required* – No  
+*Default value* – None
 
 **ParticipantTag**  
-*Description* – `ParticipantTag` of one of the connected participants in the `CallDetails`\.  
-*Allowed values* – `LEG-A` or `LEG-B`\.  
-*Required* – No, if `CallId` is present\.  
-*Default value* – `ParticipantTag` of the invoked `callLeg`\. Ignored if you specify `CallId`\.
+*Description* – `ParticipantTag` of one of the connected participants in the `CallDetails`  
+*Allowed values* – `LEG-A` or `LEG-B`  
+*Required* – No  
+*Default value* – `ParticipantTag` of the invoked `callLeg` Ignored if you specify `CallId`
 
 **RecordingDestination\.Type**  
 *Description* – Type of destination\. Only S3\.  
@@ -64,7 +66,7 @@ The following example stops recording after 10 seconds and sends the media file 
 *Default value* – None
 
 **RecordingDestination\.BucketName**  
-*Description* – For S3 recording destinations, you must provide a valid S3 bucket name\. The bucket must have access to the Amazon Chime Voice Connector service principal, which is voiceconnector\.chime\.amazonaws\.com\.  
+*Description* – A valid S3 bucket name\. The bucket must have access to the [Amazon Chime Voice Connector service principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html), `voiceconnector.chime.amazonaws.com`\.  
 *Allowed values* – A valid S3 bucket for which Amazon Chime has access to the `s3:PutObject` and `s3:PutObjectAcl` actions\.  
 *Required* – Yes  
 *Default value* – None
@@ -81,7 +83,7 @@ The following example stops recording after 10 seconds and sends the media file 
 *Required* – Yes  
 *Default value* – None
 
-When the recording ends, the application calls its Lambda function, complete with a file name and S3 bucket path\.
+When the recording ends, the SIP media application calls the Lambda function, complete with a file name and S3 bucket path\.
 
 ```
 {
@@ -92,9 +94,10 @@ When the recording ends, the application calls its Lambda function, complete wit
         "Type" : "RecordAudio",
         "Parameters" : {
             "CallId": "call-id-1",
+            "ParticipantTag": "LEG-A",
             "DurationInSeconds": "10",
             "RecordingTerminators": ["#"],
-            "RecordinDestination": {
+            "RecordingDestination": {
                 "Type": "S3",
                 "BucketName": "valid-bucket-name"
             }
@@ -102,7 +105,7 @@ When the recording ends, the application calls its Lambda function, complete wit
         "RecordinDestination": {
             "Type": "S3",
             "BucketName": "valid-bucket-name",
-            "Key": "call-id-1-recordings-counter.mp3"
+            "Key": "call-id-1-recordings-counter.wav"
         }
     }
     "CallDetails": {
@@ -112,15 +115,15 @@ When the recording ends, the application calls its Lambda function, complete wit
 ```
 
 **Error handling**  
-For validation errors, the application calls the Lambda function with the appropriate error message\. The following table lists the error messages\.
+For validation errors, the SIP media application calls the Lambda function with the appropriate error message\. The following table lists the possible error messages\.
 
 
 |  Error  |  Message  |  Reason  | 
 | --- | --- | --- | 
-|  `InvalidActionParameter`  |  CallId or ParticipantTag parameter for action is invalid  |  `CallId` or other parameter is invalid\.  | 
-|  `SystemException`  |  System error while running an action\.  |  Another type of system error occurred while running an action\.  | 
+|  `InvalidActionParameter`  |  `CallId` or `ParticipantTag` parameter for action is invalid  |  Any parameter is invalid\.  | 
+|  `SystemException`  |  System error while executing an action\.  |  Another type of system error occurred while executing an action\.  | 
 
-When the action fails to record the media on a call leg, the SIP media application invokes a Lambda function with the `ActionFailed` event type\. See the following code example\.
+When the action fails to record the media on a call leg, the SIP media application invokes a Lambda function with the `ActionFailed` event type\. See the following example\.
 
 ```
 {
@@ -132,7 +135,7 @@ When the action fails to record the media on a call leg, the SIP media applicati
         "Parameters" : {
             "ParticipantTag": "LEG-A",
             "DestinationType": "S3",
-            "DestinationValue": "/path/to/s3/bucket",
+            "DestinationValue": "https://doc-example-bucket.s3.us-west-2.amazonaws.com/error-message.wav",
             "MaxDurationInSeconds": "10",
             "StopRecordingOnDigits": ["#"]
         },

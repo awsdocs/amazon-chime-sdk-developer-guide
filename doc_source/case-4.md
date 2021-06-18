@@ -1,8 +1,8 @@
-# Capturing digits<a name="case-4"></a>
+# Receiving caller input<a name="case-4"></a>
 
-You use the `ReceiveDigits` action to receive inbound dual\-tone multi frequency \(DTMF\) digits and symbols\. When the SIP media application receives one or more DTMF digits, it invokes a Lambda function with the `ReceivedDigits` value contained in the `ActionData` object\.
+You use the `ReceiveDigits` action to collect inbound DTMF digits and match them against a regular expression\. When the SIP media application receives digits that match the regular expression, it invokes a Lambda function with an `ACTION_SUCCESSFUL` event\. The collected digits appear in the `ReceivedDigits` value in the `ActionData` object\.
 
-When a Lambda function first returns a `ReceiveDigits` action, and that action runs successfully, it gets back a function similar to this example:
+For example:
 
 ```
 {
@@ -29,8 +29,8 @@ When a Lambda function first returns a `ReceiveDigits` action, and that action r
             {
                 "CallId": "call-id-1",
                 "ParticipantTag": "LEG-A",
-                "To": "+19876543210",
-                "From": "+11234567890",
+                "To": "+12065551212",
+                "From": "+15105550101",
                 "Direction": "Inbound",
                 "StartTimeInMilliseconds": "159700958834234",
                 "Status": "Connected"
@@ -40,7 +40,7 @@ When a Lambda function first returns a `ReceiveDigits` action, and that action r
 }
 ```
 
-Once the caller enters digits that match the regex pattern, the SIP media application invokes a Lambda function with this type of payload:
+Once the caller enters digits that match your regular expression pattern, the SIP media application invokes a Lambda function that returns the following type of payload:
 
 ```
 {
@@ -67,8 +67,8 @@ Once the caller enters digits that match the regex pattern, the SIP media applic
             {
                 "CallId": "call-id-1",
                 "ParticipantTag": "LEG-A",
-                "To": "+19876543210",
-                "From": "+11234567890",
+                "To": "+12065551212",
+                "From": "+15105550101",
                 "Direction": "Inbound",
                 "StartTimeInMilliseconds": "159700958834234",
                 "Status": "Connected"

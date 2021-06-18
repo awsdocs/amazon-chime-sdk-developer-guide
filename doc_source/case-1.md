@@ -17,8 +17,8 @@ When a new inbound call is received, the SIP media application invokes a Lambda 
             {
                 "CallId": "call-id-1",
                 "ParticipantTag": "LEG-A",
-                "To": "+19876543210",
-                "From": "+11234567890",
+                "To": "+12065551212",
+                "From": "+15105550101",
                 "Direction": "Inbound",
                 "StartTimeInMilliseconds": "159700958834234",
                 "Status": "Connected"

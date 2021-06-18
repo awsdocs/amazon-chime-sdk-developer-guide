@@ -74,4 +74,4 @@ The Amazon Chime SDK messaging enforces the following quotas\.
 | Channels Per AppInstance | 10,000,000 | Yes | 
 | Memberships Per Channel | 10,000 | Yes | 
 | Moderators per channel | 1,000 | Yes | 
-| Max concurrent connections per user | 10 | Yes | 
+| Max concurrent connections per user \(Amazon Chime messaging only, does not apply to meetings\) | 10 | Yes | 
