@@ -10,7 +10,7 @@ You can't run this action on a bridged call\.
     "Type": "JoinChimeMeeting",
     "Parameters": {
         "JoinToken": "meeting-attendee-join-token",
-        "CallId": "call-id-1"
+        "CallId": "call-id-1",
         "ParticipantTag": "LEG-A"
     }
 }
@@ -45,7 +45,7 @@ The SIP media application always invokes a Lambda function after running this ac
         "Type": "JoinChimeMeeting",
         "Parameters": {
             "JoinToken": "meeting-attendee-join-token",
-            "CallId": "call-id-1"
+            "CallId": "call-id-1",
             "ParticipantTag": "LEG-A"
         }
     }
