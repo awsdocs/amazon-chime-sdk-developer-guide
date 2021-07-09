@@ -1,4 +1,4 @@
-# Amazon Chime SDK media Regions<a name="chime-sdk-meetings-regions"></a>
+# Using Amazon Chime SDK media Regions<a name="chime-sdk-meetings-regions"></a>
 
 We recommend specifying an AWS Region for your Amazon Chime SDK meeting using the `MediaRegion` parameter in the `CreateMeeting` API action\. Available media Regions for Amazon Chime SDK meetings include the following:
 + US East \(Ohio\) \(us\-east\-2\)
