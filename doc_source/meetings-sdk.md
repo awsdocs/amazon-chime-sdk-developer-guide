@@ -83,9 +83,6 @@ The following system requirements apply to applications created with the Amazon 
 + Mozilla Firefox for iOS \(10\.0 and later\) also supported for audio and video only \(no content sharing\)\.
 + Google Chrome \(version 78 and later\), for macOS, Windows, and Ubuntu LTS 16\.04 and later\.
 + Google Chrome for Android and iOS \(10\.0 and later\) also supported for audio and video only \(no content sharing\)\.
-+ Mozilla Firefox \(version 75 and later\), for macOS and Windows\.
-+ Google Chrome \(version 78 and later\), for macOS, Windows, and Ubuntu LTS 16\.04 and later\.
-+ Google Chrome for Android also supported for audio and video only \(no content sharing\)\.
 + Chromium\-based Edge version 79 and later for Windows and macOS\.
 + Chromium\-based Electron version 7 and later, with Chromium version 78 and later\.
 + Safari version 12 for macOS, audio and video only, no content sharing\.
