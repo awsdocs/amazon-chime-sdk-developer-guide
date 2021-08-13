@@ -2,6 +2,9 @@
 
 The S3 bucket for your media capture pipeline must belong to the same AWS account and AWS Region as the Amazon Chime SDK meeting\. In addition, you must give the `s3:PutObject` and `s3:PutObjectAcl` permission to the Amazon Chime service principal [chime\.amazonaws\.com](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html)\. You can do that with the S3 console or the CLI\.
 
+**Note**  
+If you need to encrypt data, you must use Amazon S3\-Managed Keys\. We don't support server\-side encryption using Customer Master Keys stored in the AWS Key Management Service\. 
+
 The following example shows an S3 bucket policy\.
 
 ```

@@ -1,6 +1,6 @@
 # Using the Amazon Chime SDK<a name="meetings-sdk"></a>
 
-You use the Amazon Chime SDK to build real\-time media applications that can send and receive audio and video and allow content sharing\. The Amazon Chime SDK works independently of any Amazon Chime administrator accounts, and it does not affect meetings hosted on Amazon Chime\. Instead, the Amazon Chime SDK provides builder tools for developers to use to build their own meeting applications\.
+You use the Amazon Chime SDK to build real\-time media applications that can send and receive audio and video and allow content sharing\. The Amazon Chime SDK works independently of any Amazon Chime administrator accounts, and it does not affect meetings hosted on Amazon Chime\. Instead, the Amazon Chime SDK provides builder tools that you use to build your own meeting applications\.
 
 **Topics**
 + [Amazon Chime SDK prerequisites](#mtg-prereqs)
@@ -9,7 +9,6 @@ You use the Amazon Chime SDK to build real\-time media applications that can sen
 + [Amazon Chime SDK quotas](#mtg-limits)
 + [Amazon Chime SDK system requirements](#mtg-browsers)
 + [Integrating with a client library](mtgs-sdk-client-lib.md)
-+ [Creating meetings with the Amazon Chime SDK](mtgs-sdk-mtgs.md)
 + [SIP integration using an Amazon Chime Voice Connector](mtgs-sdk-cvc.md)
 + [Amazon Chime SDK event notifications](mtgs-sdk-notifications.md)
 
@@ -79,13 +78,11 @@ The client application can share audio and video content, such as screen capture
 The following system requirements apply to applications created with the Amazon Chime SDK\.
 
 **Amazon Chime SDK for JavaScript – Supported browsers**
++ Google Chrome \(version 78 and later\), for macOS, Windows, and Ubuntu LTS 16\.04 and later\.
++ Google Chrome for iOS \(14\.3 and later\) supported for audio and video only \(no content sharing\)\.
++ Google Chrome for Android also supported for audio and video only \(no content sharing\)\.
 + Mozilla Firefox \(version 75 and later\), for macOS and Windows\.
 + Mozilla Firefox for iOS \(10\.0 and later\) also supported for audio and video only \(no content sharing\)\.
-+ Google Chrome \(version 78 and later\), for macOS, Windows, and Ubuntu LTS 16\.04 and later\.
-+ Google Chrome for Android and iOS \(10\.0 and later\) also supported for audio and video only \(no content sharing\)\.
-+ Mozilla Firefox \(version 75 and later\), for macOS and Windows\.
-+ Google Chrome \(version 78 and later\), for macOS, Windows, and Ubuntu LTS 16\.04 and later\.
-+ Google Chrome for Android also supported for audio and video only \(no content sharing\)\.
 + Chromium\-based Edge version 79 and later for Windows and macOS\.
 + Chromium\-based Electron version 7 and later, with Chromium version 78 and later\.
 + Safari version 12 for macOS, audio and video only, no content sharing\.

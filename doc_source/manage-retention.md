@@ -29,7 +29,7 @@ You use the Amazon Chime AWS SDK APIs to turn on retention for messaging\. You c
 
 ## Restoring and deleting messages<a name="restore-and-delete"></a>
 
-You can restore messages to users within 30 days of setting or updating a message\-retention period\. However, after that 30\-day grace period, all messages that fall under the retention period are permanently deleted, and new messages are permanently deleted as soon as they pass the retention period\. 
+You can restore messages to users within 30 days of setting or updating a message\-retention period\. However, after that 30\-day grace period, all messages that fall under the retention period are permanently deleted, and new messages are permanently deleted as soon as they pass the retention period\.
 
 **Note**  
 During the 30\-day grace period, if you the extend the retention policy, or you turn it off, messages that haven't passed the new retention period become visible again to the users in the account\.

@@ -1,6 +1,8 @@
-# Defining IAM roles and policies for AppInstance users<a name="iam-roles"></a>
+# Example IAM roles<a name="iam-roles"></a>
 
-For users to access the Amazon Chime SDK messaging features, you must define an IAM role and policy to vend credentials to users when they sign in\. The IAM policy defines the resources that users can access\.
+For users to access the Amazon Chime SDK messaging features, you must define an IAM role and policy to provide credentials to users when they sign in\. The IAM policy defines the resources that users can access\.
+
+The examples in this section provide basic policies that you can adapt to suit your needs\. For more information about how policies work, see [Making SDK calls from a backend service](call-from-backend.md)\. 
 
 This example shows a policy for developers building applications using Amazon Chime SDK messaging\.
 
