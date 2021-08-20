@@ -12,6 +12,6 @@ The Amazon Chime SDK for JavaScript is open\-source and has a set of customizabl
 + [Browser\-Detect](https://www.npmjs.com/package/browser-detect) for identifying the browser type and capabilities\.
 + [ProtoBufJs](https://www.npmjs.com/package/protobufjs) to encode and decode signaling commands and responses needed to join a media sessions\.
 
-The The SDK also depends on the Browser or Electron application to provide the Device Management APIs and the WebRTC implementation for an audio video session\.
+The SDK also depends on the Browser or Electron application to provide the Device Management APIs and the WebRTC implementation for an audio video session\.
 
 The source Amazon Chime SDK for JavaScript is in TypeScript but you can use the TypeScript compiler to compile it to Javascript, and then bundle it using a module bundler such as Webpack\. As a best practice, install the Amazon Chime SDK for JavaScript from the NPM registry and use it in a CommonJS environment\. We have also included a Rollup script to bundle the Chime SDK into a minified JS file for you in case you want to directly include it as a [script tag in your html file](https://github.com/aws/amazon-chime-sdk-js/tree/master/demos/singlejs)\. 
