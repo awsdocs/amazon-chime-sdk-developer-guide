@@ -72,7 +72,7 @@ aws chime send-channel-message \
 The following CLI command lists channel messages in reverse chronological order\.
 
 ```
-aws2 chime list-channel-messages \
+aws chime list-channel-messages \
     --chime-bearer "APP_INSTANCE_USER_ARN" \
     --channel-arn "CHANNEL_ARN"
 ```
