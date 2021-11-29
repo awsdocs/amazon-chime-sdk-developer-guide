@@ -18,6 +18,12 @@ Content-type: application/json
             "[VocabularyFilterName](https://docs.aws.amazon.com/transcribe/latest/dg/API_streaming_StartStreamTranscription.html#API_streaming_StartStreamTranscription_RequestSyntax)": "profanity",
             "[VocabularyName](https://docs.aws.amazon.com/transcribe/latest/dg/API_streaming_StartStreamTranscription.html#API_streaming_StartStreamTranscription_RequestSyntax)": "lingo",
             "Region": "us-east-1"
+            "[EnablePartialResultsStabilization](https://docs.aws.amazon.com/transcribe/latest/dg/API_streaming_StartStreamTranscription.html#API_streaming_StartStreamTranscription_RequestSyntax)": true,  
+            "[PartialResultsStability](https://docs.aws.amazon.com/transcribe/latest/dg/API_streaming_StartStreamTranscription.html#API_streaming_StartStreamTranscription_RequestSyntax)": "high",  
+            "[ContentIdentificationType](https://docs.aws.amazon.com/transcribe/latest/dg/API_streaming_StartStreamTranscription.html#API_streaming_StartStreamTranscription_RequestSyntax)": "PII",  
+            "[ContentRedactionType](https://docs.aws.amazon.com/transcribe/latest/dg/API_streaming_StartStreamTranscription.html#API_streaming_StartStreamTranscription_RequestSyntax)": "PII",  
+            "[PiiEntityTypes](https://docs.aws.amazon.com/transcribe/latest/dg/API_streaming_StartStreamTranscription.html#API_streaming_StartStreamTranscription_RequestSyntax)": "ALL",  
+            "[LanguageModelName](https://docs.aws.amazon.com/transcribe/latest/dg/API_streaming_StartStreamTranscription.html#API_streaming_StartStreamTranscription_RequestSyntax)": "language-model"
         }
     }
 }
@@ -31,11 +37,12 @@ Content-type: application/json
 {  
     "TranscriptionConfiguration": {
         "EngineTranscribeMedicalSettings": {
-            "[LanguageCode](https://docs.aws.amazon.com/transcribe/latest/dg/API_streaming_StartStreamTranscription.html#API_streaming_StartStreamTranscription_ResponseSyntax)": "en-US",
-            "[Specialty](https://docs.aws.amazon.com/transcribe/latest/dg/API_streaming_StartStreamTranscription.html#API_streaming_StartStreamTranscription_RequestSyntax)": "PRIMARYCARE",
-            "[Type](https://docs.aws.amazon.com/transcribe/latest/dg/API_streaming_StartStreamTranscription.html#API_streaming_StartStreamTranscription_RequestSyntax)": "CONVERSATION",
-            "[VocabularyName](https://docs.aws.amazon.com/transcribe/latest/dg/API_streaming_StartStreamTranscription.html#API_streaming_StartStreamTranscription_RequestSyntax)": "lingo",
-            "Region": "us-east-1"
+            "[LanguageCode](https://docs.aws.amazon.com/transcribe/latest/dg/API_streaming_StartMedicalStreamTranscription.html)": "en-US",
+            "[Specialty](https://docs.aws.amazon.com/transcribe/latest/dg/API_streaming_StartMedicalStreamTranscription.html)": "PRIMARYCARE",
+            "[Type](https://docs.aws.amazon.com/transcribe/latest/dg/API_streaming_StartMedicalStreamTranscription.html)": "CONVERSATION",
+            "[VocabularyName](https://docs.aws.amazon.com/transcribe/latest/dg/API_streaming_StartMedicalStreamTranscription.html)": "lingo",
+            "Region": "us-east-1",
+           "[ContentIdentificationType](https://docs.aws.amazon.com/transcribe/latest/dg/API_streaming_StartMedicalStreamTranscription.html)": "PHI", 
         }
    }
 }
@@ -50,14 +57,21 @@ Content-type: application/json
 *VocabularyFilterMethod* – Optional\.  
 *VocabularyFilterName* – Optional\.  
 *VocabularyName* – Optional\.  
-*Region* – Optional\.
+*Region* – Optional\.  
+*EnablePartialResultsStabilization* – Optional\.  
+*PartialResultsStability* – Optional\.  
+* ContentIdentificationType* – Optional\.  
+*ContentRedactionType* – Optional\.  
+*PiiEntityTypes * – Optional\.  
+*LanguageModelName* – Optional\.
 
 **EngineTranscribeMedicalSettings** – Specifies the use of Amazon Transcribe Medical and passes its settings through to [ Amazon Transcribe Medical](https://docs.aws.amazon.com/transcribe/latest/dg/API_streaming_StartMedicalStreamTranscription.html#API_streaming_StartMedicalStreamTranscription_RequestParameters)\.   
 *LanguageCode* – Required\.  
 *Speciality* – Required\.  
 *Type* – Required\.  
 *VocabularyName* – Optional\.  
-*Region* – Optional\.
+*Region* – Optional\.  
+* ContentIdentificationType* – Optional\.
 
 **Responses**  
 Amazon Transcribe and Amazon Transcribe Medical take the following responses:

@@ -3,6 +3,7 @@
 You can specify different types of signaling and media actions in a response from a Lambda function\. Each action has different properties\. The following topics provide example code and explain how to use the actions\.
 
 **Topics**
++ [Using call recording](sip-apps-call-record.md)
 + [CallAndBridge](call-and-bridge.md)
 + [Hangup](hangup.md)
 + [JoinChimeMeeting](join-chime-meeting.md)

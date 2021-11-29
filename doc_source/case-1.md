@@ -1,5 +1,14 @@
 # Receiving an inbound call<a name="case-1"></a>
 
+When a `NEW_INCOMING_CALL` event occurs, the PSTN Audio service creates a unique `TransactionID` and unique `CallID` that persist until the `HANGUP` event occurs\.
+
+You can respond in several ways to a `NEW_INCOMING_CALL` event\. For example:
++ Send `PlayAudio` or `RecordAudio` actions and automatically answer the call\.
++ Send a `Pause` action\.
++ Send a `Hangup` action, in which case the call isn’t answered and the customer isn’t charged\.
++ Send a `CallAndBridge` action and add another user to the call\.
++ Do nothing, the call attempt times out after 30 seconds\.
+
 When a new inbound call is received, the SIP media application invokes a Lambda function with this payload\.
 
 ```

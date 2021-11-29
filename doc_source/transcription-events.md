@@ -1,37 +1,159 @@
 # Transcription events<a name="transcription-events"></a>
 
-Whenever the status of transcription in a meeting changes, EventBridge and Amazon SNS emit one of the following events to every connected client:
+Amazon Chime SDK sends transcription lifecycle events, which you can use to trigger notifications and initiate downstream workflows\. Some examples of using transcription events include:
++ Measuring the adoption of live transcription in Amazon Chime SDK meetings
++ Tracking language preferences
 
-1. `TranscriptionStarted` – a `TranscriptionConfiguration` is applied to a meeting, or updated\.
+You can send events to Amazon EventBridge, Amazon Simple Notification Service \(SNS\), and Amazon Simple Queue Service \(SQS\)\. When sending events to Amazon EventBridge, The Amazon Chime SDK uses *best effort delivery*, meaning the SDK tries to send all events to EventBridge, but in rare cases an event might not be delivered\. For more information, refer to [Events from AWS services](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html) in the *Amazon EventBridge User Guide*\.
 
-1. `TranscriptionStopped` – a `TranscriptionConfiguration` is removed from a meeting\.
+## Amazon Chime SDK meeting transcription started<a name="transcript-start"></a>
 
-1. `TranscriptionInterrupted` – connectivity to Amazon Transcribe or Amazon Transcribe Medical has been temporarily interrupted\.
+The Amazon Chime SDK sends this event when meeting transcription is started or the [TranscriptionConfiguration](https://docs.aws.amazon.com/chime/latest/APIReference/API_TranscriptionConfiguration.html) is updated\. 
 
-1. `TranscriptionResumed` – connectivity to Amazon Transcribe or Amazon Transcribe Medical was restored after a temporary interruption\.
-
-1. `TranscriptionFailed` – connectivity Amazon Transcribe or Amazon Transcribe Medical has failed and cannot be resumed\.
-
-`TranscriptionInterrupted` and `TranscriptionFailed` include a reason for the interruption or failure\. This example shows the schema for a `TranscriptionInterrupted` event:
+**Example: Event data**  
+The following is example data for this event\.
 
 ```
 {
-    "version": "0",
-    "source": "aws.chime",
-    "account": "111122223333",
-    "id": "12345678-1234-1234-1234-111122223333",
-    "region": "us-east-1",
-    "detail-type": "Meeting State Change",
-    "time": "yyyy-mm-ddThh:mm:ssZ",
-    "resources": [],
+    "version": "0", 
+    "source": "aws.chime", 
+    "account": "111122223333", 
+    "id": "12345678-1234-1234-1234-111122223333", 
+    "region": "us-east-1", 
+    "detail-type": "Chime Meeting State Change", 
+    "time": "yyyy-mm-ddThh:mm:ssZ", 
+    "resources": []
     "detail": {
-        "version": "0",
-        "eventType": "chime:TranscriptionInterrupted",
-        "eventTime": 12344566754,
+        "version": "0", 
+        "eventType": "chime:TranscriptionStarted",
+        "timestamp": 12344566754,
         "meetingId": "87654321-4321-4321-1234-111122223333",
+        "externalMeetingId": "mymeeting",
+        "mediaRegion": "us-west-1",
+        "transcriptionRegion": "us-west-2",
+        "transcriptionConfiguration (https://docs.aws.amazon.com/chime/latest/APIReference/API_TranscriptionConfiguration.html)": "{...}"
+    }
+}
+```
+
+## Amazon Chime SDK meeting transcription stopped<a name="transcript-stop"></a>
+
+The Amazon Chime SDK sends this event when meeting transcription is stopped\.
+
+**Example: Event data**  
+The following is example data for this event\.
+
+```
+{
+    "version": "0", 
+    "source": "aws.chime", 
+    "account": "111122223333", 
+    "id": "12345678-1234-1234-1234-111122223333", 
+    "region": "us-east-1", 
+    "detail-type": "Chime Meeting State Change", 
+    "time": "yyyy-mm-ddThh:mm:ssZ", 
+    "resources": []
+    "detail": {
+        "version": "0", 
+        "eventType": "chime:TranscriptionStarted",
+        "timestamp": 12344566754,
+        "meetingId": "87654321-4321-4321-1234-111122223333",
+        "externalMeetingId": "mymeeting",
+        "mediaRegion": "us-west-1",
+        "transcriptionRegion": "us-west-2",
+        "transcriptionConfiguration (https://docs.aws.amazon.com/chime/latest/APIReference/API_TranscriptionConfiguration.html)": "{...}"
+    }
+}
+```
+
+## Amazon Chime SDK meeting transcription interrupted<a name="transcript-interrupted"></a>
+
+The Amazon Chime SDK sends this event if meeting transcription is interrupted\.
+
+**Example: Event data**  
+The following is example data for this event\.
+
+```
+{
+    "version": "0", 
+    "source": "aws.chime", 
+    "account": "111122223333", 
+    "id": "12345678-1234-1234-1234-111122223333", 
+    "region": "us-east-1", 
+    "detail-type": "Chime Meeting State Change", 
+    "time": "yyyy-mm-ddThh:mm:ssZ", 
+    "resources": []
+    "detail": {
+        "version": "0", 
+        "eventType": "chime:TranscriptionStarted",
+        "timestamp": 12344566754,
+        "meetingId": "87654321-4321-4321-1234-111122223333",
+        "externalMeetingId": "mymeeting",
         "message": "Internal server error",
-        "transcriptionRegion": "us-east-1",
-        "transcriptionConfig" : "{...}",
+        "mediaRegion": "us-west-1",
+        "transcriptionRegion": "us-west-2",
+        "transcriptionConfiguration (https://docs.aws.amazon.com/chime/latest/APIReference/API_TranscriptionConfiguration.html)": "{...}"
+    }
+}
+```
+
+## Amazon Chime SDK meeting transcription resumed<a name="transcript-resumed"></a>
+
+The Amazon Chime SDK sends this event if meeting transcription is resumed after an interruption\.
+
+**Example: Event data**  
+The following is example data for this event\.
+
+```
+{
+    "version": "0", 
+    "source": "aws.chime", 
+    "account": "111122223333", 
+    "id": "12345678-1234-1234-1234-111122223333", 
+    "region": "us-east-1", 
+    "detail-type": "Chime Meeting State Change", 
+    "time": "yyyy-mm-ddThh:mm:ssZ", 
+    "resources": []
+    "detail": {
+        "version": "0", 
+        "eventType": "chime:TranscriptionStarted",
+        "timestamp": 12344566754,
+        "meetingId": "87654321-4321-4321-1234-111122223333",
+        "externalMeetingId": "mymeeting",
+        "mediaRegion": "us-west-1",
+        "transcriptionRegion": "us-west-2",
+        "transcriptionConfiguration (https://docs.aws.amazon.com/chime/latest/APIReference/API_TranscriptionConfiguration.html)": "{...}"
+    }
+}
+```
+
+## Amazon Chime SDK meeting transcription failed<a name="transcript-failed"></a>
+
+The Amazon Chime SDK sends this event if meeting transcription failed to start, or failed to resume after an interruption\.
+
+**Example: Event data**  
+The following is example data for this event\.
+
+```
+{
+    "version": "0", 
+    "source": "aws.chime", 
+    "account": "111122223333", 
+    "id": "12345678-1234-1234-1234-111122223333", 
+    "region": "us-east-1", 
+    "detail-type": "Chime Meeting State Change", 
+    "time": "yyyy-mm-ddThh:mm:ssZ", 
+    "resources": []
+    "detail": {
+        "version": "0", 
+        "eventType": "chime:TranscriptionStarted",
+        "timestamp": 12344566754,
+        "meetingId": "87654321-4321-4321-1234-111122223333",
+        "externalMeetingId": "mymeeting",
+        "message": "Internal server error",
+        "mediaRegion": "us-west-1",
+        "transcriptionRegion": "us-west-2",
+        "transcriptionConfiguration (https://docs.aws.amazon.com/chime/latest/APIReference/API_TranscriptionConfiguration.html)": "{...}"
     }
 }
 ```

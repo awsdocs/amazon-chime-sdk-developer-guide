@@ -1,14 +1,14 @@
 # Creating Meetings<a name="create-mtgs"></a>
 
-The following procedure demonstrates how to create a meeting with audio and video for your server and client applications\. Before you begin, you must integrate your client application with an Amazon Chime SDK client library\. For more information, see [Integrating with a client library](mtgs-sdk-client-lib.md)\.
+The following procedure demonstrates how to create a meeting with audio and video for your server and client applications\. Before you begin, you must integrate your client application with an Amazon Chime SDK client library\. For more information, refer to [Integrating with a client library](mtgs-sdk-client-lib.md)\.
 
 **To create a meeting with audio and video**
 
 1. Complete the following steps from your server application:
 
-   1. Use the [CreateMeeting](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateMeeting.html) API action in the *Amazon Chime API Reference* to create a meeting\. Optionally, specify an AWS Region using the `MediaRegion` parameter\. For more information about choosing a media Region, see [Specifying an Amazon Chime SDK media Region](chime-sdk-meetings-regions.md)\.
+   1. Use the [CreateMeeting](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateMeeting.html) API action in the *Amazon Chime API Reference* to create a meeting\. Specify an AWS Region using the `MediaRegion` parameter\. For more information about choosing a meeting Region, refer to [Meeting Regions](sdk-available-regions.md#sdk-meeting-regions)\.
 
-   1. Add attendees to the meeting using the [CreateAttendee](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateAttendee.html) API action or the [BatchCreateAttendee](https://docs.aws.amazon.com/chime/latest/APIReference/API_BatchCreateAttendee.html) API action\. Securely transfer the meeting and attendee from your server application to the client authorized as the respective attendee\. For more information about meetings and attendees, see [Meeting](https://docs.aws.amazon.com/chime/latest/APIReference/API_Meeting.html) and [Attendee](https://docs.aws.amazon.com/chime/latest/APIReference/API_Attendee.html) in the *Amazon Chime API Reference*\.
+   1. Add attendees to the meeting using the [CreateAttendee](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateAttendee.html) API action or the [BatchCreateAttendee](https://docs.aws.amazon.com/chime/latest/APIReference/API_BatchCreateAttendee.html) API action\. Securely transfer the meeting and attendee from your server application to the client authorized as the respective attendee\. For more information about meetings and attendees, refer to [Meeting](https://docs.aws.amazon.com/chime/latest/APIReference/API_Meeting.html) and [Attendee](https://docs.aws.amazon.com/chime/latest/APIReference/API_Attendee.html) in the *Amazon Chime API Reference*\.
 
 1. Complete the following steps from your client application:
 

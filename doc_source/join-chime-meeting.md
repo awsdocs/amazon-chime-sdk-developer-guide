@@ -12,6 +12,7 @@ You can't run this action on a bridged call\.
         "JoinToken": "meeting-attendee-join-token",
         "CallId": "call-id-1"
         "ParticipantTag": "LEG-A"
+        "MeetingId": "meeting-id"
     }
 }
 ```
@@ -33,6 +34,12 @@ You can't run this action on a bridged call\.
 *Allowed values* – `LEG-A`  
 *Required* – No  
 *Default value* – `ParticipantTag` of the invoked `callLeg` Ignored if you specify `CallId`
+
+**MeetingId**  
+*Description* – A valid Amazon Chime SDK meeting ID associated with the `JoinToken`\. If the meeting was created using an API in the [Amazon Chime](https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime.html) namespace, the meeting ID is not required\. If the meeting was created using an API in the [Amazon Chime SDK Meetings](https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Meetings.html) namespace, the meeting ID is required\. The meeting is joined using the API endpoint used to create the meeting\.  
+*Allowed values* – A valid meeting ID\.  
+*Required* – No\.  
+*Default value* – None\.
 
 The SIP media application always invokes a Lambda function after running this action\. It returns either the `ACTION_SUCCESSFUL` or `ACTION_FAILED` invocation event types\. The following example shows a successful invocation event structure\.
 

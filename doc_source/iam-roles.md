@@ -34,6 +34,13 @@ This example shows a policy for developers building applications using Amazon Ch
                 "chime:TagResource",
                 "chime:UntagResource",
                 "chime:ListTagsForResource"
+                "chime:CreateChannelFlow",
+                "chime:UpdateChannelFlow",
+                "chime:DescribeChannelFlow",
+                "chime:DeleteChannelFlow",
+                "chime:ListChannelFlows",
+                "chime:ListChannelsAssociatedWithChannelFlow",
+                "chime:ChannelFlowCallback",
             ],
             "Effect": "Allow",
             "Resource": "*"
@@ -84,6 +91,9 @@ This example shows a policy that allows users to access the Amazon Chime SDK use
                 "chime:ListChannelBans",
                 "chime:DescribeChannelBan",
                 "chime:Connect"
+                "chime:AssociateChannelFlow",
+                "chime:DisassociateChannelFlow",
+                "chime:GetChannelMessageStatus"
             ],
             "Effect": "Allow",
             "Resource": [

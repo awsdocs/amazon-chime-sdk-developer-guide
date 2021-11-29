@@ -1,16 +1,20 @@
-# Using SIP media applications with AWS Lambda functions<a name="build-lambdas-for-sip-sdk"></a>
-
-This section of the Amazon Chime SDK explains how to use Amazon Chime SIP rules and SIP media applications with AWS Lambda functions\. Developers can use SIP media applications as part of building telephony applications\. For example, you can create interactive voice response systems for dialing into and out of Amazon Chime SDK meetings\.
-
-Your Lambda functions control the behavior of phone calls, such as playing voice prompts, collecting digits, and routing calls\. You can specify different signaling and media actions for each call\. The following topics provide overview and architectural information about SIP media applications and Lambda functions, including an end\-to\-end use case that you can use to start building an Amazon Chime application\.
+# Using the Amazon Chime SDK PSTN Audio Service<a name="build-lambdas-for-sip-sdk"></a>
 
 **Note**  
-The topics in this section assume that you use Lambda\. For more information about Lambda, see [Getting started with AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html)\. Also, to use this section of the Amazon Chime SDK successfully, an Amazon Chime administrator must create at least one SIP rule and one SIP media application\. For more information about completing those tasks, see [Managing SIP media applications](https://docs.aws.amazon.com/chime/latest/ag/manage-sip-applications.html) in the *Amazon Chime Administrator Guide*\.
+This section describes the Chime SDK PSTN Audio Service, which was previously referred to as “SIP Media Applications \(SMA\)” in prior versions of the documentation and some blog posts\. Going forward, when we refer to “SIP Media Applications,” we are referring to the configuration items in the Amazon Chime console and the AWS SDK that are associated with the PSTN Audio Service\.
+
+This section explains how to use the Amazon Chime SDK Public Switched Telephone Network \(PSTN\) Audio service\. With the PSTN Audio Service, developers can build custom telephony applications using the agility and operational simplicity of a serverless AWS Lambda function\. 
+
+Your Lambda functions control the behavior of phone calls, such as playing voice prompts, collecting digits, recording calls, routing calls to the PSTN and Session Initiation Protocol \(SIP\) devices using Amazon Chime Voice Connector\. The following topics provide an overview and architectural information about the PSTN Audio Service, including how to build Lambda functions to control calls\. 
+
+**Note**  
+The topics in this section assume that you understand the AWS Lambda service\. For more information about Lambda, see [Getting started with AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html)\. Also, to use this section of the Amazon Chime SDK successfully, an Amazon Chime administrator must create at least one SIP rule and one SIP media application\. For more information about completing those tasks, see [Managing SIP media applications](https://docs.aws.amazon.com/chime/latest/ag/manage-sip-applications.html) in the *Amazon Chime Administrator Guide*\.
 
 **Topics**
-+ [Understanding SIP rules, SIP media applications, and Lambda functions](using-lambda.md)
++ [Understanding phone numbers, SIP rules, SIP media applications, and Lambda functions](using-lambda.md)
++ [Understanding the PSTN Audio Service programming model](pstn-model.md)
++ [Routing calls and events to Lambda functions](route-calls-events.md)
++ [About using PSTN Audio Service call legs](call-architecture.md)
 + [Sample call flow](call-flow.md)
-+ [Call flow from SIP rule to Lambda function](add-invocation-rules.md)
-+ [About using SIP media application call legs](call-architecture.md)
 + [End\-to\-end use case](use-cases.md)
-+ [Building the Lambda functions for SIP media applications](writing-Lambdas.md)
++ [Building Lambda functions for the PSTN Audio Service](writing-Lambdas.md)

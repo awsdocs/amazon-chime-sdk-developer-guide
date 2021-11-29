@@ -13,15 +13,15 @@ The following examples show typical CLI commands for retention:
 
 **Enabling**
 
-`aws chime put-app-instance-retention-settings —app-instance-arn {appInstanceArn} --app-instance-retention-settings ChannelRetentionSettings={RetentionDays=60}`
+`aws chime-sdk-identity put-app-instance-retention-settings --app-instance-arn {appInstanceArn} --app-instance-retention-settings ChannelRetentionSettings={RetentionDays=60}`
 
 **Updating**
 
-`aws chime put-app-instance-retention-settings —app-instance-arn {appInstanceArn} --app-instance-retention-settings ChannelRetentionSettings={RetentionDays=30}`
+`aws chime-sdk-identity put-app-instance-retention-settings --app-instance-arn {appInstanceArn} --app-instance-retention-settings ChannelRetentionSettings={RetentionDays=30}`
 
 **Disabling**
 
-`aws chime put-app-instance-retention-settings —app-instance-arn {appInstanceArn} --app-instance-retention-settings ChannelRetentionSettings={}`
+`aws chime-sdk-identity put-app-instance-retention-settings --app-instance-arn {appInstanceArn} --app-instance-retention-settings ChannelRetentionSettings={}`
 
 ## Enabling message retention<a name="enable-retention"></a>
 
