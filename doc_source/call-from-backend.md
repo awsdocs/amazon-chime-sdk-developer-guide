@@ -72,6 +72,9 @@ aws chime-sdk-messaging send-channel-message \
 The following CLI command lists channel messages in reverse chronological order\.
 
 ```
+
+aws chime list-channel-messages \
+--OR--
 aws chime-sdk-messaging list-channel-messages \
     --chime-bearer "APP_INSTANCE_USER_ARN" \
     --channel-arn "CHANNEL_ARN"
