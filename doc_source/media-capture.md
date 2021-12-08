@@ -1,6 +1,6 @@
 # Creating Amazon Chime media capture pipelines<a name="media-capture"></a>
 
-You create media capture pipelines when you need to save audio and video artifacts, events, and data messages from Amazon Chime SDK meetings\. Currently, only Amazon Chime SDK meetings support media capture pipelines, and you must use an Amazon S3 bucket as a sink for the capture\. Also, before you begin, you must integrate your client application with the AWS SDK client library\. For more information, see [ Integrating with a client library](https://docs.aws.amazon.com/chime/latest/dg/mtgs-sdk-client-lib.html)\.
+You create media capture pipelines when you need to save audio and video artifacts, events, and data messages from Amazon Chime SDK meetings\. Currently, only Amazon Chime SDK meetings support media capture pipelines, and you must use an Amazon S3 bucket as a sink for the capture\. Also, before you begin, you must integrate your client application with the AWS SDK client library\. For more information, see [ Integrating with a client library](https://docs.aws.amazon.com/chime/latest/dg/mtgs-sdk-client-lib.html)\. For more information about media capture pipelines, see [http://aws.amazon.com/blogs/business-productivity/capture-amazon-chime-sdk-meetings-using-media-capture-pipelines/](http://aws.amazon.com/blogs/business-productivity/capture-amazon-chime-sdk-meetings-using-media-capture-pipelines/)
 
 **Important**  
 You and your end users understand that recording Amazon Chime SDK meetings with this feature may be subject to laws or regulations regarding the recording of electronic communications\. It is your and your end users’ responsibility to comply with all applicable laws regarding the recordings, including properly notifying all participants in a recorded session that the session or communication is being recorded, and obtain their consent\. 
@@ -8,3 +8,4 @@ You and your end users understand that recording Amazon Chime SDK meetings with 
 **Topics**
 + [Pipeline creation overview](create-pipeline.md)
 + [Creating an S3 bucket](create-s3-bucket.md)
++ [Media pipeline events](media-capture-events.md)

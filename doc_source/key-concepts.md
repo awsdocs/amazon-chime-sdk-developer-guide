@@ -1,6 +1,6 @@
 # Key concepts<a name="key-concepts"></a>
 
-To fully understand how to create and manage meetings and users, you need to understand these concepts:
+To fully understand how to create and manage Amazon Chime SDK meetings and users, you need to understand these concepts:
 
  ** [Meeting](https://docs.aws.amazon.com/chime/latest/APIReference/API_Meeting.html)** – A multi\-party media session\. Every meeting has a unique meeting identifier, and you create meetings in one of the supported AWS regions\. When you create a meeting, the APIs return a list of media URLs\. That's a key part of the data needed to join a meeting, and you need to disseminate that data to all users trying to join the meeting\.
 

@@ -8,7 +8,7 @@ Pause a call for a specified time\.
     "Parameters": {
         "CallId": "call-id-1",
         "ParticipantTag": "LEG-A",
-        "DurationInMilliSeconds": "3000"
+        "DurationInMilliseconds": "3000"
     }
 }
 ```
@@ -25,7 +25,7 @@ Pause a call for a specified time\.
 *Required* – No  
 *Default value* – `ParticipantTag` of the invoked `callLeg` Ignored if you specify `CallId`
 
-**DurationInMilliSeconds**  
+**DurationInMilliseconds**  
 *Description* – Duration of the pause, in milliseconds  
 *Allowed values* – An integer >0  
 *Required* – Yes  

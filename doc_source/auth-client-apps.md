@@ -1,12 +1,16 @@
-# Connecting to your identity provider<a name="connect-id-provider"></a>
+# Authenticating end\-user client applications<a name="auth-client-apps"></a>
 
-Amazon Chime SDK messaging integrates natively with AWS Identity and Access Management \(IAM\) policies to authenticate incoming requests\. The IAM policy defines what an individual user can do\. IAM policies can be crafted to provide scoped\-down limited credentials for your use case\. For more information on creating policies for Amazon Chime SDK messaging users, see [Defining IAM roles and policies for AppInstance users](iam-roles.md)\.
+You can also run Amazon Chime SDK messaging from end\-user client applications\. [Making SDK calls from a backend service](call-from-backend.md) explains how to make API calls such as create\-channel, send\-channel\-message, and list\-channel\-messages\. End user client applications such as browsers and mobile applications make these same API calls\. Client applications can also connect via WebSocket to receive real time updates on messages and events to channels they are members of\. This section covers how to give IAM credentials to a client application scoped to a specific app instance user\. Once the end users have these credentials, they can make the API calls shown in [Making SDK calls from a backend service](call-from-backend.md)\. To see a full demo of a client application, see [ https://github\.com/aws\-samples/amazon\-chime\-sdk/tree/main/apps/chat](https://github.com/aws-samples/amazon-chime-sdk/tree/main/apps/chat)\. For more information about receiving realtime messages from the channels that a client app belongs to, see [Using websockets to receive messages](websockets.md)\.
+
+## Providing IAM credentials to end users<a name="connect-id-provider"></a>
+
+Amazon Chime SDK messaging integrates natively with AWS Identity and Access Management \(IAM\) policies to authenticate incoming requests\. The IAM policy defines what an individual user can do\. IAM policies can be crafted to provide scoped\-down limited credentials for your use case\. For more information on creating policies for Amazon Chime SDK messaging users, see [Example IAM roles](iam-roles.md)\.
 
 If you have an existing identity provider, you have the following options for integrating your existing identity with Amazon Chime SDK messaging\.
-+ You can use your existing identity provider to authenticate users and then integrate the authentication service with AWS STS to create your own credential vending service for clients\. The AWS Security Token Service \(STS\) provides APIs to assume IAM Roles\. 
-+ If you already have a SAML or OpenID compatible identity provider, Amazon Chime recommends using Amazon [Cognito Identity Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/identity-pools.html), which abstract away calls to AWS STS [AssumeRoleWithSAML](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithSAML.html) and [AssumeRoleWithWebIdentity](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html), respectively\. Amazon Cognito integrates with OpenID, SAML, and public identity providers such as Facebook, Login with Amazon, Google, and Sign in with Apple\.
++ You can use your existing identity provider to authenticate users and then integrate the authentication service with AWS Security Token Service \(STS\) to create your own credential vending service for clients\. STS provides APIs for assuming IAM Roles\.
++ If you already have a SAML or OpenID compatible identity provider, Amazon Chime recommends using Amazon [Cognito Identity Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/identity-pools.html), which abstract away calls to AWS STS [AssumeRoleWithSAML](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithSAML.html) and [AssumeRoleWithWebIdentity](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html)\. Amazon Cognito integrates with OpenID, SAML, and public identity providers such as Facebook, Login with Amazon, Google, and Sign in with Apple\.
 
-If you do not have an identity provider, you can get started quickly with Amazon Cognito User Pools\. For an example of how to use Amazon Cognito with the Amazon Chime SDK messaging features, see [ Build chat features into your application with Amazon Chime SDK messaging](http://aws.amazon.com/blogs/business-productivity/build-chat-features-into-your-application-with-amazon-chime-sdk-messaging/)\. 
+If you do not have an identity provider, you can get started with Amazon Cognito User Pools\. For an example of how to use Amazon Cognito with the Amazon Chime SDK messaging features, see [ Build chat features into your application with Amazon Chime SDK messaging](http://aws.amazon.com/blogs/business-productivity/build-chat-features-into-your-application-with-amazon-chime-sdk-messaging/)\. 
 
 Alternately, you can use the [AWS STS](https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html) to create your own credential vending service or build your own identity provider\.
 
@@ -50,6 +54,9 @@ The IAM Role would have permissions to the Chime Messaging SDK action your appli
                 "chime:CreateChannelBan",
                 "chime:DeleteChannelBan",
                 "chime:ListChannelMembershipsForAppInstanceUser"
+                "chime:AssociateChannelFlow",
+                "chime:DisassociateChannelFlow",
+                "chime:GetChannelMessageStatus"
             ],
             "Resource": [
                 "{Chime_App_Instance_Arn}/user/${my_applications_user_id}",
@@ -73,7 +80,7 @@ The [ AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_Assume
          {
             "Effect": "Allow",
             "Action": "sts:AssumeRole",
-            "Resource": "arn:aws:iam::<MY_AWS_ACCOUNT_ID>:role/ChimeMessagingSampleAppUserRole"
+            "Resource": "arn:aws:iam::MY_AWS_ACCOUNT_ID:role/ChimeMessagingSampleAppUserRole"
         }
     ]
 }
@@ -90,7 +97,7 @@ You need to set up the *ChimeMessagingSampleAppUserRole* with a trust policy tha
          {
             "Effect": "Allow",
             "Principal": {
-               "AWS":"arn:aws:iam::<MY_AWS_ACCOUNT_ID>:role/ChimeMessagingSampleAppServerRole"
+               "AWS":"arn:aws:iam::MY_AWS_ACCOUNT_ID:role/ChimeMessagingSampleAppServerRole"
             }
             "Action": "sts:AssumeRole"
         }
@@ -102,10 +109,10 @@ You need to set up the *ChimeMessagingSampleAppUserRole* with a trust policy tha
 
 1. Performs any application specific authorization on a client's requests to receive credentials\.
 
-1. Calls STS `AssumeRole` on `ChimeMessagingSampleAppUserRole`, with a tag parameterizing the `${my_applications_user_guid}`\.
+1. Calls STS `AssumeRole` on `ChimeMessagingSampleAppUserRole`, with a tag parameterizing the `${aws:PrincipalTag/my_applications_user_id}`\.
 
 1. Forwards the credentials returned in the `AssumeRole` call to the user\.
 
 The following example shows CLI command for assuming a role for step 2:
 
-` aws sts assume-role --role-arn arn:aws:iam::<MY_AWS_ACCOUNT_ID>:role/ChimeMessagingSampleAppUserRole --role-session-name demo --tags Key=my_applications_user_guid,Value=123456789 ` 
+`AWS sts assume-role --role-arn arn:aws:iam::MY_AWS_ACCOUNT_ID:role/ChimeMessagingSampleAppUserRole --role-session-name demo --tags Key=my_applications_user_id,Value=123456789 ` 

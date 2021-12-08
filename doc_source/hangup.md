@@ -14,7 +14,7 @@ Sends a `Hangup` value with a `SipStatusCode` to any leg of a call\. See the fol
 ```
 
 **CallId**  
-*Description* – `CallId` of participant in the `CallDetails` of the Lambda function invocation of the Lambda function invocation  
+*Description* – `CallId` of participant in the `CallDetails` of the Lambda function invocation  
 *Allowed values* – A valid call ID  
 *Required* – No  
 *Default value* – None

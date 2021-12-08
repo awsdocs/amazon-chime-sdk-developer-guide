@@ -26,36 +26,36 @@ This action only applies to the callLeg that joins from the SIP media applicatio
 ```
 
 **Operation**  
-**Description** – The operation to perform on the list of attendees  
-**Allowed values** – Mute, Unmute  
-**Required** – Yes  
-**Default value** – None
+*Description* – The operation to perform on the list of attendees  
+*Allowed values* – Mute, Unmute  
+*Required* – Yes  
+*Default value* – None
 
 **MeetingId**  
-**Description** – The ID of the meeting to which the attendees belong  
-**Allowed values** – A valid meeting ID\. The person muting or unmuting must also belong to the meeting\.  
-**Required** – Yes  
-**Default value** – None
+*Description* – The ID of the meeting to which the attendees belong  
+*Allowed values* – A valid meeting ID\. The person muting or unmuting must also belong to the meeting\.  
+*Required* – Yes  
+*Default value* – None
 
 **CallId**  
-**Description** – The ID of the meeting to which the attendees belong  
-**Allowed values** – A valid call ID\.  
-**Required** – No  
-**Default value** – None
+*Description* – The ID of the meeting to which the attendees belong  
+*Allowed values* – A valid call ID\.  
+*Required* – No  
+*Default value* – None
 
 **ParticipantTag**  
-**Description** – The tag assigned to the attendee\.  
-**Allowed values** – A valid tag\.  
-**Required** – No  
-**Default value** – None
+*Description* – The tag assigned to the attendee\.  
+*Allowed values* – A valid tag\.  
+*Required* – No  
+*Default value* – None
 
 **AttendeeList**  
-**Description** – List of attendee IDs to mute or unmute  
-**Allowed values** – A list of valid attendee IDs  
-**Required** – Yes  
-**Default value** – None
+*Description* – List of attendee IDs to mute or unmute  
+*Allowed values* – A list of valid attendee IDs  
+*Required* – Yes  
+*Default value* – None
 
-After running this action, SIP media applications always invoke a Lambda function with the `ACTION_SUCCESSFUL` or `ACTION_FAILED` invocation event type\. The following example code shows a typical `ACTION_SUCCESSFUL` invocation event\.
+After running this action, PSTN Audio Service always invoke a Lambda function with the `ACTION_SUCCESSFUL` or `ACTION_FAILED` invocation event type\. The following example code shows a typical `ACTION_SUCCESSFUL` invocation event\.
 
 ```
 {
