@@ -36,36 +36,36 @@ In this example, an attendee says, "The quick brown fox jumps over the lazy dog\
 {
     transcript: {
         results: [{
-            resultId:"1",                                isPartial: true,
-            startTimeMs: 1620118800000,                endTimeMs: 1620118801000,
+            resultId:"1",                               isPartial: true,
+            startTimeMs: 1620118800000,                 endTimeMs: 1620118801000,
             alternatives: [{
                 items:[{
                     type:        'pronunciation',
-                    startTimeMs: 1620118800000,    endTimeMs: 1620118800200,
-                    attendee: { attendeeId: "1",     externalUserId: "A"},
-                    content: "the",                  vocabularyFilterMatch: false
+                    startTimeMs: 1620118800000,         endTimeMs: 1620118800200,
+                    attendee: { attendeeId: "1",        externalUserId: "A"},
+                    content: "the",                     vocabularyFilterMatch: false
                 },
                 {
                     type:        'pronunciation',
-                    startTimeMs: 1620118800200,        endTimeMs: 1620118800400,
+                    startTimeMs: 1620118800200,          endTimeMs: 1620118800400,
                     attendee: { attendeeId: "1",         externalUserId: "A" },
                     content:"quick",                     vocabularyFilterMatch: false
                 },
                 {
                     type:'pronunciation',
-                    startTimeMs: 1620118800400,        endTimeMs: 1620118800750,
+                    startTimeMs: 1620118800400,          endTimeMs: 1620118800750,
                     attendee: { attendeeId: "1",         externalUserId: "A" },
                     content:"brown",                     vocabularyFilterMatch: false
                 },
                 {
                     type:'pronunciation',
-                    startTimeMs: 1620118800750,        endTimeMs: 1620118801000,
+                    startTimeMs: 1620118800750,          endTimeMs: 1620118801000,
                     attendee:{ attendeeId: "1",          externalUserId: "A" },
                     content:"facts",                     vocabularyFilterMatch: false
                 },
                 {
                     type:'punctuation',
-                    startTimeMs: 1620118801000,        endTimeMs: 1620118801500,
+                    startTimeMs: 1620118801000,          endTimeMs: 1620118801500,
                     attendee:{ attendeeId: "1",          externalUserId: "A" },
                     content:    ",",                     vocabularyFilterMatch: false
                 }]
@@ -84,35 +84,35 @@ In the event of a partial transcript, the system processes the phrase again\. Th
     transcript: {
         results: [{
             resultId:"1",                                isPartial: false,
-            startTimeMs: 1620118800000,                endTimeMs: 1620118801000,
+            startTimeMs: 1620118800000,                  endTimeMs: 1620118801000,
             alternatives: [{
                 items:[{
-                        type:        'pronunciation',
-                        startTimeMs: 1620118800000,    endTimeMs: 1620118800200,
-                        attendee: { attendeeId: "1",     externalUserId: "A"},
-                        content: "the",                  vocabularyFilterMatch: false
+                    type:        'pronunciation',
+                    startTimeMs: 1620118800000,          endTimeMs: 1620118800200,
+                    attendee: { attendeeId: "1",         externalUserId: "A"},
+                    content: "the",                      vocabularyFilterMatch: false
                 },
                 {
                     type:        'pronunciation',
-                    startTimeMs: 1620118800200,        endTimeMs: 1620118800400,
+                    startTimeMs: 1620118800200,          endTimeMs: 1620118800400,
                     attendee: { attendeeId: "1",         externalUserId: "A" },
                     content:"quick",                     vocabularyFilterMatch: false
                 },
                 {
                     type:'pronunciation',
-                    startTimeMs: 1620118800400,        endTimeMs: 1620118800750,
+                    startTimeMs: 1620118800400,          endTimeMs: 1620118800750,
                     attendee: { attendeeId: "1",         externalUserId: "A" },
                     content:"brown",                     vocabularyFilterMatch: false
                 },
                 {
                     type:'pronunciation',
-                    startTimeMs: 1620118800750,        endTimeMs: 1620118801000,
+                    startTimeMs: 1620118800750,          endTimeMs: 1620118801000,
                     attendee:{ attendeeId: "1",          externalUserId: "A" },
                     content:"fox",                       vocabularyFilterMatch: false
                 },
                 {
                     type:'punctuation',
-                    startTimeMs: 1620118801000,        endTimeMs: 1620118801500,
+                    startTimeMs: 1620118801000,          endTimeMs: 1620118801500,
                     attendee:{ attendeeId: "1",          externalUserId: "A" },
                     content:    ",",                     vocabularyFilterMatch: false
                 }]

@@ -13,7 +13,10 @@ You use this section of the Amazon Chime Developer Guide to help create messagin
 + [Example IAM roles](iam-roles.md)
 + [Understanding authorization by role](auth-by-role.md)
 + [Streaming export of messaging data](streaming-export.md)
++ [Using mobile push notifications to receive messages](using-push-notifications.md)
++ [Using filter rules to filter messages](filter-msgs.md)
 + [Using service\-linked roles](using-roles.md)
++ [Using channel flows to process messages](using-channel-flows.md)
 + [Managing message retention](manage-retention.md)
 + [User interface components for messaging](ui-components.md)
 + [Integrating with client libraries](integrate-client-library.md)
@@ -72,10 +75,13 @@ The Amazon Chime SDK messaging enforces the following quotas\.
 
 | Resource | Limit | Eligible for increase | 
 | --- | --- | --- | 
-| App Instances Per AWS Account | 100 | Yes | 
-| Users per app instance | 100,000 | Yes | 
-| App instance admins per app instance | 100 | Yes | 
-| Channels Per AppInstance | 10,000,000 | Yes | 
-| Memberships Per Channel | 10,000 | Yes | 
-| Moderators per channel | 1,000 | Yes | 
+| App Instances per AWS Account | 100 | Yes | 
+| Users per App Instance | 100,000 | Yes | 
+| Admins per App Instance | 100 | Yes | 
+| Channels per App Instance | 10,000,000 | Yes | 
+| Memberships per Channel | 10,000 | Yes | 
+| Moderators per Channel | 1,000 | Yes | 
 | Max concurrent connections per user \(Amazon Chime messaging only, does not apply to meetings\) | 10 | Yes | 
+| ChannelFlows per App Instance | 100 | Yes | 
+| Channel processors in a channel flow | 1 | Yes | 
+| Endpoints per App Instance User | 10 | Yes | 

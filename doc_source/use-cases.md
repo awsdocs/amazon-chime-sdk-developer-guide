@@ -3,7 +3,7 @@
 This use case provides example code for receiving a phone call from a PSTN caller, greeting the caller with an audio message, getting the meeting PIN from the caller, playing audio, and joining the caller to the meeting\.
 
 **Invocation events and actions**  
-SIP media applications pass invocation events to Lambda functions as JSON objects\. The objects include the invocation event type and any relevant metatdata\. The Lambda function also returns SIP media application actions as JSON objects, and those objects include an action type and any relevant metadata\.
+The PSTN Audio Service passes invocation events to AWS Lambda functions as JSON objects\. The objects include the invocation event type and any relevant metatdata\. The Lambda function also returns SIP media application actions as JSON objects, and those objects include an action type and any relevant metadata\.
 
 The following table lists the invocation events, and the possible `ActionData.Type`, when you receive an invocation event\.
 
@@ -16,9 +16,9 @@ The following table lists the invocation events, and the possible `ActionData.Ty
 |  DIGITS\_RECEIVED  | ReceiveDigits | 
 
 **Note**  
-To implement the following use case, you need at least one phone number in your Amazon Chime inventory, a SIP application that uses a Lambda function with an Amazon Resource Name \(ARN\), and a SIP rule that uses the phone number as its trigger\.
+To implement the following use case, you need at least one phone number in your Amazon Chime inventory, a SIP media application managed object that uses a Lambda function with an Amazon Resource Name \(ARN\), and a SIP rule that uses the phone number as its trigger\.
 
-When Amazon Chime receives a call on the phone number specified in a rule, the SIP application invokes a Lambda function with the `NEW_INBOUND_CALL` invocation event type\.
+When Amazon Chime receives a call to the phone number specified in the rule, the PSTN Audio Service invokes a Lambda function with the `NEW_INBOUND_CALL` invocation event type\.
 
 ```
 {

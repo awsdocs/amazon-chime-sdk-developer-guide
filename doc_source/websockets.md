@@ -104,7 +104,7 @@ Identifies the version of AWS Signature and the algorithm that you used to calcu
 
 In addition to your access key ID, this parameter also provides the AWS region and service—the scope—for which the signature is valid\. This value must match the scope you use in signature calculations\. The general form for this parameter value is:
 
-`<your-access-key-id>/<date>/<AWS-region>/<AWS-service>/aws4_request`
+`<yourAccessKeyId>/<date>/<awsRegion>/<awsService >/aws4_request`
 
 For example:
 
@@ -112,7 +112,7 @@ For example:
 
 **X\-Amz\-Date**
 
-The date and time format must follow the ISO 8601 standard, and must be formatted as `yyyyMMddTHHmmssZ`\. For example if the date and time was **08/01/2020 15:32:41\.982\-700**, then you must first convert it to UTC \(Coordinated Universal Time\) and then submitted as `20200801T083241Z`\.
+The date and time format must follow the ISO 8601 standard, and must be formatted as `yyyyMMddTHHmmssZ`\. For example if the date and time was **08/01/2020 15:32:41\.982\-700**, then you must first convert it to UTC \(Coordinated Universal Time\) and submit it as `20200801T083241Z`\.
 
 **X\-Amz\-Signed\-Headers**
 
@@ -137,4 +137,4 @@ Indicates a unique Id for the websocket connection being established\.
 
 **UserArn**
 
-Indicates the identity of the AppInstanceUser that is trying to establish a connection\. The value should be the ARN of the `AppInstanceUser`\. For example, `arn:aws:chime:us-east-1:123456789012:app-instance/694d2099-cb1e-463e-9d64-697ff5b8950e/user/johndoe` 
+Indicates the identity of the AppInstanceUser that is trying to establish a connection\. The value should be the ARN of the `AppInstanceUser`\. For example, `arn:aws:chime:us%2Deast%2D1:123456789012:app%2Dinstance/694d2099%2Dcb1e%2D463e%2D9d64%2D697ff5b8950e/user/johndoe` 

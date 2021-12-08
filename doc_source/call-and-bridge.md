@@ -2,28 +2,33 @@
 
 Enables you to create an outbound call to a PSTN phone number and bridge it with an existing call leg\. An existing call leg can be an inbound leg created by a SIP rule that invokes the AWS Lambda function with a `NewInboundCall` event, or an outbound call leg created by using the [CreateSIPMediaApplicationCall](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateSipMediaApplicationCall.html) API\. The `CallAndBridge` action only supports calling and bridging to a PSTN endpoint\. 
 
-The following example code shows a typical action\.
+You can also add custom SIP media application headers to outbound call legs and AWS Lambda functions\. Cutom SIP headers allow you to pass values such as floor numbers and zip codes\. For more information about custom SIP headers, refer to [Using SIP headers](sip-headers.md)\.
+
+The following example code shows a typical action with a custom SIP header\.
 
 ```
 {
-   "SchemaVersion": "1.0",
+   "SchemaVer":"1.0",
    "Actions":[
       {
-         "Type": "CallAndBridge",
+         "Type":"CallAndBridge",
          "Parameters":{
-            "CallTimeoutSeconds": 30,
+            "CallTimeoutSeconds":30,
             "CallerIdNumber": "e164PhoneNumber", // required
             "RingbackTone": { // optional
                     "Type": "S3",
-                    "BucketName": "bucket-name",
-                    "Key": "audio-file.wav"
+                    "BucketName": "s3_bucket_name",
+                    "Key": "audio_file_name"
                 },
             "Endpoints":[
                {
-                  "Uri": "e164PhoneNumber", // required
-                  "BridgeEndpointType": "PSTN" // required
+                  "Uri":"e164PhoneNumber", // required
+                  "BridgeEndpointType":"PSTN" // required
                }
-            ]
+            ],
+            "CustomSipHeaders": { 
+                "String": "String"
+            }
          }
       }
    ]

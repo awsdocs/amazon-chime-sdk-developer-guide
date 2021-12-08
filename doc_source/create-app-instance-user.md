@@ -5,7 +5,7 @@ Once you create an `AppInstance`, you create an `AppInstanceUser` in that `AppIn
 The following example shows how to create a backend `AppInstanceUser`:
 
 ```
-aws chime create-app-instance-user \
+aws chime-sdk-identity create-app-instance-user \
     --app-instance-arn "APP_INSTANCE_ARN" \
     --app-instance-user-id "backend-worker" \
     --name "backend-worker"

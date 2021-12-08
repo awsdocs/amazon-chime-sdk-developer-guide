@@ -1,0 +1,5 @@
+# Associating and disassociating channel flows<a name="associate-channel-flow"></a>
+
+When you associate a channel is associated with a channel flow, the processor\(s\) in the channel flow preprocess all messages sent to the channel\. You must be a channel moderator or administrator to invoke the channel flow association and disassociation APIs\. Remember these facts as you go\.
++ You can associate a maximum of 1 channel flow with a channel at any given time\. To associate a channel flow, call the [AssociateChannelFlow](https://docs.aws.amazon.com/chime/latest/APIReference/API_AssociateChannelFlow.html) API\. 
++ To diassociate a channel flow and stop preprocessing of channel messages, call the [DisassociateChannelFlow](https://docs.aws.amazon.com/chime/latest/APIReference/API_DisassociateChannelFlow.html) API\. 

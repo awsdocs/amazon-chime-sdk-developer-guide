@@ -8,6 +8,7 @@ You use the Amazon Chime SDK to build real\-time media applications that can sen
 + [Amazon Chime SDK architecture](#mtg-arch)
 + [Amazon Chime SDK quotas](#mtg-limits)
 + [Amazon Chime SDK system requirements](#mtg-browsers)
++ [Available regions](sdk-available-regions.md)
 + [Integrating with a client library](mtgs-sdk-client-lib.md)
 + [SIP integration using an Amazon Chime Voice Connector](mtgs-sdk-cvc.md)
 + [Amazon Chime SDK event notifications](mtgs-sdk-notifications.md)
@@ -52,7 +53,7 @@ When the server application creates a meeting using the Amazon Chime SDK, the me
 The media service group mixes audio together from each attendee and sends the mix to each recipient, after subtracting their own audio from the mix\. The Amazon Chime SDK for JavaScript samples audio at the highest sample rate supported by the device and browser, up to a maximum of 48kHz\. Audio is encoded using the Opus codec, with a default bitrate of 32kbps, which can be increased to up to 64kbps\. The Amazon Chime SDKs for iOS and Android sample audio at a rate of 16kHz and encodes using the Opus codec at 32kbps\.
 
 **Video**  
-The media service group acts as a Selective Forwarding Unit \(SFU\) using a publish and subscribe model\. Each attendee can publish one video source, up to a total of 16 simultaneous videos per meeting\. The Amazon Chime SDK for JavaScript supports video resolutions up to 1280x720 at 30 frames per second without simulcast, and 15 frames per second with simulcast\. The Amazon Chime SDK for iOS and Android support video resolutions up to 1280x720 and 15 frames per second, however the actual framerate and resolution is automatically managed by the Amazon Chime SDK\.  
+The media service group acts as a Selective Forwarding Unit \(SFU\) using a publish and subscribe model\. Each attendee can publish one video source, up to a total of 25 simultaneous videos per meeting\. The Amazon Chime SDK for JavaScript supports video resolutions up to 1280x720 at 30 frames per second without simulcast, and 15 frames per second with simulcast\. The Amazon Chime SDK for iOS and Android support video resolutions up to 1280x720 and 15 frames per second, however the actual framerate and resolution is automatically managed by the Amazon Chime SDK\.  
 When active, video simulcast sends each video stream in two different resolutions and bitrates\. Clients which are bandwidth constrained automatically subscribe to the lower bitrate stream\. Video encoding and decoding uses hardware acceleration where available to improve performance\.
 
 **Data messages**  
@@ -69,7 +70,7 @@ The client application can share audio and video content, such as screen capture
 |  Active Meetings  |  250  |  Yes  | 
 |  Attendees per meeting  |  250  |  No  | 
 |  Audio streams per meeting  |  250  |  No  | 
-|  Video tiles per meeting  |  16  |  Yes  | 
+|  Video tiles per meeting  | 25 |  Yes  | 
 |  Content shares per meeting  |  2  |  No  | 
 |  API Rate  |  10 requests per second \(RPS\) with a burst of 20 RPS\.  |  Yes  | 
 
@@ -78,11 +79,10 @@ The client application can share audio and video content, such as screen capture
 The following system requirements apply to applications created with the Amazon Chime SDK\.
 
 **Amazon Chime SDK for JavaScript – Supported browsers**
-+ Google Chrome \(version 78 and later\), for macOS, Windows, and Ubuntu LTS 16\.04 and later\.
-+ Google Chrome for iOS \(14\.3 and later\) supported for audio and video only \(no content sharing\)\.
-+ Google Chrome for Android also supported for audio and video only \(no content sharing\)\.
 + Mozilla Firefox \(version 75 and later\), for macOS and Windows\.
 + Mozilla Firefox for iOS \(10\.0 and later\) also supported for audio and video only \(no content sharing\)\.
++ Google Chrome \(version 78 and later\), for macOS, Windows, and Ubuntu LTS 16\.04 and later\.
++ Google Chrome for Android and iOS \(10\.0 and later\) also supported for audio and video only \(no content sharing\)\.
 + Chromium\-based Edge version 79 and later for Windows and macOS\.
 + Chromium\-based Electron version 7 and later, with Chromium version 78 and later\.
 + Safari version 12 for macOS, audio and video only, no content sharing\.

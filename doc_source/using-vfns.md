@@ -5,7 +5,7 @@ Amazon Voice Focus is a noise suppressor that uses machine learning to reduce un
 **Note**  
 Amazon Voice Focus doesn't eliminate those types of noises; it reduces their sound levels\. To ensure privacy during a meeting, choose **Mute** to silence yourself or others\.
 
-Amazon Voice Focus offers multiple complexity levels, allowing you to trade some quality in order to support a wider range of devices\. By default, the Amazon Chime SDK automatically choose the right complexity level at runtime based on device performance\.
+Amazon Voice Focus offers multiple complexity levels, allowing you to trade some quality in order to support a wider range of devices\. By default, the Amazon Chime SDK automatically chooses the right complexity level at runtime based on device performance\.
 
 **When to use Amazon Voice Focus**  
 Use Amazon Voice Focus when users might experience background noise and they only care about human speech\. Because it reduces almost all non\-voice sounds, Amazon Voice Focus works best in applications where a person’s voice is the most important part of an interaction\. In quiet environments, or in situations where other sounds are important, such as music lessons, Amazon Voice Focus can eliminate important audio\.

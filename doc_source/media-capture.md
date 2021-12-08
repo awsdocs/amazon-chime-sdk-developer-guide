@@ -8,3 +8,4 @@ You and your end users understand that recording Amazon Chime SDK meetings with 
 **Topics**
 + [Pipeline creation overview](create-pipeline.md)
 + [Creating an S3 bucket](create-s3-bucket.md)
++ [Media pipeline events](media-capture-events.md)

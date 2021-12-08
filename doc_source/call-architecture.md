@@ -1,6 +1,6 @@
-# About using SIP media application call legs<a name="call-architecture"></a>
+# About using PSTN Audio Service call legs<a name="call-architecture"></a>
 
-SIP media applications can operate on one or more call legs\. For example, you have a single call leg when you record or deliver a voice mail, and you have multiple call legs when you join an Amazon Chime meeting\.
+The PSTN Audio Service can operate on one or more call legs\. For example, you have a single call leg when you record or deliver a voice mail, and you have multiple call legs when you join an Amazon Chime meeting\.
 
 The following diagram shows the flow of a single\-leg call\.
 

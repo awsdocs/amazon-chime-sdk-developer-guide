@@ -1,9 +1,9 @@
 # Amazon Chime SDK event notifications<a name="mtgs-sdk-notifications"></a>
 
-The Amazon Chime SDK supports sending meeting event notifications to Amazon EventBridge, Amazon Simple Queue Service \(Amazon SQS\), and Amazon Simple Notification Service \(Amazon SNS\)\.
+The Amazon Chime SDK supports sending meeting event notifications to Amazon EventBridge, Amazon Simple Queue Service \(Amazon SQS\), and Amazon Simple Notification Service \(Amazon SNS\)\. As you proceed, remember that the services listed here can go down\. As a best practice, app builders should subscribe to multiple notification targets in order to enable higher availability for Chime meeting events\.
 
 **Note**  
-The services listed here can go down\. As a best practice, app builders should subscribe to multiple notification targets in order to enable higher availability for Chime meeting events\.
+If you use the Amazon Chime SDK Meetings namespace, remember that you use a different service principal\. Instead of using the `Chime` service principal, you use `ChimeSDKMeetings`\. For more information about the namespaces, refer to [Migrating to the Amazon Chime SDK Meetings namespace](meeting-namespace-migration.md)\.
 
 ## Sending notifications to EventBridge<a name="chime-sdk-eventbridge-notifications"></a>
 

@@ -1,5 +1,7 @@
 # Webhooks for Amazon Chime<a name="webhooks"></a>
 
+Webhooks allow web applications to communicate with each other in real time\. Typically, webhooks send notifications when an action occurs\. For example, say you run an online shopping site\. Webhooks can notify you when a customer adds items to a shopping cart, pays for an order, or sends a comment\. Webhooks don't need as much programming as traditional applications, and they don't use as much processing power\. Without a webhook, a program has to to poll for data frequently in order to get it in real time\. With a webhook, the sending application posts the data immediately\.
+
 Incoming webhooks that you create can programmatically send messages to Amazon Chime chat rooms\. For example, a webhook can notify a customer service team about the creation of a new high\-priority ticket, and add a link to the ticket in the chat room\.
 
 Webhooks messages can be formatted with markdown and can include emojis\. HTTP links and email addresses render as active links\. Messages can also include @All and @Present annotations to alert all members and present members of a chat room, respectively\. To directly @mention a chat room participant, use their alias or full email address\. For example, @`alias` or @`alias@domain.com`\.

@@ -24,10 +24,10 @@ export class TranscriptEventConverter {
 
 export default class TranscriptionStatus {
     type: TranscriptionStatusType;
-    eventTimeMs: number;
-    transcriptionRegion: string;
-    transcriptionConfiguration: string;
-    message?: string;
+    eventTimeMs:                   number;
+    transcriptionRegion:           string;
+    transcriptionConfiguration:    string;
+    message?:                      string;
 }
 
 enum TranscriptionStatusType {
@@ -48,11 +48,12 @@ export class TranscriptResult {
     startTimeMs:     number;
     endTimeMs:       number;
     alternatives:    TranscriptAlternative[];    // most confident first
-}
+    }
 
 export default class TranscriptAlternative {
     items: TranscriptItem[];    // in start time order
     transcript: string; //concatenated transcript items
+    entities?: TranscriptEntity[];
 }
 
 export default class TranscriptItem {
@@ -62,11 +63,22 @@ export default class TranscriptItem {
     attendee:                  Attendee;
     content:                   string;
     vocabularyFilterMatch?:    boolean;
+    confidence?:               number;  
+    stable?:                   boolean;
 }
 
 enum TranscriptItemType {
     PRONUNCIATION    =    'pronunciation',// content is a word
     PUNCTUATION      =    'punctuation',// content is punctuation
+}
+
+export default class TranscriptEntity {  
+    category:       string;  
+    confidence:     number;  
+    content:        string;  
+    endTimeMs:      number;  
+    startTimeMs:    number;  
+    type?:          string;
 }
 
 // This is an existing SDK model
@@ -94,15 +106,33 @@ Keep these guidelines in mind as you go\.
 
 1. `transcription.results[i].alternatives[j].items[k].startTimeMs` is the "when" of the content\. This enables word\-by\-word rendering of user\-attributed transcription across different users in the order that the words were spoken\.
 
-1. `The transcription.results[i].alternatives[j].items[k].endTimeMs` field can generally be ignored, but is supplied for completeness of who said what when\.
+1. The `transcription.results[i].alternatives[j].items[k].endTimeMs` field can generally be ignored, but is supplied for completeness of who said what when\.
 
 1. `transcription.results[i].alternatives[j].items[k].vocabularyFilterMatch` is true if the content matched a word in the filter, otherwise it is false\.
+
+1. `transcription.results[i].alternatives[j].items[k].confidence` is a value between 0 and 1\. It indicates the engine's confidence that the item content correctly matches the spoken word, with 0 being the lowest confidence and 1 being the highest confidence\.
+
+1. `transcription.results[i].alternatives[j].items[k].stable` indicates whether the current word will change in future partial result updates\. This value can only be true if you enable the partial results stabilization feature by setting `EnablePartialResultsStabilization` to `true` in your request\.
+
+1. `transcription.results[i].alternatives[j].entities` includes an entry for each entity that the Content Identification or Redaction features detect\. The list is only populated if you enable Content Identification or Redaction\. An entity can be data such as personally indentifiable information or personal health information\. You can use entities to highlight, or take action on, words of interest during transcription\.
+
+1. `transcription.results[i].alternatives[j].entities[k].category` is the entity's category\. It equals the Content Identification or Redaction type, such as "PII" or "PHI", which is provided in the request\.
+
+1. `transcription.results[i].alternatives[j].entities[k].confidence` measures how strong the engine is that the particular content is truly an entity\. Note that this is different than the item\-level confidence, which measures how confident the engine is in the correctness of the words themselves\.
+
+1. `transcription.results[i].alternatives[j].entities[k].content` is the actual text that makes up the entity\. This can be multiple items, such as an address\.
+
+1. `transcription.results[i].alternatives[j].entities[k].startTimeMs` captures the time at which the entity started being spoken\.
+
+1. `transcription.results[i].alternatives[j].entities[k].endTimeMs` captures the time at which the entity finished being spoken\.
+
+1. `transcription.results[i].alternatives[j].entities[k].type` is only supported for the Transcribe engine and provides the sub\-type of the entity\. These are values such as `ADDRESS`, `CREDIT\_DEBIT\_NUMBER`, and so on\.
 
 ## Registering event handlers for TranscriptEvents<a name="register-handler"></a>
 
 The following examples use the Amazon Chime SDK for Javascript\. However, the pattern is consistent across all Amazon Chime SDKs\.
 
-The `TranscriptionController` in the `RealtimeController` and `RealtimeControllerFacade` includes specific functions to add a handler for processing `TranscriptionEvents`:
+The `TranscriptionController` in the `RealtimeController` and `RealtimeControllerFacade` includes specific functions for adding a handler thata processes `TranscriptionEvents`:
 
 ```
 /** 
@@ -139,25 +169,7 @@ get transcriptionController(): TranscriptionController {
 }
 ```
 
-`DefaultRealtimeController` also takes an optional `TranscriptionController` object in its constructor\. That allows you to override the `DefaultTranscriptionController` behavior as needed\. Developer applications subscribe and unsubscribe to one or more callbacks through the `TranscriptionController` object of the `AudioVideoFacade` object:
-
-```
-// Subscribe
-this.audioVideo.transcriptionController?.subscribeToTranscriptEvent(this.transcriptEventHandler);
-
-// Unsubscribe
-this.audioVideo.transcriptionController?.unsubscribeFromTranscriptEvent(this.transcriptEventHandler););
-```
-
-We provide a default implementation of the `TranscriptionController` interface named `DefaultTranscriptionController`\. The default implementation in `DefaultRealtimeController `and `DefaultAudioVideoFacade` returns a `DefaultTranscriptionController` object:
-
-```
-get transcriptionController(): TranscriptionController {
-    return this.realtimeController.transcriptionController;
-}
-```
-
-`DefaultRealtimeController` also takes an optional `TranscriptionController` object in its constructor\. This allows you to override the `DefaultTranscriptionController` behavior\. Your applications can subscribe or unsubscribe to one or more callbacks through the `TranscriptionController` object of the `AudioVideoFacade` object:
+`DefaultRealtimeController` also takes an optional `TranscriptionController` object in its constructor\. That allows you to override the `DefaultTranscriptionController` behavior\. Developer applications subscribe and unsubscribe to one or more callbacks through the `TranscriptionController` object of the `AudioVideoFacade` object:
 
 ```
 // Subscribe
