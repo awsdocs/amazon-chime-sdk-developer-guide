@@ -78,9 +78,19 @@ The client application can share audio and video content, such as screen capture
 
 The following system requirements apply to applications created with the Amazon Chime SDK\.
 
-**Supported browsers, Amazon Chime SDK for JavaScript**
-
-[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html)
+**Amazon Chime SDK for JavaScript – Supported browsers**
++ Mozilla Firefox \(version 75 and later\), for macOS and Windows\.
++ Mozilla Firefox for iOS \(10\.0 and later\) also supported for audio and video only \(no content sharing\)\.
++ Google Chrome \(version 78 and later\), for macOS, Windows, and Ubuntu LTS 16\.04 and later\.
++ Google Chrome for Android and iOS \(10\.0 and later\) also supported for audio and video only \(no content sharing\)\.
++ Chromium\-based Edge version 79 and later for Windows and macOS\.
++ Chromium\-based Electron version 7 and later, with Chromium version 78 and later\.
++ Safari version 12 for macOS, audio and video only, no content sharing\.
++ Safari version 12\.1\.1 and later for iOS, audio and video only, no content sharing\.
++ Safari version 13 and later for macOS\. Content sharing with screen capture requires turning on the **Develop**, **Experimental Features**, **Screen Capture** feature in the browser\.
++ Opera version 66 and later for macOS and Windows\.
++ Samsung Internet version 12 and later for Android, audio and video only, no content sharing\.
++ WKWebView for iOS \(14\.3 and later\) also supported for audio and video only \(no content sharing\)\.
 
 **Amazon Chime SDK for iOS**
 + iOS version 10\.0 and later
