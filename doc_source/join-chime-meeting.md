@@ -11,8 +11,8 @@ You can't run this action on a bridged call\.
     "Parameters": {
         "JoinToken": "meeting-attendee-join-token",
         "CallId": "call-id-1",
-        "ParticipantTag": "LEG-A"
-        "MeetingId": "meeting-id"
+        "ParticipantTag": "LEG-A",
+        "MeetingId": "meeting-id",
     }
 }
 ```
