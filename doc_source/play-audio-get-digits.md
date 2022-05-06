@@ -4,7 +4,7 @@ Plays audio and gathers DTMF digits\. If a failure occurs, such as a user not en
 
 You must play audio files from the S3 bucket\. The S3 bucket must belong to the same AWS account as the SIP media application\. In addition, you must give the `s3:GetObject` permission to the [ Amazon Chime Voice Connector service principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html), `voiceconnector.chime.amazonaws.com`\. You can use the S3 console or the CLI to do that\. 
 
-The following example shows an S3 bucket policy\.
+The following code example shows a typical S3 bucket policy\.
 
 ```
 {
@@ -19,7 +19,39 @@ The following example shows an S3 bucket policy\.
             "Action": [
                 "s3:GetObject"
             ],
-            "Resource": "arn:aws:s3:::bucket-name/*"
+            "Resource": "arn:aws:s3:::bucket-name/*",
+                "Condition": {
+                "StringEquals": {
+                    "aws:SourceAccount": "aws-account-id"
+                }
+            }
+        }
+    ]
+}
+```
+
+The PSTN Audio service reads and writes to your S3 bucket on behalf of your Sip Media Application\. To avoid the [confused deputy problem](https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html), you can restrict S3 bucket access to a single SIP media application\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "SMARead",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "voiceconnector.chime.amazonaws.com"
+            },
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": "arn:aws:s3:::bucket-name/*",
+                "Condition": {
+                "StringEquals": {
+                    "aws:SourceAccount": "aws-account-id",
+                    "aws:SourceArn": "arn:aws:region:aws-account-id:sma/sip-media-application-id"
+                }
+            }
         }
     ]
 }
@@ -55,7 +87,7 @@ The following example shows a typical `PlayAudioAndGetDigits` action\.
 ```
 
 **CallId**  
-*Description* – `CallId` of participant in the `CallDetails` of the Lambda function invocation  
+*Description* – `CallId` of participant in the `CallDetails` of the AWS Lambda function invocation  
 *Allowed values* – A valid call ID  
 *Required* – No  
 *Default value* – None
@@ -80,7 +112,7 @@ The following example shows a typical `PlayAudioAndGetDigits` action\.
 
 **AudioSource\.BucketName**  
 *Description* – For S3 `AudioSource.Type` values, the S3 bucket must belong to the same AWS account as the SIP media application\. The bucket S3 must have access to the [Amazon Chime Voice Connector service principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html), `voiceconnector.chime.amazonaws.com`\.  
-*Allowed values* – A valid S3 bucket for which Amazon Chime has `s3:GetObject` actions access\.  
+*Allowed values* – A valid S3 bucket for which Amazon Chime SDK has `s3:GetObject` actions access\.  
 *Required* – Yes  
 *Default value* – None
 
@@ -98,7 +130,7 @@ The following example shows a typical `PlayAudioAndGetDigits` action\.
 
 **FailureAudioSource\.BucketName**  
 *Description* – For S3 source types, the S3 bucket must belong to the same AWS account as the SIP media application\. The [Amazon Chime Voice Connector service principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html), `voiceconnector.chime.amazonaws.com`, must have access to the S3 bucket\.  
-*Allowed values* – A valid S3 bucket for which Amazon Chime has `s3:GetObject` actions access\.  
+*Allowed values* – A valid S3 bucket for which Amazon Chime SDK has `s3:GetObject` actions access\.  
 *Required* – Yes  
 *Default value* – None
 
@@ -144,7 +176,7 @@ The following example shows a typical `PlayAudioAndGetDigits` action\.
 *Required* – Yes  
 *Default value* – None
 
-The SIP media application always invokes its Lambda function after running the `PlayAudioAndGetDigits` action, with an `ACTION_SUCCESSFUL` or `ACTION_FAILED` invocation event type\. When the application successfully gathers digits, it sets the `ReceivedDigits` value in the `ActionData` object\. The following example shows the invocation event structure of that Lambda function\.
+The SIP media application always invokes its AWS Lambda function after running the `PlayAudioAndGetDigits` action, with an `ACTION_SUCCESSFUL` or `ACTION_FAILED` invocation event type\. When the application successfully gathers digits, it sets the `ReceivedDigits` value in the `ActionData` object\. The following example shows the invocation event structure of that AWS Lambda function\.
 
 ```
 {
@@ -186,7 +218,7 @@ The SIP media application always invokes its Lambda function after running the `
 ```
 
 **Error handling**  
-When a validation error occurs, the SIP media application calls the Lambda function with the corresponding error message\. The following table lists the possible error messages\.
+When a validation error occurs, the SIP media application calls the AWS Lambda function with the corresponding error message\. The following table lists the possible error messages\.
 
 
 |  Error  |  Message  |  Reason  | 
@@ -195,7 +227,7 @@ When a validation error occurs, the SIP media application calls the Lambda funct
 |  `InvalidActionParameter`  |  `CallId` or `ParticipantTag` parameter for the action is invalid\.  |  A `CallId`, `ParticipantTag`, or other parameter is not valid\.  | 
 |  `SystemException`  |  System error while executing the action\.  |  A system error occurred while executing the action\.  | 
 
-When the action fails to collect the number of specified digits due to a timeout or too many retries, the SIP media application invokes the Lambda function with the `ACTION_FAILED` invocation event type\.
+When the action fails to collect the number of specified digits due to a timeout or too many retries, the SIP media application invokes the AWS Lambda function with the `ACTION_FAILED` invocation event type\.
 
 ```
 {
@@ -233,3 +265,7 @@ When the action fails to collect the number of specified digits due to a timeout
     }
 }
 ```
+
+See working examples on GitHub:
++ [https://github\.com/aws\-samples/amazon\-chime\-sma\-bridging](https://github.com/aws-samples/amazon-chime-sma-bridging)\.
++ [https://github\.com/aws\-samples/amazon\-chime\-sma\-update\-call](https://github.com/aws-samples/amazon-chime-sma-update-call)

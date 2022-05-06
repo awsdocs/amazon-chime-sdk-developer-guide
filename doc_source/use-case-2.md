@@ -1,6 +1,10 @@
-# Getting next actions from the Lambda function<a name="use-case-2"></a>
+# Specifying actions in response to telephony events<a name="use-case-2"></a>
 
-When the SIP media application executes a list of actions, the application calls the Lambda function with an invocation event type of `ACTION_SUCCESSFUL` after the last action in the list completes successfully, or with `ACTION_FAILED` if the execution of any of the actions fails\. The application only returns `ACTION_SUCCESSFUL` if all the actions on the list succeed\. If any of the actions in the list fails, the SIP media application invokes the Lambda function with the ACTION\_FAILED event and clears the remaining actions in the list after the failed one\. Then the SIP media application executes the next action returned by the Lambda function\. You use the `ActionData` key to identify which call invoked the function\.
+In the PSTN Audio service, SIP media applications invoke AWS Lambda functions\. In turn, a Lambda function can return a list of instructions known as *actions*\. An action is an item that you want to run on a leg of a phone call, such as sending or receiving digits, joining a meeting, and so on\. For more information about the actions invoked by the PSTN Audio service, see [Understanding telephony events](pstn-invocations.md)\.
+
+When a SIP media application successfully runs a list of actions, the application calls the AWS Lambda function with an invocation event type of `ACTION_SUCCESSFUL`\. If any of the actions fail to complete, the SIP media application calls the AWS Lambda function with the `ACTION_FAILED` event\.
+
+The SIP media application only returns `ACTION_SUCCESSFUL` if all the actions on the list succeed\. If any of the actions in the list fail, the SIP media application invokes the AWS Lambda function with the `ACTION_FAILED` event and clears the remaining actions in the list after the failed one\. Then the SIP media application executes the next action returned by the AWS Lambda function\. You use the `ActionData` key to identify which call invoked the function\.
 
 The following event shows a sample payload for the `ACTION_SUCCESSFUL` invocation event type after a `PlayAudioAndGetDigits` action\.
 
@@ -54,7 +58,7 @@ The following event shows a sample payload for the `ACTION_SUCCESSFUL` invocatio
 }
 ```
 
-When any action in a list fails to complete successfully, the SIP media application invokes the Lambda function to notify you of the failure, and to get a new set of actions to run on that call\. The following event shows the sample payload for the `ACTION_FAILED` invocation event type after a `PlayAudio` action\.
+When any action in a list fails to complete successfully, the SIP media application invokes the AWS Lambda function to notify you of the failure, and to get a new set of actions to run on that call\. The following event shows the sample payload for the `ACTION_FAILED` invocation event type after a `PlayAudio` action\.
 
 ```
 {

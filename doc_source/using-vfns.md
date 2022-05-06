@@ -14,6 +14,9 @@ Also, Amazon Voice Focus can suppress quiet speech\. For example, if you have se
 
 Finally, applications that use a lot of CPU, such as games, might not leave enough resources for Amazon Voice Focus to work smoothly, especially on resource\-constrained devices\. If you think your application might be used in those scenarios, be sure to test your application with Amazon Voice Focus, and give users the ability to turn noise suppression on and off\.
 
+**Note**  
+Amazon Voice Focus is only available when the microphone provides a mono audio stream\.
+
 **Amazon Voice Focus stages**  
 Amazon Voice Focus steps through these stages when users turn it on:
 + **Configuration and estimation** – For a given builder intent and runtime environment, decide on runtime parameters\. Amazon Voice Focus checks for browser support and CPU speed to determine a complexity level for the user’s browser\.

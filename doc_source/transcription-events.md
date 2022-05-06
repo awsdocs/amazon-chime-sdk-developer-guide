@@ -1,6 +1,6 @@
 # Transcription events<a name="transcription-events"></a>
 
-Amazon Chime SDK sends transcription lifecycle events, which you can use to trigger notifications and initiate downstream workflows\. Some examples of using transcription events include:
+Amazon Chime SDK sends transcription lifecycle events, which you can use to trigger notifications and initiate downstream work flows\. Some examples of using transcription events include:
 + Measuring the adoption of live transcription in Amazon Chime SDK meetings
 + Tracking language preferences
 
@@ -8,7 +8,7 @@ You can send events to Amazon EventBridge, Amazon Simple Notification Service \(
 
 ## Amazon Chime SDK meeting transcription started<a name="transcript-start"></a>
 
-The Amazon Chime SDK sends this event when meeting transcription is started or the [TranscriptionConfiguration](https://docs.aws.amazon.com/chime/latest/APIReference/API_TranscriptionConfiguration.html) is updated\. 
+The Amazon Chime SDK sends this event when meeting transcription is started or the [TranscriptionConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_TranscriptionConfiguration.html) is updated\. 
 
 **Example: Event data**  
 The following is example data for this event\.
@@ -31,7 +31,7 @@ The following is example data for this event\.
         "externalMeetingId": "mymeeting",
         "mediaRegion": "us-west-1",
         "transcriptionRegion": "us-west-2",
-        "transcriptionConfiguration (https://docs.aws.amazon.com/chime/latest/APIReference/API_TranscriptionConfiguration.html)": "{...}"
+        "[transcriptionConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_StartMeetingTranscription.html)": "{...}"
     }
 }
 ```
@@ -55,13 +55,13 @@ The following is example data for this event\.
     "resources": []
     "detail": {
         "version": "0", 
-        "eventType": "chime:TranscriptionStarted",
+        "eventType": "chime:TranscriptionStopped",
         "timestamp": 12344566754,
         "meetingId": "87654321-4321-4321-1234-111122223333",
         "externalMeetingId": "mymeeting",
         "mediaRegion": "us-west-1",
         "transcriptionRegion": "us-west-2",
-        "transcriptionConfiguration (https://docs.aws.amazon.com/chime/latest/APIReference/API_TranscriptionConfiguration.html)": "{...}"
+        "[transcriptionConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_StopMeetingTranscription.html)": "{...}"
     }
 }
 ```
@@ -85,14 +85,14 @@ The following is example data for this event\.
     "resources": []
     "detail": {
         "version": "0", 
-        "eventType": "chime:TranscriptionStarted",
+        "eventType": "chime:TranscriptionInterrupted",
         "timestamp": 12344566754,
         "meetingId": "87654321-4321-4321-1234-111122223333",
         "externalMeetingId": "mymeeting",
         "message": "Internal server error",
         "mediaRegion": "us-west-1",
         "transcriptionRegion": "us-west-2",
-        "transcriptionConfiguration (https://docs.aws.amazon.com/chime/latest/APIReference/API_TranscriptionConfiguration.html)": "{...}"
+        "[transcriptionConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_TranscriptionConfiguration.html)": "{...}"
     }
 }
 ```
@@ -116,13 +116,13 @@ The following is example data for this event\.
     "resources": []
     "detail": {
         "version": "0", 
-        "eventType": "chime:TranscriptionStarted",
+        "eventType": "chime:TranscriptionResumed",
         "timestamp": 12344566754,
         "meetingId": "87654321-4321-4321-1234-111122223333",
         "externalMeetingId": "mymeeting",
         "mediaRegion": "us-west-1",
         "transcriptionRegion": "us-west-2",
-        "transcriptionConfiguration (https://docs.aws.amazon.com/chime/latest/APIReference/API_TranscriptionConfiguration.html)": "{...}"
+        "[transcriptionConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_TranscriptionConfiguration.html)": "{...}"
     }
 }
 ```
@@ -146,14 +146,14 @@ The following is example data for this event\.
     "resources": []
     "detail": {
         "version": "0", 
-        "eventType": "chime:TranscriptionStarted",
+        "eventType": "chime:TranscriptionFailed",
         "timestamp": 12344566754,
         "meetingId": "87654321-4321-4321-1234-111122223333",
         "externalMeetingId": "mymeeting",
         "message": "Internal server error",
         "mediaRegion": "us-west-1",
         "transcriptionRegion": "us-west-2",
-        "transcriptionConfiguration (https://docs.aws.amazon.com/chime/latest/APIReference/API_TranscriptionConfiguration.html)": "{...}"
+        "[transcriptionConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_TranscriptionConfiguration.html)": "{...}"
     }
 }
 ```

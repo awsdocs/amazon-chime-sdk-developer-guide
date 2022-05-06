@@ -2,7 +2,7 @@
 
 Play an audio file on any leg of a call\. The audio can be repeated any number of times\. The in\-progress audio can be terminated using the DTMF digits set in the `PlaybackTerminators`\.
 
-Currently, Amazon Chime only supports playing audio files from the Amazon Simple Storage Service \(Amazon S3\) bucket\. The S3 bucket must belong to the same AWS account as the SIP media application\. In addition, you must give the `s3:GetObject` permission to the Amazon Chime Voice Connector service principal\. You can do that by using the S3 console or the command\-line interface \(CLI\)\.
+Currently, Amazon Chime SDK only supports playing audio files from the Amazon Simple Storage Service \(Amazon S3\) bucket\. The S3 bucket must belong to the same AWS account as the SIP media application\. In addition, you must give the `s3:GetObject` permission to the Amazon Chime Voice Connector service principal\. You can do that by using the S3 console or the command\-line interface \(CLI\)\.
 
 The following code example shows a typical bucket policy\.
 
@@ -19,7 +19,39 @@ The following code example shows a typical bucket policy\.
             "Action": [
                 "s3:GetObject"
             ],
-            "Resource": "arn:aws:s3:::bucket-name/*"
+            "Resource": "arn:aws:s3:::bucket-name/*",
+                "Condition": {
+                "StringEquals": {
+                    "aws:SourceAccount": "aws-account-id"
+                }
+            }
+        }
+    ]
+}
+```
+
+The PSTN Audio service reads and writes to your S3 bucket on behalf of your Sip Media Application\. To avoid the [confused deputy problem](https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html), you can restrict S3 bucket access to a single SIP media application\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "SMARead",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "voiceconnector.chime.amazonaws.com"
+            },
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": "arn:aws:s3:::bucket-name/*",
+                "Condition": {
+                "StringEquals": {
+                    "aws:SourceAccount": "aws-account-id",
+                    "aws:SourceArn": "arn:aws:chime:region:aws-account-id:sma/sip-media-application-id"
+                }
+            }
         }
     ]
 }
@@ -76,7 +108,7 @@ The following code example shows a typical action\.
 
 **AudioSource\.BucketName**  
 *Description* – For S3 source types, the S3 bucket must belong to the same AWS account as the SIP application\. The bucket must have access to the Amazon Chime Voice Connector service principal, which is voiceconnector\.chime\.amazonaws\.com\.  
-*Allowed values* – A valid S3 bucket for which Amazon Chime has access to the `s3:GetObject` action\.  
+*Allowed values* – A valid S3 bucket for which Amazon Chime SDK has access to the `s3:GetObject` action\.  
 *Required* – Yes\.  
 *Default value* – None\.
 
@@ -86,9 +118,9 @@ The following code example shows a typical action\.
 *Required* – Yes\.  
 *Default value* – None\.
 
-The SIP media application tries to play the audio from the source URL\. You can use raw, uncompressed PCM \.wav files of no more than 50 MB in size\. Amazon Chime recommends 8 KHz mono\.
+The SIP media application tries to play the audio from the source URL\. You can use raw, uncompressed PCM \.wav files of no more than 50 MB in size\. Amazon Chime SDK recommends 8 KHz mono\.
 
-When the last instruction in a dialplan is `PlayAudio` and the file finishes playback, or if a user stops playback with a key press, the application invokes the Lambda function with the event shown in the following code example\.
+When the last instruction in a dialplan is `PlayAudio` and the file finishes playback, or if a user stops playback with a key press, the application invokes the AWS Lambda function with the event shown in the following code example\.
 
 ```
 {
@@ -111,7 +143,7 @@ When the last instruction in a dialplan is `PlayAudio` and the file finishes pla
 After a terminating digit stops the audio, it won't be repeated\.
 
 **Error handling**  
-When the validation file contains errors, or an error occurs while running an action, the SIP media application calls a Lambda function with the appropriate error code\.
+When the validation file contains errors, or an error occurs while running an action, the SIP media application calls an AWS Lambda function with the appropriate error code\.
 
 
 |  Error  |  Message  |  Reason  | 
@@ -145,3 +177,10 @@ The following code example shows a typical invocation failure\.
     }
 }
 ```
+
+See working examples on GitHub:
++ [https://github\.com/aws\-samples/amazon\-chime\-sma\-bridging](https://github.com/aws-samples/amazon-chime-sma-bridging)\.
++ [https://github\.com/aws\-samples/amazon\-chime\-sma\-call\-forwarding](https://github.com/aws-samples/amazon-chime-sma-call-forwarding)
++ [https://github\.com/aws\-samples/amazon\-chime\-sma\-outbound\-call\-notifications](https://github.com/aws-samples/amazon-chime-sma-outbound-call-notifications)
++ [https://github\.com/aws\-samples/amazon\-chime\-sma\-on\-demand\-recording](https://github.com/aws-samples/amazon-chime-sma-on-demand-recording)
++ [https://github\.com/aws\-samples/amazon\-chime\-sma\-update\-call](https://github.com/aws-samples/amazon-chime-sma-update-call)

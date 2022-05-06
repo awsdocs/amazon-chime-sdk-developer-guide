@@ -1,6 +1,6 @@
 # Starting and stopping transcription<a name="initiate-transcription"></a>
 
-You use the Amazon Chime [StartMeetingTranscription](https://docs.aws.amazon.com/chime/latest/APIReference/API_StartMeetingTranscription.html) API to initiate meeting transcription by applying a `TranscriptionConfiguration` to the meeting\. The Amazon Chime controller forwards the configuration to the meeting asynchronously\. The success or failure of initiating meeting transcription is signaled through a message via Amazon Simple Notification Service \(Amazon SNS\) and Amazon EventBridge\.
+You use the Amazon Chime SDK [StartMeetingTranscription](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_StartMeetingTranscription.html) API to initiate meeting transcription by applying a `TranscriptionConfiguration` to the meeting\. The Amazon Chime SDK controller forwards the configuration to the meeting asynchronously\. The success or failure of initiating meeting transcription is signaled through a message via Amazon Simple Notification Service \(Amazon SNS\) and Amazon EventBridge\.
 
 **Starting transcription**  
 
@@ -29,7 +29,7 @@ Content-type: application/json
 }
 ```
 
-This example shows how to star live transcription with Amazon Transcribe Medical\.
+This example shows how to start live transcription with Amazon Transcribe Medical\.
 
 ```
 POST /meetings/meetingId/transcription?operation=start HTTP/1.1 
@@ -49,8 +49,8 @@ Content-type: application/json
 ```
 
 **StartMeetingTranscription** – Starts transcription for the meeting\.  
-*meetingId* – The ID of the meeting, returned by the [CreateMeeting API](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateMeeting.html#API_CreateMeeting_ResponseSyntax)\.  
-*TranscriptionConfiguration* – Encapsulates the parameters for live transcription\. You must specifiy exactly one configuration, `EngineTranscribeSettings` or `EngineTranscribeMedicalSettings`\.
+*meetingId* – The ID of the meeting, returned by the [CreateMeeting API](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateMeeting.html#API_CreateMeeting_ResponseSyntax)\.  
+*TranscriptionConfiguration* – Encapsulates the parameters for live transcription\. You must specify exactly one configuration, `EngineTranscribeSettings` or `EngineTranscribeMedicalSettings`\.
 
 **EngineTranscribeSettings** – Specifies the use of Amazon Transcribe and passes its settings through to [ Amazon Transcribe](https://docs.aws.amazon.com/transcribe/latest/dg/API_streaming_StartStreamTranscription.html#API_streaming_StartStreamTranscription_RequestParameters)\.  
 *LanguageCode* – Required\.  
@@ -91,7 +91,7 @@ Amazon Transcribe and Amazon Transcribe Medical display the following error mess
 Calling `StartMeetingTranscription` a second time updates the `TranscriptionConfiguration` applied to the meeting\.
 
 **Stopping transcription**  
-You use the [StopMeetingTranscription](https://docs.aws.amazon.com/chime/latest/APIReference/API_StopMeetingTranscription.html) API to remove the `TranscriptionConfiguration` for a given `meetingID` and end meeting transcription\. Ending a meeting stops transcription automatically\.
+You use the [StopMeetingTranscription](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_StopMeetingTranscription.html) API to remove the `TranscriptionConfiguration` for a given `meetingID` and end meeting transcription\. Ending a meeting stops transcription automatically\.
 
 This example shows the request syntax that invokes `StopMeetingTranscription`\.
 

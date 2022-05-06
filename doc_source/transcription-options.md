@@ -1,6 +1,6 @@
 # Choosing transcription options<a name="transcription-options"></a>
 
-When you use Amazon Chime live transcription, you use [Amazon Transcribe](https://aws.amazon.com/transcribe/) or [Amazon Transcribe Medical](https://aws.amazon.com/transcribe/medical/) in your AWS account\. You have access to all the [streaming languages supported by Amazon Transcribe](https://docs.aws.amazon.com/transcribe/latest/dg/what-is-transcribe.html), plus features such as [custom vocabularies](https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html) and [vocabulary filters](https://docs.aws.amazon.com/transcribe/latest/dg/filter-unwanted-words.html)\. When using Amazon Transcribe Medical, you can choose a medical specialty, conversation type, and optionally provide any custom vocabulary\. Standard Amazon Transcribe and Amazon Transcribe Medical costs apply\.
+When you use Amazon Chime SDK live transcription, you use [Amazon Transcribe](https://aws.amazon.com/transcribe/) or [Amazon Transcribe Medical](https://aws.amazon.com/transcribe/medical/) in your AWS account\. You have access to all the [streaming languages supported by Amazon Transcribe](https://docs.aws.amazon.com/transcribe/latest/dg/what-is-transcribe.html), plus features such as [custom vocabularies](https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html) and [vocabulary filters](https://docs.aws.amazon.com/transcribe/latest/dg/filter-unwanted-words.html)\. When using Amazon Transcribe Medical, you can choose a medical specialty, conversation type, and optionally provide any custom vocabulary\. Standard Amazon Transcribe and Amazon Transcribe Medical costs apply\.
 
 The process of choosing transcription options follows these steps\. 
 
@@ -20,19 +20,23 @@ You need to choose an AWS Region for the transcription service\. For information
 
  In general, the lowest latency between a meeting’s media Region and transcription Region provides the best user experience\. For the lowest latency, use the same Region for media and transcription whenever possible\. However, you may have other factors to consider in selecting a Region, such as regulatory requirements or the Regions where you have configured Amazon Transcribe or Amazon Transcribe Medical\.
 
-Amazon Transcribe and Amazon Transcribe Medical features, such as custom vocabularies or vocabulary filters, are are Region specific\. If you configure any of those features, you should do so identically in all of the AWS Regions in which you intend to use live transcription\. Alternately, you can use the same Amazon Transcribe Region for all meetings\.
+Amazon Transcribe and Amazon Transcribe Medical features, such as custom vocabularies or vocabulary filters, are Region specific\. If you configure any of those features, you should do so identically in all of the AWS Regions in which you intend to use live transcription\. Alternately, you can use the same Amazon Transcribe Region for all meetings\.
 
-You can specify the Region that the transcription service uses\. You do that by adding the region name to the `Region` field of the transcription engine settings when you call the `StartMeetingTranscription` API\. If you do not specify a Region, Amazon Chime attempts to use the transcription service in the meeting’s media region\. To have Amazon Chime select the Region for the transcription service for you, specify `auto` in the `Region` field\. When you do that, Amazon Chime selects the transcription service Region based the meeting’s media Region as described in the tables below\. For more information about the `StartMeetingTranscription` API, refer to [Starting and stopping transcription](initiate-transcription.md) in this guide\.
+You can specify the Region that the transcription service uses\. You do that by adding the region name to the `Region` field of the transcription engine settings when you call the `StartMeetingTranscription` API\. If you do not specify a Region, the Amazon Chime SDK attempts to use the transcription service in the meeting’s media region\. To have the Amazon Chime SDK select the Region for the transcription service for you, specify `auto` in the `Region` field\. When you do that, Amazon Chime selects the transcription service Region based the meeting’s media Region as described in the tables below\. For more information about the `StartMeetingTranscription` API, refer to [Starting and stopping transcription](initiate-transcription.md) in this guide\.
 
 **Note**  
-The transcription region selected by Amazon Chime is subject to change as AWS, Amazon Chime, Amazon Transcribe and Amazon Transcribe Medical make more regions available\.
+The transcription region selected by the Amazon Chime SDK is subject to change as AWS, Amazon Chime SDK, Amazon Transcribe and Amazon Transcribe Medical make more regions available\.
 
 **Automatic region selection for Amazon Transcribe**  
 
 
 
-|  Amazon Chime Media Region  |  Region code  |  Transcription Region  | 
+|  Amazon Chime SDK Media Region  |  Region code  |  Transcription Region  | 
 | --- | --- | --- | 
+|  US East \(Ohio\)  |  us\-east\-2  | us\-east\-2  | 
+|  US East \(N\. Virginia\)  |  us\-east\-1  | us\-east\-1  | 
+|  US West \(N\. California\)  |  us\-west\-1  | us\-west\-2 | 
+|  US West \(Oregon\)  |  us\-west\-2  | us\-west\-2  | 
 |  Africa \(Cape Town\)**\***  |  af\-south\-1  | eu\-west\-2  | 
 |  Asia Pacific \(Mumbai\)  |  ap\-south\-1  | eu\-west\-2 | 
 |  Asia Pacific \(Seoul\)  |  ap\-northeast\-2  | ap\-northeast\-2 | 
@@ -47,17 +51,17 @@ The transcription region selected by Amazon Chime is subject to change as AWS, A
 |  Europe \(Paris\)  |  eu\-west\-3  | eu\-central\-1  | 
 |  Europe \(Stockholm\)  |  eu\-north\-1  | eu\-central\-1  | 
 |  South America \(São Paulo\)  |  sa\-east\-1  | sa\-east\-1 | 
-|  US East \(Ohio\)  |  us\-east\-2  | us\-east\-2  | 
-|  US East \(N\. Virginia\)  |  us\-east\-1  | us\-east\-1  | 
-|  US West \(N\. California\)  |  us\-west\-1  | us\-west\-2 | 
-|  US West \(Oregon\)  |  us\-west\-2  | us\-west\-2  | 
 
 **Automatic region selection for Amazon Transcribe Medical**  
 
 
 
-|  Amazon Chime Media Region  |  Region code  |  Transcription Region  | 
+|  Amazon Chime SDK Media Region  |  Region code  |  Transcription Region  | 
 | --- | --- | --- | 
+|  US East \(Ohio\)  |  us\-east\-2  | us\-east\-2 | 
+|  US East \(N\. Virginia\)  |  us\-east\-1  | us\-east\-1 | 
+|  US West \(N\. California\)  |  us\-west\-1  | us\-west\-2 | 
+|  US West \(Oregon\)  |  us\-west\-2  | us\-west\-2 | 
 |  Africa \(Cape Town\)**\***  |  af\-south\-1  |  eu\-west\-1  | 
 |  Asia Pacific \(Mumbai\)  |  ap\-south\-1  | eu\-west\-1  | 
 |  Asia Pacific \(Seoul\)  |  ap\-northeast\-2  | us\-west\-2 | 
@@ -72,19 +76,15 @@ The transcription region selected by Amazon Chime is subject to change as AWS, A
 |  Europe \(Paris\)  |  eu\-west\-3  | eu\-west\-1 | 
 |  Europe \(Stockholm\)  |  eu\-north\-1  | eu\-west\-1 | 
 |  South America \(São Paulo\)  |  sa\-east\-1  | us\-east\-1 | 
-|  US East \(Ohio\)  |  us\-east\-2  | us\-east\-2 | 
-|  US East \(N\. Virginia\)  |  us\-east\-1  | us\-east\-1 | 
-|  US West \(N\. California\)  |  us\-west\-1  | us\-west\-2 | 
-|  US West \(Oregon\)  |  us\-west\-2  | us\-west\-2 | 
 
 **Note**  
 To use live transcription in Regions marked with an asterisk \(**\***\), you must first enable the Region in your AWS account\. For more information, refer to [Enabling a Region](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html) in the AWS General Reference\.
 
 For more information about the regions and endpoints for each service, refer to:
-+ [Amazon Chime SDK media Regions](https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html)
++ [Amazon Chime SDK media Regions](https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html)
 + [Amazon Transcribe endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/transcribe.html#transcribe_region)
 + [Amazon Transcribe Medical endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/transcribe-medical.html)
 
 ## Step 3: Review service quotas<a name="transcribe-quotas"></a>
 
-Each Amazon Chime meeting with live transcription requires exactly one HTTP/2 stream to Amazon Transcribe or Amazon Transcribe Medical\. Both services have regional service quotas for the number of concurrent HTTP/2 streams, and for start\-stream transactions per second\. For more information about the quotas, refer to [Guidelines and quotas](https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html) in the *Amazon Transcribe Developer Guide*\. For information about quota increases, refer to Service Quotas in the AWS console\.
+Each Amazon Chime SDK meeting with live transcription requires exactly one HTTP/2 stream to Amazon Transcribe or Amazon Transcribe Medical\. Both services have regional service quotas for the number of concurrent HTTP/2 streams, and for start\-stream transactions per second\. For more information about the quotas, refer to [Guidelines and quotas](https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html) in the *Amazon Transcribe Developer Guide*\. For information about quota increases, refer to Service Quotas in the AWS console\.

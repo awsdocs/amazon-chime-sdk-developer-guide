@@ -15,7 +15,7 @@ AWS uses service roles to grant permissions to an AWS service so it can access A
        "Version": "2012-10-17",
        "Statement": {
            "Action": "mobiletargeting:SendMessages",
-           "Resource": "arn:aws:mobiletargeting:us-east-1:AWS_ACCOUNT_ID:apps/PROJECT_ID/messages",
+           "Resource": "arn:aws:mobiletargeting:region:AWS_ACCOUNT_ID:apps/PROJECT_ID/messages",
            "Effect": "Allow"
        }
    }

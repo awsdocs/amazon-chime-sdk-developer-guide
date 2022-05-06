@@ -1,6 +1,6 @@
 # CallAndBridge<a name="call-and-bridge"></a>
 
-Enables you to create an outbound call to a PSTN phone number and bridge it with an existing call leg\. An existing call leg can be an inbound leg created by a SIP rule that invokes the AWS Lambda function with a `NewInboundCall` event, or an outbound call leg created by using the [CreateSIPMediaApplicationCall](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateSipMediaApplicationCall.html) API\. The `CallAndBridge` action only supports calling and bridging to a PSTN endpoint\. 
+Enables you to create an outbound call to a PSTN phone number and bridge it with an existing call leg\. An existing call leg can be an inbound leg created by a SIP rule that invokes the AWS Lambda function with a `NewInboundCall` event, or an outbound call leg created by using the [CreateSIPMediaApplicationCall](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateSipMediaApplicationCall.html) API\. The `CallAndBridge` action only supports calling and bridging to a PSTN endpoint\. 
 
 You can also add custom SIP media application headers to outbound call legs and AWS Lambda functions\. Cutom SIP headers allow you to pass values such as floor numbers and zip codes\. For more information about custom SIP headers, refer to [Using SIP headers](sip-headers.md)\.
 
@@ -8,7 +8,7 @@ The following example code shows a typical action with a custom SIP header\.
 
 ```
 {
-   "SchemaVer":"1.0",
+   "SchemaVersion":"1.0",
    "Actions":[
       {
          "Type":"CallAndBridge",
@@ -26,7 +26,7 @@ The following example code shows a typical action with a custom SIP header\.
                   "BridgeEndpointType":"PSTN" // required
                }
             ],
-            "CustomSipHeaders": { 
+            "SipHeaders": { 
                 "String": "String"
             }
          }
@@ -141,19 +141,24 @@ The following example shows a failed `CallAndBridge` action\.
 **Call flows**  
 The `CallAndBridge` action exhibits different call signaling and ringback behaviors for the incoming call leg \(the A leg\) depending whether that leg is answered\. The following sequence diagrams show the behaviors\.
 
-![\[Diagram of basic call flow through the CallAndBridge action.\]](http://docs.aws.amazon.com/chime/latest/dg/images/call-bridge-ans.png)
+![\[Diagram of basic call flow through the CallAndBridge action.\]](http://docs.aws.amazon.com/chime-sdk/latest/dg/images/call-bridge-ans.png)
 
 The following diagram shows the call flow for an unanswered call\.
 
-![\[Diagram of basic call flow through a SIP media application and Lambda functions.\]](http://docs.aws.amazon.com/chime/latest/dg/images/SMA_Bridging_NotAns.png)
+![\[Diagram of basic call flow through a SIP media application and AWS Lambda functions.\]](http://docs.aws.amazon.com/chime-sdk/latest/dg/images/SMA_Bridging_NotAns.png)
 
 **Additional Details**  
 Remember these facts about the `CallAndBridge` action\.
 + **CallTimeoutSeconds** – This timer starts when the SIP invitation is sent on the B\-Leg\. You can set a desired target value, but this value can be ignored by upstream carriers\.
 + **CallerIdNumber** – This phone number must belong to the customer, or be the From number of an A\-Leg\.
-+ **Hang\-up behavior and edge cases** – If one call leg hangs up, the other call leg does not automatically hang up the call\. When a `Hangup` event is sent to the Lambda function, the remaining leg must be disconnected independently\. If a call leg is left hanging, the call is billed until it is hung up\. For example, the following scenario may lead to unexpected charges:
++ **Hang\-up behavior and edge cases** – If one call leg hangs up, the other call leg does not automatically hang up the call\. When a `Hangup` event is sent to the AWS Lambda function, the remaining leg must be disconnected independently\. If a call leg is left hanging, the call is billed until it is hung up\. For example, the following scenario may lead to unexpected charges:
   + You try to bridge to a destination phone number\. The destination is busy and sends the call straight to voicemail\. From the SIP media application's perspective, going to voicemail is an answered call\. The A\-Leg hangs up, but the B\-Leg continues listening for the voicemail message\. While the B\-Leg listens, you get billed\.
-  + As a best practice, hang up each call leg independently by using the Lambda function, or by the party on the other end of the call\.
+  + As a best practice, hang up each call leg independently by using the AWS Lambda function, or by the party on the other end of the call\.
 + **Billing** – You're billed for the following when using `CallAndBridge`:
   + Active call minutes for each call leg created \(A\-Leg, B\-Leg, etc\.\) to the PSTN\.
   + SIP media application usage minutes\.
+
+See working examples on GitHub:
++ [https://github\.com/aws\-samples/amazon\-chime\-sma\-bridging](https://github.com/aws-samples/amazon-chime-sma-bridging)
++ [https://github\.com/aws\-samples/amazon\-chime\-sma\-call\-forwarding](https://github.com/aws-samples/amazon-chime-sma-call-forwarding)
++ [https://github\.com/aws\-samples/amazon\-chime\-sma\-on\-demand\-recording](https://github.com/aws-samples/amazon-chime-sma-on-demand-recording)

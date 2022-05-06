@@ -14,7 +14,7 @@ Pause a call for a specified time\.
 ```
 
 **CallId**  
-*Description* – `CallId` of participant in the `CallDetails` of the Lambda function invocation  
+*Description* – `CallId` of participant in the `CallDetails` of the AWS Lambda function invocation  
 *Allowed values* – A valid call ID  
 *Required* – No  
 *Default value* – None
@@ -30,3 +30,7 @@ Pause a call for a specified time\.
 *Allowed values* – An integer >0  
 *Required* – Yes  
 *Default value* – None
+
+See working examples on GitHub:
++ [https://github\.com/aws\-samples/amazon\-chime\-sma\-outbound\-call\-notifications](https://github.com/aws-samples/amazon-chime-sma-outbound-call-notifications)
++ [https://github\.com/aws\-samples/amazon\-chime\-sma\-on\-demand\-recording](https://github.com/aws-samples/amazon-chime-sma-on-demand-recording)

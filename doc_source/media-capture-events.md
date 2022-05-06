@@ -114,7 +114,7 @@ The following is example data for this event\.
     "detail": {
         "version": "0",
         "eventType": "chime:MediaPipelineResumed",
-        "timestamp": 1627503710485,
+        "timestamp": 1627503710485?,
         "meetingId": "1e6bf4f5-f4b5-4917-b8c9-bda45c340706",
         "externalMeetingId": "mymeeting",
         "mediaPipelineId": "e40ee45e-2ed1-408e-9156-f52b8208a491",

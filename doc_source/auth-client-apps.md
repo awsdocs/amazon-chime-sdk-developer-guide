@@ -1,6 +1,6 @@
 # Authenticating end\-user client applications<a name="auth-client-apps"></a>
 
-You can also run Amazon Chime SDK messaging from end\-user client applications\. [Making SDK calls from a backend service](call-from-backend.md) explains how to make API calls such as create\-channel, send\-channel\-message, and list\-channel\-messages\. End user client applications such as browsers and mobile applications make these same API calls\. Client applications can also connect via WebSocket to receive real time updates on messages and events to channels they are members of\. This section covers how to give IAM credentials to a client application scoped to a specific app instance user\. Once the end users have these credentials, they can make the API calls shown in [Making SDK calls from a backend service](call-from-backend.md)\. To see a full demo of a client application, see [ https://github\.com/aws\-samples/amazon\-chime\-sdk/tree/main/apps/chat](https://github.com/aws-samples/amazon-chime-sdk/tree/main/apps/chat)\. For more information about receiving realtime messages from the channels that a client app belongs to, see [Using websockets to receive messages](websockets.md)\.
+You can also run Amazon Chime SDK messaging from end\-user client applications\. [Making SDK calls from a backend service](call-from-backend.md) explains how to make API calls such as create\-channel, send\-channel\-message, and list\-channel\-messages\. End user client applications such as browsers and mobile applications make these same API calls\. Client applications can also connect via WebSocket to receive real time updates on messages and events to channels they are members of\. This section covers how to give IAM credentials to a client application scoped to a specific app instance user\. Once the end users have these credentials, they can make the API calls shown in [Making SDK calls from a backend service](call-from-backend.md)\. To see a full demo of a client application, see [ https://github\.com/aws\-samples/amazon\-chime\-sdk/tree/main/apps/chat](https://github.com/aws-samples/amazon-chime-sdk/tree/main/apps/chat)\. For more information about receiving realtime messages from the channels that a client app belongs to, see [Using WebSockets to receive messages](websockets.md)\.
 
 ## Providing IAM credentials to end users<a name="connect-id-provider"></a>
 
@@ -15,7 +15,7 @@ If you do not have an identity provider, you can get started with Amazon Cognito
 Alternately, you can use the [AWS STS](https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html) to create your own credential vending service or build your own identity provider\.
 
 **Using STS to vend credentials**  
-If you already have an IDP such as ActiveDirectory LDAP, and you want to implement a custom credential vending service, or grant access to chat for non\-authenticated meeting attendees, you can use the [ AWS STS AssumeRole API](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html)\. To do this, you first create a Chime Messaging SDK Role\. For more information about creating that role, see [ Creating a role to delegate permissions to an IAM user ](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html)\.
+If you already have an IDP such as ActiveDirectory LDAP, and you want to implement a custom credential vending service, or grant access to chat for non\-authenticated meeting attendees, you can use the [AWS STS AssumeRole API](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html)\. To do this, you first create a Chime Messaging SDK Role\. For more information about creating that role, see [ Creating a role to delegate permissions to an IAM user ](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html)\.
 
 The IAM Role would have permissions to the Chime Messaging SDK action your application would use, similar to the following:
 
@@ -71,7 +71,7 @@ For this example, call this role the *ChimeMessagingSampleAppUserRole*\.
 
 Note the session tag in the *ChimeMessagingSampleAppUserRole* policy `${my_application_user_id}` in the user ARN resource\. This session tag is parameterized in the [ AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) API call to limit the credentials returned to permissions for a single user\.
 
-The [ AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) API call is called using an already credentialed IAM entity such as an IAM user\. It can also be called by a different IAM role such as an [AWS Lambda execution role](https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html)\. That IAM identity must have permissions to call AssumeRole on the *ChimeMessagingSampleAppUserRole*\. 
+The [ AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) API call is called using an already credentialed IAM entity such as an IAM user\. It can also be called by a different IAM role such as an [AWS Lambda execution role](https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html)\. That IAM identity must have permissions to call `AssumeRole` on the *ChimeMessagingSampleAppUserRole*\. 
 
 ```
 {
@@ -105,7 +105,7 @@ You need to set up the *ChimeMessagingSampleAppUserRole* with a trust policy tha
 }
 ```
 
- In a sample deployment, an [Amazon EC2](https://aws.amazon.com/ec2/) instance, or an AWS Lambda, is launched with the `ChimeMessagingSampleAppServerRole`\. The server then:
+ In a sample deployment, an [Amazon EC2](https://aws.amazon.com/ec2/) instance, or an AWS Lambda is launched with the `ChimeMessagingSampleAppServerRole`\. The server then:
 
 1. Performs any application specific authorization on a client's requests to receive credentials\.
 
@@ -115,4 +115,4 @@ You need to set up the *ChimeMessagingSampleAppUserRole* with a trust policy tha
 
 The following example shows CLI command for assuming a role for step 2:
 
-`AWS sts assume-role --role-arn arn:aws:iam::MY_AWS_ACCOUNT_ID:role/ChimeMessagingSampleAppUserRole --role-session-name demo --tags Key=my_applications_user_id,Value=123456789 ` 
+`aws sts assume-role --role-arn arn:aws:iam::MY_AWS_ACCOUNT_ID:role/ChimeMessagingSampleAppUserRole --role-session-name demo --tags Key=my_applications_user_id,Value=123456789 ` 

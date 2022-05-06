@@ -97,8 +97,8 @@ This example shows a policy that allows users to access the Amazon Chime SDK use
             ],
             "Effect": "Allow",
             "Resource": [
-                "arn:aws:chime:us-east-1:{awsAccountId}:app-instance/{appInstanceId}/user/{appInstanceUserId}",
-                "arn:aws:chime:us-east-1:{awsAccountId}:app-instance/{appInstanceId}/channel/*"
+                "arn:aws:chime:region:{awsAccountId}:app-instance/{appInstanceId}/user/{appInstanceUserId}",
+                "arn:aws:chime:region:{awsAccountId}:app-instance/{appInstanceId}/channel/*"
             ]
         }
     ]
@@ -131,15 +131,15 @@ This example shows a policy that gives users minimal access to Amazon Chime SDK 
             ],
             "Effect": "Allow",
             "Resource": [
-                "arn:aws:chime:us-east-1:{awsAccountId}:app-instance/{appInstanceId}/user/{appInstanceUserId}",
-                "arn:aws:chime:us-east-1:{awsAccountId}:app-instance/{appInstanceId}/channel/*"
+                "arn:aws:chime:region:{awsAccountId}:app-instance/{appInstanceId}/user/{appInstanceUserId}",
+                "arn:aws:chime:region:{awsAccountId}:app-instance/{appInstanceId}/channel/*"
             ]
         }
     ]
 }
 ```
 
-This example shows a policy for establishing a websocket connection for an `AppInstanceUser`\. For more information about websocket connections, see [Using websockets to receive messages](websockets.md)\.
+This example shows a policy for establishing a WebSocket connection for an `AppInstanceUser`\. For more information about WebSocket connections, see [Using WebSockets to receive messages](websockets.md)\.
 
 ```
 {
@@ -151,7 +151,7 @@ This example shows a policy for establishing a websocket connection for an `AppI
              "chime:Connect"
             ],
      "Resource": [
-             "arn:aws:chime:us-east-1:{awsAccountId}:app-instance/{appInstanceId}/user/{appInstanceUserId}"
+             "arn:aws:chime:region:{awsAccountId}:app-instance/{appInstanceId}/user/{appInstanceUserId}"
          ]
       }
    ]

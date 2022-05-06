@@ -53,7 +53,7 @@ This example uses the `CallId` parameter\. You can use the `ParticipantTag` para
 ```
 
 **CallId**  
-*Description* – `CallId` of participant in the `CallDetails` of the Lambda function invocation  
+*Description* – `CallId` of participant in the `CallDetails` of the AWS Lambda function invocation  
 *Allowed values* – A valid call ID  
 *Required* – No  
 *Default value* – None
@@ -72,7 +72,7 @@ This example uses the `CallId` parameter\. You can use the `ParticipantTag` para
 
 **RecordingDestination\.BucketName**  
 *Description* – A valid S3 bucket name\. The bucket must have access to the [Amazon Chime Voice Connector service principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html), `voiceconnector.chime.amazonaws.com`\.  
-*Allowed values* – A valid S3 bucket for which Amazon Chime has access to the `s3:PutObject` and `s3:PutObjectAcl` actions\.  
+*Allowed values* – A valid S3 bucket for which Amazon Chime SDK has access to the `s3:PutObject` and `s3:PutObjectAcl` actions\.  
 *Required* – Yes  
 *Default value* – None
 
@@ -114,7 +114,7 @@ This example uses the `CallId` parameter\. You can use the `ParticipantTag` para
 
 ## Handling ACTION\_SUCCESSFUL events<a name="handle-action-successful"></a>
 
-When the recording ends, the Amazon Chime SIP media application calls the Lambda function and passes to it the ACTION\_SUCCESSFUL event, along with the invocation results\.
+When the recording ends, the Amazon Chime SDK SIP media application calls the AWS Lambda function and passes to it the ACTION\_SUCCESSFUL event, along with the invocation results\.
 
 ```
 {
@@ -160,7 +160,7 @@ The `ACTION_SUCCESSFUL` event contains `ActionData`, which contains these fields
 *Description* – The terminator used to stop recording—one of the terminators passed in the `RecordingTerminators` parameter\. If the recording stops after reaching maximum duration \(`DurationInSeconds`\) or because of silence \(`SilenceDurationInSeconds`\), this key\-value pair is not included in the output\.
 
 **Error handling**  
-For validation errors, the SIP media application calls the Lambda function with the appropriate error message\. The following table lists the possible error messages\.
+For validation errors, the SIP media application calls the AWS Lambda function with the appropriate error message\. The following table lists the possible error messages\.
 
 
 |  Error  |  Message  |  Reason  | 
@@ -170,7 +170,7 @@ For validation errors, the SIP media application calls the Lambda function with 
 
 ## Handling ACTION\_FAILED events<a name="handle-action-failed"></a>
 
-When the action fails to record the media on a call leg, the SIP media application invokes a Lambda function with the `ACTION_FAILED` event type\. See the following example\.
+When the action fails to record the media on a call leg, the SIP media application invokes an AWS Lambda function with the `ACTION_FAILED` event type\. See the following example\.
 
 ```
 {
@@ -191,108 +191,4 @@ When the action fails to record the media on a call leg, the SIP media applicati
 }
 ```
 
-## VoiceFocus<a name="voice-focus"></a>
-
-Enables you to apply background noise suppression to inbound and outbound call legs on a public switched telephony network \(PSTN\)\. To create inbound legs, you use a [SIP rule](https://docs.aws.amazon.com/chime/latest/ag/manage-sip-applications.html) that invokes an AWS Lambda function with a `NewInboundCall` event\. You can create outbound call legs by using the [CallAndBridge](call-and-bridge.md) action, or by using a [CreateSIPMediaApplicationCall](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateSipMediaApplicationCall.html) API operation\. For more information about Amazon Voice Focus, see [Using Amazon Voice Focus](https://docs.aws.amazon.com/chime/latest/ug/voice-focus.html) in the *Amazon Chime User Guide*\.
-
-This example shows a typical action\.
-
-```
-{
-    "SchemaVersion": "1.0",
-    "Actions":[
-        {
-            "Type": "VoiceFocus",
-            "Parameters": {
-                "Enable": True|False,            // required
-                "CallId": "call-id-1",           
-                "ParticipantTag": "LEG-A"
-            }
-        }
-    ]
-}
-```
-
-**Enable**  
-*Description* – Enables or disables Amazon Voice Focus  
-*Allowed values* – True, False  
-*Required* – Yes  
-*Default value* – None
-
-**CallId**  
-*Description* – CallId of participant in the `CallDetails` of the Lambda function invocation  
-*Allowed values* – A valid call ID  
-*Required* – No, if you provide a `ParticipantTag`  
-*Default value* – None
-
-**ParticipantTag**  
-*Description* – `ParticipantTag` of one of the connected participants in the `CallDetails`  
-*Allowed values* – LEG\-A, LEG\-B  
-*Required* – No, if you provide a `CallID`  
-*Default value* – None
-
-This example shows a successful `VoiceFocus` action\.
-
-```
-{
-   "SchemaVersion": "1.0",
-   "Sequence": 3,
-   "InvocationEventType": "ACTION_SUCCESSFUL",
-   "ActionData": {
-      "Type": "VoiceFocus",
-      "Parameters": {
-         "Enable": True,
-         "CallId": "call-id-1"
-      }
-   },
-   "CallDetails":{
-      .....
-      .....
-      "Participants":[
-         {
-            "CallId": "call-id-1",
-            "ParticipantTag": "LEG-A",
-            .....   
-            "Status": "Connected"
-         },
-         {
-            "CallId": "call-id-2",
-            "ParticipantTag": "LEG-B",
-            .....
-            "Status": "Connected"
-         }
-      ]
-   }
-}
-```
-
-This example shows an unsuccessful `VoiceFocus` action\.
-
-```
-{
-   "SchemaVersion": "1.0",
-   "Sequence":2,
-   "InvocationEventType": "ACTION_FAILED",
-      "ActionData":{
-      "Type": "VoiceFocus",
-      "Parameters": {
-         "Enable": True,
-         "CallId": "call-id-1"
-      }
-      },
-      "ErrorType": "CallNotAnswered",
-      "ErrorMessage": "Call not answered"
-   },
-   "CallDetails":{
-      .....
-      .....
-      "Participants":[
-         {
-            "CallId": "call-id-1",
-            "ParticipantTag": "LEG-A",
-            .....   
-         }
-      ]
-   }
-}
-```
+See a working example on GitHub: [https://github\.com/aws\-samples/amazon\-chime\-sma\-bridging](https://github.com/aws-samples/amazon-chime-sma-bridging)

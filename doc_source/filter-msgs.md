@@ -5,7 +5,7 @@ The Amazon Chime SDK supports setting filter rules on an app instance user’s c
 **Important**  
 The Amazon Chime SDK only supports escaped JSON strings as the filter rule\.
 
-To set filter rules on the channel membership, use the [PutChannelMembershipPreferences](https://docs.aws.amazon.com/chime/latest/APIReference/API_messaging-chime_PutChannelMembershipPreferences.html) API\. You can include message attributes in a channel message as part of the [SendChannelMessage](https://docs.aws.amazon.com/chime/latest/APIReference/API_messaging-chime_SendChannelMessage.html) API call\.
+To set filter rules on the channel membership, use the [PutChannelMembershipPreferences](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_PutChannelMembershipPreferences.html) API\. You can include message attributes in a channel message as part of the [SendChannelMessage](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_SendChannelMessage.html) API call\.
 
 ## Filter rule types<a name="filter-rule-types"></a>
 

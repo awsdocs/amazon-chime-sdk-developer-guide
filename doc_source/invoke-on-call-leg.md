@@ -1,6 +1,10 @@
 # Responding to invocations with action lists<a name="invoke-on-call-leg"></a>
 
-You can respond to a Lambda invocation event with a list of actions to run on the individual participants in a call\. The following example shows the general response structure\.
+You can respond to an AWS Lambda invocation event with a list of actions to run on the individual participants in a call\. You can respond with a maximum of 10 actions for each AWS Lambda invocation, and you can invoke an AWS Lambda function 1,000 times per call\.
+
+By default, SIP media applications time out if a Lambda function doesn't respond after 20 seconds\.
+
+The following example shows the general response structure\.
 
 ```
 {
@@ -32,7 +36,7 @@ You can respond to a Lambda invocation event with a list of actions to run on th
 }
 ```
 
-When the Lambda function returns the list of action to the SIP media application, the following operations occur:
+When the AWS Lambda function returns the list of action to the SIP media application, the following operations occur:
 
 1. The application finishes running the current action on a call\.
 

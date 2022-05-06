@@ -1,6 +1,6 @@
 # Receiving caller input<a name="case-4"></a>
 
-You use the `ReceiveDigits` action to collect inbound DTMF digits and match them against a regular expression\. When the SIP media application receives digits that match the regular expression, it invokes a Lambda function with an `ACTION_SUCCESSFUL` event\. The collected digits appear in the `ReceivedDigits` value in the `ActionData` object\.
+You use the `ReceiveDigits` action to collect inbound DTMF digits and match them against a regular expression\. When the SIP media application receives digits that match the regular expression, it invokes a AWS Lambda function with an `ACTION_SUCCESSFUL` event\. The collected digits appear in the `ReceivedDigits` value in the `ActionData` object\.
 
 For example:
 
@@ -40,7 +40,7 @@ For example:
 }
 ```
 
-Once the caller enters digits that match your regular expression pattern, the SIP media application invokes a Lambda function that returns the following type of payload:
+Once the caller enters digits that match your regular expression pattern, the SIP media application invokes an AWS Lambda function that returns the following type of payload:
 
 ```
 {
@@ -77,3 +77,5 @@ Once the caller enters digits that match your regular expression pattern, the SI
     }
 }
 ```
+
+See a working example on GitHub: [https://github\.com/aws\-samples/amazon\-chime\-sma\-on\-demand\-recording](https://github.com/aws-samples/amazon-chime-sma-on-demand-recording)

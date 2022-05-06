@@ -1,24 +1,28 @@
-# Meeting Regions<a name="chime-sdk-meetings-regions"></a>
+# Meeting regions<a name="chime-sdk-meetings-regions"></a>
 
 Amazon Chime SDK meetings have *control regions* and *media regions*\. A control region has an API endpoint used to create, update and delete meetings, and media regions host the actual meetings\.
 
-Typically, your application service uses the [AWS SDK](https://aws.amazon.com/tools/) to [sign and call](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) APIs in the control plane, and your application client uses the [Amazon Chime SDK for Javascript](https://docs.aws.amazon.com/chime/latest/dg/use-javascript-sdk-top.html), [iOS](https://docs.aws.amazon.com/chime/latest/dg/sdk-for-ios.html), or [Android](https://docs.aws.amazon.com/chime/latest/dg/sdk-for-android.html) to connect to the meeting in the media plane\.
+Typically, your application service uses the [AWS SDK](https://aws.amazon.com/tools/) to [sign and call](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) APIs in the control plane, and your application client uses the [Using the Amazon Chime SDK for JavaScript](use-javascript-sdk-top.md), [Using the Amazon Chime SDK for iOS](sdk-for-ios.md), or [Using the Amazon Chime SDK for Android](sdk-for-android.md) to connect to the meeting in the media plane\.
 
-A control region can create a meeting in any media region\. However, you can only update a meeting in the control region used to create it\. Meeting [events](https://docs.aws.amazon.com/chime/latest/ag/automating-chime-with-cloudwatch-events.html#sdk-events) such as `AttendeeJoined` go to [EventBridge, Amazon Simple Queue Service \(SQS\), or Amazon Simple Notification Service \(SNS\)](https://docs.aws.amazon.com/chime/latest/dg/mtgs-sdk-notifications.html) in the meeting control region\.
+A control region can create a meeting in any media region\. However, you can only update a meeting in the control region used to create it\. Meeting [events](https://docs.aws.amazon.com/chime-sdk/latest/ag/automating-chime-with-cloudwatch-events.html#sdk-events) such as `AttendeeJoined` go to [EventBridge, Amazon Simple Queue Service \(SQS\), or Amazon Simple Notification Service \(SNS\)](https://docs.aws.amazon.com/chime-sdk/latest/dg/mtgs-sdk-notifications.html) in the meeting control region\.
 
  For a list of available Amazon Chime SDK meeting control and media regions, refer to [Available regions](sdk-available-regions.md) in this guide\.
+
+This diagram shows the typical flow of data through the control and media regions\.
+
+![\[Diagram showing the flow of data through the Amazon Chime control and media planes.\]](http://docs.aws.amazon.com/chime-sdk/latest/dg/images/control-media-regions.png)
 
 ## Choosing a control region<a name="choose-meeting-region"></a>
 
 Remember these factors when choosing a control Region for an Amazon Chime SDK meeting:
 + **Regulatory requirements**\. Is your application requiried to be within a geopolitical border, or use an endpoint with FIPS 140\-2 validated cryptographic modules?
 + **API latency**\. Using the control Region nearest to the AWS Region of your application service can help reduce the APIs' network latency\. In turn, that helps reduce the time needed to create meetings, and let users join meetings faster\.
-+ **High Availability**\. You can use multiple control Regions to implement a high availability architectures\. However each control Region operates independently\. Also, you can only update meetings in the control Region used to create them\. Futher, you must use that same region to consume meeting events with [ EventBridge, Amazon Simple Queue Service \(SQS\), or Amazon Simple Notification Service \(SNS\)](https://docs.aws.amazon.com/chime/latest/dg/mtgs-sdk-notifications.html)\.
++ **High Availability**\. You can use multiple control Regions to implement a high availability architectures\. However each control Region operates independently\. Also, you can only update meetings in the control Region used to create them\. Futher, you must use that same region to consume meeting events with [ EventBridge, Amazon Simple Queue Service \(SQS\), or Amazon Simple Notification Service \(SNS\)](https://docs.aws.amazon.com/chime-sdk/latest/dg/mtgs-sdk-notifications.html)\.
 
 ## Choosing a media region<a name="choose-media-region"></a>
 
 **Note**  
-We recommend that you always specify a value in the `MediaRegion` parameter in the [CreateMeeting](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateMeeting.html) API action\. For more information about the Regions, refer to [Available regions](sdk-available-regions.md)\.
+We recommend that you always specify a value in the `MediaRegion` parameter in the [CreateMeeting](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateMeeting.html) API action\. For more information about the Regions, refer to [Available regions](sdk-available-regions.md)\.
 
 When choosing a media Region to use for your Amazon Chime SDK meeting, common factors to consider include the following:
 
@@ -39,29 +43,62 @@ Recommended if your Amazon Chime SDK meeting attendees are located in the same A
 
 ## Choosing the nearest media Region<a name="choose-nearest-media-region"></a>
 
-Call `https://nearest-media-region.l.chime.aws` to identify the nearest meeting Region that can host your Amazon Chime SDK meeting\. Make the call from the client application, not the server application\. Pass the call to the application before your attendees join the meeting, such as when the application starts\. Your request returns a JSON object that shows the nearest AWS Region\.
+The [nearest media region endpoint](https://nearest-media-region.l.chime.aws) returns the nearest AWS Region that can host an Amazon Chime SDK meeting\. You can call the URL from your client application to identify the Region closest to the user, and use the result in the `MediaRegion` parameter of the [CreateMeeting](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeeting.html) API to create the meeting in that Region\.
 
-The following example shows the contents of a request sent to `https://nearest-media-region.l.chime.aws` to identify the nearest meeting Region\.
+You usually call the URL when the client application starts, or its network connection changes\. By predetermining the nearest Region, you avoid adding the call’s latency at the time of meeting creation\.
+
+## Choosing the nearest GovCloud \(US\) media Region<a name="choose-gov-cloud-region"></a>
+
+ [https://nearest\-us\-gov\-media\-region\.l\.chime\.aws](https://nearest-us-gov-media-region.l.chime.aws) returns the nearest AWS GovCloud \(US\) Region that can host an Amazon Chime SDK meeting\. You can call the URL from your client application to identify the GovCloud Region closest to the user, and use the result in the `MediaRegion` parameter of the [CreateMeeting](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeeting.html) API to create the meeting in that Region\.
+
+You usually call the URL when the client application starts, or its network connection changes\. By predetermining the nearest Region, you avoid adding the call’s latency at the time of meeting creation\.
+
+## JavaScript example<a name="region-javascript"></a>
+
+The following example uses HTML and JavaScript to return the nearest media Region and GovCloud \(US\) media Region\.
 
 ```
-async getNearestMediaRegion(): Promisestring {
-    var nearestMediaRegion = '';
-    const defaultMediaRegion = 'us-east-1';
-    try {
-      const nearestMediaRegionResponse = await fetch(
-        `https://nearest-media-region.l.chime.aws`,
-        {
-          method: 'GET',
-        }
-      );
-      const nearestMediaRegionJSON = await nearestMediaRegionResponse.json();
-      this.log(nearestMediaRegionJSON.region);
-      nearestMediaRegion = nearestMediaRegionJSON.region;
+<html>
+<head>
+  <title>Amazon Chime SDK - Nearest Media Region</title>
+  <script>
+
+async function getNearestMediaRegion(partition)  {
+
+    console.log('Nearest media region partition: ' + partition);
+
+    const url = ('aws-us-gov' == partition) ? 'https://nearest-us-gov-media-region.l.chime.aws' : 'https://nearest-media-region.l.chime.aws';
+    let result = ('aws-us-gov' == partition) ? 'us-gov-west-1' : 'us-west-2';
+
+    try { //Find the nearest media region
+        console.log('Nearest media region URL: ' + url);
+        const response = await fetch(url, {method: 'GET'} );
+        const body = await response.json();
+        result = body.region;
     } catch (error) {
-      nearestMediaRegion = defaultMediaRegion;
-      this.log('Default media region ' + defaultMediaRegion + ' selected: ' + error.message);
+        console.log(error.message);
     } finally {
-      return nearestMediaRegion;
+        console.log('Nearest media region found: ' + result);
+        return result;
     }
-  }
+}
+
+async function findRegions(partition) {
+  aws.innerText = await getNearestMediaRegion();
+  awsusgov.innerText = await getNearestMediaRegion('aws-us-gov');
+}
+  </script>
+</head>
+<body>
+  <h3>Nearest media region, by AWS partition</h3>
+  <table>
+    <tr><th>Partition</th><th>Media Region</th></tr>
+    <tr><td>aws</td><td id="aws">Finding...</td></tr>
+    <tr><td>aws-us-gov</td><td id="awsusgov">Finding...</td></tr>
+  </table>
+  <script>
+    findRegions();
+  </script>
+</body>
+</html>
 ```

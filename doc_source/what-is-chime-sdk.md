@@ -1,14 +1,12 @@
-# What is Amazon Chime?<a name="what-is-chime"></a>
+# What is the Amazon Chime SDK?<a name="what-is-chime-sdk"></a>
 
-Amazon Chime is a communications service that transforms online meetings with an application that is secure and comprehensive\. Amazon Chime works across your devices so that you can stay connected\. You can use Amazon Chime for online meetings, video conferencing, calls, and chat\. You can also share content inside and outside of your organization\. Amazon Chime helps you to work productively from anywhere\.
+The Amazon Chime SDK is a set of real\-time communications components that you can use to quickly add messaging, audio, video, and screen sharing capabilities to their web or mobile applications\.
 
-Developers can use Amazon Chime with the AWS SDK or AWS Command Line Interface \(AWS CLI\) to perform such tasks as managing users, or integrating webhooks and chat bots with Amazon Chime\. They can also use the Amazon Chime SDK to build real\-time media applications that can send and receive audio and video and allow content sharing\. For detailed information about Amazon Chime API actions, see the [https://docs.aws.amazon.com/chime/latest/APIReference/Welcome.html](https://docs.aws.amazon.com/chime/latest/APIReference/Welcome.html)\.
-
-Amazon Chime permissions are controlled using AWS Identity and Access Management \(IAM\)\. For more information, see [Identity and access management for Amazon Chime](https://docs.aws.amazon.com/chime/latest/ag/security-iam.html) in the *Amazon Chime Administrator Guide*\.
+You can use the Amazon Chime SDK to build real\-time media applications that can send and receive audio and video and allow content sharing\. For detailed information about Amazon Chime SDK API actions, see the [https://docs.aws.amazon.com/chime-sdk/latest/APIReference/Welcome.html](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/Welcome.html)\.
 
 ## Pricing<a name="pricing"></a>
 
-Amazon Chime provides usage\-based pricing\. You pay only for the users with Pro permissions that host meetings, and only on the days that those meetings are hosted\. For more information, see [Amazon Chime pricing](http://aws.amazon.com/chime/pricing/)\.
+The Amazon Chime SDK offers pay\-for\-use pricing with no upfront fees\. You can choose to implement some or all of the available media modalities \(audio, video, and screen share\) for a single rate\. Messaging, media pipelines, speech enhancement, and PSTN audio capabilities are also available with pay\-for\-use pricing\. For more information, see [Amazon Chime SDK pricing](http://aws.amazon.com/chime/chime-sdk/pricing/)\.
 
 ## Resources<a name="resources"></a>
 

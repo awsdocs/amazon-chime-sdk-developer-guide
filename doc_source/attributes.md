@@ -1,32 +1,29 @@
 # Using call detail records<a name="attributes"></a>
 
-Amazon Chime administrators can configure Amazon Chime Voice Connectors to store *call detail records* \(CDRs\)\. For more information about configuring Amazon Chime Voice Connectors to store CDRs, see [Managing global settings in Amazon Chime](https://docs.aws.amazon.com/chime/latest/ag/manage-global.html), in the *Amazon Chime administrator's guide*\.
+Amazon Chime SDK administrators can configure Amazon Chime Voice Connectors to store *call detail records* \(CDRs\)\. For more information about configuring Amazon Chime Voice Connectors to store CDRs, see [Managing global settings in Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/ag/manage-global.html) in the *Amazon Chime SDK Administration Guide*\.
 
-Shortly after each call, the Amazon Chime Voice Connector stores the CDRs as objects in your S3 bucket\. You can import the CDRs into a VoIP billing system\. 
+Once you enable CDRs, after each call the SIP media application sends the records to a folder named **Amazon\-Chime\-SMADRs** in your S3 bucket\.
 
-CDR objects must not contain newline characters or white spaces\. The following table lists the attributes of a CDR, and shows the proper formatting:
+The following table lists the attributes of a CDR, and shows their proper formatting\. The records contain all the fields listed here for all calls\.
 
 
 |  Value  |  Description  | 
 | --- | --- | 
-|  `"AwsAccountId":"AWS-account-ID",`  |  AWS account ID  | 
-|  `"TransactionId":"transaction-ID", `  |  Amazon Chime Voice Connector transaction ID UUID  | 
-|  `"CallId":"SIP-media-application-call-ID",`  |  Customer facing SIP call ID  | 
-|  `"VoiceConnectorId":"voice-connector-ID",`  |  Amazon Chime Voice Connector ID UUID  | 
-|  `"Status":"status",`  |  Status of the call  | 
-|  `"StatusMessage":"status-message",`  |  Status message of the call  | 
-|  `"SipAuthUser":"sip-auth-user",`  |  SIP authentication name  | 
-|  `"BillableDurationSeconds":"billable-duration-in-seconds",`  |  Billable duration of the call in seconds  | 
-|  `"BillableDurationMinutes":"billable-duration-in-minutes",`  |  Billable duration of the call in minutes  | 
-|  `"SchemaVersion":"schema-version",`  |  The CDR schema version  | 
-|  `"SourcePhoneNumber":"12075550155",`  |  E\.164 origination phone number  | 
-|  `"SourceCountry":"source-country",`  |  Country of origination phone number  | 
-|  `"DestinationPhoneNumber":"13605551214",`  |  E\.164 destination phone number  | 
-|  `"DestinationCountry":"destination-country",`  |  Country of destination phone number  | 
-|  `"UsageType":"usage-type",`  |  Usage details of the line item in the Price List API  | 
+|  `"AwsAccountId":"AWS-account-ID"`  |  The AWS account ID associated with the SIP media application that initiated the PSTN usage  | 
+|  `"TransactionId":"transaction-ID" `  |  The transaction ID of the call  | 
+|  `"CallId":"SIP-media-application-call-ID"`  |  The call ID of the participant for the associated usage  | 
+|  `"VoiceConnectorId":"voice-connector-ID"`  |  Amazon Chime Voice Connector ID UUID  | 
+|  `"Status":"status"`  |  Status of the call \(Completed, Failed\)  | 
+|  `"BillableDurationSeconds":"billable-duration-in-seconds"`  |  Billable duration of the call in seconds  | 
+|  `"SchemaVersion":"schema-version"`  |  The CDR schema version  | 
+|  `"SourcePhoneNumber":"12075550155"`  |  E\.164 origination phone number  | 
+|  `"DestinationPhoneNumber":"13605551214"`  |  E\.164 destination phone number  | 
+|  `"UsageType":"usage-type"`  |  Usage details of the line item in the Price List API  | 
 |  `"ServiceCode":"service-code", `  |  The code of the service in the Price List API  | 
-|  `"Direction":"direction",`  |  Direction of the call, `Outbound` or `Inbound`  | 
-|  `"StartTimeEpochSeconds":"start-time-epochseconds",`  |  Indicates the call start time in epoch/Unix timestamp format  | 
-|  `"EndTimeEpochSeconds":"end-time-epochseconds",`  |  Indicates the call end time in epoch/Unix timestamp format  | 
-|  `"Region":"AWS-region"}`  |  AWS region for the Amazon Chime Voice Connector  | 
-|  `"Streaming":{"true\|false"}`  |  Indicates whether the Streaming audio option was enabled\.  | 
+|  `"Direction":"direction"`  |  Direction of the call, `Outbound` or `Inbound`  | 
+|  `"TimeStampEpochSeconds":"start-time-epochseconds",`  |  The timestamp of the record in epoch/Unix timestamp format  | 
+|  `"Region":"AWS-region"}`  |  AWS Region for the Amazon Chime Voice Connector  | 
+|  `"SipRuleId":"sip-rule-id"`  |  The ID of the sip rule that is triggered when a call reaches the PSTN Audio service  | 
+|  `"SipApplicationId":"sip-application-id"`  |  The ID of the SIP application that handles a call  | 
+|  `"CallLegTriggerType":"trigger-type"`  |  The type of event that triggered a call  | 
+|  `"BillableVoiceFocusSeconds":"billable-voice-focus-in-seconds"`  |  The billable amount of Voice Focus usage, in seconds  | 

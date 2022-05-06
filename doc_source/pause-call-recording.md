@@ -1,6 +1,6 @@
 # PauseCallRecording<a name="pause-call-recording"></a>
 
-The `PauseCallRecording` action pauses recording of a call leg\. Each time you pause a recording, the recording captures a tone that indicates the pause\. When you pause, the recording continues, but silence is captured\. Pausing the recording does not affect the total duration of the recording\. You can pause and resume recording as often as needed\.
+The `PauseCallRecording` action pauses recording of a call leg\. Each time you pause a recording, the recording captures a tone that indicates the pause\. When you pause, the recording continues, but it only captures silence\. Pausing the recording does not affect the total duration of the recording\. You can pause and resume recording as often as needed\.
 
 The following example pauses recording\. 
 
@@ -23,3 +23,5 @@ The following example pauses recording\.
 *Allowed values* – A valid call ID  
 *Required* – Yes  
 *Default value* – None
+
+See a working example on GitHub: [https://github\.com/aws\-samples/amazon\-chime\-sma\-on\-demand\-recording](https://github.com/aws-samples/amazon-chime-sma-on-demand-recording)

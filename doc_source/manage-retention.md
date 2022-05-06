@@ -25,7 +25,7 @@ The following examples show typical CLI commands for retention:
 
 ## Enabling message retention<a name="enable-retention"></a>
 
-You use the Amazon Chime AWS SDK APIs to turn on retention for messaging\. You can also use the APIs to update message retention periods or turn off message retention at any time\. For more information about configuring messaging retention, see the [Amazon Chime API Reference](https://docs.aws.amazon.com/chime/latest/APIReference/Welcome.html)\.
+You use the Amazon Chime SDK APIs to turn on retention for messaging\. You can also use the APIs to update message retention periods or turn off message retention at any time\. For more information about configuring messaging retention, see the [Amazon Chime SDK API Reference](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/Welcome.html)\.
 
 ## Restoring and deleting messages<a name="restore-and-delete"></a>
 

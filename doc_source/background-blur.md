@@ -6,6 +6,11 @@ The background blur API allows builders to enable background blurring on an inco
 
 The video frame processor uses a TensorFlow Lite machine learning model, plus JavaScript Web Workers and WebAssembly to apply blur to the background of each frame in a video stream\. The SDK downloads those assets at runtime when the video frame processor is created\. You can customize the download location, and you can host the assets on a content delivery network\. The assets don't reside in the [sample application on GitHub](https://github.com/aws/amazon-chime-sdk-js/)\. 
 
+**Topics**
++ [Creating a processor and adding it to a pipeline](#create-processor)
++ [Using a custom model for background segmentation](#segmentation-model)
++ [Observing processor events](#processor-events)
+
 ## Creating a processor and adding it to a pipeline<a name="create-processor"></a>
 
 To create a background blur frame processor with the default assets and options, you use the `BackgroundBlurVideoFrameProcessor` class\. Use the \.isSupported method to ensure that the processor is supported in its runtime environment\. If it is supported, then create the processor and use it in the `VideoTransformDevice`\.
@@ -24,7 +29,11 @@ if (BackgroundBlurVideoFrameProcessor.isSupported()) {
 let transformDevice = new DefaultVideoTransformDevice(logger, device, processors);
 ```
 
-You can customize the video frame processor by pass ing in a `BackgroundFilterSpec` object and a `BackgroundFilterOptions` object\. The `BackgroundFilterSpec` class allows you to customize the path to an alternate content delivery network, and use a custom machine learning model for background segmentation\. The `BackgroundBlurOptions` class allows you to customize the behavior of the processor, such as logging, blur strength, and how often you receive event reports\.
+You can customize the video frame processor by pass ing in a `BackgroundFilterSpec` object and a `BackgroundFilterOptions` object\. The `BackgroundFilterSpec` class allows you to customize the path to an alternate content delivery network, and use a custom machine learning model for background segmentation\. The `BackgroundBlurOptions` class allows you to customize the behavior of the processor as follows:
++ `logger`: A logger to which log output is written\.
++ `filterCPUUtilization`: The threshold CPU utilization for skipping background filter updates\. For more about how and why the SDK skips updates, see [Using background replacement](bg-replacement.md), the next topic in this guide\. This reduces the amount of CPU used by a background filter\. For example, If the reporting period is set to 1000 ms, and 500 ms is dedicated to processing the background filter, then the CPU utilization for that reporting period is 50 percent\. If you set `filterCPUUtilization` to 50, the `BackgroundReplacementVideoFrameProcessorObserver` fires a `filterCPUUtilizationHigh` event\.
++ `blurStrength`: The amount of blurring applied to the video stream\. Must be a value greater than 0\. 
++ `reportingPeriodMillis`: The frequency with which the video frame processor reports observed events\.
 
 This example shows some typical customizations\.
 
@@ -55,9 +64,9 @@ export default interface BackgroundFilterSpec extends AssetSpec {
  */
 export default interface BackgroundBlurOptions {
   /** A {@link Logger|Logger} to which log output will be written. */
-  logger?: Logger;
-  /** The amount of blur that will be applied to a video stream */
-  blurStrength?: number;
+  logger?: Logger; 
+ /** The amount of blur that will be applied to a video stream. */
+ blurStrength?: number;
   /** How often the video frame processor will report observed events*/
   reportingPeriodMillis?: number;
 }

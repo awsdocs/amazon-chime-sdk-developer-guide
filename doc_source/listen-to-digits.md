@@ -1,6 +1,6 @@
 # ReceiveDigits<a name="listen-to-digits"></a>
 
-When a user enters digits that match the regular expression pattern specified in this action, the SIP media application invokes the Lambda function\.
+When a user enters digits that match the regular expression pattern specified in this action, the SIP media application invokes the AWS Lambda function\.
 
 ```
 {
@@ -16,7 +16,7 @@ When a user enters digits that match the regular expression pattern specified in
 ```
 
 **CallId**  
-*Description* – `CallId` of participant in the `CallDetails` of the Lambda function invocation  
+*Description* – `CallId` of participant in the `CallDetails` of the AWS Lambda function invocation  
 *Allowed values* – A valid call ID  
 *Required* – No  
 *Default value* – None
@@ -40,11 +40,16 @@ When a user enters digits that match the regular expression pattern specified in
 *Default value* – None
 
 **FlushDigitsDurationInMilliseconds**  
-*Description* – Interval after which received DTMF digits are flushed and sent to the Lambda function\. If the SIP media application receives a new digit after the interval ends, the timer starts again\.  
+*Description* – Interval after which received DTMF digits are flushed and sent to the AWS Lambda function\. If the SIP media application receives a new digit after the interval ends, the timer starts again\.  
 *Allowed values* – `InBetweenDigitsDurationInMilliseconds`  
 *Required* – Yes  
 *Default value* – None
 
-The SIP media application discards DTMF digits for the duration of a call until it receives a new `ReceiveDigits` action\. The `FlushDigitsDurationInMilliseconds` interval starts when the SIP media application receives the first DTMF digit\. If the user enters the correct digits before the interval expires, the SIP media application invokes the Lambda function described in [Receiving caller input](case-4.md)\.
+The SIP media application discards DTMF digits for the duration of a call until it receives a new `ReceiveDigits` action\. The `FlushDigitsDurationInMilliseconds` interval starts when the SIP media application receives the first DTMF digit\. If the user enters the correct digits before the interval expires, the SIP media application invokes the AWS Lambda function described in [Receiving caller input](case-4.md)\.
 
 If the user input doesn't match the regular expression pattern, the SIP media application repeats the "failure" audio file message until the application exhausts the repeat count or the user inputs valid digits\. 
+
+See working examples on GitHub:
++ [https://github\.com/aws\-samples/amazon\-chime\-sma\-outbound\-call\-notifications](https://github.com/aws-samples/amazon-chime-sma-outbound-call-notifications)
++ [https://github\.com/aws\-samples/amazon\-chime\-sma\-on\-demand\-recording](https://github.com/aws-samples/amazon-chime-sma-on-demand-recording)
++ [https://github\.com/aws\-samples/amazon\-chime\-sma\-update\-call](https://github.com/aws-samples/amazon-chime-sma-update-call)

@@ -43,10 +43,10 @@ This example shows the current version of the AWSChimeSDK AWS managed policy\. I
 
 ## SDK policy updates<a name="pol-changes"></a>
 
-This table lists and describes the updates to the Amazon Chime IAM policy\.
+This table lists and describes the updates to the Amazon Chime SDK IAM policy\.
 
 
 | Change | Description | Date | 
 | --- | --- | --- | 
-| Added support for transcriptions\. | Amazon Chime added the `StartMeetingTranscription` and `StopMeetingTranscription` actions to grant access to transcription services\. | September 9, 2021 | 
-| Amazon Chime started tracking changes\. | Amazon Chime started tracking changes to the AWSChimeSDK AWS managed policy\. | September 9, 2021 | 
+| Added support for transcriptions\. | Amazon Chime SDK added the `StartMeetingTranscription` and `StopMeetingTranscription` actions to grant access to transcription services\. | September 9, 2021 | 
+| Amazon Chime SDK started tracking changes\. | Amazon Chime SDK started tracking changes to the AWSChimeSDK AWS managed policy\. | September 9, 2021 | 

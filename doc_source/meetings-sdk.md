@@ -6,7 +6,7 @@ You use the Amazon Chime SDK to build real\-time media applications that can sen
 + [Amazon Chime SDK prerequisites](#mtg-prereqs)
 + [Amazon Chime SDK concepts](#mtg-glossary)
 + [Amazon Chime SDK architecture](#mtg-arch)
-+ [Amazon Chime SDK quotas](#mtg-limits)
++ [Amazon Chime SDK service quotas](#mtg-limits)
 + [Amazon Chime SDK system requirements](#mtg-browsers)
 + [Available regions](sdk-available-regions.md)
 + [Integrating with a client library](mtgs-sdk-client-lib.md)
@@ -18,7 +18,7 @@ You use the Amazon Chime SDK to build real\-time media applications that can sen
 Using the Amazon Chime SDK requires the following:
 + The ability to program\.
 + An AWS account\.
-+ An IAM role with a policy that grants permission to access Amazon Chime API actions used by the Amazon Chime SDK, such as the AWS managed **AmazonChimeSDK** policy\. For more information, see [How Amazon Chime works with IAM](https://docs.aws.amazon.com/chime/latest/ag/security_iam_service-with-iam.html) and [Allow users to access Amazon Chime SDK actions](https://docs.aws.amazon.com/chime/latest/ag/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-chime-sdk) in the *Amazon Chime Administrator Guide*\.
++ An IAM role with a policy that grants permission to access Amazon Chime API actions used by the Amazon Chime SDK, such as the AWS managed **AmazonChimeSDK** policy\. For more information, see [How Amazon Chime works with IAM](https://docs.aws.amazon.com/chime-sdk/latest/ag/security_iam_service-with-iam.html) and [Allow users to access Amazon Chime SDK actions](https://docs.aws.amazon.com/chime-sdk/latest/ag/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-chime-sdk) in the *Amazon Chime SDK Administrator Guide*\.
 + For the majority of use cases, you also need the following:
   + A **server application** – Manages meeting and attendee resources, and serves those resources to the client application\. The server application is created in the AWS account and must have access to the IAM role mentioned previously\.
   + A **client application** – Receives meeting and attendee information from the server application, and uses that information to make media connections\.
@@ -47,22 +47,27 @@ A unique token assigned to each attendee\. Attendees use the join token to authe
 The following list describes how the different components of the Amazon Chime SDK architecture work together to support meetings and attendees, audio, video, and content sharing\.
 
 **Meetings and attendees**  
-When the server application creates a meeting using the Amazon Chime SDK, the meeting is assigned to a region\-specific media service group\. The hosts in this group are responsible for securely transferring real\-time media between attendee clients\. Each created attendee is assigned a unique join token, an opaque secret key that your server application must securely transfer to the client authorized to join the meeting on behalf of an attendee\. Each client uses a join token to authenticate with the media service group\. Clients use a combination of secure WebSockets and Datagram Transport Layer Security \(DTLS\) to securely signal the media service group, and to send and receive media to and from other attendees through the media service group\.
+When the server application creates an Amazon Chime SDK meeting, the meeting is assigned to a region\-specific media service\. The hosts in the service are responsible for securely transferring real\-time media between attendee clients\. Each created attendee is assigned a unique join token, an opaque secret key that your server application must securely transfer to the client authorized to join the meeting on behalf of an attendee\. Each client uses a join token to authenticate with the media service group\. Clients use a combination of secure WebSockets and Datagram Transport Layer Security \(DTLS\) to securely signal the media service group, and to send and receive media to and from other attendees through the media service group\.
 
 **Audio**  
-The media service group mixes audio together from each attendee and sends the mix to each recipient, after subtracting their own audio from the mix\. The Amazon Chime SDK for JavaScript samples audio at the highest sample rate supported by the device and browser, up to a maximum of 48kHz\. Audio is encoded using the Opus codec, with a default bitrate of 32kbps, which can be increased to up to 64kbps\. The Amazon Chime SDKs for iOS and Android sample audio at a rate of 16kHz and encodes using the Opus codec at 32kbps\.
+The media service mixes audio together from each attendee and sends the mix to each recipient, after subtracting their own audio from the mix\. The Amazon Chime SDKs sample audio at the highest rate supported by the device and browser, up to a maximum of 48kHz\. We use the Opus codec to encode audio, with a default bitrate of 32kbps, which can be increased to up to 128kbps stereo and 64kbps mono\.
 
 **Video**  
-The media service group acts as a Selective Forwarding Unit \(SFU\) using a publish and subscribe model\. Each attendee can publish one video source, up to a total of 25 simultaneous videos per meeting\. The Amazon Chime SDK for JavaScript supports video resolutions up to 1280x720 at 30 frames per second without simulcast, and 15 frames per second with simulcast\. The Amazon Chime SDK for iOS and Android support video resolutions up to 1280x720 and 15 frames per second, however the actual framerate and resolution is automatically managed by the Amazon Chime SDK\.  
+The media service acts as a Selective Forwarding Unit \(SFU\) using a publish and subscribe model\. Each attendee can publish one video source, up to a total of 25 simultaneous videos per meeting\. The Amazon Chime SDK for JavaScript supports video resolutions up to 1280x720 at 30 frames per second without simulcast, and 15 frames per second with simulcast\. The Amazon Chime SDK for iOS and Android support video resolutions up to 1280x720 and 15 frames per second, however the actual framerate and resolution is automatically managed by the Amazon Chime SDK\.  
 When active, video simulcast sends each video stream in two different resolutions and bitrates\. Clients which are bandwidth constrained automatically subscribe to the lower bitrate stream\. Video encoding and decoding uses hardware acceleration where available to improve performance\.
 
 **Data messages**  
-In addition to audio and video content, meeting attendees can send each other real\-time data messages of up to 2 KB each\. Developers can use messages to implement custom meeting features such as whiteboarding, chat, real\-time emoji reactions, and application\-specific floor control signaling\.
+In addition to audio and video content, meeting attendees can send each other real\-time data messages of up to 2 KB each\. You can use messages to implement custom meeting features such as whiteboarding, chat, real\-time emoji reactions, and application\-specific floor control signaling\.
 
 **Content sharing**  
 The client application can share audio and video content, such as screen captures or media files\. Content sharing supports pre\-recorded content video up to 1280x720 at 15 frames per second, and audio up to 48kHz at 64kbps\. Screen capture for content sharing is supported up to 15 frames per second, but may be limited by the capabilities of the device and browser\.
 
-## Amazon Chime SDK quotas<a name="mtg-limits"></a>
+## Amazon Chime SDK service quotas<a name="mtg-limits"></a>
+
+**Note**  
+Service quotas are per API endpoint\. When requesting a service quota increase, be sure to request the increase on all the API endpoints that your application uses\.
+
+This table that lists the resources and quotas available for Amazon Chime SDK meetings\.
 
 
 | Resource | Quota | Adjustable | 
@@ -70,30 +75,23 @@ The client application can share audio and video content, such as screen capture
 |  Active Meetings  |  250  |  Yes  | 
 |  Attendees per meeting  |  250  |  No  | 
 |  Audio streams per meeting  |  250  |  No  | 
-|  Video tiles per meeting  | 25 |  Yes  | 
+| Active concurrent media capture pipelines per account | 100 for us\-east\-1, and 10 for us\-west\-2, ap\-southeast\-1, and eu\-central\-1 | Yes | 
+| Active media capture pipelines per meeting | 1 | No | 
+|  Video streams per meeting  | 50 |  Yes  | 
 |  Content shares per meeting  |  2  |  No  | 
-|  API Rate  |  10 requests per second \(RPS\) with a burst of 20 RPS\.  |  Yes  | 
+|  API Rate  |  10 requests per second \(RPS\) with a burst of 20 RPS\.  |  Yes, but indirectly\. API rate limits are increased when you increase the Active Meetings quota\.  | 
+|  Video streams per client application  |  25  |  No  | 
 
 ## Amazon Chime SDK system requirements<a name="mtg-browsers"></a>
 
 The following system requirements apply to applications created with the Amazon Chime SDK\.
 
-**Amazon Chime SDK for JavaScript – Supported browsers**
-+ Mozilla Firefox \(version 75 and later\), for macOS and Windows\.
-+ Mozilla Firefox for iOS \(10\.0 and later\) also supported for audio and video only \(no content sharing\)\.
-+ Google Chrome \(version 78 and later\), for macOS, Windows, and Ubuntu LTS 16\.04 and later\.
-+ Google Chrome for Android and iOS \(10\.0 and later\) also supported for audio and video only \(no content sharing\)\.
-+ Chromium\-based Edge version 79 and later for Windows and macOS\.
-+ Chromium\-based Electron version 7 and later, with Chromium version 78 and later\.
-+ Safari version 12 for macOS, audio and video only, no content sharing\.
-+ Safari version 12\.1\.1 and later for iOS, audio and video only, no content sharing\.
-+ Safari version 13 and later for macOS\. Content sharing with screen capture requires turning on the **Develop**, **Experimental Features**, **Screen Capture** feature in the browser\.
-+ Opera version 66 and later for macOS and Windows\.
-+ Samsung Internet version 12 and later for Android, audio and video only, no content sharing\.
-+ WKWebView for iOS \(14\.3 and later\) also supported for audio and video only \(no content sharing\)\.
+**Supported browsers, Amazon Chime SDK for JavaScript**
+
+[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html)
 
 **Amazon Chime SDK for iOS**
-+ iOS version 10\.0 and later
++ iOS version 13 and later
 
 **Amazon Chime SDK for Android**
-+ Android OS version 5\.0 and later, ARM and ARM64 architecture
++ Android OS version 5 and later, ARM and ARM64 architecture

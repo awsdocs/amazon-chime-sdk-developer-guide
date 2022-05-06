@@ -3,7 +3,7 @@
 This guide provides a conceptual overview of the Amazon Chime SDK for JavaScript and example code for critical server and client components\.
 
 **Topics**
-+ [Components of an Amazon Chime application](chime-components.md)
++ [Components of an Amazon Chime SDK application](chime-components.md)
 + [Key concepts](key-concepts.md)
 + [Service architecture](service-architecture.md)
 + [Web application component architecture](web-app-comp-arch.md)

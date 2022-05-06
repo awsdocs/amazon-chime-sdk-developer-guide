@@ -1,9 +1,9 @@
-# End\-to\-end use case<a name="use-cases"></a>
+# End\-to\-end call example<a name="use-cases"></a>
 
 This use case provides example code for receiving a phone call from a PSTN caller, greeting the caller with an audio message, getting the meeting PIN from the caller, playing audio, and joining the caller to the meeting\.
 
 **Invocation events and actions**  
-The PSTN Audio Service passes invocation events to AWS Lambda functions as JSON objects\. The objects include the invocation event type and any relevant metatdata\. The Lambda function also returns SIP media application actions as JSON objects, and those objects include an action type and any relevant metadata\.
+The PSTN Audio service passes invocation events to AWS Lambda functions as JSON objects\. The objects include the invocation event type and any relevant metatdata\. The AWS Lambda function also returns SIP media application actions as JSON objects, and those objects include an action type and any relevant metadata\.
 
 The following table lists the invocation events, and the possible `ActionData.Type`, when you receive an invocation event\.
 
@@ -16,9 +16,9 @@ The following table lists the invocation events, and the possible `ActionData.Ty
 |  DIGITS\_RECEIVED  | ReceiveDigits | 
 
 **Note**  
-To implement the following use case, you need at least one phone number in your Amazon Chime inventory, a SIP media application managed object that uses a Lambda function with an Amazon Resource Name \(ARN\), and a SIP rule that uses the phone number as its trigger\.
+To implement the following use case, you need at least one phone number in your Amazon Chime SDK inventory, a SIP media application managed object that uses a AWS Lambda function with an Amazon Resource Name \(ARN\), and a SIP rule that uses the phone number as its trigger\.
 
-When Amazon Chime receives a call to the phone number specified in the rule, the PSTN Audio Service invokes a Lambda function with the `NEW_INBOUND_CALL` invocation event type\.
+When Amazon Chime SDK receives a call to the phone number specified in the rule, the PSTN Audio service invokes a AWS Lambda function with the `NEW_INBOUND_CALL` invocation event type\.
 
 ```
 {
@@ -46,11 +46,11 @@ When Amazon Chime receives a call to the phone number specified in the rule, the
 }
 ```
 
- You can program the Lambda function to validate call details and store them for future use\. For a `NEW_INBOUND_CALL` event, the Lambda function responds with a set of actions that play a welcome prompt and ask for the meeting PIN\.
+You can program the AWS Lambda function to validate call details and store them for future use\. For a `NEW_INBOUND_CALL` event, the AWS Lambda function responds with a set of actions that play a welcome prompt and ask for the meeting PIN\.
 
 Audio files have the following requirements:
 + You must play audio files from an Amazon Simple Storage Service \(S3\) bucket\. The S3 bucket must belong to the same AWS account as the SIP media application\. In addition, you must give the `s3:GetObject` permission to the Amazon Chime Voice Connector service principal—`voiceconnector.chime.amazonaws.com`\. You can use the S3 console or the command\-line interface \(CLI\) to do that\.
-+ You must use PCM WAV files of no more than 50 MB in size\. Amazon Chime recommends 8 KHz mono\.
++ You must use PCM WAV files of no more than 50 MB in size\. Amazon Chime SDK recommends 8 KHz mono\.
 + The S3 metadata for each WAV file must contain `{'ContentType': 'audio/wav'}`\.
 
 ```
@@ -96,7 +96,7 @@ Audio files have the following requirements:
 }
 ```
 
-The SIP media application runs these actions on call leg A\. Assuming the `PlayAudioAndGetDigits` action receives the digits, the SIP media application invokes the Lambda function with the `ACTION_SUCCESSFUL` event type\.
+The SIP media application runs these actions on call leg A\. Assuming the `PlayAudioAndGetDigits` action receives the digits, the SIP media application invokes the AWS Lambda function with the `ACTION_SUCCESSFUL` event type\.
 
 ```
 {
@@ -133,7 +133,7 @@ The SIP media application runs these actions on call leg A\. Assuming the `PlayA
 }
 ```
 
-You can program a Lambda function to identify the caller based on the `CallDetails` data\. You can also validate the meeting PIN received earlier\. Assuming a correct PIN, you then use the [CreateMeeting](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateMeeting.html) and [CreateAttendee](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateAttendee.html) APIs to create the Amazon Chime SDK meeting and generate the join token used by the meeting attendee\. The Lambda function responds with the action to join the Amazon Chime meeting\.
+You can program an AWS Lambda function to identify the caller based on the `CallDetails` data\. You can also validate the meeting PIN received earlier\. Assuming a correct PIN, you then use the [CreateMeeting](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateMeeting.html) and [CreateAttendee](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateAttendee.html) APIs to create the Amazon Chime SDK meeting and generate the join token used by the meeting attendee\. The AWS Lambda function responds with the action to join the Amazon Chime SDK meeting\.
 
 ```
 {
@@ -149,7 +149,7 @@ You can program a Lambda function to identify the caller based on the `CallDetai
 }
 ```
 
-Assuming the `JoinToken` is valid, the SIP media application joins the Amazon Chime meeting and invokes a Lambda function with the `ACTION_SUCCESSFUL` event, where `CallDetails` contains the data from the SIP media application and the Chime Media Service \(`LEG-B`\) 
+Assuming the `JoinToken` is valid, the SIP media application joins the Amazon Chime SDK meeting and invokes a AWS Lambda function with the `ACTION_SUCCESSFUL` event, where `CallDetails` contains the data from the SIP media application and the Chime Media service \(`LEG-B`\) 
 
 ```
 {
@@ -201,7 +201,7 @@ If you want to stop running actions on the call or call leg at this point, you c
 }
 ```
 
-After the caller hangs up, the SIP media application invokes the Lambda function with the `HANGUP` event\. 
+After the caller hangs up, the SIP media application invokes the AWS Lambda function with the `HANGUP` event\. 
 
 ```
 {

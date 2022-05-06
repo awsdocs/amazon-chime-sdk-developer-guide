@@ -4,7 +4,7 @@ The `StartCallRecording` action starts the recording of a call leg\. You start c
 + To start on\-demand recording of a call, you use the `UpdateSipMediaApplication` API to invoke your application and return the `StartCallRecording` action\.
 + To start call recording in response to a SIP event, you return the `StartCallRecording` action in your application\. 
 
-You specify whether you want to record the audio track for the incoming track, the outgoing track, or both tracks of the call leg\. The following sections explain how to use the `StartCallRecording` action\.
+You specify whether you want to record the audio track for the incoming leg, the outgoing leg, or both\. The following sections explain how to use the `StartCallRecording` action\.
 
 **Note**  
 Recordings made using this feature may be subject to laws or regulations regarding the recording of electronic communications\. It is your and your end users’ responsibility to comply with all applicable laws regarding the recording, including properly notifying all participants in a recorded session or communication that the session or communication is being recorded, and obtaining their consent\.
@@ -60,18 +60,18 @@ The following example shows how to request the `StartCallRecording` action for `
 *Default value* – None
 
 **Destination\.Location**  
-*Description* – A valid Amazon S3 bucket and an optional Amazon S3 key prefix\. The bucket must have access to the Amazon Chime Voice Connector service principal, voiceconnector\.chime\.amazonaws\.com\.  
-*Allowed values* – A valid Amazon S3 path for which Amazon Chime has access to the `s3:PutObject` and `s3:PutObjectAcl` actions\.  
+*Description* – A valid Amazon S3 bucket and an optional Amazon S3 key prefix\. The bucket must have permissions to the Amazon Chime Voice Connector service principal, voiceconnector\.chime\.amazonaws\.com\.  
+*Allowed values* – A valid Amazon S3 path for which Amazon Chime SDK has permisions to the `s3:PutObject` and `s3:PutObjectAcl` actions\.  
 *Required* – Yes  
 *Default value* – None
 
 ## Specifying a recording destination<a name="recording-destination"></a>
 
-Amazon Chime delivers call recordings to your Amazon S3 bucket\. The bucket must belong to your AWS account\. You specify the bucket's location in the `Destination` parameter of the `StartCallRecording` action\. The `Type` field in the the `Destination` parameter must be `S3`\. The `Location` field consists of your Amazon S3 bucket, plus an optional object\-key prefix in which the call recording is delivered\. 
+Amazon Chime SDK delivers call recordings to your Amazon S3 bucket\. The bucket must belong to your AWS account\. You specify the bucket's location in the `Destination` parameter of the `StartCallRecording` action\. The `Type` field in the the `Destination` parameter must be `S3`\. The `Location` field consists of your Amazon S3 bucket, plus an optional object\-key prefix in which the call recording is delivered\. 
 
 The SIP media application uses the specified `Location`, the call leg’s date and time, the transaction ID, and the call ID to format the Amazon S3 object key\. The `StartCallRecording` action response returns the full Amazon S3 object key\.
 
-When you only provide the Amazon S3 bucket in the `Location` field, the SIP media application appends a default prefix, `Amazon-Chime-SMA-Call-Recordings`, to the Amazon S3 path\. The SIP media application also appends the year, month, and day of the call to help organize the recordings\. The following example shows the general format of an Amazon S3 path with the default prefix\. This example uses `myRecordingBucket` as the `Location` value\.
+When you only provide the Amazon S3 bucket in the `Location` field, the SIP media application appends a default prefix, `Amazon-Chime-SMA-Call-Recordings`, to the Amazon S3 path\. The SIP media application also appends the year, month, and day of the call's start time to help organize the recordings\. The following example shows the general format of an Amazon S3 path with the default prefix\. This example uses `myRecordingBucket` as the `Location` value\.
 
 ```
 myRecordingBucket/Amazon-Chime-SMA-Call-Recordings/2019/03/01/2019–03–01–17–10–00–010_c4640e3b–1478–40fb-8e38–6f6213adf70b_7ab7748e–b47d–4620-ae2c–152617d3333c.wav
@@ -123,7 +123,40 @@ Your destination Amazon S3 bucket must belong to the same AWS account as your ap
                 "s3:PutObject",
                 "s3:PutObjectAcl"
             ],
-            "Resource": "arn:aws:s3:::bucket-name/*"
+            "Resource": "arn:aws:s3:::bucket-name/*",
+	    "Condition": {
+                "StringEquals": {
+                    "aws:SourceAccount": "aws-account-id"
+                }
+            }
+        }
+    ]
+}
+```
+
+The PSTN Audio Service reads and writes to your S3 bucket on behalf of your Sip Media Application\. To avoid the [confused deputy problem](https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html), you can restrict S3 bucket permissions to a single SIP media application\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "SIP media applicationRead",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "voiceconnector.chime.amazonaws.com"
+            },
+            "Action": [                
+                "s3:PutObject",
+                "s3:PutObjectAcl"
+            ],
+            "Resource": "arn:aws:s3:::bucket-name/*",
+	    "Condition": {
+                "StringEquals": {
+                    "aws:SourceAccount": "aws-account-id",
+                    "aws:SourceArn": "arn:aws:chime:region:aws-account-id:sma/sip-media-application-id"
+                }
+            }
         }
     ]
 }
@@ -169,7 +202,7 @@ For validation errors, the SIP media application calls the AWS Lambda function w
 | Error | Message | Reason | 
 | --- | --- | --- | 
 | `InvalidActionParameter` | `CallId` parameter for action is invalid | Any parameter is invalid\. | 
-| `SystemException` | System error while executing an action\. | Another type of system error occurred while executing an action\. | 
+| `SystemException` | System error while running an action\. | Another type of system error occurred while running an action\. | 
 
 When the action fails to record the media on a call leg, the SIP media application invokes an AWS Lambda function with the `ActionFailed` event type\. 
 
@@ -197,3 +230,5 @@ The following example shows a typical error response\.
     }
 }
 ```
+
+See a working example on GitHub: [https://github\.com/aws\-samples/amazon\-chime\-sma\-on\-demand\-recording](https://github.com/aws-samples/amazon-chime-sma-on-demand-recording)

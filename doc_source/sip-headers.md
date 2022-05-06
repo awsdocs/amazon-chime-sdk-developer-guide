@@ -5,7 +5,7 @@ You can now send and receive a User\-To\-User header, a Diversion header, and cu
 + The Diversion header is used to show from where the call was diverted and why\. You can use this header to either see diversion information from other SIP agents, or pass it along\.
 + Custom SIP Headers allow you to pass along any other information you want\. For example, if you want to pass along an account id, you can create an X header called “X\-Account\-Id” and add this information\.
 
-You must prefix your custom SIP headers with `x-`\. The headers are exposed in the AWS Lambda function and received as part of a `NEW_INBOUND_CALL` event during an inbound call\. You can also include these headers in outbound call legs when triggering a [CallAndBridge](call-and-bridge.md) action or the [CreateSipMediaApplicationCall](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateSipMediaApplicationCall.html) API\.
+You must prefix your custom SIP headers with `x-`\. The headers are exposed in the AWS Lambda function and received as part of a `NEW_INBOUND_CALL` event during an inbound call\. You can also include these headers in outbound call legs when triggering a [CallAndBridge](call-and-bridge.md) action or the [CreateSipMediaApplicationCall](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateSipMediaApplicationCall.html) API\.
 
 The `Participants` section of a Lambda function contains the `SipHeaders` field\. This field is available when you receive a custom header, or when you populate the `User-to-User` or `Diversion` header\.
 
@@ -123,14 +123,14 @@ The following example shows a failed [CallAndBridge](call-and-bridge.md) action 
 
 ## Using the sip\-headers field<a name="custom-headers"></a>
 
-When you trigger the [CreateSipMediaApplicationCall](docs.aws.amazon.com/chime/latest/APIReference/API_CreateSipMediaApplicationCall.html) API, the optional `SipHeaders` field allows you to pass custom SIP headers to an outbound call leg\. Valid header keys must include one of the following: 
+When you trigger the [CreateSipMediaApplicationCall](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateSipMediaApplicationCall.html) API, the optional `SipHeaders` field allows you to pass custom SIP headers to an outbound call leg\. Valid header keys must include one of the following: 
 + The `x-` prefix
 + The `User-to-User` header
 + The `Diversion` header
 
 `X-AMZN` is a reserved header\. If you use this header in an API call, it will fail\. The headers can be a maximum length of 2048 characters\. 
 
-The following example shows a typical [CreateSipMediaApplicationCall](docs.aws.amazon.com/chime/latest/APIReference/API_CreateSipMediaApplicationCall.html) API in the command\-line interface with the optional `SipHeaders` parameter\.
+The following example shows a typical [CreateSipMediaApplicationCall](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateSipMediaApplicationCall.html) API in the command\-line interface with the optional `SipHeaders` parameter\.
 
 ```
 create-sip-media-application-call

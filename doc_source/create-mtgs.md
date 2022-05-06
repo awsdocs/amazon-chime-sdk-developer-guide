@@ -6,9 +6,9 @@ The following procedure demonstrates how to create a meeting with audio and vide
 
 1. Complete the following steps from your server application:
 
-   1. Use the [CreateMeeting](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateMeeting.html) API action in the *Amazon Chime API Reference* to create a meeting\. Specify an AWS Region using the `MediaRegion` parameter\. For more information about choosing a meeting Region, refer to [Meeting Regions](sdk-available-regions.md#sdk-meeting-regions)\.
+   1. Use the [CreateMeeting](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateMeeting.html) API action in the *Amazon Chime SDK API Reference* to create a meeting\. Specify an AWS Region using the `MediaRegion` parameter\. For more information about choosing a meeting Region, refer to [Meeting Regions](sdk-available-regions.md#sdk-meeting-regions)\.
 
-   1. Add attendees to the meeting using the [CreateAttendee](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateAttendee.html) API action or the [BatchCreateAttendee](https://docs.aws.amazon.com/chime/latest/APIReference/API_BatchCreateAttendee.html) API action\. Securely transfer the meeting and attendee from your server application to the client authorized as the respective attendee\. For more information about meetings and attendees, refer to [Meeting](https://docs.aws.amazon.com/chime/latest/APIReference/API_Meeting.html) and [Attendee](https://docs.aws.amazon.com/chime/latest/APIReference/API_Attendee.html) in the *Amazon Chime API Reference*\.
+   1. Add attendees to the meeting using the [CreateAttendee](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateAttendee.html) API action or the [BatchCreateAttendee](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_BatchCreateAttendee.html) API action\. Securely transfer the meeting and attendee from your server application to the client authorized as the respective attendee\. For more information about meetings and attendees, refer to [Meeting](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_Meeting.html) and [Attendee](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_Attendee.html) in the *Amazon Chime SDK API Reference*\.
 
 1. Complete the following steps from your client application:
 
@@ -42,7 +42,7 @@ The following procedure demonstrates how to create a meeting with audio and vide
 
       1. Manage other interactions, such as pausing, restarting, or stopping the content share\.
 
-The meetings end when you run the [DeleteMeeting](https://docs.aws.amazon.com/chime/latest/APIReference/API_DeleteMeeting.html) API action\. A meeting automatically ends after a period of inactivity, such as the following:
+The meetings end when you run the [DeleteMeeting](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_DeleteMeeting.html) API action\. A meeting automatically ends after a period of inactivity, such as the following:
 + No audio connections are present in the meeting for more than five minutes\. 
 + Less than two audio connections are present in the meeting for more than 30 minutes\. 
 + Screen share viewer connections are inactive for more than 30 minutes\.

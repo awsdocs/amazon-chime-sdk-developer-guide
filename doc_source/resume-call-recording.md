@@ -23,3 +23,5 @@ The following example resumes recording\.
 *Allowed values* – A valid call ID  
 *Required* – Yes  
 *Default value* – None
+
+See a working example on GitHub: [https://github\.com/aws\-samples/amazon\-chime\-sma\-on\-demand\-recording](https://github.com/aws-samples/amazon-chime-sma-on-demand-recording)

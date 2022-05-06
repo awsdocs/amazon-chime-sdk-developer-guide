@@ -1,6 +1,6 @@
 # Transcription messages<a name="process-msgs"></a>
 
-The Amazon Chime service shares transcription information with attendees by sending `TranscriptEvent` objects in data messages\. A `TranscriptEvent` delivers a `Transcript` or a `TranscriptionStatus`\. 
+The Amazon Chime SDK service shares transcription information with attendees by sending `TranscriptEvent` objects in data messages\. A `TranscriptEvent` delivers a `Transcript` or a `TranscriptionStatus`\. 
 
 A `Transcript` includes results with timestamped, user\-attributed words and punctuation\. A result may be “partial”, in which case the system usually updates it in a subsequent `TranscriptEvent`\. This allows you to see transcriptions quickly and apply inline updates later as necessary\.
 

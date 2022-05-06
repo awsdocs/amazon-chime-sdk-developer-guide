@@ -1,8 +1,9 @@
 # Supported actions for SIP media applications<a name="specify-actions"></a>
 
-You can specify different types of signaling and media actions in a response from a Lambda function\. Each action has different properties\. The following topics provide example code and explain how to use the actions\.
+You can specify different types of signaling and media actions in a response from an AWS Lambda function\. Each action has different properties\. The following topics provide example code and explain how to use the actions\.
 
 **Topics**
++ [Using TransactionAttributes](transaction-attributes.md)
 + [Using call recording](sip-apps-call-record.md)
 + [CallAndBridge](call-and-bridge.md)
 + [Hangup](hangup.md)
@@ -13,3 +14,8 @@ You can specify different types of signaling and media actions in a response fro
 + [PlayAudioAndGetDigits](play-audio-get-digits.md)
 + [ReceiveDigits](listen-to-digits.md)
 + [RecordAudio](record-audio.md)
++ [SendDigits](send-digits.md)
++ [Speak](speak.md)
++ [SpeakAndGetDigits](speak-and-get-digits.md)
++ [StartBotConversation](start-bot-conversation.md)
++ [VoiceFocus](voice-focus.md)
