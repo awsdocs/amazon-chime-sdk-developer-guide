@@ -24,7 +24,7 @@ The following items invoke channel flows:
 + Updated persistent standard messages
 
 **Note**  
-Channel flows don't process Control or System messages\. For more information about the message types provided by Chime SDK Messaging, refer to [Message types](using-the-messaging-sdk.md#msg-types)\.
+Channel flows don't process Control or System messages\. For more information about the message types provided by Chime SDK Messaging, refer to [Message types](msg-types.md)\.
 
 **Topics**
 + [Setting up a Channel Processor](processor-setup.md)

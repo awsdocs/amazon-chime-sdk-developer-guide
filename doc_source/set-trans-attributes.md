@@ -1,6 +1,6 @@
 # Setting TransactionAttributes<a name="set-trans-attributes"></a>
 
-The following example shows how to set `TransactionAttributes` and pass them from an AWS Lambda function to a SIP media application\.
+The following example shows how to set `TransactionAttributes` alongside a [PlayAudio](play-audio.md) action and pass the attributes from an AWS Lambda function to a SIP media application\.
 
 ```
 {

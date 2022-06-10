@@ -69,7 +69,7 @@ When a validation error occurs while bridging a meeting, the SIP application cal
 |  Error  |  Message  |  Reason  | 
 | --- | --- | --- | 
 |  `InvalidActionParameter`  |  `JoinToken` parameter value is invalid\.  |  Any of the action's other parameters is invalid or missing\.  | 
-|  `SystemException`  |  System error while executing action\.  |  Another type of system error occurred while executing the action\.  | 
+|  `SystemException`  |  System error while running action\.  |  Another type of system error occurred while running the action\.  | 
 
 The following example shows a typical failure event\.
 

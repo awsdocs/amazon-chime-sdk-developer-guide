@@ -8,6 +8,7 @@ The topics in this section explain how to use Amazon Chime SDK meetings to creat
 + [Creating Meetings](create-mtgs.md)
 + [Network configuration](network-config.md)
 + [Meeting events](using-events.md)
++ [Amazon CloudWatch metrics](sdk-usage-metrics.md)
 + [Creating Amazon Chime media capture pipelines](media-capture.md)
 + [Using Amazon Chime SDK live transcription](meeting-transcription.md)
 + [Using media replication](media-replication.md)

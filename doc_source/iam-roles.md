@@ -97,8 +97,8 @@ This example shows a policy that allows users to access the Amazon Chime SDK use
             ],
             "Effect": "Allow",
             "Resource": [
-                "arn:aws:chime:region:{awsAccountId}:app-instance/{appInstanceId}/user/{appInstanceUserId}",
-                "arn:aws:chime:region:{awsAccountId}:app-instance/{appInstanceId}/channel/*"
+                "arn:aws:chime:region:{aws_account_id}:app-instance/{app_instance_id}/user/{app_instance_user_id}",
+                "arn:aws:chime:region:{aws_account_id}:app-instance/{app_instance_id}/channel/*"
             ]
         }
     ]
@@ -131,8 +131,8 @@ This example shows a policy that gives users minimal access to Amazon Chime SDK 
             ],
             "Effect": "Allow",
             "Resource": [
-                "arn:aws:chime:region:{awsAccountId}:app-instance/{appInstanceId}/user/{appInstanceUserId}",
-                "arn:aws:chime:region:{awsAccountId}:app-instance/{appInstanceId}/channel/*"
+                "arn:aws:chime:region:{aws_account_id}:app-instance/{app_instance_id}/user/{app_instance_user_id}",
+                "arn:aws:chime:region:{aws_account_id}:app-instance/{app_instance_id}/channel/*"
             ]
         }
     ]
@@ -151,7 +151,7 @@ This example shows a policy for establishing a WebSocket connection for an `AppI
              "chime:Connect"
             ],
      "Resource": [
-             "arn:aws:chime:region:{awsAccountId}:app-instance/{appInstanceId}/user/{appInstanceUserId}"
+             "arn:aws:chime:region:{aws_account_id}:app-instance/{app_instance_id}/user/{app_instance_user_id}"
          ]
       }
    ]

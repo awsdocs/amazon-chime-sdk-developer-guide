@@ -47,14 +47,14 @@ App instance administrators can perform actions on a channels within the app ins
 | `DescribeChannelBan` | Allowed |  | 
 | `ListChannelBan` | Allowed |  | 
 | `UpdateChannelReadMarker` | Allowed with restriction | You need to use [ CreateChannelMembership ](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateChannelMembership.html) to create a membership for yourself first, and then call the API\. | 
-| GetChannelMessage |  Allowed with Restriction | Allowed only for sent messages\. Not allowed for messages in processing by channel flow unless you are the message sender\. | 
-| ListChannelMessages |  Allowed |  | 
-| DeleteChannelMessage |  Allowed with Restriction | Allowed only for sent messages\. | 
-| RedactChannelMessage |  Allowed with Restriction | Allowed only for sent messages\. | 
-| UpdateChannelMessage |  Allowed with Restriction | You can only edit your own sent messages\. | 
-| AssociateChannelFlow |  Allowed |  | 
-| DisassociateChannelFlow |  Allowed |  | 
-| GetChannelMessageStatus |  Allowed with Restriction | You can only get message status for your own messages\. | 
+|  `GetChannelMessage`  |  Allowed with Restriction | Allowed only for sent messages\. Not allowed for messages in processing by channel flow unless you are the message sender\. | 
+| `ListChannelMessages` |  Allowed |  | 
+| `DeleteChannelMessage` |  Allowed with Restriction | Allowed only for sent messages\. | 
+| `RedactChannelMessage` |  Allowed with Restriction | Allowed only for sent messages\. | 
+| `UpdateChannelMessage` |  Allowed with Restriction | You can only edit your own sent messages\. | 
+| `AssociateChannelFlow` |  Allowed |  | 
+| `DisassociateChannelFlow` |  Allowed |  | 
+| `GetChannelMessageStatus` |  Allowed with Restriction | You can only get message status for your own messages\. | 
 
 ## ChannelModerator<a name="channelmoderator"></a>
 
@@ -93,14 +93,14 @@ A moderator who is an `AppInstanceAdmin` can perform actions on channels allowed
 | `DescribeChannelBan` | Allowed |  | 
 | `ListChannelBan` | Allowed |  | 
 | `UpdateChannelReadMarker` | Allowed with restriction | You need to use [ CreateChannelMembership ](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateChannelMembership.html) to create a membership for yourself first, and then call the API\. | 
-| GetChannelMessage |  Allowed with Restriction | Allowed only for sent messages\. Not allowed for messages in processing by channel flow unless you are the message sender\. | 
-| ListChannelMessages |  Allowed |  | 
-| DeleteChannelMessage |  Denied |  | 
-| RedactChannelMessage |  Allowed with Restriction | Allowed only for sent messages\. | 
-| UpdateChannelMessage |  Allowed with Restriction | You can only edit your own sent messages\. | 
-| AssociateChannelFlow |  Allowed |  | 
-| DisassociateChannelFlow |  Allowed |  | 
-| GetChannelMessageStatus |  Allowed with Restriction | You can only get message status for your own messages\. | 
+| `GetChannelMessage` |  Allowed with Restriction | Allowed only for sent messages\. Not allowed for messages in processing by channel flow unless you are the message sender\. | 
+| `ListChannelMessages` |  Allowed |  | 
+| `DeleteChannelMessage` |  Denied |  | 
+| `RedactChannelMessage` |  Allowed with Restriction | Allowed only for sent messages\. | 
+| `UpdateChannelMessage` |  Allowed with Restriction | You can only edit your own sent messages\. | 
+| `AssociateChannelFlow` |  Allowed |  | 
+| `DisassociateChannelFlow` |  Allowed |  | 
+| `GetChannelMessageStatus` |  Allowed with Restriction | You can only get message status for your own messages\. | 
 
 ## Member<a name="member"></a>
 
@@ -141,14 +141,14 @@ A member who is an `AppInstanceAdmin` or `ChannelModerator` can perform actions 
 | `DescribeChannelBan` | Denied |  | 
 | `ListChannelBan` | Denied |  | 
 | `UpdateChannelReadMarker` | Allowed |  | 
-| GetChannelMessage |  Allowed with Restriction | Allowed only for sent messages\. Not allowed for messages in processing by channel flow unless you are the message sender\. | 
-| ListChannelMessages |  Allowed |  | 
-| DeleteChannelMessage |  Allowed with Restriction | Allowed only for sent messages\. | 
-| RedactChannelMessage |  Allowed with Restriction | Allowed only for sent messages\. | 
-| UpdateChannelMessage |  Allowed with Restriction | You can only edit your own sent messages\. | 
-| AssociateChannelFlow |  Denied |  | 
-| DisassociateChannelFlow |  Denied |  | 
-| GetChannelMessageStatus |  Allowed with Restriction | You can only get message status for your own messages\. | 
+| `GetChannelMessage` |  Allowed with Restriction | Allowed only for sent messages\. Not allowed for messages in processing by channel flow unless you are the message sender\. | 
+| `ListChannelMessages` |  Allowed |  | 
+| `DeleteChannelMessage` |  Allowed with Restriction | Allowed only for sent messages\. | 
+| `RedactChannelMessage` |  Allowed with Restriction | Allowed only for sent messages\. | 
+| `UpdateChannelMessage` |  Allowed with Restriction | You can only edit your own sent messages\. | 
+| `AssociateChannelFlow` |  Denied |  | 
+| `DisassociateChannelFlow` |  Denied |  | 
+| `GetChannelMessageStatus` |  Allowed with Restriction | You can only get message status for your own messages\. | 
 
 ## Non\-member<a name="non-member"></a>
 
@@ -187,11 +187,11 @@ A non\-member who is an `AppInstanceAdmin` or `ChannelModerator` can perform cha
 | `DescribeChannelBan` | Denied |  | 
 | `ListChannelBan` | Denied |  | 
 | `UpdateChannelReadMarker` | Denied |  | 
-| GetChannelMessage |  Allowed with Restriction | Allowed only for sent messages\. Not allowed for messages in processing by channel flow unless you are the message sender\. | 
-| ListChannelMessages |  Allowed with Restriction |  | 
-| DeleteChannelMessage |  Denied | Denied | 
-| RedactChannelMessage |  Denied |  | 
-| UpdateChannelMessage |  Denied |  | 
-| AssociateChannelFlow |  Denied |  | 
-| DisassociateChannelFlow |  Denied |  | 
-| GetChannelMessageStatus |  Allowed with Restriction | You can only get message status for your own messages\. | 
+| `GetChannelMessage` |  Allowed with Restriction | Allowed only for sent messages\. Not allowed for messages in processing by channel flow unless you are the message sender\. | 
+| `ListChannelMessages` |  Allowed with Restriction |  | 
+| `DeleteChannelMessage` |  Denied | Denied | 
+| `RedactChannelMessage` |  Denied |  | 
+| `UpdateChannelMessage` |  Denied |  | 
+| `AssociateChannelFlow` |  Denied |  | 
+| `DisassociateChannelFlow` |  Denied |  | 
+| `GetChannelMessageStatus` |  Allowed with Restriction | You can only get message status for your own messages\. | 

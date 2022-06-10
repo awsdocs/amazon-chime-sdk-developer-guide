@@ -166,7 +166,7 @@ For validation errors, the SIP media application calls the AWS Lambda function w
 |  Error  |  Message  |  Reason  | 
 | --- | --- | --- | 
 |  `InvalidActionParameter`  |  `CallId` or `ParticipantTag` parameter for action is invalid\. `DurationInSeconds` parameter value is invalid\. `SilenceDurationInSeconds` parameter value is invalid\. `SilenceThreshold` parameter value is invalid\. `RecordingDestination` parameter value is invalid\. Error occurred while uploading recording to S3 bucket\.  |  Any parameter is invalid\.  | 
-|  `SystemException`  |  System error while executing an action\.  |  Another type of system error occurred while executing an action\.  | 
+|  `SystemException`  |  System error while running an action\.  |  Another type of system error occurred while running an action\.  | 
 
 ## Handling ACTION\_FAILED events<a name="handle-action-failed"></a>
 

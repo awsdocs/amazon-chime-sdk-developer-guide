@@ -239,7 +239,7 @@ The following example shows a typical ACTION\_FAILED event\.
                 "RepeatDurationInMilliseconds": 10000         
             },
             "ErrorType":  "SystemException",
-            "ErrorMessage":  "System error while executing action"
+            "ErrorMessage":  "System error while running action"
     },
     "CallDetails":{       
        ...

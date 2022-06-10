@@ -1,10 +1,10 @@
 # SendDigits<a name="send-digits"></a>
 
-Send up to 50 dual tone multi\-frequency \(DTMF\)digits on any leg of a call\. The signals can include the following:
+Send up to 50 dual tone multi\-frequency \(DTMF\) digits on any leg of a call\. The signals can include the following:
 + Numbers 0 thru 9
 + Special characters star \(\*\) and pound \(\#\)
 + Network control signals A, B, C, D
-+ The comma character \(,\)\.This signal adds a 0,5 second delay between the previous and next signals\.
++ The comma character \(,\)\. This signal adds a 0\.5 second delay between the previous and next signals\.
 
 **Topics**
 + [Using the SendDigits action](#send-digits-action)
@@ -103,4 +103,4 @@ The following example shows a typical `ACTION_FAILED` event for the `SendDigits`
 
 The following diagram shows the program flow for sending digits from a caller to a callee\.
 
-![\[The program flow of the SendDigits action.\]](http://docs.aws.amazon.com/chime-sdk/latest/dg/images/send-digits-1.png)
+![\[Diagram showing the program flow of the SendDigits action.\]](http://docs.aws.amazon.com/chime-sdk/latest/dg/images/send-digits-1.png)

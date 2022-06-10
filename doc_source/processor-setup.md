@@ -19,7 +19,7 @@ You must give the Amazon Chime SDK messaging service permssion to invoke your La
 You can provide a specific app instance ID to invoke your processor, or use a wildcard to allow all Amazon Chime SDK app instances in an account to invoke your processor\. 
 
 **Granting callback permissions**  
-You also need to allow your processor Lambda functions to call the `ChannelFlowCallback` API\. For information about doing that, see [AWS Lambda execution role](https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html) in the *AWS Lambda developer guide*\. 
+You also need to allow your processor Lambda functions to call the `ChannelFlowCallback` API\. For information about doing that, see [AWS Lambda run role](https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html) in the *AWS Lambda developer guide*\. 
 
 You can add an Inline policy to your Lambda function's run role\. This example allows the processor to invoke the `ChannelFlowCallback API`\.
 

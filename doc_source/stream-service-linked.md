@@ -41,7 +41,7 @@ Deletions can fail if you try to delete resources while Amazon Chime SDK is usin
 
 **To delete resources used by the AmazonChimeServiceChatStreamingAccess role**  
 Turn off the data streaming feature for your app instance by invoking the following API\.
-+ `aws chime delete-app-instance-streaming-configuration --app-instance-arn {APP_INSTANCE_ARN}`
++ `aws chime delete-app-instance-streaming-configuration --app-instance-arn {app_instance_arn}`
 
 This action deletes all streaming configurations for your app instance\.
 

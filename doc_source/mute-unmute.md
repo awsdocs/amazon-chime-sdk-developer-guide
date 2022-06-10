@@ -90,7 +90,7 @@ In cases of invalid instruction parameters or API failures, SIP media applicatio
 |     |  Invalid action on the call\.  |  The call isn't bridged\.  | 
 |     |  Call is not connected to Chime Meeting\.  |  The attendee is not connected to a Chime Meeting\.  | 
 |     |  One or more attendees are not part of this meeting\. All attendees must be part of this meeting\.  |  The attendee is not authorized to modify attendees in the meeting\.  | 
-|  `SystemException`  |  System error while executing action\.  |  A system error occurred while executing an action\.  | 
+|  `SystemException`  |  System error while running action\.  |  A system error occurred while running an action\.  | 
 
 The following example code shows a typical failure event:
 

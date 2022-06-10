@@ -130,7 +130,7 @@ Keep these guidelines in mind as you go\.
 
 ## Registering event handlers for TranscriptEvents<a name="register-handler"></a>
 
-The following examples use the Amazon Chime SDK for Javascript\. However, the pattern is consistent across all Amazon Chime SDKs\.
+The following examples use the Amazon Chime SDK for JavaScript\. However, the pattern is consistent across all Amazon Chime SDKs\.
 
 The `TranscriptionController` in the `RealtimeController` and `RealtimeControllerFacade` includes specific functions for adding a handler thata processes `TranscriptionEvents`:
 

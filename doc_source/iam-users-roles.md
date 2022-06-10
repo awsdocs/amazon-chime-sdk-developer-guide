@@ -2,7 +2,7 @@
 
 You create users as IAM users, or in roles as appropriate to your use case\. You then assign the following policy to them\. This ensures that you have the necessary permissions for the AWS SDK embedded in your server application\. That allows you to perform lifecycle operations on the meeting and attendee resources\. 
 
-This example shows the current version of the AWSChimeSDK AWS managed policy\. It grants access to the Amazon Chime SDK operations\.
+This example shows the current version of the Amazon Chime SDK AWS managed policy\. It grants access to the Amazon Chime SDK operations\.
 
 ```
 // Policy ARN: arn:aws:iam::aws:policy/AmazonChimeSDK 

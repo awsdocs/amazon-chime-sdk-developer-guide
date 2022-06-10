@@ -24,7 +24,7 @@ The following example shows a typical use of the `Speak` action\.
         {
             "Type": "Speak",
             "Parameters": {
-                "Text": "Hello, World!",          // required
+                "Text": "Hello, World!",        // required
                 "CallId": "call-id-1",          // required
                 "Engine": "neural",             // optional. Defaults to standard
                 "LanguageCode": "en-US",        // optional
@@ -118,7 +118,7 @@ The following example shows a typical `ACTION_FAILED` event for the same event u
           "VoiceId":  "Joanna"        
        },
        "ErrorType": "SystemException",
-       "ErrorMessage": "System error while executing  action"
+       "ErrorMessage": "System error while running  action"
     },
     "CallDetails":{       
        ...
@@ -141,10 +141,25 @@ This table lists and describes the error messages thrown by the the `Speak` acti
 
 ## Program flows<a name="speak-flow"></a>
 
-The following image shows the program flow for enabling the `Speak` action\. 
+The following diagram shows the program flow that enables the `Speak` action for a caller\. In this example, the caller hears text that 
 
-![\[The program flow for enabling the Speak action for a caller. You can do this on any bridged call.\]](http://docs.aws.amazon.com/chime-sdk/latest/dg/images/Speak1.png)
+![\[Diagram showing the program flow for enabling the Speak action for a caller.\]](http://docs.aws.amazon.com/chime-sdk/latest/dg/images/Speak1.png)
 
-The following image shows the program flow for enabling the `Speak` action\. This flow enables the action for callee\.
+**In the diagram**  
+Using a soft phone, a caller enters a number registered to a SIP media application\. The application uses the SIP `INVITE` method and sends the caller a `Trying (100)` response\. That indicates that the next\-hop server received the call request\. The SIP application then uses `INVITE` to contact the endpoint\. Once the connection is established, the applications sends `Ringing (180)` response to the caller, and alerting begins\. 
 
-![\[The program flow for enabling the Speak action for a callee. You can do this on any bridged call.\]](http://docs.aws.amazon.com/chime-sdk/latest/dg/images/Speak2.png)
+The SIP media application then sends a `NEW_INBOUND_CALL` event to the Lambda function, which responds with a `Speak` action that includes the caller's ID and the text that you want to convert into speech\. The SIP application then sends a `200 (OK)` response to indicate that the call was answered\. The protocol also enables the media\. 
+
+If the `Speak` action succeeds and converts the text to speech, it returns an `ACTION_SUCCESSFUL` event to the SIP media application, which returns the next set of actions\. If the action fails, the SIP media application sends an `ACTION_FAILED` event to the Lambda function, which responds with a set of `Hangup` actions\. The application hangs up the caller and returns a `HANGUP` event to the Lambda function, which takes no further actions\. 
+
+
+
+The following diagram shows the program flow than enables the `Speak` action for a callee\.
+
+![\[Diagram showing the program flow for enabling the Speak action for a callee. You can do this on any bridged call.\]](http://docs.aws.amazon.com/chime-sdk/latest/dg/images/Speak2.png)
+
+**In the diagram**  
+A caller enters a number registered to a SIP media application, and the application responds as described for the previous diagram\. When the Lambda function receives the `NEW_INBOUND_CALL` event, it returns the [CallAndBridge](call-and-bridge.md) action to the SIP application\. The application then uses the SIP `INVITE` method to send the `Trying (100)` and `Ringing (180)` responses to the callee\. 
+
+If the callee answers, the SIP media application recieves a `200 (OK)` response, and it sends the same response to the caller\. That establishes media, and the SIP application sends an `ACTION_SUCCESSFUL` event for the [CallAndBridge](call-and-bridge.md) action to the Lambda function\. The function then returns the Speak action and data to the SIP application, which converts 
+

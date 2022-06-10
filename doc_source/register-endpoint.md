@@ -14,13 +14,13 @@ This example shows the policy needed to register an endpoint\.
             "Sid": "PermissionToRegisterEndpoint",
             "Effect": "Allow",
             "Action": "chime:RegisterAppInstanceUserEndpoint",
-            "Resource": "arn:aws:chime:region:AWS_ACCOUNT_ID:app-instance/APP_INSTANCE_ID/user/APP_INSTANCE_USER_ID"
+            "Resource": "arn:aws:chime:region:aws_account_id:app-instance/app_instance_id/user/app_instance_user_id"
         },
         {
             "Sid": "PermissionToGetAppOnPinpoint",
             "Effect": "Allow",
             "Action": "mobiletargeting:GetApp",
-            "Resource": "arn:aws:mobiletargeting:region:AWS_ACCOUNT_ID:apps/PROJECT_ID"
+            "Resource": "arn:aws:mobiletargeting:region:aws_account_id:apps/project_id"
         }
     ]
 }

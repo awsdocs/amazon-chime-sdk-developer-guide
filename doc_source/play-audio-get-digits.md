@@ -225,7 +225,7 @@ When a validation error occurs, the SIP media application calls the AWS Lambda f
 | --- | --- | --- | 
 |  `InvalidAudioSource`  |  Audio source parameter value is invalid\.  |  This error can happen for multiple reasons\. For example, the SIP media application cannot access the file due to permission issues, or issues with the S3 bucket\. Or, the audio file may fail validation due to duration, size, or unsupported format\.  | 
 |  `InvalidActionParameter`  |  `CallId` or `ParticipantTag` parameter for the action is invalid\.  |  A `CallId`, `ParticipantTag`, or other parameter is not valid\.  | 
-|  `SystemException`  |  System error while executing the action\.  |  A system error occurred while executing the action\.  | 
+|  `SystemException`  |  System error while running the action\.  |  A system error occurred while running the action\.  | 
 
 When the action fails to collect the number of specified digits due to a timeout or too many retries, the SIP media application invokes the AWS Lambda function with the `ACTION_FAILED` invocation event type\.
 

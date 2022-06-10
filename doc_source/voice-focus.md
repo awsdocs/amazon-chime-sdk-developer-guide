@@ -89,7 +89,7 @@ This example shows a typical `ACTION_FAILED` event for the `VoiceFocus` action\.
       }
       },
       "ErrorType": "SystemException",
-      "ErrorMessage": "System error while executing action"
+      "ErrorMessage": "System error while running action"
    },
    "CallDetails":{
       .....
@@ -110,7 +110,7 @@ For security reasons, the PSTN Audio actions have a limit of 5 call requests per
 
 | Error | Message | Reason | 
 | --- | --- | --- | 
-| `ActionExecutionThrottled` | Failed to execute action\. The maximum number of actions per second has been reached\. | The number of Voice Focus action requests per second exceeded the system limit\.  | 
+| `ActionExecutionThrottled` | Failed to run action\. The maximum number of actions per second has been reached\. | The number of Voice Focus action requests per second exceeded the system limit\.  | 
 | `MissingRequiredActionParameter` | Missing required action parameter\. | Missing one or more of the required parameters while running the action\. | 
 | `SystemException` | System error while running action\. | A system error occurred while running the action\. | 
 

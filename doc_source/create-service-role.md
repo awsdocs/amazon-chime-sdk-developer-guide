@@ -8,14 +8,14 @@ AWS uses service roles to grant permissions to an AWS service so it can access A
 
 1. In the navigation pane, choose **Policies**, and then choose **Create Policy**\.
 
-1. Choose the **JSON** tab and copy the policy below into the text box\. Be sure to replace `PROJECT_ID` with the the ID of the Amazon Pinpoint application created in the previous step, and the `AWS_ACCOUNT_ID` with your AWS Account ID\.
+1. Choose the **JSON** tab and copy the policy below into the text box\. Be sure to replace `project_id` with the the ID of the Amazon Pinpoint application created in the previous step, and the `aws_account_id` with your AWS Account ID\.
 
    ```
    {
        "Version": "2012-10-17",
        "Statement": {
            "Action": "mobiletargeting:SendMessages",
-           "Resource": "arn:aws:mobiletargeting:region:AWS_ACCOUNT_ID:apps/PROJECT_ID/messages",
+           "Resource": "arn:aws:mobiletargeting:region:aws_account_id:apps/project_id/messages",
            "Effect": "Allow"
        }
    }

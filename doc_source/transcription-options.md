@@ -49,8 +49,10 @@ The transcription region selected by the Amazon Chime SDK is subject to change a
 |  Europe \(London\)  |  eu\-west\-2  | eu\-west\-2  | 
 |  Europe \(Milan\)**\***  |  eu\-south\-1  | eu\-central\-1  | 
 |  Europe \(Paris\)  |  eu\-west\-3  | eu\-central\-1  | 
-|  Europe \(Stockholm\)  |  eu\-north\-1  | eu\-central\-1  | 
+|  Europe \(Stockholm\)  |  eu\-north\-1  | eu\-central\-1 | 
 |  South America \(São Paulo\)  |  sa\-east\-1  | sa\-east\-1 | 
+|  GovCloud \(US\-East\)  |  us\-gov\-east\-1  |  us\-gov\-west\-1  | 
+|  GovCloud \(US\-West\)  |  us\-gov\-west\-1  |  us\-gov\-west\-1  | 
 
 **Automatic region selection for Amazon Transcribe Medical**  
 

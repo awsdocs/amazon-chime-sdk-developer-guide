@@ -4,7 +4,7 @@ In the PSTN Audio service, SIP media applications invoke AWS Lambda functions\. 
 
 When a SIP media application successfully runs a list of actions, the application calls the AWS Lambda function with an invocation event type of `ACTION_SUCCESSFUL`\. If any of the actions fail to complete, the SIP media application calls the AWS Lambda function with the `ACTION_FAILED` event\.
 
-The SIP media application only returns `ACTION_SUCCESSFUL` if all the actions on the list succeed\. If any of the actions in the list fail, the SIP media application invokes the AWS Lambda function with the `ACTION_FAILED` event and clears the remaining actions in the list after the failed one\. Then the SIP media application executes the next action returned by the AWS Lambda function\. You use the `ActionData` key to identify which call invoked the function\.
+The SIP media application only returns `ACTION_SUCCESSFUL` if all the actions on the list succeed\. If any of the actions in the list fail, the SIP media application invokes the AWS Lambda function with the `ACTION_FAILED` event and clears the remaining actions in the list after the failed one\. Then the SIP media application runs the next action returned by the AWS Lambda function\. You use the `ActionData` key to identify which call invoked the function\.
 
 The following event shows a sample payload for the `ACTION_SUCCESSFUL` invocation event type after a `PlayAudioAndGetDigits` action\.
 

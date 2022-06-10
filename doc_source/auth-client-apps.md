@@ -59,8 +59,8 @@ The IAM Role would have permissions to the Chime Messaging SDK action your appli
                 "chime:GetChannelMessageStatus"
             ],
             "Resource": [
-                "{Chime_App_Instance_Arn}/user/${my_applications_user_id}",
-                "{Chime_App_Instance_Arn}/channel/*"
+                "{chime_app_instance_arn}/user/${my_applications_user_id}",
+                "{chime_app_instance_arn}/channel/*"
             ]
         }
     ]
@@ -71,7 +71,7 @@ For this example, call this role the *ChimeMessagingSampleAppUserRole*\.
 
 Note the session tag in the *ChimeMessagingSampleAppUserRole* policy `${my_application_user_id}` in the user ARN resource\. This session tag is parameterized in the [ AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) API call to limit the credentials returned to permissions for a single user\.
 
-The [ AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) API call is called using an already credentialed IAM entity such as an IAM user\. It can also be called by a different IAM role such as an [AWS Lambda execution role](https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html)\. That IAM identity must have permissions to call `AssumeRole` on the *ChimeMessagingSampleAppUserRole*\. 
+The [ AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) API call is called using an already credentialed IAM entity such as an IAM user\. It can also be called by a different IAM role such as an [AWS Lambda run role](https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html)\. That IAM identity must have permissions to call `AssumeRole` on the *ChimeMessagingSampleAppUserRole*\. 
 
 ```
 {
@@ -80,7 +80,7 @@ The [ AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_Assume
          {
             "Effect": "Allow",
             "Action": "sts:AssumeRole",
-            "Resource": "arn:aws:iam::MY_AWS_ACCOUNT_ID:role/ChimeMessagingSampleAppUserRole"
+            "Resource": "arn:aws:iam::my_aws_account_id:role/ChimeMessagingSampleAppUserRole"
         }
     ]
 }
@@ -97,7 +97,7 @@ You need to set up the *ChimeMessagingSampleAppUserRole* with a trust policy tha
          {
             "Effect": "Allow",
             "Principal": {
-               "AWS":"arn:aws:iam::MY_AWS_ACCOUNT_ID:role/ChimeMessagingSampleAppServerRole"
+               "AWS":"arn:aws:iam::my_aws_account_id:role/ChimeMessagingSampleAppServerRole"
             }
             "Action": "sts:AssumeRole"
         }
@@ -115,4 +115,4 @@ You need to set up the *ChimeMessagingSampleAppUserRole* with a trust policy tha
 
 The following example shows CLI command for assuming a role for step 2:
 
-`aws sts assume-role --role-arn arn:aws:iam::MY_AWS_ACCOUNT_ID:role/ChimeMessagingSampleAppUserRole --role-session-name demo --tags Key=my_applications_user_id,Value=123456789 ` 
+`aws sts assume-role --role-arn arn:aws:iam::my_aws_account_id:role/ChimeMessagingSampleAppUserRole --role-session-name demo --tags Key=my_applications_user_id,Value=123456789 ` 

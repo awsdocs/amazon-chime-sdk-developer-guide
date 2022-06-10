@@ -4,7 +4,7 @@ You use Amazon Chime SDK live transcription to generate live, user\-attributed t
 
 Amazon Chime SDK live transcription processes each user’s audio separately for improved accuracy in multi\-speaker scenarios\. The Amazon Chime SDK uses its active talker algorithm to select the top two active talkers, and then sends their audio to Amazon Transcribe, in separate channels, via a single stream\. Meeting participants receive user\-attributed transcriptions via Amazon Chime SDK data messages\. You can use transcriptions in a variety of ways, such as displaying subtitles, creating meeting transcripts, or using the transcriptions for content analysis\.
 
-Live transcription uses one stream to Amazon Transcribe for the duration of the meeting transcription\. Standard Amazon Transcribe and Amazon Transcribe Medical costs apply\. For more information, see [Amazon Transcribe Pricing](http://aws.amazon.com/transcribe/pricing/)\.
+Live transcription uses one stream to Amazon Transcribe for the duration of the meeting transcription\. Standard Amazon Transcribe and Amazon Transcribe Medical costs apply\. For more information, refer to [Amazon Transcribe Pricing](http://aws.amazon.com/transcribe/pricing/)\. For questions about usage or billing, contact your AWS account manager\.
 
 **Important**  
 Amazon Chime SDK live transcription is powered by Amazon Transcribe\. Use of Amazon Transcribe is subject to the [AWS Service Terms](https://aws.amazon.com/service-terms/), including the terms specific to the AWS Machine Learning and Artificial Intelligence Services\.

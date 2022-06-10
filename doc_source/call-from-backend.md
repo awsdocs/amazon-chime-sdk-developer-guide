@@ -6,16 +6,21 @@ Run the following CLI command to create a public channel\.
 
 ```
 aws chime-sdk-messaging create-channel \
-    --chime-bearer "APP_INSTANCE_USER_ARN" \
-    --app-instance-arn "APP_INSTANCE_ARN" \
+    --chime-bearer "app_instance_user_arn" \
+    --app-instance-arn "app_instance_arn" \
     --name "firstChannel"
 ```
 
-The command produces an ARN in this format: `arn:aws:chime:region:AWS_ACCOUNT_ID:app-instance/APP_INSTANCE_ID/channel/CHANNEL_ID.`
+The command produces an ARN in this format: `arn:aws:chime:region:aws_account_id:app-instance/app_instance_id/channel/channel_id.`
+
+**Topics**
++ [How IAM authorization works for backend services](#how-iam-works)
++ [Understanding implicit API authorization](#api-implicit-auth)
++ [Sending and listing channel messages](#send-list-msgs)
 
 ## How IAM authorization works for backend services<a name="how-iam-works"></a>
 
-In the CLI command from the previous section, note the `chime-bearer` parameter\. It is often useful to know who creates or interacts with resources such as channels and messages, and the `chime-bearer` parameter identifies that user\. Nearly all Amazon Chime SDK messaging APIs take `chime-bearer` as a parameter, except APIs meant to be called only by developers, such as `CreateAppInstance`\.
+In the CLI command from the previous section, note the `chime-bearer` parameter\. It identifies the user that creates or interacts with resources such as channels and messages\. Nearly all Amazon Chime SDK messaging APIs take `chime-bearer` as a parameter, except APIs meant to be called only by developers, such as `CreateAppInstance`\.
 
 The IAM permissions for Amazon Chime SDK messaging APIs require an `app-instance-user-arn `that matches the `chime-bearer` parameter\. Additional ARNs—typically channel ARNs—might be required based on the API\. For backend services like the example above, this leads to IAM policies like the following example:
 
@@ -36,13 +41,13 @@ The IAM permissions for Amazon Chime SDK messaging APIs require an `app-instance
         ... 
     ],
     "Resource": [
-        "arn:aws:chime:region:AWS_ACCOUNT_ID:app-instance/APP_INSTANCE_ID/user/backend_worker",
-        "arn:aws:chime:region:AWS_ACCOUNT_ID:app-instance/APP_INSTANCE_ID/channel/*"
+        "arn:aws:chime:region:aws_account_id:app-instance/app_instance_id/user/backend_worker",
+        "arn:aws:chime:region:aws_account_id:app-instance/app_instance_id/channel/*"
     ]
 }
 ```
 
-Note the `AppInstanceUser` ARN and channel ARN in the `Resource` section\. This IAM policy example grants the backend service permission to make API calls as the user with the ID of "backend\-worker\." If you want your backend service to be able to make calls for the people who use your app, change the `APP_INSTANCE_USER_ARN` to `arn:aws:chime:region:AWS_ACCOUNT_ID:app-instance/APP_INSTANCE_ID/user/*`\.
+Note the `AppInstanceUser` ARN and channel ARN in the `Resource` section\. This IAM policy example grants the backend service permission to make API calls as the user with the ID of "backend\-worker\." If you want your backend service to be able to make calls for the people who use your app, change the `app_instance_user_arn` to `arn:aws:chime:region:aws_account_id:app-instance/app_instance_id/user/*`\.
 
 ## Understanding implicit API authorization<a name="api-implicit-auth"></a>
 
@@ -52,8 +57,8 @@ The following CLI command promotes a backend user to an admin\.
 
 ```
 aws chime-sdk-identity create-app-instance-admin \
-    --app-instance-admin-arn "APP_INSTANCE_USER_ARN" \
-    --app-instance-arn "APP_INSTANCE_ARN"
+    --app-instance-admin-arn "app_instance_user_arn" \
+    --app-instance-arn "app_instance_arn"
 ```
 
 ## Sending and listing channel messages<a name="send-list-msgs"></a>
@@ -62,8 +67,8 @@ The following CLI command sends channel messages\.
 
 ```
 aws chime-sdk-messaging send-channel-message \
-    --chime-bearer "APP_INSTANCE_USER_ARN" \
-    --channel-arn "CHANNEL_ARN" \
+    --chime-bearer "app_instance_user_arn" \
+    --channel-arn "channel_arn" \
     --content "hello world" \
     --type STANDARD \
     --persistence PERSISTENT
@@ -75,6 +80,6 @@ The following CLI commands list channel messages in reverse chronological order\
 
 ```
 aws chime-sdk-messaging list-channel-messages \
-    --chime-bearer "APP_INSTANCE_USER_ARN" \
-    --channel-arn "CHANNEL_ARN"
+    --chime-bearer "app_instance_user_arn" \
+    --channel-arn "channel_arn"
 ```

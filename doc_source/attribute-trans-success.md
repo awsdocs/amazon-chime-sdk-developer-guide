@@ -1,6 +1,6 @@
 # Handling ACTION\_SUCCESSFUL events<a name="attribute-trans-success"></a>
 
-The following example shows a typical `ACTION_SUCCESSFUL` event\.
+The following example shows how a successful [PlayAudio](play-audio.md) sends the stored `TransactionAttributes` as part of the `CallDetails `\.
 
 ```
 { 
