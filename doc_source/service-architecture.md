@@ -1,5 +1,5 @@
 # Service architecture<a name="service-architecture"></a>
 
-The following high\-level architecture diagram shows how these components interact and work with other AWS services:
+This high\-level architecture diagram shows how the components listed in [Key concepts](key-concepts.md)interact and work with other AWS services:
 
-![\[The Amazon Chime SDK for JavaScript server architecture.\]](http://docs.aws.amazon.com/chime-sdk/latest/dg/images/server-architecture.png)
+![\[The Amazon Chime SDK for JavaScript and other AWS services.\]](http://docs.aws.amazon.com/chime-sdk/latest/dg/images/architecture-1.png)

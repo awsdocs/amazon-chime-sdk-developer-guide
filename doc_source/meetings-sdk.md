@@ -75,12 +75,13 @@ This table that lists the resources and quotas available for Amazon Chime SDK me
 |  Active Meetings  |  250  |  Yes  | 
 |  Attendees per meeting  |  250  |  No  | 
 |  Audio streams per meeting  |  250  |  No  | 
-| Active concurrent media capture pipelines per account | 100 for us\-east\-1, and 10 for us\-west\-2, ap\-southeast\-1, and eu\-central\-1 | Yes | 
-| Active media capture pipelines per meeting | 1 | No | 
-|  Video streams per meeting  | 50 |  Yes  | 
+|  Video streams published per meeting  | 25 |  Yes, up to 100   | 
+|  Video streams subscribed per attendee  |  25  |  No  | 
 |  Content shares per meeting  |  2  |  No  | 
-|  API Rate  |  10 requests per second \(RPS\) with a burst of 20 RPS\.  |  Yes, but indirectly\. API rate limits are increased when you increase the Active Meetings quota\.  | 
-|  Video streams per client application  |  25  |  No  | 
+| Replica meetings per primary meeting | 4 | Yes, up to 40 | 
+| Active media capture pipelines per meeting | 1 | No | 
+| Active media capture pipelines per account | 100 for us\-east\-1 endpoints, and 10 for other endpoints | Yes | 
+|  API Rate  |  10 requests per second \(RPS\) with a burst of 20 RPS\.  |  Yes, but indirectly API rate limits are increased when you increase the Active Meetings quota\.  | 
 
 ## Amazon Chime SDK system requirements<a name="mtg-browsers"></a>
 

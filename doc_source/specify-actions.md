@@ -1,4 +1,4 @@
-# Supported actions for SIP media applications<a name="specify-actions"></a>
+# Supported actions for the PSTN Audio service<a name="specify-actions"></a>
 
 You can specify different types of signaling and media actions in a response from an AWS Lambda function\. Each action has different properties\. The following topics provide example code and explain how to use the actions\.
 

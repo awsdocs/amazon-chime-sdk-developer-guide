@@ -44,29 +44,29 @@ To create a meeting in an AWS GovCloud \(US\) Region, you must use a control reg
 
 Amazon Chime SDK media pipelines have *control regions* and *data regions*\. The control region exposes the media pipeline API endpoint, and the data regions run the media pipelines\.
 
-You can use a control region to create a media pipeline in any data region\. The media pipeline can join a meeting in any meeting media region\. The media pipeline can only access Amazon S3 within its data region\.
+You can use a control region to create a media pipeline in any data region\. The media pipeline can join a meeting in any meeting media region\. 
 
 
-|  AWS Region  | Control |  Data  |  S3  | 
-| --- | --- | --- | --- | 
-|  Africa \(Cape Town\) \(af\-south\-1\)**\***  |  |  Yes  |  Local  | 
-| Asia Pacific \(Mumbai\) \(ap\-south\-1\) |  | Yes | Local | 
-|  Asia Pacific \(Seoul\) \(ap\-northeast\-2\)  |  |  Yes  |  Local  | 
-|  Asia Pacific \(Singapore\) \(ap\-southeast\-1\)  | Yes |  Yes  |  Local  | 
-|  Asia Pacific \(Sydney\) \(ap\-southeast\-2\)  |  |  Yes  | Local | 
-|  Asia Pacific \(Tokyo\) \(ap\-northeast\-1\)  |  |  Yes  |  Local  | 
-|  Canada \(Central\) \(ca\-central\-1\)  |  |  Yes  |  Local  | 
-|  Europe \(Frankfurt\) \(eu\-central\-1\)  | Yes |  Yes  | Local | 
-| Europe \(Ireland\) \(eu\-west\-1\) |  | Yes |  Local  | 
-|  Europe \(London\) \(eu\-west\-2\)  |  |  Yes  |  Local  | 
-|  Europe \(Milan\) \(eu\-south\-1\)**\***  |  |  Yes  | Local | 
-|  Europe \(Paris\) \(eu\-west\-3\)  |  |  Yes  |  Local  | 
-|  Europe \(Stockholm\) \(eu\-north\-1\)  |  |  Yes  |  Local  | 
-|  South America \(São Paulo\) \(sa\-east\-1\)  |  |  Yes  | Local | 
-|  US East \(Ohio\) \(us\-east\-2\)  |  |  Yes  |  Local  | 
-| US East \(N\. Virginia\) \(us\-east\-1\) | Yes |  Yes  |  Local  | 
-|  US West \(N\. California\) \(us\-west\-1\)  |  |  Yes  | Local | 
-|  US West \(Oregon\) \(us\-west\-2\)  | Yes |  Yes  |  Local  | 
+|  AWS Region  | Control |  Data  | 
+| --- | --- | --- | 
+|  Africa \(Cape Town\) \(af\-south\-1\)**\***  |  |  Yes  | 
+| Asia Pacific \(Mumbai\) \(ap\-south\-1\) |  | Yes | 
+|  Asia Pacific \(Seoul\) \(ap\-northeast\-2\)  |  |  Yes  | 
+|  Asia Pacific \(Singapore\) \(ap\-southeast\-1\)  | Yes |  Yes  | 
+|  Asia Pacific \(Sydney\) \(ap\-southeast\-2\)  |  |  Yes  | 
+|  Asia Pacific \(Tokyo\) \(ap\-northeast\-1\)  |  |  Yes  | 
+|  Canada \(Central\) \(ca\-central\-1\)  |  |  Yes  | 
+|  Europe \(Frankfurt\) \(eu\-central\-1\)  | Yes |  Yes  | 
+| Europe \(Ireland\) \(eu\-west\-1\) |  | Yes | 
+|  Europe \(London\) \(eu\-west\-2\)  |  |  Yes  | 
+|  Europe \(Milan\) \(eu\-south\-1\)**\***  |  |  Yes  | 
+|  Europe \(Paris\) \(eu\-west\-3\)  |  |  Yes  | 
+|  Europe \(Stockholm\) \(eu\-north\-1\)  |  |  Yes  | 
+|  South America \(São Paulo\) \(sa\-east\-1\)  |  |  Yes  | 
+|  US East \(Ohio\) \(us\-east\-2\)  |  |  Yes  | 
+| US East \(N\. Virginia\) \(us\-east\-1\) | Yes |  Yes  | 
+|  US West \(N\. California\) \(us\-west\-1\)  |  |  Yes  | 
+|  US West \(Oregon\) \(us\-west\-2\)  | Yes |  Yes  | 
 
 ## Public Switched Telephone Network \(PSTN\) Regions<a name="sdk-pstn-regions"></a>
 

@@ -20,14 +20,14 @@ App instance administrators can perform actions on a channels within the app ins
 
 | API name | Allowed or denied | Notes | 
 | --- | --- | --- | 
-| `UpdateChannel` | Allowed |  | 
+| `UpdateChannel` | Allowed with restriction |  Cannot update ElasticChannelConfiguration once set | 
 | `DeleteChannel` | Allowed |  | 
 | `DescribeChannel` | Allowed |  | 
 | `ListChannel` | Allowed |  | 
 | `ListChannelMembershipsForAppInstanceUser` | Allowed | You can also populate [ AppInstanceUserArn ](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_DescribeChannelModeratedByAppInstanceUser.html#API_DescribeChannelModeratedByAppInstanceUser_RequestSyntax) with another AppInstanceUser\. | 
 | `DescribeChannelMembershipForAppInstanceUser` | Allowed | You can also populate [ AppInstanceUserArn ](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_DescribeChannelModeratedByAppInstanceUser.html#API_DescribeChannelModeratedByAppInstanceUser_RequestSyntax) with another AppInstanceUser\. | 
 | `ListChannelsModeratedByAppInstanceUser` | Allowed | You can also populate [ AppInstanceUserArn ](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_DescribeChannelModeratedByAppInstanceUser.html#API_DescribeChannelModeratedByAppInstanceUser_RequestSyntax) with another AppInstanceUser\. | 
-| `DescribeChannelModeratedByAppInstanceUser` | Allowed | You can also populate [ AppInstanceUserArn ](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_DescribeChannelModeratedByAppInstanceUser.html#API_DescribeChannelModeratedByAppInstanceUser_RequestSyntax) with another AppInstanceUser\. | 
+| `DescribeChannelModeratedByAppInstanceUser` | Allowed | You can also populate [ AppInstanceUserArn ](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_DescribeChannelModeratedByAppInstanceUser.html#API_DescribeChannelModeratedByAppInstanceUser_RequestSyntax) with another AppInstanceUser\. No allowed for elastic channels\. | 
 | `CreateChannelMembership` | Allowed |  | 
 | `DescribeChannelMembership` | Allowed |  | 
 | `ListChannelMembership` | Allowed |  | 
@@ -46,7 +46,7 @@ App instance administrators can perform actions on a channels within the app ins
 | `DeleteChannelBan` | Allowed with restriction |  | 
 | `DescribeChannelBan` | Allowed |  | 
 | `ListChannelBan` | Allowed |  | 
-| `UpdateChannelReadMarker` | Allowed with restriction | You need to use [ CreateChannelMembership ](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateChannelMembership.html) to create a membership for yourself first, and then call the API\. | 
+| `UpdateChannelReadMarker` | Allowed with restriction | For non\-elastic channels, You need to use [ CreateChannelMembership ](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateChannelMembership.html) to create a membership for yourself first, and then call the API\. Not allowed for elastic channels\.  | 
 |  `GetChannelMessage`  |  Allowed with Restriction | Allowed only for sent messages\. Not allowed for messages in processing by channel flow unless you are the message sender\. | 
 | `ListChannelMessages` |  Allowed |  | 
 | `DeleteChannelMessage` |  Allowed with Restriction | Allowed only for sent messages\. | 
@@ -55,6 +55,7 @@ App instance administrators can perform actions on a channels within the app ins
 | `AssociateChannelFlow` |  Allowed |  | 
 | `DisassociateChannelFlow` |  Allowed |  | 
 | `GetChannelMessageStatus` |  Allowed with Restriction | You can only get message status for your own messages\. | 
+|  `ListSubChannels`  | Allowed |  | 
 
 ## ChannelModerator<a name="channelmoderator"></a>
 
@@ -66,14 +67,14 @@ A moderator who is an `AppInstanceAdmin` can perform actions on channels allowed
 
 | API name | Allowed or denied | Notes | 
 | --- | --- | --- | 
-| `UpdateChannel` | Allowed |  | 
+| `UpdateChannel` | Allowed |  Cannot update ElasticChannelConfiguration once set | 
 | `DeleteChannel` | Allowed  |  | 
 | `DescribeChannel` | Allowed with restriction | You can only get details for public channels\. | 
 | `ListChannel` | Allowed with restriction | You can only get details for public channels\. | 
 | `ListChannelMembershipsForAppInstanceUser` | Allowed with restriction | You can only use your ARN as the [ AppInstanceUserArn ](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_ListChannelMembershipsForAppInstanceUser.html#API_ListChannelMembershipsForAppInstanceUser_RequestSyntax) value\. | 
 | `DescribeChannelMembershipForAppInstanceUser` | Allowed with restriction | You can only use your ARN as the [ AppInstanceUserArn ](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_ListChannelMembershipsForAppInstanceUser.html#API_ListChannelMembershipsForAppInstanceUser_RequestSyntax) value\. | 
-| `ListChannelsModeratedByAppInstanceUser` | Allowed with restriction | You can only use your ARN as the [ AppInstanceUserArn ](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_ListChannelMembershipsForAppInstanceUser.html#API_ListChannelMembershipsForAppInstanceUser_RequestSyntax) value\. | 
-| `DescribeChannelModeratedByAppInstanceUser` | Allowed with restriction | You can only use your ARN as the [ AppInstanceUserArn ](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_ListChannelMembershipsForAppInstanceUser.html#API_ListChannelMembershipsForAppInstanceUser_RequestSyntax) value\. | 
+| `ListChannelsModeratedByAppInstanceUser` | Allowed with restriction | You can only use your ARN as the [ AppInstanceUserArn](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_ListChannelMembershipsForAppInstanceUser.html#API_ListChannelMembershipsForAppInstanceUser_RequestSyntax) value\. | 
+| `DescribeChannelModeratedByAppInstanceUser` | Allowed with restriction | You can also populate an [ AppInstanceUserArn ](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_ListChannelMembershipsForAppInstanceUser.html#API_ListChannelMembershipsForAppInstanceUser_RequestSyntax) with another AppInstanceUser\. | 
 | `CreateChannelMembership` | Allowed |  | 
 | `DescribeChannelMembership` | Allowed |  | 
 | `ListChannelMembership` | Allowed |  | 
@@ -92,7 +93,7 @@ A moderator who is an `AppInstanceAdmin` can perform actions on channels allowed
 | `DeleteChannelBan` | Allowed with restriction |  | 
 | `DescribeChannelBan` | Allowed |  | 
 | `ListChannelBan` | Allowed |  | 
-| `UpdateChannelReadMarker` | Allowed with restriction | You need to use [ CreateChannelMembership ](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateChannelMembership.html) to create a membership for yourself first, and then call the API\. | 
+| `UpdateChannelReadMarker` | Allowed with restriction |  For non\-elastic channels, you need to use [ CreateChannelMembership ](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateChannelMembership.html) to create a membership for yourself first, and then call the API\.  Not allowed for elastic channels\.  | 
 | `GetChannelMessage` |  Allowed with Restriction | Allowed only for sent messages\. Not allowed for messages in processing by channel flow unless you are the message sender\. | 
 | `ListChannelMessages` |  Allowed |  | 
 | `DeleteChannelMessage` |  Denied |  | 
@@ -101,6 +102,7 @@ A moderator who is an `AppInstanceAdmin` can perform actions on channels allowed
 | `AssociateChannelFlow` |  Allowed |  | 
 | `DisassociateChannelFlow` |  Allowed |  | 
 | `GetChannelMessageStatus` |  Allowed with Restriction | You can only get message status for your own messages\. | 
+|  `ListSubChannels`  | Allowed |  | 
 
 ## Member<a name="member"></a>
 
@@ -121,7 +123,7 @@ A member who is an `AppInstanceAdmin` or `ChannelModerator` can perform actions 
 | `ListChannelMembershipsForAppInstanceUser` | Allowed with restriction | You can only use your ARN as the [ AppInstanceUserArn ](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_ListChannelMembershipsForAppInstanceUser.html#API_ListChannelMembershipsForAppInstanceUser_RequestSyntax) value\. | 
 | `DescribeChannelMembershipForAppInstanceUser` | Allowed with restriction | You can only use your ARN as the [ AppInstanceUserArn ](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_ListChannelMembershipsForAppInstanceUser.html#API_ListChannelMembershipsForAppInstanceUser_RequestSyntax) value\. | 
 | `ListChannelsModeratedByAppInstanceUser` | Allowed with restriction | You can only use your ARN as the [ AppInstanceUserArn ](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_ListChannelMembershipsForAppInstanceUser.html#API_ListChannelMembershipsForAppInstanceUser_RequestSyntax) value\. | 
-| `DescribeChannelModeratedByAppInstanceUser` | Allowed with restriction | You can only use your ARN as the [ AppInstanceUserArn ](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_ListChannelMembershipsForAppInstanceUser.html#API_ListChannelMembershipsForAppInstanceUser_RequestSyntax) value\. | 
+| `DescribeChannelModeratedByAppInstanceUser` | Allowed with restriction |  You can also populate an [AppInstanceUserArn ](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_DescribeChannelModeratedByAppInstanceUser.html#API_DescribeChannelModeratedByAppInstanceUser_RequestSyntax)with another AppInstanceUser\. Not allowed for elastic channels\. | 
 | `CreateChannelMembership` | Allowed with restriction | You can only add other members for an [ UNRESTRICTED ](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateChannel.html#chime-CreateChannel-request-Mode) channel\. | 
 | `DescribeChannelMembership` | Allowed |  | 
 | `ListChannelMembership` | Allowed |  | 
@@ -140,7 +142,7 @@ A member who is an `AppInstanceAdmin` or `ChannelModerator` can perform actions 
 | `DeleteChannelBan` | Denied |  | 
 | `DescribeChannelBan` | Denied |  | 
 | `ListChannelBan` | Denied |  | 
-| `UpdateChannelReadMarker` | Allowed |  | 
+| `UpdateChannelReadMarker` | Allowed with restriction |  Not allowed for elastic channels\.  | 
 | `GetChannelMessage` |  Allowed with Restriction | Allowed only for sent messages\. Not allowed for messages in processing by channel flow unless you are the message sender\. | 
 | `ListChannelMessages` |  Allowed |  | 
 | `DeleteChannelMessage` |  Allowed with Restriction | Allowed only for sent messages\. | 
@@ -149,6 +151,7 @@ A member who is an `AppInstanceAdmin` or `ChannelModerator` can perform actions 
 | `AssociateChannelFlow` |  Denied |  | 
 | `DisassociateChannelFlow` |  Denied |  | 
 | `GetChannelMessageStatus` |  Allowed with Restriction | You can only get message status for your own messages\. | 
+| `Listsubchannels` | Denied |  | 
 
 ## Non\-member<a name="non-member"></a>
 
@@ -165,7 +168,7 @@ A non\-member who is an `AppInstanceAdmin` or `ChannelModerator` can perform cha
 | `DescribeChannel` | Allowed with restriction | You can only get details for public channels\. | 
 | `ListChannel` | Allowed with restriction | You can only get details for public channels\. | 
 | `ListChannelMembershipsForAppInstanceUser` | Allowed with restriction | You can only use your ARN as the [ AppInstanceUserArn ](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_ListChannelMembershipsForAppInstanceUser.html#API_ListChannelMembershipsForAppInstanceUser_RequestSyntax) value\. | 
-| `DescribeChannelMembershipForAppInstanceUser` | Allowed with restriction | You can only use your ARN as the [ AppInstanceUserArn ](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_ListChannelMembershipsForAppInstanceUser.html#API_ListChannelMembershipsForAppInstanceUser_RequestSyntax) value\. | 
+| `DescribeChannelMembershipForAppInstanceUser` | Allowed with restriction | You can also populate an [AppInstanceArn](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_DescribeChannelModeratedByAppInstanceUser.html#API_DescribeChannelModeratedByAppInstanceUser_RequestSyntax) with another AppInstanceUser\. Not allowed for elastic channels\. | 
 | `ListChannelsModeratedByAppInstanceUser` | Allowed with restriction | You can only use your ARN as the [ AppInstanceUserArn ](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_ListChannelMembershipsForAppInstanceUser.html#API_ListChannelMembershipsForAppInstanceUser_RequestSyntax) value\. | 
 | `DescribeChannelModeratedByAppInstanceUser` | Allowed with restriction | You can only use your ARN as the [ AppInstanceUserArn ](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_ListChannelMembershipsForAppInstanceUser.html#API_ListChannelMembershipsForAppInstanceUser_RequestSyntax) value\. | 
 | `CreateChannelMembership` | Denied |  | 

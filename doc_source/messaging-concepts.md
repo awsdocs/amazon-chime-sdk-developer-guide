@@ -11,6 +11,9 @@ AppInstanceUsers are the entities that send messages, create channels, join chan
 **Channel**  
 When you add an `AppInstanceUser` to a channel, that user becomes a member and can send and receive messages\. Channels can be public, which allows any user to add themselves as a member, or private, which allows only channel moderators to add members\. You can also hide channel members\. Hidden members can observe conversations but not send messages, and they aren't added to the channel membership\.
 
+**SubChannel**  
+Members of an elastic channel are divided into a logical container called SubChannels\. When you add an AppInstanceUser to an elastic channel, the user becomes a member of a subchannel and can send and receive messages for that particular subchannel\. Channel memberships and messages are at a SubChannel level meaning that a message sent by a member in one SubChannel will not be received by a member in another SubChannel\. Members are transferred to different subchannels to support the elastic nature of a channel and promote engagement\.
+
 **UserMessage**  
 An `AppInstanceUser` who belongs to a channel can send and receive user messages\. The `AppInstanceUser` can send `STANDARD` or `CONTROL` messages\. `STANDARD` messages can contain 4KB of data and 1KB of metadata\. `CONTROL` messages can contain only 30 bytes of data\. Messages can be `PERSISTENT` or `NON_PERSISTENT`\. You can retrieve `PERSISTENT` messages from the channel history\. `NON_PERSISTENT` messages are only seen by channel members currently connected to Amazon Chime SDK messaging\.
 

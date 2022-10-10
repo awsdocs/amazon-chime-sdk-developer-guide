@@ -54,7 +54,7 @@ These steps explain how to retrieve the endpoint used in a WebSocket connection\
  After you retrieve an endpoint, you use the connect API to establish a WebSocket connection to the Amazon Chime back\-end server and receive messages for an `AppInstanceUser`\. You must use AWS Signature Version 4 to sign requests\. For more information about signing a request, see [ Signing AWS Requests with Signature Version 4 ](https://docs.aws.amazon.com/general/latest/gr/Signature Version 4_signing.html)\.
 
 **Note**  
-To retrieve the endpoint, you can invoke the [ GetMessagingSessionEndpoint](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_GetMessagingSessionEndpoint.html) API\. You can use the websocket client library of your choice to connect to the endpoint\.
+To retrieve the endpoint, you can invoke the [ GetMessagingSessionEndpoint](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_GetMessagingSessionEndpoint.html) API\. You can use the WebSocket client library of your choice to connect to the endpoint\.
 
 **Request Syntax**
 
@@ -111,15 +111,15 @@ Optional credential parameter if using credentials sourced from the Security Tok
 
 **SessionId**
 
-Indicates a unique Id for the websocket connection being established\.
+Indicates a unique Id for the WebSocket connection being established\.
 
 **UserArn**
 
-Indicates the identity of the `AppInstanceUser` trying to establish a connection\. The value should be the ARN of the `AppInstanceUser`\. For example, `arn:aws:chime:us%2Deast%2D1:123456789012:app%2Dinstance/694d2099%2Dcb1e%2D463e%2D9d64%2D697ff5b8950e/user/johndoe` 
+Indicates the identity of the `AppInstanceUser` trying to establish a connection\. The value should be the ARN of the `AppInstanceUser`\. For example, `arn:aws:chime:us%2Deast%2D1:123456789012:app%2Dinstance/694d2099%2Dcb1e%2D463e%2D9d64%2D697ff5b8950e/user/johndoe` <a name="prefetch-direct"></a>
 
 ### Using prefetch<a name="prefetch"></a>
 
-When you establish a websocket connection, you can specify `prefetch-on=connect` in your query parameters to deliver `CHANNEL_DETAILS` events\. The prefectch feature comes with the connect API, and the feature enables users to see an enriched chat view without extra API calls\. Users can:
+When you establish a WebSocket connection, you can specify `prefetch-on=connect` in your query parameters to deliver `CHANNEL_DETAILS` events\. The prefectch feature comes with the connect API, and the feature enables users to see an enriched chat view without extra API calls\. Users can:
 + See a preview of the last channel message, plus its timestamp\.
 + See the members of a channel\.
 + See a channel's unread markers\.
@@ -179,12 +179,35 @@ Every WebSocket message that you receive adheres to this format:
 ```
 
 **Headers**  
-Amazon Chime SDK messaging uses a single header key, **x\-amz\-chime\-event\-type**\. The next section lists and describes the header's possible values and payloads\.
+Amazon Chime SDK messaging use the following header keys:
++ `x-amz-chime-event-type`
++ `x-amz-chime-message-type`
++ `x-amz-chime-event-reason`
+
+The next section lists and describes the header's possible values and payloads\.
 
 **Payload**  
-Websocket messages return JSON strings\. The structure of the JSON string depends on the `x-amz-event-type` headers\.The following table lists the possible `x-amz-chime-event-type` values and payloads:
+Websocket messages return JSON strings\. The structure of the JSON strings depends on the `x-amz-event-type` headers\. The following table lists the possible `x-amz-chime-event-type` values and payloads:
 
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/chime-sdk/latest/dg/websockets.html)
+
+**x\-amz\-chime\-message\-type**  
+The following table lists the `x-amz-chime-message-type` message types \.
+
+
+| Message type | Description | 
+| --- | --- | 
+| `STANDARD` | Sent when the websocket recieves a STANDARD channel message\. | 
+| `CONTROL` | Sent when the bebsocket receives a CONTROL channel message\. | 
+| `SYSTEM` | All other websocket messages sent by Amazon Chime SDK Messaging\. | 
+
+**x\-amz\-chime\-event\-reason**  
+This is an optional header supported for a specific use case\. The header provides information about why a specific event was received\.
+
+
+| Event reason | Description | 
+| --- | --- | 
+| subchannel\_DELETED | `DELETE_CHANNEL_MEMBERSHIP` events received by elastic channel moderators\. Only seen by moderators after membership balancing deletes a sub\-channel that they belonged to\. | 
 
 ### Handling disconnects<a name="handle-disconnects"></a>
 

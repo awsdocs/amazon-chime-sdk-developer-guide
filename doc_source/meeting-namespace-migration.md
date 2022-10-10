@@ -28,18 +28,20 @@ Before you migrate, be aware of the differences between the namespaces\. The fol
 |  | Amazon Chime SDK Meetings namespace | Amazon Chime namespace | 
 | --- | --- | --- | 
 | AWS SDK namespace | ChimeSDKMeetings | Chime | 
-| Regions | multiple | us\-east\-1 only | 
+| Regions | Multiple | us\-east\-1 only | 
 | Endpoints | https://meetings\-chime\.region\.amazonaws\.com | https://service\.chime\.aws\.amazon\.com | 
 | Service principal | meetings\.chime\.amazonaws\.com | chime\.amazonaws\.com | 
 | APIs | Only APIs for meetings | APIs for meetings and other parts of Amazon Chime | 
 | CreateMeeting | ExternalMeetingId and MediaRegion are required | ExternalMeetingId and MediaRegion are optional | 
-| Tags | Not Available | Available | 
+| ListMeetings | Not available | Available | 
+| Tags | Available | Available | 
 | Echo reduction | Available  | Not available | 
 | Live transcription language identification | Available | Not available | 
+| Attendee capabilities | Available | Not available | 
 | Media replication | Available | Not available | 
-| Media pipelines | Media pipelines support multiple regions in the Amazon Chime SDK Meetings namespace\. For more information, see [Migrating to the Amazon Chime SDK Media Pipelines namespace](migrate-pipelines.md)\. | Available via the us\-east\-1 endpoint | 
+| Media pipelines | Media pipelines support multiple regions in the Amazon Chime SDK Meetings namespace\. For more information, see [Migrating to the ChimeSdkMediaPipelines namespace](migrate-pipelines.md)\. | Available via the us\-east\-1 endpoint | 
 | SIP media application | JoinChimeMeeting action requires MeetingId | JoinChimeMeeting action does not require MeetingId | 
-|  **Direct SIP integration**  | Not Available | Available | 
+|  **Direct SIP integration**  | Not available | Available | 
 
 ## Differences between the namespaces<a name="namespace-differences"></a>
 
@@ -66,7 +68,7 @@ The [Amazon Chime](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API
 **Endpoints**  
 The [Amazon Chime SDK Meetings](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_Operations_Amazon_Chime_SDK_Meetings.html) namespace uses different API endpoints than the [Amazon Chime](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_Operations_Amazon_Chime.html) namespace\.
 
-Only the endpoint used to create a meeting can be used to modify it\. This means a meeting created via an endpoint in eu\-central\-1 can only be modified via eu\-central\-1\. It also means you cannot address a meeting created via the `Chime` namespace with the `ChimeSDKMeeting` namespace in US\-EAST\-1\.
+Only the endpoint used to create a meeting can be used to modify it\. This means a meeting created via an endpoint in eu\-central\-1 can only be modified via eu\-central\-1\. It also means you cannot address a meeting created via the `Chime` namespace with the `ChimeSDKMeetings` namespace in US\-EAST\-1\.
 
 **Service principal**  
 The [Amazon Chime SDK Meetings](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_Operations_Amazon_Chime_SDK_Meetings.html) namespace uses a new service principal: `meetings.chime.amazonaws.com`\. If you have SQS, SNS, or other IAM access policies that grant access to the service, you need to update those polices to grant access to the new service principal\.
@@ -78,7 +80,7 @@ The [Amazon Chime SDK Meetings](https://docs.aws.amazon.com/chime-sdk/latest/API
 In the Amazon Chime SDK Meetings namespace, the [CreateMeeting](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeeting.html) and [CreateMeetingWithAttendees](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeetingWithAttendees.html) APIs require the ExternalMeetingId and MediaRegion fields to be specified\.
 
 **Tagging**  
-A this time, the Amazon Chime SDK Meetings namespace doesn't support tags\.
+Both namespaces support meeting tags\. For more information about tags, refer to [TagResource](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_TagResource.html) and [UntagResource](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_UntagResource.html)\.
 
 **Media pipelines**  
 Amazon Chime media pipelines work with meetings created by any meetings endpoint, with either the [Amazon Chime SDK Meetings](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_Operations_Amazon_Chime_SDK_Meetings.html) or the [Amazon Chime](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_Operations_Amazon_Chime.html) namespace\. Refer to [Available regions](https://docs.aws.amazon.com/chime-sdk/latest/dg/sdk-available-regions.html) for the latest list of media pipeline regions\.

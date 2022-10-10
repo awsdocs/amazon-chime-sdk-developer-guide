@@ -1,9 +1,9 @@
-# Media pipeline events<a name="media-capture-events"></a>
+# Using media pipeline events<a name="media-pipe-events"></a>
 
-The Amazon Chime SDK sends media pipeline lifecycle events, which you can use to trigger notifications and initiate downstream workflows\. Some examples of using media pipeline events include:
+Each type of media pipeline sends lifecycle events, which you can use to trigger notifications and initiate downstream workflows\. Some examples of using media pipeline events include:
 + Processing captured media after a media pipeline has completed\.
-+ Notifying meeting participants if media capture has a temporary failure\.
-+ Stopping a meeting if media capture permanently fails\.
++ Notifying meeting participants if a media pipeline has a temporary failure\.
++ Stopping a meeting if a media pipeline fails permanently\.
 
 You can send events to Amazon EventBridge, Amazon Simple Notification Service \(SNS\), and Amazon Simple Queue Service \(SQS\)\. When sending events to Amazon EventBridge, The Amazon Chime SDK uses *best effort delivery*, meaning the SDK tries to send all events to EventBridge, but in rare cases an event might not be delivered\. For more information, refer to [Events from AWS services](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html) in the *Amazon EventBridge User Guide*\.
 
@@ -29,7 +29,7 @@ The Amazon Chime SDK sends this event when the media pipeline is created\.
         "eventType": "chime:MediaPipelineInProgress", 
         "timestamp": 1627503649251, 
         "meetingId": "1e6bf4f5-f4b5-4917-b8c9-bda45c340706", 
-        "externalMeetingId": "mymeeting",
+        "externalMeetingId": "Meeting_Id",
         "mediaPipelineId": "e40ee45e-2ed1-408e-9156-f52b8208a491", 
         "mediaRegion": "ap-southeast-1"
     }
@@ -58,7 +58,7 @@ The following is example data for this event\.
         "eventType": "chime:MediaPipelineDeleted",
         "timestamp": 1627503710485,
         "meetingId": "1e6bf4f5-f4b5-4917-b8c9-bda45c340706",
-        "externalMeetingId": "mymeeting",
+        "externalMeetingId": "Meeting_Id",
         "mediaPipelineId": "e40ee45e-2ed1-408e-9156-f52b8208a491",
         "mediaRegion": "ap-southeast-1"
     }
@@ -87,7 +87,7 @@ The following is example data for this event\.
         "eventType": "chime:MediaPipelineTemporaryFailure",
         "timestamp": 1627507002882,
         "meetingId": "7a5434e3-724a-4bbb-9eb6-2fb209dc0706",
-        "externalMeetingId": "mymeeting",
+        "externalMeetingId": "Meeting_Id",
         "mediaPipelineId": "ebd62f4e-04a9-426d-bcb0-974c0f266400",
         "mediaRegion": "eu-south-1"
     }
@@ -116,7 +116,7 @@ The following is example data for this event\.
         "eventType": "chime:MediaPipelineResumed",
         "timestamp": 1627503710485?,
         "meetingId": "1e6bf4f5-f4b5-4917-b8c9-bda45c340706",
-        "externalMeetingId": "mymeeting",
+        "externalMeetingId": "Meeting_Id",
         "mediaPipelineId": "e40ee45e-2ed1-408e-9156-f52b8208a491",
         "mediaRegion": "ap-southeast-1"
     }
@@ -145,7 +145,7 @@ The following is example data for this event\.
         "eventType": "chime:MediaPipelinePermanentFailure",
         "timestamp": 1627503710485,
         "meetingId": "1e6bf4f5-f4b5-4917-b8c9-bda45c340706",
-        "externalMeetingId": "mymeeting",
+        "externalMeetingId": "Meeting_Id",
         "mediaPipelineId": "e40ee45e-2ed1-408e-9156-f52b8208a491",
         "mediaRegion": "ap-southeast-1"
     }

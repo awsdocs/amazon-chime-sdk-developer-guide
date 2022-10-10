@@ -7,7 +7,7 @@ The topics in this section explain how to build the AWS Lambda functions used by
 + [Understanding actions](about-actions.md)
 + [Telephony events that invoke AWS Lambda functions](invoking-Lambda.md)
 + [Responding to invocations with action lists](invoke-on-call-leg.md)
-+ [Supported actions for SIP media applications](specify-actions.md)
++ [Supported actions for the PSTN Audio service](specify-actions.md)
 + [Using SIP headers](sip-headers.md)
 + [Using call detail records](attributes.md)
 + [Timeouts and retries](timeouts.md)

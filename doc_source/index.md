@@ -4,13 +4,13 @@
 *****Copyright &copy; Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
-Amazon's trademarks and trade dress may not be used in 
-     connection with any product or service that is not Amazon's, 
-     in any manner that is likely to cause confusion among customers, 
-     or in any manner that disparages or discredits Amazon. All other 
-     trademarks not owned by Amazon are the property of their respective
-     owners, who may or may not be affiliated with, connected to, or 
-     sponsored by Amazon.
+Amazon's trademarks and trade dress may not be used in
+connection with any product or service that is not Amazon's,
+in any manner that is likely to cause confusion among customers,
+or in any manner that disparages or discredits Amazon. All other
+trademarks not owned by Amazon are the property of their respective
+owners, who may or may not be affiliated with, connected to, or
+sponsored by Amazon.
 
 -----
 ## Contents
@@ -22,22 +22,39 @@ Amazon's trademarks and trade dress may not be used in
    + [Amazon Chime SDK event notifications](mtgs-sdk-notifications.md)
 + [Using Amazon Chime SDK meetings](mtgs-sdk-mtgs.md)
    + [Migrating to the Amazon Chime SDK Meetings namespace](meeting-namespace-migration.md)
-   + [Meeting regions](chime-sdk-meetings-regions.md)
+   + [Using meeting Regions](chime-sdk-meetings-regions.md)
    + [Creating Meetings](create-mtgs.md)
    + [Network configuration](network-config.md)
+      + [Using AppKeys and TenantIDs](app-keys-tenant-ids.md)
    + [Meeting events](using-events.md)
    + [Amazon CloudWatch metrics](sdk-usage-metrics.md)
       + [Service metrics](service-metrics.md)
       + [API usage metrics](usage-metrics.md)
-   + [Creating Amazon Chime media capture pipelines](media-capture.md)
-      + [Migrating to the Amazon Chime SDK Media Pipelines namespace](migrate-pipelines.md)
+   + [Creating Amazon Chime SDK media pipelines](media-pipelines.md)
+      + [Migrating to the ChimeSdkMediaPipelines namespace](migrate-pipelines.md)
       + [Pipeline creation overview](create-pipeline.md)
-      + [Creating an Amazon S3 bucket](create-s3-bucket.md)
+      + [Creating media capture pipelines](capture-pipe-config.md)
+         + [Creating an Amazon S3 bucket](create-s3-bucket.md)
+         + [Enabling server-side encryption for an Amazon S3 bucket](sse-kms.md)
+         + [Working with media capture artifacts](artifacts.md)
+         + [Configuring the audio folder](configure-audio.md)
+         + [Configuring the video folder](configure-video.md)
+         + [Understanding messages in the data-channel folder](data-channel.md)
+         + [Understanding the S3 bucket folder structure](folder-structure.md)
+         + [Understanding meeting event files](meeting-events.md)
+         + [Understanding transcription files](transcription-messages.md)
+         + [Concatenating data streams](concatenate-streams.md)
+      + [Creating media concatenation pipelines](create-concat-pipe.md)
+         + [Concatenation pipeline architecture](concat-architecture.md)
+         + [Building a media concatenation pipeline](create-concat-pipe-steps.md)
+         + [Understanding the S3 bucket folder structure](folder-structure2.md)
+      + [Creating media live connector pipelines](connector-pipe-config.md)
+      + [Enabling compositing for media pipelines](pipeline-compositing.md)
       + [Creating a service-linked role for Amazon Chime SDK meetings](create-pipeline-role.md)
-      + [Enabling server-side encryption for an Amazon S3 bucket](sse-kms.md)
-      + [Media pipeline events](media-capture-events.md)
-      + [Sending media pipeline events to CloudTrail](pipeline-cloudtrail.md)
-      + [Working with media capture artifacts](artifacts.md)
+      + [Using media pipeline events](media-pipe-events.md)
+         + [Setting Amazon S3 bucket permissions](s3-permissions.md)
+         + [Sending media pipeline events to CloudTrail](pipeline-cloudtrail.md)
+      + [Parsing transcripts](parse-transcripts.md)
    + [Using Amazon Chime SDK live transcription](meeting-transcription.md)
       + [Configuring your account](configure-transcribe.md)
       + [Choosing transcription options](transcription-options.md)
@@ -51,7 +68,6 @@ Amazon's trademarks and trade dress may not be used in
    + [Messaging concepts](messaging-concepts.md)
    + [Messaging architecture](messaging-architecture.md)
    + [Message types](msg-types.md)
-   + [Messaging quotas](messaging-quotas.md)
    + [Getting started](getting-started.md)
       + [Creating an AppInstance](create-app-instance.md)
          + [Creating an AppInstanceUser](create-app-instance-user.md)
@@ -65,6 +81,13 @@ Amazon's trademarks and trade dress may not be used in
    + [Example IAM roles](iam-roles.md)
    + [Understanding authorization by role](auth-by-role.md)
    + [Streaming messaging data](streaming-export.md)
+   + [Using elastic channels to host live events](elastic-channels.md)
+      + [Creating elastic channels](create-elastic-channel.md)
+      + [Managing elastic channel members](manage-elastic-members.md)
+      + [Sending elastic channel messages](send-messages-elastic.md)
+      + [Understanding WebSocket system messages in elastic channels](websocket-messages-elastic.md)
+      + [Using Kinesis streams to receive system messages](elastic-onboard-streams.md)
+      + [Testing elastic channels in our demo app](elastic-testing.md)
    + [Using mobile push notifications to receive messages](using-push-notifications.md)
       + [Create an Amazon Pinpoint application](create-pinpoint.md)
       + [Create a service role](create-service-role.md)
@@ -85,21 +108,21 @@ Amazon's trademarks and trade dress may not be used in
    + [User interface components for messaging](ui-components.md)
    + [Integrating with client libraries](integrate-client-library.md)
    + [Using Amazon Chime SDK messaging with JavaScript](use-javascript.md)
-+ [Using the Amazon Chime SDK for JavaScript](use-javascript-sdk-top.md)
-   + [Components of an Amazon Chime SDK application](chime-components.md)
++ [Using the Amazon Chime SDK for JavaScript](js-sdk-intro.md)
+   + [Components of an Amazon Chime application](components.md)
    + [Key concepts](key-concepts.md)
    + [Service architecture](service-architecture.md)
-      + [Web application architecture](web-application.md)
-      + [Server application architecture](server-application.md)
-      + [The meetings control plane](media-control-plane.md)
-      + [The meetings data plane](media-data-plane.md)
+   + [Web application architecture](web-architecture.md)
+   + [Server application architecture](server-app-architecture.md)
+   + [The Amazon Chime media control plane](media-control-plane.md)
+   + [The Amazon Chime media data plane](media-data-plane.md)
    + [Web application component architecture](web-app-comp-arch.md)
    + [Building a server application](build-server-app.md)
-      + [Creating IAM users or roles with the Chime SDK policy](iam-users-roles.md)
-      + [Configuring the AWS SDK to invoke the APIs](configure-sdk-invoke.md)
-      + [Creating a meeting](creating-a-meeting.md)
+      + [Creating IAM users or roles](create-iam-users-roles.md)
+      + [Configuring the AWS SDK to invoke the APIs](invoke-apis.md)
+      + [Creating a meeting](create-meeting.md)
       + [Creating an attendee](create-attendee.md)
-      + [Sending a response to the client application](send-response-to-client.md)
+      + [Sending a response to the client](send-response-to-client.md)
    + [Building a client application](build-client-app.md)
 + [Using the Amazon Chime SDK for Android](sdk-for-android.md)
 + [Using the Amazon Chime SDK for iOS](sdk-for-ios.md)
@@ -121,7 +144,7 @@ Amazon's trademarks and trade dress may not be used in
          + [Ending a call](case-5.md)
          + [End-to-end call example](use-cases.md)
       + [Responding to invocations with action lists](invoke-on-call-leg.md)
-      + [Supported actions for SIP media applications](specify-actions.md)
+      + [Supported actions for the PSTN Audio service](specify-actions.md)
          + [Using TransactionAttributes](transaction-attributes.md)
             + [Setting TransactionAttributes](set-trans-attributes.md)
             + [Updating TransactionAttributes](update-trans-attributes.md)

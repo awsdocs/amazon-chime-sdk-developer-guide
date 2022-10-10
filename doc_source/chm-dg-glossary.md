@@ -5,7 +5,7 @@
 ## A<a name="a"></a>
 
 **Action**  
-In an AWS Lambda function, an action is an item that you want to run on a leg of a phone call, such as sending or receiving digits, joining a meeting, and so on\. For more information about actions supported by the PSTN Audio Service, see [Supported actions for SIP media applications](specify-actions.md)\.
+In an AWS Lambda function, an action is an item that you want to run on a leg of a phone call, such as sending or receiving digits, joining a meeting, and so on\. For more information about actions supported by the PSTN Audio Service, see [Supported actions for the PSTN Audio service](specify-actions.md)\.
 
 **AWS Lambda**  
 A compute service that lets you run code for almost any type of application or backend service without provisioning or managing servers\.
@@ -61,7 +61,7 @@ See [Call leg](#call-leg)\.
 The audio, video, or chat messages available for use during an Amazon Chime SDK meeting\. A custom communications application can contain one or more of each media type\.
 
 **Media Pipeline**  
-A mechanism for recording audio, video, messages, and events during an Amazon Chime SDK meeting\. For more information, see [Creating Amazon Chime media capture pipelines](media-capture.md) in this guide\.
+A mechanism for streaming and capturing audio, video, messages, and events during an Amazon Chime SDK meeting\. For more information, see [Creating Amazon Chime SDK media pipelines](media-pipelines.md) in this guide\.
 
 ## N<a name="n"></a>
 

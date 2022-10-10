@@ -11,7 +11,7 @@ The information in the following sections explains how to create a service\-link
 
 ## Setting role permissions<a name="pipeline-role-permissions"></a>
 
-Media capture pipelines use a service\-linked role named *AWSServiceRoleForAmazonChimeSDKMediaPipelines*\. The role allows the capture pipelines to access Amazon Chime SDK meetings on your behalf\. The role trusts the `mediapipelines.chime.amazonaws.com` service\.
+media pipelines use a service\-linked role named *AWSServiceRoleForAmazonChimeSDKMediaPipelines*\. The role allows the capture pipelines to access Amazon Chime SDK meetings on your behalf\. The role trusts the `mediapipelines.chime.amazonaws.com` service\.
 
 The role permissions policy allows Amazon Chime to complete the following actions on all AWS resources:
 + `chime:CreateAttendee`
@@ -34,7 +34,7 @@ You use the IAM console to create a service\-linked role for use with Amazon Chi
 
    The IAM policy appears\.
 
-1. Select the checkbox next to the policy, then choose **Next: Tags**\.
+1. Select the check box next to the policy, then choose **Next: Tags**\.
 
 1. Choose **Next: Review**\.
 
@@ -54,13 +54,13 @@ You can't to edit the *AWSServiceRoleForAmazonChimeSDKMediaPipelines* service\-l
 
 ## Deleting the service\-linked role<a name="delete-pipeline-role"></a>
 
-If don't need a service\-linked role, we recommend that you delete it\. To do that, you first delete the media capture pipelines that use the role\. You can use the AWS CLI or the [DeleteMediaCapturePipeline](https://docs.aws.amazon.com/chime/latest/APIReference/API_DeleteMediaCapturePipeline.html) API to delete the pipelines\. 
+If don't need a service\-linked role, we recommend that you delete it\. To do that, you first delete the media pipelines that use the role\. You can use the AWS CLI or the [DeleteMediaCapturePipeline](https://docs.aws.amazon.com/chime/latest/APIReference/API_DeleteMediaCapturePipeline.html) API to delete the pipelines\. 
 
 **Using the CLI to delete pipelines**  
 Use this command in the AWS CLI to delete media pipelines in your account\.
 
 ```
-aws chime-sdk-media-pipelines delete-media-capture-pipeline --media-pipeline-id PIPELINE-ID
+aws chime-sdk-media-pipelines delete-media-capture-pipeline --media-pipeline-id Pipeline_Id
 ```
 
 **Using an API to delete pipelines**  

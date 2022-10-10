@@ -4,11 +4,11 @@ The topics in this section explain how to use Amazon Chime SDK meetings to creat
 
 **Topics**
 + [Migrating to the Amazon Chime SDK Meetings namespace](meeting-namespace-migration.md)
-+ [Meeting regions](chime-sdk-meetings-regions.md)
++ [Using meeting Regions](chime-sdk-meetings-regions.md)
 + [Creating Meetings](create-mtgs.md)
 + [Network configuration](network-config.md)
 + [Meeting events](using-events.md)
 + [Amazon CloudWatch metrics](sdk-usage-metrics.md)
-+ [Creating Amazon Chime media capture pipelines](media-capture.md)
++ [Creating Amazon Chime SDK media pipelines](media-pipelines.md)
 + [Using Amazon Chime SDK live transcription](meeting-transcription.md)
 + [Using media replication](media-replication.md)

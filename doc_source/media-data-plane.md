@@ -1,3 +1,5 @@
-# The meetings data plane<a name="media-data-plane"></a>
+# The Amazon Chime media data plane<a name="media-data-plane"></a>
 
-The meetings data plane includes an audio mixing service, a video forwarding service, and a TURN service\. AWS continuously monitors the services, and they scale automatically as load increases\. You can create meetings in any media region from any control plane region\. Refer to [Available regions](sdk-available-regions.md) for information about the AWS regions that support meetings\.
+You can use any control plane region to create meetings in all AWS Regions\. The Amazon Chime media data plane is available in all AWS Regions\. It includes an audio mixing service, video forwarding service, TURN service and Session Initiation Protocol \(SIP\) interoperability services\. The services are constantly monitored and are designed to scale automatically as load increases\. To learn more, see [ Amazon Chime SDK media Regions ](https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html)\. 
+
+ For a current list of Regions and Availability Zones, see [ Regions and Availability Zones ](http://aws.amazon.com/https://aws.amazon.com/about-aws/global-infrastructure/regions_az/)\. 

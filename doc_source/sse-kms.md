@@ -8,11 +8,11 @@ The Key Management System supports two types of keys, customer managed keys and 
 
 ## Using an Amazon S3 managed key<a name="s3-keys"></a>
 
-You use the Amazon S3 console, CLI, or REST API to to enable server\-side encryption for an Amazon S3 bucket\. In both cases, choose **Amazon S3 Key** as encryption key type\. No further action is needed\. When you use the bucket for media capture, the artifacts are uploaded and encrypted on server side\. For information, refer to [Specifying Amazon S3 encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/specifying-s3-encryption.html) in the *Amazon S3 User Guide*\. 
+You use the Amazon S3 console, CLI, or REST API to enable server\-side encryption for an Amazon S3 bucket\. In both cases, choose **Amazon S3 Key** as encryption key type\. No further action is needed\. When you use the bucket for media capture, the artifacts are uploaded and encrypted on server side\. For more information, refer to [ Specifying Amazon S3 encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/specifying-s3-encryption.html) in the *Amazon S3 User Guide*\. 
 
 ## Using a key that you own<a name="customer-key"></a>
 
-To enable encryption with a key that you manage, you need to enable the Amazon S3 bucket’s server side encryption with a Customer Managed Key, then add a statement to the the key policy that allows Amazon Chime to use the key and encrypt any uploaded artifacts\.
+To enable encryption with a key that you manage, you need to enable the Amazon S3 bucket’s server side encryption with a Customer Managed Key, then add a statement to the key policy that allows Amazon Chime to use the key and encrypt any uploaded artifacts\.
 
 1. Create a Customer Managed Key in KMS\. For information about doing so, see [Specifying server\-side encryption with AWS KMS \(SSE\-KMS\)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/specifying-kms-encryption.html) in the *Amazon S3 User Guide*\.
 
@@ -32,14 +32,16 @@ To enable encryption with a key that you manage, you need to enable the Amazon S
        "Resource": "*",
        "Condition": {
            "StringEquals": {
-              "aws:SourceAccount": "ACCOUNT_ID"
+              "aws:SourceAccount": "Account_Id"
            },
            "ArnLike": {
-               "aws:SourceArn": "arn:aws:chime:*:ACCOUNT_ID:*"
+               "aws:SourceArn": "arn:aws:chime:*:Account_Id:*"
            }
        }
    }
    ...
    ```
+
+1. If you use a media concatenation pipeline, add a statement to the key policy that allows the Amazon Chime service principal, `mediapipelines.chime.amazonaws.com`, to use the `kms:Decrypt` action\.
 
 1. Configure the Amazon S3 bucket to enable server side encryption with the key\.

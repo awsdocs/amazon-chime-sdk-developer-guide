@@ -61,7 +61,7 @@ The following example shows a typical use of the `Speak` action\.
 *Default value* – None
 
 **TextType**  
-*Description* – Specifies the type of input text, plain text or SSML\. If a input type is not specified, plain text is used as the default\. For more information about SSML, see [Generating Speech from SSML Documents](https://docs.aws.amazon.com/polly/latest/dg/ssml.html) in the *Amazon Polly Developer Guide*\.  
+*Description* – Specifies the type of input text, plain text or SSML\. If an input type is not specified, plain text is used as the default\. For more information about SSML, see [Generating Speech from SSML Documents](https://docs.aws.amazon.com/polly/latest/dg/ssml.html) in the *Amazon Polly Developer Guide*\.  
 *Allowed values* – ssml \| text  
 *Required* – No  
 *Default value* – None

@@ -67,6 +67,7 @@ This example shows a policy that allows users to access the Amazon Chime SDK use
                 "chime:DeleteChannel",
                 "chime:UpdateChannel",
                 "chime:ListChannels",
+                "chime:Listsubchannels",
                 "chime:ListChannelMembershipsForAppInstanceUser",
                 "chime:DescribeChannelMembershipForAppInstanceUser",
                 "chime:ListChannelsModeratedByAppInstanceUser",
@@ -93,7 +94,7 @@ This example shows a policy that allows users to access the Amazon Chime SDK use
                 "chime:Connect"
                 "chime:AssociateChannelFlow",
                 "chime:DisassociateChannelFlow",
-                "chime:GetChannelMessageStatus"
+                "chime:GetChannelMessageStatus"                
             ],
             "Effect": "Allow",
             "Resource": [
