@@ -75,5 +75,12 @@ a=crypto:5 AES_CM_128_HMAC_SHA1_80 inline:EXAMPLE
 a=crypto:6 AES_CM_128_HMAC_SHA1_32 inline:EXAMPLE
 ```
 
+**Joining meeting using SIP**
+To join the meeting via SIP set the meeting id in the SIP header as below
+
+```
+To: sip:+17035550122@abcdef1ghij2klmno3pqr4.voiceconnector.chime.aws;X-chime-join-token={join-token};X-chime-meeting-id={meetingId};
+```
+
 **Note**  
 The Amazon Chime SDK recognizes phone numbers only in E\.164 format\. Make sure that an E\.164 phone number is in your `From` header\.
