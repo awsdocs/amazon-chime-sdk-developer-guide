@@ -12,7 +12,7 @@ Meeting [events](https://docs.aws.amazon.com/chime-sdk/latest/ag/automating-chim
 
 This diagram shows the typical flow of data through the control and media Regions\.
 
-![\[Diagram showing the flow of data through the Amazon Chime control and media Regions.\]](http://docs.aws.amazon.com/chime-sdk/latest/dg/images/control-media-regions.png)
+![\[Diagram showing the flow of data through the Amazon Chime SDK control and media Regions.\]](http://docs.aws.amazon.com/chime-sdk/latest/dg/images/control-media-regions.png)
 
 ## Choosing a control region<a name="choose-meeting-region"></a>
 

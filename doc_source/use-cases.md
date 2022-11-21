@@ -49,8 +49,8 @@ When Amazon Chime SDK receives a call to the phone number specified in the rule,
 You can program the AWS Lambda function to validate call details and store them for future use\. For a `NEW_INBOUND_CALL` event, the AWS Lambda function responds with a set of actions that play a welcome prompt and ask for the meeting PIN\.
 
 Audio files have the following requirements:
-+ You must play audio files from an Amazon Simple Storage Service \(S3\) bucket\. The S3 bucket must belong to the same AWS account as the SIP media application\. In addition, you must give the `s3:GetObject` permission to the Amazon Chime Voice Connector service principal—`voiceconnector.chime.amazonaws.com`\. You can use the S3 console or the command\-line interface \(CLI\) to do that\.
-+ You must use PCM WAV files of no more than 50 MB in size\. Amazon Chime SDK recommends 8 KHz mono\.
++ You must play audio files from an Amazon Simple Storage Service \(S3\) bucket\. The S3 bucket must belong to the same AWS account as the SIP media application\. In addition, you must give the `s3:GetObject` permission to the Amazon Chime SDK Voice Connector service principal—`voiceconnector.chime.amazonaws.com`\. You can use the S3 console or the command\-line interface \(CLI\) to do that\.
++ You must use PCM WAV files of no more than 50 MB in size\. The Amazon Chime SDK recommends 8 KHz mono\.
 + The S3 metadata for each WAV file must contain `{'ContentType': 'audio/wav'}`\.
 
 ```

@@ -10,7 +10,7 @@ You use the Amazon Chime SDK to build real\-time media applications that can sen
 + [Amazon Chime SDK system requirements](#mtg-browsers)
 + [Available regions](sdk-available-regions.md)
 + [Integrating with a client library](mtgs-sdk-client-lib.md)
-+ [SIP integration using an Amazon Chime Voice Connector](mtgs-sdk-cvc.md)
++ [SIP integration using an Amazon Chime SDK Voice Connector](mtgs-sdk-cvc.md)
 + [Amazon Chime SDK event notifications](mtgs-sdk-notifications.md)
 
 ## Amazon Chime SDK prerequisites<a name="mtg-prereqs"></a>

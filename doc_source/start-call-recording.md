@@ -60,7 +60,7 @@ The following example shows how to request the `StartCallRecording` action for `
 *Default value* – None
 
 **Destination\.Location**  
-*Description* – A valid Amazon S3 bucket and an optional Amazon S3 key prefix\. The bucket must have permissions to the Amazon Chime Voice Connector service principal, voiceconnector\.chime\.amazonaws\.com\.  
+*Description* – A valid Amazon S3 bucket and an optional Amazon S3 key prefix\. The bucket must have permissions to the Amazon Chime SDK Voice Connector service principal, voiceconnector\.chime\.amazonaws\.com\.  
 *Allowed values* – A valid Amazon S3 path for which Amazon Chime SDK has permisions to the `s3:PutObject` and `s3:PutObjectAcl` actions\.  
 *Required* – Yes  
 *Default value* – None
@@ -107,7 +107,7 @@ The recording sent to your Amazon S3 bucket contains additional [ Amazon S3 obje
 
 ## Granting Amazon S3 bucket permissions<a name="grant-s3-perms"></a>
 
-Your destination Amazon S3 bucket must belong to the same AWS account as your application\. In addition, the action must give `s3:PutObject` and `s3:PutObjectAcl` permission to the Amazon Chime Voice Connector service principal, `voiceconnector.chime.amazonaws.com`\. The following example grants the appropriate permission\. 
+Your destination Amazon S3 bucket must belong to the same AWS account as your application\. In addition, the action must give `s3:PutObject` and `s3:PutObjectAcl` permission to the Amazon Chime SDK Voice Connector service principal, `voiceconnector.chime.amazonaws.com`\. The following example grants the appropriate permission\. 
 
 ```
 {

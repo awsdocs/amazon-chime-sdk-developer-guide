@@ -5,7 +5,7 @@ You use the SendChannelMessage API to send messages to a channel\. For a channel
 
 
 
-| Message status | Description\. | 
+| Message status | Description | 
 | --- | --- | 
 | SENT | Message processed successfully\. | 
 | PENDING | Ongoing processing\. | 

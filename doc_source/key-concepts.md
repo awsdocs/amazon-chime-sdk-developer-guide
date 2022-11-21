@@ -6,7 +6,7 @@ To fully understand how to create and manage meetings and users, you need to und
 
  ** [ Attendee ](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_Attendee.html) ** – A user trying to join a multi\-party media session\. Every attendee has a unique identifier, an external user identifier that can be passed in to map the attendee to a user in the developer's system, plus a signed join token that grants them access to the meeting\. 
 
- ** [ MeetingSession ](https://aws.github.io/amazon-chime-sdk-js/interfaces/meetingsession.html) ** and [ \(DefaultMeetingSession\) ](https://aws.github.io/amazon-chime-sdk-js/classes/defaultmeetingsession.html) – The root object of the Amazon Chime SDK for JavaScript that represents each user’s session in a meeting\. The web applications start by instantiating MeetingSession and configuring it with the right meeting and attendee information\. 
+ ** [ MeetingSession ](https://aws.github.io/amazon-chime-sdk-js/interfaces/meetingsession.html) ** and [ \(DefaultMeetingSession\) ](https://aws.github.io/amazon-chime-sdk-js/classes/defaultmeetingsession.html) – The root object of the Amazon Chime SDK SDK for JavaScript that represents each user’s session in a meeting\. The web applications start by instantiating MeetingSession and configuring it with the right meeting and attendee information\. 
 
  ** [ MeetingSessionConfiguration ](https://aws.github.io/amazon-chime-sdk-js/classes/meetingsessionconfiguration.html) ** – Stores the meeting and attendee data needed to join a meeting session\. That data is the response of the CreateMeeting and CreateAttendee API calls made by the server application\. The server application passes this data to the web application, which uses it to instantiate the MeetingSession\. 
 

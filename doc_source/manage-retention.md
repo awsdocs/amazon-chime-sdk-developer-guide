@@ -1,6 +1,6 @@
 # Managing message retention<a name="manage-retention"></a>
 
-Account owners can use the Amazon Chime AWS SDK APIs to turn on retention for messaging\. Messages are automatically deleted based on the time period set by the administrator\. Retention periods can last from one day to 15 years\. You can also use the APIs to update message retention periods or turn off message retention at any time\.
+Account owners can use the Amazon Chime SDK APIs to turn on retention for messaging\. Messages are automatically deleted based on the time period set by the administrator\. Retention periods can last from one day to 15 years\. You can also use the APIs to update message retention periods or turn off message retention at any time\.
 
 **Topics**
 + [Example CLI retention commands](#retention-examples)

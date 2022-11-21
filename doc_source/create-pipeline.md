@@ -6,19 +6,36 @@ You follow a multi\-step process to create an Amazon Chime SDK media pipeline\. 
 
 1. Use the [CreateMeeting](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateMeeting.html) API to create an Amazon Chime SDK meeting\. Optionally, you can specify an AWS Region using the `MediaRegion` parameter\. For more information about choosing a media Region, see [Using meeting Regions](chime-sdk-meetings-regions.md)\. 
 
-1. In the response from the [ CreateMeeting ](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateMeeting.html) API, note the `MeetingId`\. Pass the `MeetingId` in one of these [ARN formats](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) as the `SourceArn` for the [CreateMediaCapturePipeline](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateMediaCapturePipeline.html) and [CreateMediaLiveConnectorPipeline](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateMediaLiveConnectorPipeline.html) APIs\.
+1. In the response from the [ CreateMeeting ](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateMeeting.html) API, note the `MeetingId`\. Pass the `MeetingId` in one of these [ARN formats](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) as the `SourceArn` for the [CreateMediaCapturePipeline](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateMediaCapturePipeline.html) and [CreateMediaLiveConnectorPipeline](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaLiveConnectorPipeline.html) APIs\.
 
 1. Create a service\-linked role named `AWSServiceRoleForAmazonChimeSDKMediaPipelines`\. This allows media pipelines to access meetings on your behalf\.
 
+**Setting permissions**
+
+Calling the media pipeline APIs requires an IAM role with sufficient permission\. To create that role, we recommend adding the [AmazonChimeSDK](https://docs.aws.amazon.com/chime-sdk/latest/ag/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-chime-sdk) managed policy from the IAM console\. The policy contains the necessary APIs\.
+
+To call the [CreateMediaCapturePipeline](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaCapturePipeline.html) or [CreateMediaConcatenationPipeline](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaConcatenationPipeline.html) APIs, your IAM role must also have permission to call the S3 [GetBucketPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketPolicy.html) API on all resources\. The following example shows a typical policy for doing so\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": "s3:GetBucketPolicy",
+            "Effect": "Allow",
+            "Resource": "*"
+        }
+    ]
+}
+```
+
 **To create a media capture pipeline**
 
-1. Create an Amazon S3Bucket and note the bucket ARN\. Use it as the `SinkArn` parameter for the [CreateMediaCapturePipeline](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateMediaCapturePipeline.html) API\. Make sure the bucket allows the Amazon Chime SDK service to upload artifact files to the bucket\. In addition, the bucket must reside in the same AWS account and Region as the meeting\. For more information see [Creating an Amazon S3 bucket](create-s3-bucket.md)\.
-**Note**  
-Don't forget to add a policy to your IAM user to grant access to your bucket\. 
+1. Create an Amazon S3 bucket and note the bucket ARN\. Use it as the `SinkArn` parameter for the [CreateMediaCapturePipeline](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateMediaCapturePipeline.html) API\. Make sure the bucket allows the Amazon Chime SDK service to upload artifact files to the bucket\. In addition, the bucket must reside in the same AWS account and Region as the meeting\. For more information see [Creating an Amazon S3 bucket](create-s3-bucket.md)\.
 
 1. Once you have the source and sink, use the [CreateMediaCapturePipeline](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateMediaCapturePipeline.html) API to create a capture pipeline\. Once successful, the Amazon Chime SDK creates an attendee that joins and captures the meeting\.
 
-After you create a media capture pipeline, you create a media concatenation pipeline to concatenate the 5\-second media chunks into a single file\.
+After you create a media capture pipeline and set its permissions, you create a media concatenation pipeline to concatenate the 5\-second media chunks into a single file\.
 
 **To create a media concatenation pipeline**
 

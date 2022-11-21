@@ -1,11 +1,11 @@
 # RecordAudio<a name="record-audio"></a>
 
-Allows the SIP media application to record media from a given call ID\. For example, a voice mail application and meeting\-participant announcements\. The application records until it reaches the duration that you set, or when a user presses one of the `RecordingTerminators`, or when the application detects silence\. In those cases, the action tells your application to put the resulting media file into the specified S3 bucket\. The S3 bucket must belong to the same AWS account as the SIP media application\. In addition, the action must give `s3:PutObject` and `s3:PutObjectAcl` permission to the Amazon Chime Voice Connector service principal, [ Amazon Chime Voice Connector service principal ](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html), `voiceconnector.chime.amazonaws.com`\. 
+Allows the SIP media application to record media from a given call ID\. For example, a voice mail application and meeting\-participant announcements\. The application records until it reaches the duration that you set, or when a user presses one of the `RecordingTerminators`, or when the application detects silence\. In those cases, the action tells your application to put the resulting media file into the specified S3 bucket\. The S3 bucket must belong to the same AWS account as the SIP media application\. In addition, the action must give `s3:PutObject` and `s3:PutObjectAcl` permission to the Amazon Chime SDK Voice Connector service principal, [ Amazon Chime SDK Voice Connector service principal ](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html), `voiceconnector.chime.amazonaws.com`\. 
 
 **Note**  
 Recordings made using this feature may be subject to laws or regulations regarding the recording of electronic communications\. It is your and your end users’ responsibility to comply with all applicable laws regarding the recording, including properly notifying all participants in a recorded session or communication that the session or communication is being recorded, and obtaining their consent\.
 
-The following example gives the `s3:PutObject` and `s3:PutObjectAcl` permission to the Amazon Chime Voice Connector service principal\.
+The following example gives the `s3:PutObject` and `s3:PutObjectAcl` permission to the Amazon Chime SDK Voice Connector service principal\.
 
 ```
 {
@@ -71,7 +71,7 @@ This example uses the `CallId` parameter\. You can use the `ParticipantTag` para
 *Default value* – None
 
 **RecordingDestination\.BucketName**  
-*Description* – A valid S3 bucket name\. The bucket must have access to the [Amazon Chime Voice Connector service principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html), `voiceconnector.chime.amazonaws.com`\.  
+*Description* – A valid S3 bucket name\. The bucket must have access to the [Amazon Chime SDK Voice Connector service principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html), `voiceconnector.chime.amazonaws.com`\.  
 *Allowed values* – A valid S3 bucket for which Amazon Chime SDK has access to the `s3:PutObject` and `s3:PutObjectAcl` actions\.  
 *Required* – Yes  
 *Default value* – None

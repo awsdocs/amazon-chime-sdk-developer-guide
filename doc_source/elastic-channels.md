@@ -8,7 +8,7 @@ For example, say you create an elastic channel with 100 sub\-channels, and for t
 
 Splitting the audience across sub\-channels makes conversations easier for participants to follow\. Moderators also have reduced workloads, because they only need to watch some of the sub\-channels\. In addition, moderators can use the built\-in tools that elastic channels provide\. For example, moderators can [ban users](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_CreateChannelBan.html) from a channel, [create moderators](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_CreateChannelModerator.html), and use [channel flows](https://docs.aws.amazon.com/chime-sdk/latest/dg/using-channel-flows.html) to automatically moderate all the messages in the channel\.
 
-For more information about Amazon Chime SDK Messaging quotas, refer to [Messaging Quotas](https://docs.aws.amazon.com/general/latest/gr/chime-sdk.html) in the *Amazon Chime General Reference*\.
+For more information about Amazon Chime SDK Messaging quotas, refer to [Messaging Quotas](https://docs.aws.amazon.com/general/latest/gr/chime-sdk.html) in the *Amazon Chime SDK General Reference*\.
 
 **Topics**
 + [Prerequisites](#elastic-prereqs)

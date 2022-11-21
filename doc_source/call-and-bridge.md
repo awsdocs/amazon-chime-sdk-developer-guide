@@ -1,6 +1,6 @@
 # CallAndBridge<a name="call-and-bridge"></a>
 
-Creates an outbound call to a PSTN phone number, or to a SIP trunk configured as a Voice Connector or Voice Connector Group, and then bridges it with an existing call leg\. You use `PSTN` when calling a phone number, and `AWS` when calling a SIP trunk\. 
+Creates an outbound call to a PSTN phone number, or to a SIP trunk configured as an Amazon Chime SDK Voice Connector or Amazon Chime SDK Voice Connector Group, and then bridges it with an existing call leg\. You use `PSTN` when calling a phone number, and `AWS` when calling a SIP trunk\. 
 
 An existing call leg can be an outbound call leg created by using the [CreateSIPMediaApplicationCall](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateSipMediaApplicationCall.html) API, or an inbound leg created by a SIP rule that invokes the AWS Lambda function with a `NewInboundCall` event\. When you implement a `CallAndBridge` action to a Voice Connector or Voice Connector Group endpoint, you must specify the Amazon Resource Number \(ARN\) of the Voice Connector or Voice Connector Group\.
 
@@ -112,7 +112,7 @@ The following example shows a typical action that uses a Voice Connector or Voic
   }
   ```
 
-  For more information about Inbound routes and Voice Connectors, refer to [Editing Amazon Chime Voice Connector settings](https://docs.aws.amazon.com/chime-sdk/latest/ag/edit-voicecon.html)\.
+  For more information about Inbound routes and Voice Connectors, refer to [Editing Amazon Chime SDK Voice Connector settings](https://docs.aws.amazon.com/chime-sdk/latest/ag/edit-voicecon.html)\.
 *Required* – Yes  
 *Default value* – None
 

@@ -2,7 +2,7 @@
 
 Enables you to apply Amazon Voice Focus noise suppression to inbound and outbound call legs on a public switched telephony network \(PSTN\) call\. When you apply Amazon Voice Focus, it reduces background noise without impacting human speech\. This can make the current speaker easier to hear\.
 
-To create inbound call legs, you use a [SIP rule](https://docs.aws.amazon.com/chime/latest/ag/manage-sip-applications.html) that invokes an AWS Lambda function with a `NewInboundCall` event\. You can create outbound call legs by using the [CallAndBridge](call-and-bridge.md) action, or by using a [CreateSIPMediaApplicationCall](chime/latest/APIReference/API_CreateSipMediaApplicationCall.html) API operation\. For more information about Amazon Voice Focus, see [ How Amazon Chime's noise cancellation works](https://www.amazon.science/blog/how-amazon-chimes-challenge-winning-noise-cancellation-works)\.
+To create inbound call legs, you use a [SIP rule](https://docs.aws.amazon.com/chime/latest/ag/manage-sip-applications.html) that invokes an AWS Lambda function with a `NewInboundCall` event\. You can create outbound call legs by using the [CallAndBridge](call-and-bridge.md) action, or by using a [CreateSIPMediaApplicationCall](chime/latest/APIReference/API_CreateSipMediaApplicationCall.html) API operation\. For more information about Amazon Voice Focus, see [ How the Amazon Chime SDK's noise cancellation works](https://www.amazon.science/blog/how-amazon-chimes-challenge-winning-noise-cancellation-works)\.
 
  Amazon Voice Focus reduces unwanted, non\-speech noises, including: 
 + **Environment noises **—wind, fans, running water

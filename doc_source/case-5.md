@@ -8,7 +8,7 @@ The following diagram shows the invocations made to the AWS Lambda function endp
 
 ![\[The flow of data when you invoke the CreateSipMediaApplicationCall API. The API invokes a different endpoint when the status of an outbound call changes.\]](http://docs.aws.amazon.com/chime-sdk/latest/dg/images/sip-api-1.png)
 
-The endpoint configured for the SIP media application is invoked for different statuses of the outbound call\. When a customer ands a call, Amazon Chime SDK invokes the endpoint with a `HANGUP` invocation event type\. 
+The endpoint configured for the SIP media application is invoked for different statuses of the outbound call\. When a customer ands a call, the Amazon Chime SDK invokes the endpoint with a `HANGUP` invocation event type\. 
 
 This example shows a typical invocation event for a `HANGUP`\.
 

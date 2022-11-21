@@ -28,7 +28,7 @@ The following diagram shows a typical rule that uses a **Request URI hostname** 
 
 In the diagram:
 
-1. The PSTN audio service receives an incoming call on an Amazon Chime Voice Connector with a **Request URI hostname** that matches a provisioned SIP rule in the same AWS account\. 
+1. The PSTN audio service receives an incoming call on an Amazon Chime SDK Voice Connector with a **Request URI hostname** that matches a provisioned SIP rule in the same AWS account\. 
 
 1. The service then evaluates the SIP rule and fetches the SIP media application with the lowest priority \(in this case, the only target SIP media application with priority 1\)\. 
 

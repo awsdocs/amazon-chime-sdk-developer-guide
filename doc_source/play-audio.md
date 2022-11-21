@@ -2,7 +2,7 @@
 
 Play an audio file on any leg of a call\. The audio can be repeated any number of times\. The in\-progress audio can be terminated using the DTMF digits set in the `PlaybackTerminators`\.
 
-Currently, Amazon Chime SDK only supports playing audio files from the Amazon Simple Storage Service \(Amazon S3\) bucket\. The S3 bucket must belong to the same AWS account as the SIP media application\. In addition, you must give the `s3:GetObject` permission to the Amazon Chime Voice Connector service principal\. You can do that by using the S3 console or the command\-line interface \(CLI\)\.
+Currently, Amazon Chime SDK only supports playing audio files from the Amazon Simple Storage Service \(Amazon S3\) bucket\. The S3 bucket must belong to the same AWS account as the SIP media application\. In addition, you must give the `s3:GetObject` permission to the Amazon Chime SDK Voice Connector service principal\. You can do that by using the S3 console or the command\-line interface \(CLI\)\.
 
 The following code example shows a typical bucket policy\.
 
@@ -107,7 +107,7 @@ The following code example shows a typical action\.
 *Default value* – None\.
 
 **AudioSource\.BucketName**  
-*Description* – For S3 source types, the S3 bucket must belong to the same AWS account as the SIP application\. The bucket must have access to the Amazon Chime Voice Connector service principal, which is voiceconnector\.chime\.amazonaws\.com\.  
+*Description* – For S3 source types, the S3 bucket must belong to the same AWS account as the SIP application\. The bucket must have access to the Amazon Chime SDK Voice Connector service principal, which is voiceconnector\.chime\.amazonaws\.com\.  
 *Allowed values* – A valid S3 bucket for which Amazon Chime SDK has access to the `s3:GetObject` action\.  
 *Required* – Yes\.  
 *Default value* – None\.

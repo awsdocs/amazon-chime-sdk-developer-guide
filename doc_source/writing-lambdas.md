@@ -12,4 +12,5 @@ The topics in this section explain how to build the AWS Lambda functions used by
 + [Using call detail records](attributes.md)
 + [Timeouts and retries](timeouts.md)
 + [Debugging and troubleshooting](debug-pstn.md)
++ [VoiceFocus](voice-focus.md)
 + [PSTN audio service glossary](chm-dg-glossary.md)

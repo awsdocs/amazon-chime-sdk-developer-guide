@@ -8,7 +8,7 @@ The following diagram shows the invocations made to the AWS Lambda function endp
 
 ![\[This is my image.\]](http://docs.aws.amazon.com/chime-sdk/latest/dg/images/sip-api-1.png)
 
-The endpoint configured for the SIP media application is invoked for different statuses of the outbound call\. When a customer initiates a call, Amazon Chime SDK invokes the endpoint with a `NEW_OUTBOUND_CALL` invocation event type\. 
+The endpoint configured for the SIP media application is invoked for different statuses of the outbound call\. When a customer initiates a call, The Amazon Chime SDK invokes the endpoint with a `NEW_OUTBOUND_CALL` invocation event type\. 
 
 This example shows a typical invocation event for a `NEW_OUTBOUND_CALL`\.
 
@@ -38,7 +38,7 @@ This example shows a typical invocation event for a `NEW_OUTBOUND_CALL`\.
 
 Any response for an event related AWS Lambda invocation is ignored\.
 
-When we receive a `RINGING` notification from the receiver, Amazon Chime SDK invokes the configured endpoint again\. 
+When we receive a `RINGING` notification from the receiver, the Amazon Chime SDK invokes the configured endpoint again\. 
 
 This example shows a typical invocation event for `RINGING`\.
 

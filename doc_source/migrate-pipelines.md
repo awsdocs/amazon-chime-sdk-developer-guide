@@ -13,7 +13,7 @@ Existing applications that use the [Amazon Chime](https://docs.aws.amazon.com/ch
 We encourage you to migrate to the media pipeline namespace for these reasons:
 
 **Choice of API Endpoint**  
-The Amazon Chime SDK Media Capture namespace is the only API namespace which can use API endpoints in any Region that makes them available\. For more information about Regions, refer to [Available regions](sdk-available-regions.md) If you want to use API endpoints other than us\-east\-1, you must use the `ChimeSdkMediaPipelines` namespace\.
+The Amazon Chime SDK Media Capture namespace is the only API namespace which can use API endpoints in any Region that makes them available\. For more information about Regions, refer to [Available regions](sdk-available-regions.md)\. If you want to use API endpoints other than us\-east\-1, you must use the `ChimeSdkMediaPipelines` namespace\.
 
 **Updated and new media pipeline APIs**  
 We only add or update media pipeline APIs in the `ChimeSdkMediaPipelines` namespace\. We fully support the current media capture APIs in the `Chime` namespace, but they remain as\-is\.
@@ -23,7 +23,7 @@ We only add or update media pipeline APIs in the `ChimeSdkMediaPipelines` namesp
 Before you migrate, be aware of the differences between the namespaces\. The following table lists and describes them\.
 
 
-|  Item  |  Media pipelines namespace  |  Chime namespace  | 
+| Item | Media pipelines namespace | Chime namespace | 
 | --- | --- | --- | 
 |  Namespace names  |  ChimeSdkMediaPipelines  |  Chime  | 
 |  Regions  |  Multiple  |  us\-east\-1 only  | 
@@ -74,4 +74,4 @@ Media pipelines in the IAD region work with meetings created by any meetings end
 Only for the Amazon Chime SDK Media Pipelines namespace\. Create the *AWSServiceRoleForAmazonChimeSDKMediaPipelines* role\.
 
 **Tags**  
-The [Amazon Chime SDK Media Pipelines](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_Operations_Amazon_Chime_SDK_Meetings.html) namespace supports tags\. The role must have permission to call the `TagResource` operation when calling the [CreateMediaCapturePipeline](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateMediaCapturePipeline.html) or [CreateMediaLiveConnectorPipeline](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateMediaLiveConnectorPipeline.html) APIs with one or more tags\.
+The [Amazon Chime SDK Media Pipelines](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_Operations_Amazon_Chime_SDK_Meetings.html) namespace supports tags\. The role must have permission to call the `TagResource` operation when calling the [CreateMediaCapturePipeline](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaCapturePipeline.html) or [CreateMediaLiveConnectorPipeline](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaLiveConnectorPipeline.html) APIs with one or more tags\.

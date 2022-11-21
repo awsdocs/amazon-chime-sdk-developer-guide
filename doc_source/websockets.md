@@ -51,7 +51,7 @@ These steps explain how to retrieve the endpoint used in a WebSocket connection\
 
 ## Establish the connection<a name="connect-api"></a>
 
- After you retrieve an endpoint, you use the connect API to establish a WebSocket connection to the Amazon Chime back\-end server and receive messages for an `AppInstanceUser`\. You must use AWS Signature Version 4 to sign requests\. For more information about signing a request, see [ Signing AWS Requests with Signature Version 4 ](https://docs.aws.amazon.com/general/latest/gr/Signature Version 4_signing.html)\.
+ After you retrieve an endpoint, you use the connect API to establish a WebSocket connection to the Amazon Chime SDK back\-end server and receive messages for an `AppInstanceUser`\. You must use AWS Signature Version 4 to sign requests\. For more information about signing a request, see [ Signing AWS Requests with Signature Version 4 ](https://docs.aws.amazon.com/general/latest/gr/Signature Version 4_signing.html)\.
 
 **Note**  
 To retrieve the endpoint, you can invoke the [ GetMessagingSessionEndpoint](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_GetMessagingSessionEndpoint.html) API\. You can use the WebSocket client library of your choice to connect to the endpoint\.
@@ -76,7 +76,7 @@ All URI Request Query Parameters must be URL Encoded\.
 
 **X\-Amz\-Algorithm**
 
-Identifies the version of AWS Signature and the algorithm that you used to calculate the signature\. Amazon Chime supports only AWS Signature Version 4 authentication, so the value of this is `AWS4-HMAC-SHA256`\.
+Identifies the version of AWS Signature and the algorithm that you used to calculate the signature\. The Amazon Chime SDK supports only AWS Signature Version 4 authentication, so the value of this is `AWS4-HMAC-SHA256`\.
 
 **X\-Amz\-Credential**
 

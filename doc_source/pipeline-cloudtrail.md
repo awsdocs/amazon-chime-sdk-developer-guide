@@ -2,7 +2,7 @@
 
 AWS enables CloudTrail for you when you create your AWS account\. When a user calls a supported API in the media pipeline SDK, CloudTrail logs that activity for that API in **Event history**, along with other AWS events\. You can view, search, and download the media pipeline events in your AWS account\. For more information, see [Viewing Events with CloudTrail Event History](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) in the *CloudTrail User Guide*\.
 
-For an ongoing record of media pipeline events, you can create a *trail*\. A trail enables CloudTrail to deliver log files to your Amazon S3 bucket\. The following example shows a media pipeline trail\. The data includes the user that called the API, the IAM role used to call the API, and timestamps\. For more information about using CloudTrail see [Logging and monitoring](https://docs.aws.amazon.com/chime-sdk/latest/ag/monitoring-overview.html) in the *Amazon Chime Administrator Guide*\.
+For an ongoing record of media pipeline events, you can create a *trail*\. A trail enables CloudTrail to deliver log files to your Amazon S3 bucket\. The following example shows a media pipeline trail\. The data includes the user that called the API, the IAM role used to call the API, and timestamps\. For more information about using CloudTrail see [Logging and monitoring](https://docs.aws.amazon.com/chime-sdk/latest/ag/monitoring-overview.html) in the *Amazon Chime SDK Administrator Guide*\.
 
 ```
 {

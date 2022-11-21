@@ -1,6 +1,6 @@
 # Network configuration<a name="network-config"></a>
 
-When you integrate the Amazon Chime SDK into your client application, the SDK connects to the Amazon Chime service to send and receive audio, video, content sharing, and data messages\. If your users' network blocks traffic to the Amazon Chime service, their ability to use the service will be impaired\. Network administrators can use this information to reconfigure their network to allow access to the Amazon Chime service\.
+When you integrate the Amazon Chime SDK into your client application, the SDK connects to its back\-end service to send and receive audio, video, content sharing, and data messages\. If your users' network blocks traffic to the Amazon Chime SDK service, their ability to use the service will be impaired\. Network administrators can use this information to reconfigure their network to allow access to the Amazon Chime SDK service\.
 
 **Note**  
 When you configure your network, you must enable Extention Mechanisms for DNS \(EDNS0\) by default\. This enables your application to reach the Amazon Chime SDK services by ensuring that host information is the correct size for UDP packets\. If you use Amazon EC2, ensure your network configuration enables EDNS0\. If you don't use EC2, ensure you enable EDNS0 by default\. 

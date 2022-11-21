@@ -16,7 +16,7 @@ To enable encryption with a key that you manage, you need to enable the Amazon S
 
 1. Create a Customer Managed Key in KMS\. For information about doing so, see [Specifying server\-side encryption with AWS KMS \(SSE\-KMS\)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/specifying-kms-encryption.html) in the *Amazon S3 User Guide*\.
 
-1. Add a statement to the key policy that allows the `GenerateDataKey` action to generate a key for use by the Amazon Chime service principal, `mediapipelines.chime.amazonaws.com`\.
+1. Add a statement to the key policy that allows the `GenerateDataKey` action to generate a key for use by the Amazon Chime SDK service principal, `mediapipelines.chime.amazonaws.com`\.
 
    This example shows a typical statement\.
 
@@ -42,6 +42,6 @@ To enable encryption with a key that you manage, you need to enable the Amazon S
    ...
    ```
 
-1. If you use a media concatenation pipeline, add a statement to the key policy that allows the Amazon Chime service principal, `mediapipelines.chime.amazonaws.com`, to use the `kms:Decrypt` action\.
+1. If you use a media concatenation pipeline, add a statement to the key policy that allows the Amazon Chime SDK service principal, `mediapipelines.chime.amazonaws.com`, to use the `kms:Decrypt` action\.
 
 1. Configure the Amazon S3 bucket to enable server side encryption with the key\.

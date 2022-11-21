@@ -13,7 +13,7 @@ We recommend sending Amazon Chime SDK Event notifications to EventBridge\. Event
 
 You can use the [CreateMeeting](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateMeeting.html) API in the *Amazon Chime SDK API Reference* to send Amazon Chime SDK meeting event notifications to one Amazon SQS queue and one Amazon SNS topic per meeting\. This can help reduce notification latency\. For more information about Amazon SQS, see the [Amazon Simple Queue Service Developer Guide](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/)\. For more information about Amazon SNS, see the [Amazon Simple Notification Service Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/)\.
 
-The notifications sent to Amazon SQS and Amazon SNS contain the same information as the notifications that Amazon Chime sends to EventBridge\. The Amazon Chime SDK supports sending meeting event notifications to queues and topics in the US East \(N\. Virginia\) \(**us\-east\-1**\) AWS Region\. Event notifications might be delivered out of order of occurrence\.
+The notifications sent to Amazon SQS and Amazon SNS contain the same information as the notifications that the Amazon Chime SDK sends to EventBridge\. The Amazon Chime SDK supports sending meeting event notifications to queues and topics in the US East \(N\. Virginia\) \(**us\-east\-1**\) AWS Region\. Event notifications might be delivered out of order of occurrence\.
 
 ## Granting the Amazon Chime SDK access to Amazon SQS and Amazon SNS<a name="chime-sdk-sqs-sns-permissions"></a>
 
@@ -51,7 +51,7 @@ You can use `aws:SourceArn` or `aws:SourceAccount` when creating the policies be
    ]
 }
 ```
-This example shows an Amazon SNS policy that allows Amazon Chime to send meeting event notifications to your SNS topic\.  
+This example shows an Amazon SNS policy that allows the Amazon Chime SDK to send meeting event notifications to your SNS topic\.  
 
 ```
 {

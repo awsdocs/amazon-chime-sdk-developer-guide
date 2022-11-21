@@ -1,6 +1,6 @@
 # Transcription events<a name="transcription-events"></a>
 
-Amazon Chime SDK sends transcription lifecycle events, which you can use to trigger notifications and initiate downstream work flows\. Some examples of using transcription events include:
+The Amazon Chime SDK sends transcription lifecycle events, which you can use to trigger notifications and initiate downstream work flows\. Some examples of using transcription events include:
 + Measuring the adoption of live transcription in Amazon Chime SDK meetings
 + Tracking language preferences
 

@@ -2,7 +2,7 @@
 
 Plays audio and gathers DTMF digits\. If a failure occurs, such as a user not entering the correct number of DTMF digits, the action plays the "failure" audio and then replays the main audio until the SIP media application exhausts the number of attempts defined in the `Repeat` parameter\.
 
-You must play audio files from the S3 bucket\. The S3 bucket must belong to the same AWS account as the SIP media application\. In addition, you must give the `s3:GetObject` permission to the [ Amazon Chime Voice Connector service principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html), `voiceconnector.chime.amazonaws.com`\. You can use the S3 console or the CLI to do that\. 
+You must play audio files from the S3 bucket\. The S3 bucket must belong to the same AWS account as the SIP media application\. In addition, you must give the `s3:GetObject` permission to the [ Amazon Chime SDK Voice Connector service principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html), `voiceconnector.chime.amazonaws.com`\. You can use the S3 console or the CLI to do that\. 
 
 The following code example shows a typical S3 bucket policy\.
 
@@ -111,7 +111,7 @@ The following example shows a typical `PlayAudioAndGetDigits` action\.
 *Default value* – `"S3"`
 
 **AudioSource\.BucketName**  
-*Description* – For S3 `AudioSource.Type` values, the S3 bucket must belong to the same AWS account as the SIP media application\. The bucket S3 must have access to the [Amazon Chime Voice Connector service principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html), `voiceconnector.chime.amazonaws.com`\.  
+*Description* – For S3 `AudioSource.Type` values, the S3 bucket must belong to the same AWS account as the SIP media application\. The bucket S3 must have access to the [Amazon Chime SDK Voice Connector service principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html), `voiceconnector.chime.amazonaws.com`\.  
 *Allowed values* – A valid S3 bucket for which Amazon Chime SDK has `s3:GetObject` actions access\.  
 *Required* – Yes  
 *Default value* – None
@@ -129,7 +129,7 @@ The following example shows a typical `PlayAudioAndGetDigits` action\.
 *Default value* – None
 
 **FailureAudioSource\.BucketName**  
-*Description* – For S3 source types, the S3 bucket must belong to the same AWS account as the SIP media application\. The [Amazon Chime Voice Connector service principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html), `voiceconnector.chime.amazonaws.com`, must have access to the S3 bucket\.  
+*Description* – For S3 source types, the S3 bucket must belong to the same AWS account as the SIP media application\. The [Amazon Chime SDK Voice Connector service principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html), `voiceconnector.chime.amazonaws.com`, must have access to the S3 bucket\.  
 *Allowed values* – A valid S3 bucket for which Amazon Chime SDK has `s3:GetObject` actions access\.  
 *Required* – Yes  
 *Default value* – None

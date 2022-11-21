@@ -9,7 +9,7 @@ The PSTN Audio service provides life\-like conversational interaction with your 
 The `StartBotConversation` action uses Amazon Lex and Amazon Polly for the duration of the bot conversation\. Standard Amazon Lex and Amazon Polly costs apply\. For more pricing information, see the [Amazon Lex streaming conversation pricing](https://aws.amazon.com/lex/pricing/), and [Amazon Polly Pricing](https://aws.amazon.com/polly/pricing/) pages\.
 
 **Note**  
-You can't run this action on a bridged call, or on a call that has joined an Amazon Chime meeting\.
+You can't run this action on a bridged call, or on a call that has joined an Amazon Chime SDK meeting\.
 
 **Important**  
 Use of Amazon Lex and Amazon Polly is subject to the [AWS Service Terms ](https://aws.amazon.com/service-terms/), including the terms specific to the AWS Machine Learning and Artificial Intelligence Services\.
@@ -333,7 +333,7 @@ The following table lists the error messages that a Lambda function can return i
 
 ## Granting permissions to use a bot<a name="bot-permissions"></a>
 
-The following example grants Amazon Chime permission to call the Amazon Lex [StartConversation](https://docs.aws.amazon.com/lexv2/latest/dg/API_runtime_StartConversation.html) APIs\. You must explicitly grant the PSTN Audio service permission to use your bot\. The condition block is required for service principals\. The condition block must use the global context keys `AWS:SourceAccount` and `AWS:SourceArn`\. The `AWS:SourceAccount` is your AWS account ID\. The `AWS:SourceArn` is the resource ARN of the PSTN Audio application that invokes the Lex bot\.
+The following example grants the Amazon Chime SDK permission to call the Amazon Lex [StartConversation](https://docs.aws.amazon.com/lexv2/latest/dg/API_runtime_StartConversation.html) APIs\. You must explicitly grant the PSTN Audio service permission to use your bot\. The condition block is required for service principals\. The condition block must use the global context keys `AWS:SourceAccount` and `AWS:SourceArn`\. The `AWS:SourceAccount` is your AWS account ID\. The `AWS:SourceArn` is the resource ARN of the PSTN Audio application that invokes the Lex bot\.
 
 ```
 {

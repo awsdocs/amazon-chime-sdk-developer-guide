@@ -18,4 +18,3 @@ You can specify different types of signaling and media actions in a response fro
 + [Speak](speak.md)
 + [SpeakAndGetDigits](speak-and-get-digits.md)
 + [StartBotConversation](start-bot-conversation.md)
-+ [VoiceFocus](voice-focus.md)

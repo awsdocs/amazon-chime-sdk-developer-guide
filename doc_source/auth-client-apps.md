@@ -8,7 +8,7 @@ Amazon Chime SDK messaging integrates natively with AWS Identity and Access Mana
 
 If you have an existing identity provider, you have the following options for integrating your existing identity with Amazon Chime SDK messaging\.
 + You can use your existing identity provider to authenticate users and then integrate the authentication service with AWS Security Token Service \(STS\) to create your own credential vending service for clients\. STS provides APIs for assuming IAM Roles\.
-+ If you already have a SAML or OpenID compatible identity provider, Amazon Chime recommends using Amazon [Cognito Identity Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/identity-pools.html), which abstract away calls to AWS STS [AssumeRoleWithSAML](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithSAML.html) and [AssumeRoleWithWebIdentity](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html)\. Amazon Cognito integrates with OpenID, SAML, and public identity providers such as Facebook, Login with Amazon, Google, and Sign in with Apple\.
++ If you already have a SAML or OpenID compatible identity provider, we recommend using Amazon [Cognito Identity Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/identity-pools.html), which abstract away calls to AWS STS [AssumeRoleWithSAML](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithSAML.html) and [AssumeRoleWithWebIdentity](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html)\. Amazon Cognito integrates with OpenID, SAML, and public identity providers such as Facebook, Login with Amazon, Google, and Sign in with Apple\.
 
 If you do not have an identity provider, you can get started with Amazon Cognito User Pools\. For an example of how to use Amazon Cognito with the Amazon Chime SDK messaging features, see [ Build chat features into your application with Amazon Chime SDK messaging](http://aws.amazon.com/blogs/business-productivity/build-chat-features-into-your-application-with-amazon-chime-sdk-messaging/)\. 
 
@@ -17,7 +17,7 @@ Alternately, you can use the [AWS STS](https://docs.aws.amazon.com/STS/latest/AP
 **Using STS to vend credentials**  
 If you already have an IDP such as ActiveDirectory LDAP, and you want to implement a custom credential vending service, or grant access to chat for non\-authenticated meeting attendees, you can use the [AWS STS AssumeRole API](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html)\. To do this, you first create a Chime Messaging SDK Role\. For more information about creating that role, see [ Creating a role to delegate permissions to an IAM user ](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html)\.
 
-The IAM Role would have permissions to the Chime Messaging SDK action your application would use, similar to the following:
+The IAM Role would have permissions to the Amazon Chime SDK Messaging action your application would use, similar to the following:
 
 ```
 {

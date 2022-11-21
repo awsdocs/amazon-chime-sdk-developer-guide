@@ -1,8 +1,8 @@
 # Speak<a name="speak"></a>
 
-You can play speech on any call leg by providing text\. You can use plain text or Speech Synthesis Markup Language \(SSML\)\. SSML provides more control over how Amazon Chime generates speech by adding pauses, emphasizing certain words, or changing the speaking style\.
+You can play speech on any call leg by providing text\. You can use plain text or Speech Synthesis Markup Language \(SSML\)\. SSML provides more control over how the Amazon Chime SDK generates speech by adding pauses, emphasizing certain words, or changing the speaking style\.
 
-Amazon Chime uses the Amazon Polly service to convert text\-to\-speech\. Amazon Polly allows you to choose between either the standard or neural engine for improved speech quality\. Amazon Polly supports more than 20 languages and 60 voices to customize your application's user experience\. Amazon Chime provides speech features at no charge, but you do pay for using Amazon Polly\. See the Amazon Polly [pricing page](https://aws.amazon.com/polly/pricing/) or your billing dashboard for pricing information\.
+The Amazon Chime SDK uses the Amazon Polly service to convert text\-to\-speech\. Amazon Polly allows you to choose between either the standard or neural engine for improved speech quality\. Amazon Polly supports more than 20 languages and 60 voices to customize your application's user experience\. The Amazon Chime SDK provides speech features at no charge, but you do pay for using Amazon Polly\. See the Amazon Polly [pricing page](https://aws.amazon.com/polly/pricing/) or your billing dashboard for pricing information\.
 
 **Important**  
 Use of Amazon Polly is subject to the [ AWS Service Terms ](https://aws.amazon.com/service-terms/), including the terms specific to the AWS Machine Learning and Artificial Intelligence Services\.
@@ -132,7 +132,7 @@ This table lists and describes the error messages thrown by the the `Speak` acti
 
 | Error | Message | Reason | 
 | --- | --- | --- | 
-| `AccessDenied` | The `AWSServiceRoleForAmazonChimeVoiceConnector` service\-linked role is not configured correctly\. | The service\-linked role used to make requests to Amazon Polly doesn't exist or is missing permissons\. To resolve, see the steps in the [Using the Amazon Chime Voice Connector service\-linked role](speak-and-get-digits.md#speak-digits-policy) section | 
+| `AccessDenied` | The `AWSServiceRoleForAmazonChimeVoiceConnector` service\-linked role is not configured correctly\. | The service\-linked role used to make requests to Amazon Polly doesn't exist or is missing permissions\. To resolve, see the steps in the [Using the Amazon Chime SDK Voice Connector service\-linked role](speak-and-get-digits.md#speak-digits-policy) section | 
 | `InvalidActionParameter` |   | There was an error validating the action parameters\. See the [SynthesizeSpeech API](https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech) in the *Amazon Polly Developer Guide* for more information about parameters\. | 
 | ActionExecutionThrottled | Amazon Polly is throttling the request to synthesize speech\. | The request to Amazon Polly is returning a throttling exception\. For more information about the Amazon Polly throttling limits, see [ https://docs\.aws\.amazon\.com/polly/latest/dg/limits\.html\#limits\-throttle ](https://docs.aws.amazon.com/polly/latest/dg/limits.html#limits-throttle)\. | 
 | `MissingRequiredActionParameter` | `Text` is a required parameter\. | There action parameters must have a `Text` value | 

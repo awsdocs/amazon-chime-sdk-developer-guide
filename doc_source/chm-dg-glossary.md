@@ -16,13 +16,13 @@ In the context of the PSTN Audio service, a function run in response to data pas
 ## C<a name="c"></a>
 
 **Call detail record**  
-Data from Amazon Chime Voice Connector calls, such as account IDs, source phone numbers, and destination countries\. The records land as objects in an Amazon Simple Storage Service \(S3\) bucket in your account\. For more information, see [Managing global settings in Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/ag/manage-global.html) in the *Amazon Chime SDK Administrator Guide* and \. For information about the record schema, see [Using call detail records](attributes.md) in this guide\.
+Data from Amazon Chime SDK Voice Connector calls, such as account IDs, source phone numbers, and destination countries\. The records land as objects in an Amazon Simple Storage Service \(S3\) bucket in your account\. For more information, see [Managing global settings in Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/ag/manage-global.html) in the *Amazon Chime SDK Administrator Guide* and \. For information about the record schema, see [Using call detail records](attributes.md) in this guide\.
 
 **call ID**  
 The ID assigned to the legs of all incoming calls\.
 
 **Call leg**  
-A part of a call\. In Amazon Chime SDK applications, calls can come from valid phone numbers, a PSTN, or Amazon Chime Voice Connectors\. For more information, see [About using PSTN Audio service call legs](call-architecture.md) in this guide\. 
+A part of a call\. In Amazon Chime SDK applications, calls can come from valid phone numbers, a PSTN, or Amazon Chime SDK Voice Connectors\. For more information, see [About using PSTN Audio service call legs](call-architecture.md) in this guide\. 
 
 **Carrier**  
 A company that provides mobile services\. Short for **wireless carrier**\.
@@ -43,7 +43,7 @@ The only accepted format for phone numbers in the PSTN Audio service\. An ITU\-T
 
 **EventBridge**  
 A serverless event bus service that allows you to connect your applications to data from a variety of sources\.  
-SIP media applications do not send data to EventBridge\. For more information, see [Automating Amazon Chime with EventBridge](https://docs.aws.amazon.com/chime-sdk/latest/ag/automating-chime-with-cloudwatch-events.html) in the *Amazon Chime SDK Administrator Guide*\.
+SIP media applications do not send data to EventBridge\. For more information, see [Automating the Amazon Chime SDK with EventBridge](https://docs.aws.amazon.com/chime-sdk/latest/ag/automating-chime-with-cloudwatch-events.html) in the *Amazon Chime SDK Administrator Guide*\.
 
 ## I<a name="i"></a>
 
@@ -118,7 +118,7 @@ Parameters in AWS Lambda functions that contain call control data, plus other da
 A managed object that passes values from a SIP rule to a target AWS Lambda function\. Developers can call the [CreateSipMediaApplication](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateSipMediaApplication.html) API to create SIP media applications, but they must have administrative permissions to do so\.
 
 **SIP rule**  
-A managed object that passes phone numbers for Amazon Chime Voice Connector URIs to a target SIP media application\.
+A managed object that passes phone numbers for Amazon Chime SDK Voice Connector URIs to a target SIP media application\.
 
 **SIP trunk**  
 See [Voice Connector](#voice-connector)\.
@@ -146,7 +146,7 @@ The ID of a transaction that contains multiple call legs\. For more information,
 ## V<a name="v"></a>
 
 **Voice Connector**  
-An object that provides provides Session Initiation Protocol \(SIP\) trunking service for phone systems\. Administrators use the Amazon Chime AWS administrative console to create an manage Voice Connectors\. For more information, see [Managing Amazon Chime Voice Connectors](https://docs.aws.amazon.com/chime-sdk/latest/ag/voice-connectors.html) in the *Amazon Chime SDK Administrator Guide*\.
+An object that provides provides Session Initiation Protocol \(SIP\) trunking service for phone systems\. Administrators use the Amazon Chime SDK administrative console to create an manage Voice Connectors\. For more information, see [Managing Amazon Chime SDK Voice Connectors](https://docs.aws.amazon.com/chime-sdk/latest/ag/voice-connectors.html) in the *Amazon Chime SDK Administrator Guide*\.
 
 **Voice Connector group**  
-A wrapper that contains multiple Voice Connectors from different AWS Regions\. Groups allow incoming calls to fail over across Regions, which creates a fault\-tolerant mechanism\. For more information, see [Managing Amazon Chime Voice Connector groups](https://docs.aws.amazon.com/chime-sdk/latest/ag/voice-connector-groups.html) in the *Amazon Chime SDK Administrator Guide*\.
+A wrapper that contains multiple Voice Connectors from different AWS Regions\. Groups allow incoming calls to fail over across Regions, which creates a fault\-tolerant mechanism\. For more information, see [Managing Amazon Chime SDK Voice Connector groups](https://docs.aws.amazon.com/chime-sdk/latest/ag/voice-connector-groups.html) in the *Amazon Chime SDK Administrator Guide*\.

@@ -2,7 +2,7 @@
 
 Play speech by providing text and gather dual tone multi\-frequency \(DTMF\) digits from the user\. The text can either be plain text or Speech Synthesis Markup Language \(SSML\)\-enhanced text to provide more control over how Amazon Chime generates speech by adding pauses, emphasizing certain words, or changing the speaking style, among other supported SSML features\. If a failure occurs, such as a user not entering the correct number of DTMF digits, the action plays the "failure" speech and then replays the main speech until the SIP media application exhausts the number of attempts defined in the `Repeat` parameter\.
 
-Amazon Chime uses Amazon Polly, a cloud service that converts text into lifelike speech, Amazon Polly provides both a standard and a neural engine for improved speech quality, more than 20 supported languages, and 60 voices\. Amazon Polly provides speech features at no charge, but you do pay for using Amazon Polly\. See the Amazon Polly [pricing page](https://aws.amazon.com/polly/pricing/) or your billing dashboard for pricing information\.
+The Amazon Chime SDK uses Amazon Polly, a cloud service that converts text into lifelike speech, Amazon Polly provides both a standard and a neural engine for improved speech quality, more than 20 supported languages, and 60 voices\. Amazon Polly provides speech features at no charge, but you do pay for using Amazon Polly\. See the Amazon Polly [pricing page](https://aws.amazon.com/polly/pricing/) or your billing dashboard for pricing information\.
 
 **Important**  
 Use of Amazon Polly is subject to the [AWS Service Terms ](https://aws.amazon.com/service-terms/), including the terms specific to the AWS Machine Learning and Artificial Intelligence Services\.
@@ -11,7 +11,7 @@ Use of Amazon Polly is subject to the [AWS Service Terms ](https://aws.amazon.co
 + [Using the SpeakAndGetDigits action](#speak-digits-action)
 + [Handling ACTION\_SUCCESSFUL events](#speak-digits-success)
 + [Handling ACTION\_FAILED events](#speak-digits-fail)
-+ [Using the Amazon Chime Voice Connector service\-linked role](#speak-digits-policy)
++ [Using the Amazon Chime SDK Voice Connector service\-linked role](#speak-digits-policy)
 
 ## Using the SpeakAndGetDigits action<a name="speak-digits-action"></a>
 
@@ -253,14 +253,14 @@ This table lists and describes the error messages thrown by the the `Speak` acti
 
 | Error | Message | Reason | 
 | --- | --- | --- | 
-| `AccessDenied` | The `AWSServiceRoleForAmazonChimeVoiceConnector` role is not configured correctly\. | The role used to make requests to Amazon Polly doesn't exist or is missing permissons\. To resolve, see the steps in the [Using the Amazon Chime Voice Connector service\-linked role](#speak-digits-policy) section | 
+| `AccessDenied` | The `AWSServiceRoleForAmazonChimeVoiceConnector` role is not configured correctly\. | The role used to make requests to Amazon Polly doesn't exist or is missing permissions\. To resolve, see the steps in the [Using the Amazon Chime SDK Voice Connector service\-linked role](#speak-digits-policy) section | 
 | `InvalidActionParameter` |   | There was an error validating the action parameters\. To review the available parameters for this action, and their options, see [https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html](https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html) in the Amazon Polly Developer Guide\. | 
 | `MissingRequiredActionParameter` | `Text` is a required parameter\. | The action parameters must have a `Text` value | 
 | `MissingRequiredActionParameter` | `Text` is limited to 1,000 characters | The text exceeded the character limit\. | 
 | `SystemException` | System error while running action\. | A system error occurred while running the action\. | 
 
-## Using the Amazon Chime Voice Connector service\-linked role<a name="speak-digits-policy"></a>
+## Using the Amazon Chime SDK Voice Connector service\-linked role<a name="speak-digits-policy"></a>
 
-You don't need to manually create a service\-linked role for the `Speak` or `SpeakAndGetDigits` actions\. When you create or update a SIP media application in the Amazon Chime console, the AWS Command Line Interface, or the AWS API, Amazon Chime creates the service\-linked role for you\.
+You don't need to manually create a service\-linked role for the `Speak` or `SpeakAndGetDigits` actions\. When you create or update a SIP media application in the Amazon Chime SDK console, the AWS Command Line Interface, or the AWS API, the Amazon Chime SDK creates the service\-linked role for you\.
 
 For more information, see [ Using the Amazon Chime service\-linked role](https://docs.aws.amazon.com/chime/latest/ag/using-service-linked-roles-stream.html) in the *Amazon Chime Administrator Guide*\.
