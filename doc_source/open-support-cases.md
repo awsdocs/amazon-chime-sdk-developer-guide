@@ -1,0 +1,3 @@
+# Opening support cases<a name="open-support-cases"></a>
+
+If you have more questions, or require support for your business, you can reach out to [AWS Customer support](https://pages.awscloud.com/GLOBAL-aware-GC-Amazon-Chime-SDK-2020-reg.html)\. For more information about our support plans, see the [Compare support plans](https://aws.amazon.com/premiumsupport/plans/?nc=sn) page\. When creating a support case, always open it under the account that has the problem\. Include console browser logs, meeting and attendee IDs, and any related support cases or GitHub issues\.

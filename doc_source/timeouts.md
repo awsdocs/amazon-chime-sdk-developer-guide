@@ -1,0 +1,3 @@
+# Timeouts and retries<a name="timeouts"></a>
+
+The PSTN Audio service interacts with AWS Lambda functions synchronously\. Applications wait 5 seconds for AWS Lambda functions to respond before retrying an invocation\. When a function returns an error with one of the 4*XX* status codes, then by default the SIP media application only retries the invocation once\. If you run out of retries, calls terminate with the `480 Unavailable` error code\. For more information about AWS Lambda errors, see [ Troubleshoot invocation issues in AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/troubleshooting-invocation.html)\. 
