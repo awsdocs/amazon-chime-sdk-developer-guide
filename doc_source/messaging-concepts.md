@@ -1,6 +1,6 @@
 # Messaging concepts<a name="messaging-concepts"></a>
 
-To use Amazon Chime SDK messaging effectively, you must understand the following terminology and concepts\.
+To use Amazon Chime SDK messaging effectively, you must understand the following terms and concepts\.
 
 **AppInstance**  
 To use Amazon Chime SDK messaging, you must first create an AppInstance\. An AppInstance contains AppInstanceUsers and Channels\. Typically, you create a single AppInstance for your application\. An AWS account can have multiple AppInstances\. You make app level settings, such as message retention and streaming configuration, at the AppInstance level\. AppInstances are identified by a unique ARN in this format: `arn:aws:chime:region:aws_account_id:app-instance/app_instance_id`\.

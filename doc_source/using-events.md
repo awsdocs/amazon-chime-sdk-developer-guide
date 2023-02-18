@@ -18,8 +18,7 @@ The following is example data for this event\.
 {
   "version": "0",
   "source": "aws.chime",
-  "account": "111122223333",
-  "id": "12345678-1234-1234-1234-111122223333",
+  "account": "111122223333",  
   "region": "us-east-1",
   "detail-type": "Chime Meeting State Change",
   "time": "yyyy-mm-ddThh:mm:ssZ",
@@ -46,8 +45,7 @@ The following is example data for this event\.
 {
   "version": "0",
   "source": "aws.chime",
-  "account": "111122223333",
-  "id": "12345678-1234-1234-1234-111122223333",
+  "account": "111122223333",  
   "region": "us-east-1",
   "detail-type": "Chime Meeting State Change",
   "time": "yyyy-mm-ddThh:mm:ssZ",
@@ -74,8 +72,7 @@ The following is example data for this event\.
 {
   "version": "0",
   "source": "aws.chime",
-  "account": "111122223333",
-  "id": "12345678-1234-1234-1234-111122223333",
+  "account": "111122223333",  
   "region": "us-east-1",
   "detail-type": "Chime Meeting State Change",
   "time": "yyyy-mm-ddThh:mm:ssZ",
@@ -103,8 +100,7 @@ The following is example data for this event\.
 {
   "version": "0",
   "source": "aws.chime",
-  "account": "111122223333",
-  "id": "12345678-1234-1234-1234-111122223333",
+  "account": "111122223333", 
   "region": "us-east-1",
   "detail-type": "Chime Meeting State Change",
   "time": "yyyy-mm-ddThh:mm:ssZ",
@@ -132,8 +128,7 @@ The following is example data for this event\.
 {
   "version": "0",
   "source": "aws.chime",
-  "account": "111122223333",
-  "id": "12345678-1234-1234-1234-111122223333",
+  "account": "111122223333",  
   "region": "us-east-1",
   "detail-type": "Chime Meeting State Change",
   "time": "yyyy-mm-ddThh:mm:ssZ",
@@ -161,8 +156,7 @@ The following is example data for this event\.
 {
   "version": "0",
   "source": "aws.chime",
-  "account": "111122223333",
-  "id": "12345678-1234-1234-1234-111122223333",
+  "account": "111122223333", 
   "region": "us-east-1",
   "detail-type": "Chime Meeting State Change",
   "time": "yyyy-mm-ddThh:mm:ssZ",
@@ -191,8 +185,7 @@ The following is example data for this event\.
 {
   "version": "0",
   "source": "aws.chime",
-  "account": "111122223333",
-  "id": "12345678-1234-1234-1234-111122223333",
+  "account": "111122223333",  
   "region": "us-east-1",
   "detail-type": "Chime Meeting State Change",
   "time": "yyyy-mm-ddThh:mm:ssZ",
@@ -221,8 +214,7 @@ The following is example data for this event\.
 {
   "version": "0",
   "source": "aws.chime",
-  "account": "111122223333",
-  "id": "12345678-1234-1234-1234-111122223333",
+  "account": "111122223333",  
   "region": "us-east-1",
   "detail-type": "Chime Meeting State Change",
   "time": "yyyy-mm-ddThh:mm:ssZ",
@@ -251,8 +243,7 @@ The following is example data for this event\.
 {
   "version": "0",
   "source": "aws.chime",
-  "account": "111122223333",
-  "id": "12345678-1234-1234-1234-111122223333",
+  "account": "111122223333", 
   "region": "us-east-1",
   "detail-type": "Chime Meeting State Change",
   "time": "yyyy-mm-ddThh:mm:ssZ",
@@ -280,8 +271,7 @@ The following is example data for this event\.
 {
   "version": "0",
   "source": "aws.chime",
-  "account": "111122223333",
-  "id": "12345678-1234-1234-1234-111122223333",
+  "account": "111122223333", 
   "region": "us-east-1",
   "detail-type": "Chime Meeting State Change",
   "time": "yyyy-mm-ddThh:mm:ssZ",
@@ -309,8 +299,7 @@ The following is example data for this event\.
 {
   "version": "0",
   "source": "aws.chime",
-  "account": "111122223333",
-  "id": "12345678-1234-1234-1234-111122223333",
+  "account": "111122223333",  
   "region": "us-east-1",
   "detail-type": "Chime Meeting State Change",
   "time": "yyyy-mm-ddThh:mm:ssZ",
@@ -338,8 +327,7 @@ The following is example data for this event\.
 {
   "version": "0",
   "source": "aws.chime",
-  "account": "111122223333",
-  "id": "12345678-1234-1234-1234-111122223333",
+  "account": "111122223333",  
   "region": "us-east-1",
   "detail-type": "Chime Meeting State Change",
   "time": "yyyy-mm-ddThh:mm:ssZ",
@@ -367,8 +355,7 @@ The following is example data for this event\.
 {
   "version": "0",
   "source": "aws.chime",
-  "account": "111122223333",
-  "id": "12345678-1234-1234-1234-111122223333",
+  "account": "111122223333",  
   "region": "us-east-1",
   "detail-type": "Chime Meeting State Change",
   "time": "yyyy-mm-ddThh:mm:ssZ",
@@ -397,8 +384,7 @@ The following is example data for this event\.
 {
   "version": "0",
   "source": "aws.chime",
-  "account": "111122223333",
-  "id": "12345678-1234-1234-1234-111122223333",
+  "account": "111122223333",  
   "region": "us-east-1",
   "detail-type": "Chime Meeting State Change",
   "time": "yyyy-mm-ddThh:mm:ssZ",
@@ -427,8 +413,7 @@ The following is example data for this event\.
 {
   "version": "0",
   "source": "aws.chime",
-  "account": "111122223333",
-  "id": "12345678-1234-1234-1234-111122223333",
+  "account": "111122223333",  
   "region": "us-east-1",
   "detail-type": "Chime Meeting State Change",
   "time": "yyyy-mm-ddThh:mm:ssZ",
@@ -457,8 +442,7 @@ The following is example data for this event\.
 {
   "version": "0",
   "source": "aws.chime",
-  "account": "111122223333",
-  "id": "12345678-1234-1234-1234-111122223333",
+  "account": "111122223333",  
   "region": "us-east-1",
   "detail-type": "Chime Meeting State Change",
   "time": "yyyy-mm-ddThh:mm:ssZ",
@@ -486,8 +470,7 @@ The following is example data for this event\.
 {
   "version": "0",
   "source": "aws.chime",
-  "account": "111122223333",
-  "id": "12345678-1234-1234-1234-111122223333",
+  "account": "111122223333", 
   "region": "us-east-1",
   "detail-type": "Chime Meeting State Change",
   "time": "yyyy-mm-ddThh:mm:ssZ",

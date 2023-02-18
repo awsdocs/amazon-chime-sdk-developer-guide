@@ -1,6 +1,6 @@
-# Using the Amazon Chime SDK for JavaScript<a name="js-sdk-intro"></a>
+# Using the Amazon Chime SDK client library for JavaScript<a name="js-sdk-intro"></a>
 
-This guide provides a conceptual overview of the Amazon Chime SDK for JavaScript, and example code for critical server and client components\.
+This guide provides a conceptual overview of the Amazon Chime SDK client library for JavaScript, and example code for critical server and client components\.
 
 **Topics**
 + [Components of an Amazon Chime SDK application](components.md)

@@ -13,13 +13,13 @@ We recommend sending Amazon Chime SDK Event notifications to EventBridge\. Event
 
 You can use the [CreateMeeting](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateMeeting.html) API in the *Amazon Chime SDK API Reference* to send Amazon Chime SDK meeting event notifications to one Amazon SQS queue and one Amazon SNS topic per meeting\. This can help reduce notification latency\. For more information about Amazon SQS, see the [Amazon Simple Queue Service Developer Guide](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/)\. For more information about Amazon SNS, see the [Amazon Simple Notification Service Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/)\.
 
-The notifications sent to Amazon SQS and Amazon SNS contain the same information as the notifications that the Amazon Chime SDK sends to EventBridge\. The Amazon Chime SDK supports sending meeting event notifications to queues and topics in the US East \(N\. Virginia\) \(**us\-east\-1**\) AWS Region\. Event notifications might be delivered out of order of occurrence\.
+The notifications sent to Amazon SQS and Amazon SNS contain the same information as the notifications that the Amazon Chime SDK sends to EventBridge\. The Amazon Chime SDK supports sending meeting event notifications to queues and topics in the API Region used to create a meeting\. Event notifications might be delivered out of order of occurrence\.
 
 ## Granting the Amazon Chime SDK access to Amazon SQS and Amazon SNS<a name="chime-sdk-sqs-sns-permissions"></a>
 
-If you have an Amazon SQS queue or Amazon SNS topic configured in the **us\-east\-1** Region and you want to send Amazon Chime SDK events to it, you must grant the Amazon Chime SDK permission to publish messages to the Amazon Resource Name \(ARN\) of the queue or topic\. To do this, attach an AWS Identity and Access Management \(IAM\) policy to the queue or topic that grants the appropriate permissions to the Amazon Chime SDK\. For more information, see [Identity and access management in Amazon SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-authentication-and-access-control.html) in the *Amazon Simple Queue Service Developer Guide* and [Example cases for Amazon SNS access control ](https://docs.aws.amazon.com/sns/latest/dg/sns-access-policy-use-cases.html) in the *Amazon Simple Notification Service Developer Guide*\.
+If you have an Amazon SQS queue or Amazon SNS topic configured in a Region and you want to send Amazon Chime SDK events to it, you must grant the Amazon Chime SDK permission to publish messages to the Amazon Resource Name \(ARN\) of the queue or topic\. To do this, attach an AWS Identity and Access Management \(IAM\) policy to the queue or topic that grants the appropriate permissions to the Amazon Chime SDK\. For more information, see [Identity and access management in Amazon SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-authentication-and-access-control.html) in the *Amazon Simple Queue Service Developer Guide* and [Example cases for Amazon SNS access control ](https://docs.aws.amazon.com/sns/latest/dg/sns-access-policy-use-cases.html) in the *Amazon Simple Notification Service Developer Guide*\.
 
-**Example : Allow the Amazon Chime SDK to publish events to an Amazon SQS queue**  
+**Example Allow the Amazon Chime SDK to publish events to an Amazon SQS queue**  
 The following example IAM policy grants the Amazon Chime SDK permission to publish meeting event notifications to the specified Amazon SQS queue\. Note the conditional statement for `aws:SourceArn` and `aws:SourceAccount`\. They address potential [Confused Deputy](https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html) issues\.   
 You can use `aws:SourceArn` or `aws:SourceAccount` when creating the policies below\. You don't need to use both\.
 
@@ -32,7 +32,7 @@ You can use `aws:SourceArn` or `aws:SourceAccount` when creating the policies be
             "Sid": "example-statement-ID",
             "Effect": "Allow",
             "Principal": {
-                "Service": "chime.amazonaws.com"  
+                "Service": "meetings.chime.amazonaws.com"  
             },
                 "Action": [
                     "sqs:SendMessage",
@@ -62,7 +62,7 @@ This example shows an Amazon SNS policy that allows the Amazon Chime SDK to send
         "Sid": "allow-chime-sdk-access-statement-id",
         "Effect": "Allow",
         "Principal": {
-            "Service": "chime.amazonaws.com"  
+            "Service": "meetings.chime.amazonaws.com"  
     },
        "Action": [
            "SNS:Publish"

@@ -54,7 +54,7 @@ A presenter who connects directly to a primary session can't switch to a replica
 For more information on switching between sessions, refer to the client library documentation:  
 + [Amazon Chime SDK for Android](https://github.com/aws/amazon-chime-sdk-android) on GitHub\.
 + [Amazon Chime SDK for iOS](https://github.com/aws/amazon-chime-sdk-ios) on GitHub\.
-+ [Amazon Chime SDK for JavaScript](https://github.com/aws/amazon-chime-sdk-js) on GitHub\.
++ [Amazon Chime SDK client library for JavaScript](https://github.com/aws/amazon-chime-sdk-js) on GitHub\.
 
 Deleting sessions  
 You use the [ DeleteMeeting](https://docs.aws.amazon.com/chime/latest/APIReference/API_meeting-chime_DeleteMeeting.html) API to delete WebRTC media sessions\.  

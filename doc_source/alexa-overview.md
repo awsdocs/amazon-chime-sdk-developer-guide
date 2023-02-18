@@ -6,11 +6,11 @@ Alexa skill calling enables your Alexa Skill to place calls directly to your Ama
 
 In the diagram:
 
-1. A user starts a conversation with an Alexa\-enabled device\.
+1. A caller starts a conversation with an Alexa\-enabled device\.
 
 1. The device calls the Alexa Service to process the voice request\.
 
-1. The Alexa Service calls the Skill's AWS Lambda function to process the voice request\. 
+1. The Alexa Service calls the Skill's AWS Lambda function to process the voice request\.
 
 1. The user instructs the Skill to start a call\. The Alexa Service invokes the [StartCommunicationSession](communication-session-reference.md#start-communication-session) API\.
 

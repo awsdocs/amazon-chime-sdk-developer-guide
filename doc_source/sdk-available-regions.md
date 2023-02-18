@@ -15,7 +15,7 @@ A control region can create a meeting in any media region in the same AWS partit
 
 For more information about selecting control and media regions, see [Using meeting Regions](chime-sdk-meetings-regions.md)\.
 
-The following table lists the Regions that provde control, media, or both\.
+The following table lists the Regions that provide control, media, or both\.
 
 
 | AWS Region | Control | Media | 
@@ -94,7 +94,7 @@ Amazon Chime SDK voice features have *API Regions*, *media Regions*, *PSTN Regio
 
 ## Messaging Regions<a name="sdk-messaging-regions"></a>
 
-Amazon Chime SDK messaging has *control regions* and *data regions*\. The control region exposes the messaging API endpoint, and the data region stores the messages\. If you use Amazon Kinesis to stream messaging data, Amazon S3 to store attachments, or AWS Lambda functions for channel flows, they should reside in the control region\. 
+Amazon Chime SDK messaging has *control regions* and *data regions*\. The control region exposes the messaging API endpoint, and the data region stores the messages\. If you use Amazon Kinesis to stream messaging data, or AWS Lambda functions for channel flows, they should reside in the control region\. 
 
 
 | AWS Region | Control | Data | 

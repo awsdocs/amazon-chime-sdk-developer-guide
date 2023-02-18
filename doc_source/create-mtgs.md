@@ -42,7 +42,7 @@ The following procedure demonstrates how to create a meeting with audio and vide
 
       1. Manage other interactions, such as pausing, restarting, or stopping the content share\.
 
-The meetings end when you run the [DeleteMeeting](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_DeleteMeeting.html) API action\. Also, meetings end automatically when:
+Meetings end when you run the [DeleteMeeting](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_DeleteMeeting.html) API action\. Also, meetings end automatically when:
 + The meeting time exceeds 24 hours\.
-+ The meeting is a [replica meeting](media-replication.md) and the primary meeting is ending\.
++ The meeting is a [replica meeting](media-replication.md) and the primary meeting ends\.
 + In a non\-replica meeting, no attendess connect for five continuous minutes\.

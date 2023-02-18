@@ -49,5 +49,5 @@ This occurs when membership balancing moves an `AppInstanceUser` from one sub\-c
 ## Additional supported features<a name="additional-features"></a>
 
 Elastic channels also support these messaging features\.
-+ [channel prefetch](websockets.md#prefetch-direct)
-+ [channel flows](https://docs.aws.amazon.com/chime-sdk/latest/dg/using-channel-flows.html)
++ [Prefetch](prefetch.md)
++ [Channel flows](using-channel-flows.md)

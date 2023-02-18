@@ -49,7 +49,7 @@ The PSTN Audio service reads and writes to your S3 bucket on behalf of your Sip 
                 "Condition": {
                 "StringEquals": {
                     "aws:SourceAccount": "aws-account-id",
-                    "aws:SourceArn": "arn:aws:region:aws-account-id:sma/sip-media-application-id"
+                    "aws:SourceArn": "arn:aws:chime:region:aws-account-id:sma/sip-media-application-id"
                 }
             }
         }

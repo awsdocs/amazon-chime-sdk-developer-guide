@@ -19,14 +19,14 @@ This diagram shows the typical flow of data through the control and media Region
 Remember these factors when choosing a control Region for an Amazon Chime SDK meeting:
 + **Regulatory requirements**\. Is your application requiried to be within a geopolitical border, or use an endpoint with FIPS 140\-2 validated cryptographic modules?
 + **API latency**\. Using the control Region nearest to the AWS Region of your application service can help reduce the APIs' network latency\. In turn, that helps reduce the time needed to create meetings, and let users join meetings faster\.
-+ **High Availability**\. You can use multiple control Regions to implement a high availability architectures\. However each control Region operates independently\. Also, you can only update meetings in the control Region used to create them\. Futher, you must use that same region to consume meeting events with [ EventBridge, Amazon Simple Queue Service \(SQS\), or Amazon Simple Notification Service \(SNS\)](https://docs.aws.amazon.com/chime-sdk/latest/dg/mtgs-sdk-notifications.html)\.
++ **High Availability**\. You can use multiple control Regions to implement a high availability architectures\. However each control Region operates independently\. Also, you can only update meetings in the control Region used to create them\. Further, you must use that same region to consume meeting events with [ EventBridge, Amazon Simple Queue Service \(SQS\), or Amazon Simple Notification Service \(SNS\)](https://docs.aws.amazon.com/chime-sdk/latest/dg/mtgs-sdk-notifications.html)\.
 
 ## Choosing a media region<a name="choose-media-region"></a>
 
 **Note**  
 We recommend that you always specify a value in the `MediaRegion` parameter in the [CreateMeeting](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateMeeting.html) API action\. For more information about the Regions, refer to [Available regions](sdk-available-regions.md)\.
 
-When choosing a media Region to use for your Amazon Chime SDK meeting, common factors to consider include the following:
+When choosing a media Region to use for your Amazon Chime SDK meeting, consider these common factors:
 
 **Regulatory requirements**  
 If your Amazon Chime SDK meetings are subject to regulations requiring them to be hosted within a geopolitical border, consider hardcoding the meeting Region based on fixed application logic\.  

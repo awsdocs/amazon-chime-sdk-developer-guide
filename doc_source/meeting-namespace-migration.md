@@ -14,7 +14,7 @@ Existing applications that use the [Amazon Chime](https://docs.aws.amazon.com/ch
 We encourage you to migrate to the [Amazon Chime SDK Meetings](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_Operations_Amazon_Chime_SDK_Meetings.html) namespace for these reasons:
 
 **Choice of API Endpoint**  
-The Amazon Chime SDK Meetings namespace is the only API namespace which can use API endpoints in any [region that makes them available](https://docs.aws.amazon.com/chime-sdk/latest/dg/sdk-available-regions.html)\. If you want to use API endpoints other than US\-EAST\-1, you must use the Amazon Chime SDK Meetings namespace\.  
+The Amazon Chime SDK Meetings namespace is the only API namespace which can use API endpoints in any [region that makes them available](https://docs.aws.amazon.com/chime-sdk/latest/dg/sdk-available-regions.html)\. If you want to use API endpoints other than `us-east-1`, you must use the Amazon Chime SDK Meetings namespace\.  
 For more information about how Amazon Chime SDK meetings use AWS Regions, refer to [Meeting Regions](https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html) in this guide\.
 
 **Updated and new meeting APIs**  
@@ -32,10 +32,12 @@ Before you migrate, be aware of the differences between the namespaces\. The fol
 | Endpoints | https://meetings\-chime\.region\.amazonaws\.com | https://service\.chime\.aws\.amazon\.com | 
 | Service principal | meetings\.chime\.amazonaws\.com | chime\.amazonaws\.com | 
 | APIs | Only APIs for meetings | APIs for meetings and other parts of Amazon Chime | 
-| CreateMeeting | ExternalMeetingId and MediaRegion are required | ExternalMeetingId and MediaRegion are optional | 
+| [CreateMeeting](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateMeeting.html) | ExternalMeetingId and MediaRegion are required\. | ExternalMeetingId and MediaRegion are optional\. | 
+| [CreateMeetingWithAttendees](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateMeetingWithAttendees.html) | ExternalMeetingId and MediaRegion are required\.  | ExternalMeetingId and MediaRegion are optional\. | 
 | ListMeetings | Not available | Available | 
-| Tags | Available | Available | 
-| Echo reduction | Available  | Not available | 
+| ExternalMeetingId | Validation includes pattern matching | Available | 
+| ExternalUserId | Validation includes pattern matching  | Available | 
+| Echo reduction | Available | Not available | 
 | Live transcription language identification | Available | Not available | 
 | Attendee capabilities | Available | Not available | 
 | Media replication | Available | Not available | 

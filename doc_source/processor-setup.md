@@ -9,7 +9,7 @@ To start using channel flows, you first create a processor Lambda function to ha
 You must give the Amazon Chime SDK messaging service permssion to invoke your Lambda resource\. For more information about permissions, refer to [Using resource\-based policies for AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html)\. For example:
 
   
-**Principal**: chime\.amazonaws\.com  
+**Principal**: messaging\.chime\.amazonaws\.com  
 **Action**: lambda:InvokeFunction  
 **Effect**: Allow  
 **AWS:SourceAccount**:*Your AWS account ID*\.  
@@ -31,7 +31,7 @@ You can add an Inline policy to your Lambda function's run role\. This example a
             "Action": [
                 "chime:ChannelFlowCallback"
             ],
-            "Resource arn:aws:chime:region:AWS account ID:appInstance/*",
+            "arn:aws:chime:region:AWS account ID:appInstance/*",
             "Effect": "Allow"
         }
     ]

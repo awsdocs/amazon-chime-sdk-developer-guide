@@ -53,8 +53,8 @@ When the server application creates an Amazon Chime SDK meeting, the meeting is 
 The media service mixes audio together from each attendee and sends the mix to each recipient, after subtracting their own audio from the mix\. The Amazon Chime SDKs sample audio at the highest rate supported by the device and browser, up to a maximum of 48kHz\. We use the Opus codec to encode audio, with a default bitrate of 32kbps, which can be increased to up to 128kbps stereo and 64kbps mono\.
 
 **Video**  
-The media service acts as a Selective Forwarding Unit \(SFU\) using a publish and subscribe model\. Each attendee can publish one video source, up to a total of 25 simultaneous videos per meeting\. The Amazon Chime SDK for JavaScript supports video resolutions up to 1280x720 at 30 frames per second without simulcast, and 15 frames per second with simulcast\. The Amazon Chime SDK for iOS and Android support video resolutions up to 1280x720 and 15 frames per second, however the actual framerate and resolution is automatically managed by the Amazon Chime SDK\.  
-When active, video simulcast sends each video stream in two different resolutions and bitrates\. Clients which are bandwidth constrained automatically subscribe to the lower bitrate stream\. Video encoding and decoding uses hardware acceleration where available to improve performance\.
+The media service acts as a Selective Forwarding Unit \(SFU\) using a publish and subscribe model\. Each attendee can publish one video source, up to a total of 25 simultaneous videos per meeting\. The Amazon Chime SDK client library for JavaScript supports video resolutions up to 1280x720 at 30 frames per second without simulcast, and 15 frames per second with simulcast\. The Amazon Chime SDK client libraries for [iOS](sdk-for-ios.md), [Android](sdk-for-android.md), and [Windows](client-lib-windows.md) support video resolutions up to 1280x720 and 15 frames per second, however the actual framerate and resolution is automatically managed by the Amazon Chime SDK\.  
+When active, video simulcast sends each video stream in two different resolutions and bitrates\. Clients with bandwidth constraints automatically subscribe to the lower bitrate stream\. Video encoding and decoding uses hardware acceleration where available to improve performance\.
 
 **Data messages**  
 In addition to audio and video content, meeting attendees can send each other real\-time data messages of up to 2 KB each\. You can use messages to implement custom meeting features such as whiteboarding, chat, real\-time emoji reactions, and application\-specific floor control signaling\.
@@ -72,10 +72,10 @@ This table that lists the resources and quotas available for Amazon Chime SDK me
 
 | Resource | Quota | Adjustable | 
 | --- | --- | --- | 
-|  Active Meetings  |  250  |  Yes  | 
+| Active Meetings |  250  |  Yes  | 
 |  Attendees per meeting  |  250  |  No  | 
 |  Audio streams per meeting  |  250  |  No  | 
-|  Video streams published per meeting  | 25 |  Yes, up to 100   | 
+|  Video streams published per meeting  | 25 |  Yes, up to 250   | 
 |  Video streams subscribed per attendee  |  25  |  No  | 
 |  Content shares per meeting  |  2  |  No  | 
 | Replica meetings per primary meeting | 4 | Yes, up to 40 | 
@@ -87,12 +87,12 @@ This table that lists the resources and quotas available for Amazon Chime SDK me
 
 The following system requirements apply to applications created with the Amazon Chime SDK\.
 
-**Supported browsers, Amazon Chime SDK for JavaScript**
+**Supported browsers, Amazon Chime SDK client library for JavaScript**
 
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html)
 
-**Amazon Chime SDK for iOS**
+**Amazon Chime SDK client library for iOS**
 + iOS version 13 and later
 
-**Amazon Chime SDK for Android**
+**Amazon Chime SDK client library for Android**
 + Android OS version 5 and later, ARM and ARM64 architecture

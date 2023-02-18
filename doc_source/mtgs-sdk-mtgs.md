@@ -12,3 +12,4 @@ The topics in this section explain how to use Amazon Chime SDK meetings to creat
 + [Creating Amazon Chime SDK media pipelines](media-pipelines.md)
 + [Using Amazon Chime SDK live transcription](meeting-transcription.md)
 + [Using media replication](media-replication.md)
++ [Troubleshooting and debugging Amazon Chime SDK Meetings](troubleshoot-sdk-meetings.md)

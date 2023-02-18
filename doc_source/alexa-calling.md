@@ -1,6 +1,6 @@
 # Using Amazon Chime SDK Alexa skill calling<a name="alexa-calling"></a>
 
-Amazon Chime SDK Alexa skill calling allows enterprise customers to enable calling directly in their Amazon Alexa Skills\. Alexa Skills\. For example, a customer can say, "Alexa, call Example corporation customer support\." The trigger phrase "Alexa" tells Alexa to start listening to the user\. Saying, "call Example corporation" starts the Skill, and saying, "customer support" triggers the skill\-calling functionality\.
+Amazon Chime SDK Alexa skill calling allows enterprise customers to enable calling directly in their Amazon Alexa Skills\. For example, a customer can say, "Alexa, call Example corporation customer support\." The trigger phrase "Alexa" tells Alexa to start listening to the user\. Saying, "call Example corporation" starts the Skill, and saying, "customer support" triggers the skill\-call functionality\.
 
 For more information about invoking a custom Alexa Skill, see [ Understanding How Users Invoke Custom Skills](https://developer.amazon.com/en-US/docs/alexa/custom-skills/understanding-how-users-invoke-custom-skills.html)
 
@@ -15,5 +15,6 @@ The following topics explain how to add Alexa skill calling to an Alexa Skill\.
 + [Using clientSessionId to send call context data](call-context-data.md)
 + [Announcing skill calls](announce-calls.md)
 + [Handling skill call events](handle-skill-call-events.md)
-+ [Use cases for skill calls](alexa-use-cases.md)
++ [Use cases for skill calls](skill-call-use-cases.md)
 + [StartCommunicationSession API reference](communication-session-reference.md)
++ [Troubleshooting Amazon Chime SDK Alexa skill calling](skill-call-troubleshoot.md)

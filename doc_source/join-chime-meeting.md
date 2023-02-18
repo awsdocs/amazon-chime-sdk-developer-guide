@@ -77,7 +77,7 @@ The following example shows a typical failure event\.
 {
     "SchemaVersion": "1.0",
     "Sequence": 3,
-    "InvocationEvent": "ActionFailed",
+    "InvocationEvent": "ACTION_FAILED",
     "ActionData": {
         "Type": "JoinChimeMeeting",
         "Parameters": {
