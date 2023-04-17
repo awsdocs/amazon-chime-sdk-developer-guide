@@ -17,7 +17,7 @@ This action only applies to the callLeg that joins from the SIP media applicatio
         "Operation": "Mute",
         "MeetingId": "meeting-id",
         "CallId": "call-id",
-        "ParticipantTag": LEG-A",
+        "ParticipantTag": "LEG-A",
         "AttendeeList": ["attendee-id-1", "attendee-id-2"]
       }
     }
