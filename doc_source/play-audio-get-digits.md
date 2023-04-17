@@ -32,7 +32,7 @@ The following example shows a typical `PlayAudioAndGetDigits` action\.
     "Type" : "PlayAudioAndGetDigits",
     "Parameters" : {
         "CallId": "call-id-1",
-        "ParticipantTag": "LEG-A"      
+        "ParticipantTag": "LEG-A",      
         "InputDigitsRegex": "^\d{2}#$",
         "AudioSource": {
             "Type": "S3",
