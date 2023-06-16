@@ -1,5 +1,0 @@
-# The Amazon Chime SDK media control plane<a name="media-control-plane"></a>
-
-The Amazon Chime SDK media control plane is global – hosted out of us\-east\-1 – and serves the [ chime:CreateMeeting ](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateMeeting.html) and [ chime:CreateAttendee ](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_CreateAttendee.html) APIs used to create and manage meeting and attendee resources across the data plane\. It validates credentials and ensures the session is bootstrapped in the data plane in the requested region\.
-
-The control plane also triggers [ Amazon Chime SDK Events ](https://docs.aws.amazon.com/chime-sdk/latest/ag/automating-chime-with-cloudwatch-events.html) to the notification mechanisms such as Amazon EventBridge, Amazon Simple Queueing Service \(SQS\) or Amazon Simple Notification Service \(SNS\)\. The services are constantly monitored, and they scale automatically as load increases\. The APIs are designed to only accept opaque user identifiers and not user data, so they adhere to data\-sovereignty requirements\.
